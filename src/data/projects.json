@@ -1,0 +1,133 @@
+{"projects":[
+    {
+        "id": 1,
+        "title": "Customer Dashboard for Plastic Production Cycle",
+        "description": "A platform to monitor plastic production cycles across manufacturers, ensuring compliance with recycling mandates.",
+        "imageUrl": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop&q=60",
+        "category": "top",
+        "technologies": ["React", "SASS", "CoreUI", "GCP"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 2,
+        "title": "Remote Robot Operation Console",
+        "description": "A React-based console for remote robot operation, integrating image detection and algorithm evaluation.",
+        "imageUrl": "https://images.unsplash.com/photo-1605812819173-d5caa33c1e62?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["React.js", "Python", "Flask", "OpenCV", "Scikit-Learn"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 3,
+        "title": "AI-Powered Parent Advisor",
+        "description": "An AI-based mobile advisor for affordable childcare support, utilizing LLM models and AWS infrastructure.",
+        "imageUrl": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=60",
+        "category": "top",
+        "technologies": ["OpenAI GPT", "AWS Lambda", "API Gateway", "DynamoDB", "Amplify", "Cognito"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 4,
+        "title": "Custom Shopify Storefront",
+        "description": "A custom Shopify Storefront developed using Remix.js and Shopify APIs.",
+        "imageUrl": "https://images.unsplash.com/photo-1527434000443-35259ac262b7?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["Remix.js", "GraphQL", "Shopify API"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 5,
+        "title": "Full-Stack Microsoft Teams Extension",
+        "description": "A full-stack app integrated into Microsoft Teams for global user expansion.",
+        "imageUrl": "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["Node.js", "TypeScript", "Azure AD", "OAuth"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 6,
+        "title": "Spotify Playlist Downloader",
+        "description": "A full-stack app enabling DJs to create sets faster by downloading Spotify playlists.",
+        "imageUrl": "https://images.unsplash.com/photo-1496180727794-817822f65950?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["Python", "Flask", "Selenium"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 7,
+        "title": "Time Management Tool",
+        "description": "A web tool for tracking and managing time, featuring a serverless architecture.",
+        "imageUrl": "https://images.unsplash.com/photo-1593642532400-2682810df593?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["React", "Tailwind", "Firebase", "HeadlessUI"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 8,
+        "title": "Machine Learning Music Classifier",
+        "description": "Developed ML prototypes for classifying music eras using audio data and spectrogram analysis.",
+        "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=60",
+        "category": "AI",
+        "technologies": ["Python", "TensorFlow", "Pandas", "Keras"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 9,
+        "title": "Debian Package Development",
+        "description": "Developed and verified Debian packages for Bosch’s Linux distribution to enhance software security.",
+        "imageUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=60",
+        "category": "system",
+        "technologies": ["Bash", "Python"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 10,
+        "title": "AI Screening Tool for Legal Documents",
+        "description": "Built an AI tool to screen and extract data from legal documents, optimizing operational costs.",
+        "imageUrl": "https://images.unsplash.com/photo-1581091870623-4c8f6b6623d2?w=800&auto=format&fit=crop&q=60",
+        "category": "AI",
+        "technologies": ["Google Vertex AI", "BigQuery", "dbt"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 11,
+        "title": "Live Voting App for Spotify Playlists",
+        "description": "A live voting platform for Spotify playlists, integrating Node.js and Angular.",
+        "imageUrl": "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?w=800&auto=format&fit=crop&q=60",
+        "category": "web",
+        "technologies": ["Node.js", "Angular", "TypeScript"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+        "id": 12,
+        "title": "ETL and Analytics Dashboards",
+        "description": "Redesigned ETL processes and created analytics dashboards, cutting database costs by 90%.",
+        "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60",
+        "category": "data",
+        "technologies": ["BigQuery", "Firebase", "dbt"],
+        "demoUrl": "https://example.com",
+        "githubUrl": "https://github.com"
+    },
+    {
+    "id": 13,
+    "title": "Fluent AI Workflow Designer",
+    "description": "A visual workflow builder with chainable AI nodes, live co-editing, and multi-tab functionality. Supports multiple AI agents and provides configurable input/output for seamless automation.",
+    "imageUrl": "https://example.com/image-url", 
+    "category": "top",
+    "technologies": ["TypeScript", "Firebase", "React"],
+    "demoUrl": "https://example.com",
+    "githubUrl": "https://github.com"
+}
+
+]}
