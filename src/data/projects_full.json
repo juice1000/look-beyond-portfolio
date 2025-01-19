@@ -1,0 +1,104 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Customer Dashboard for Plastic Production Cycle",
+      "description": "A platform to monitor plastic production cycles across manufacturers, ensuring compliance with recycling mandates.",
+      "imageUrl": "/images/rcycle.png",
+      "category": ["top", "web"],
+      "technologies": ["React", "SASS", "CoreUI", "GCP"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 2,
+      "title": "Remote Robot Operation Console",
+      "description": "A React-based console for remote robot operation, integrating image detection and algorithm evaluation.",
+      "imageUrl": "/images/robot.jpg",
+      "category": "web",
+      "technologies": ["React.js", "Python", "Flask", "OpenCV", "Scikit-Learn"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 3,
+      "title": "AI-Powered Parent Advisor",
+      "description": "An AI-based mobile advisor for affordable childcare support, utilizing LLM models and AWS infrastructure.",
+      "imageUrl": "/images/fullcirclefamily.jpeg",
+      "category": ["top", "AI"],
+      "technologies": ["OpenAI GPT", "AWS Lambda", "API Gateway", "DynamoDB", "Amplify", "Cognito"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 4,
+      "title": "Custom Shopify Storefront",
+      "description": "A custom Shopify Storefront developed using Remix.js and Shopify APIs.",
+      "imageUrl": "/images/altlier.png",
+      "category": "web",
+      "technologies": ["Remix.js", "GraphQL", "Shopify API"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 5,
+      "title": "Full-Stack Microsoft Teams Extension",
+      "description": "A full-stack app integrated into Microsoft Teams for global user expansion.",
+      "imageUrl": "/images/kunveno.png",
+      "category": "web",
+      "technologies": ["Node.js", "TypeScript", "Azure AD", "OAuth"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 7,
+      "title": "Time Management Tool",
+      "description": "A web tool for tracking and managing time, featuring a serverless architecture.",
+      "imageUrl": "/images/timesnap.png",
+      "category": "web",
+      "technologies": ["React", "Tailwind", "Firebase", "HeadlessUI"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 8,
+      "title": "Machine Learning Music Classifier",
+      "description": "Developed ML prototypes for classifying music eras using audio data and spectrogram analysis.",
+      "imageUrl": "/images/music.jpeg",
+      "category": "AI",
+      "technologies": ["Python", "TensorFlow", "Pandas", "Keras"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 10,
+      "title": "AI Screening Tool for Legal Documents",
+      "description": "Built an AI tool to screen and extract data from legal documents, optimizing operational costs.",
+      "imageUrl": "/images/document.jpeg",
+      "category": "AI",
+      "technologies": ["Google Vertex AI", "BigQuery", "dbt"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 11,
+      "title": "Live Voting App for Spotify Playlists",
+      "description": "A live voting platform for Spotify playlists, integrating Node.js and Angular.",
+      "imageUrl": "/images/vibevote.jpg",
+      "category": "web",
+      "technologies": ["Node.js", "Angular", "TypeScript"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    },
+    {
+      "id": 13,
+      "title": "Fluent AI Workflow Designer",
+      "description": "A visual workflow builder with chainable AI nodes, live co-editing, and multi-tab functionality. Supports multiple AI agents and provides configurable input/output for seamless automation.",
+      "imageUrl": "/images/fluentAI.png",
+      "category": ["top", "AI", "web"],
+      "technologies": ["TypeScript", "Firebase", "React"],
+      "demoUrl": "https://example.com",
+      "githubUrl": "https://github.com"
+    }
+  ]
+}
