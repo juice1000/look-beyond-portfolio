@@ -5,9 +5,9 @@ import { Button } from './ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { Project } from './ProjectShowcase';
 
-const ProjectCard: React.FC<Project> = ({ title, description, imageUrl, category, technologies, demoUrl, githubUrl }) => {
+const ProjectCard: React.FC<Project> = ({ title, description, imageUrl, category, technologies, website, githubUrl }) => {
   return (
-    <Card className="w-[380px] h-[320px] bg-white dark:bg-gray-800 overflow-hidden group relative transition-all duration-300 hover:shadow-lg">
+    <Card className="w-full h-[320px] bg-white dark:bg-gray-800 overflow-hidden group relative transition-all duration-300 hover:shadow-lg">
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }} />
       {/* Overlay that appears on hover */}
       <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -29,7 +29,7 @@ const ProjectCard: React.FC<Project> = ({ title, description, imageUrl, category
           </div>
 
           <div className="flex gap-3">
-            {demoUrl && (
+            {website && (
               <Button variant="secondary" size="sm" className="flex items-center gap-2">
                 <ExternalLink size={16} />
                 Demo

@@ -6,9 +6,8 @@
       "description": "A platform to monitor plastic production cycles across manufacturers, ensuring compliance with recycling mandates.",
       "imageUrl": "/images/rcycle.png",
       "category": "top",
-      "technologies": ["React", "SASS", "CoreUI", "GCP"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["React", "SASS", "CoreUI", "Firebase"],
+      "website": "https://www.r-cycle.org/en/"
     },
     {
       "id": 3,
@@ -16,9 +15,7 @@
       "description": "An AI-based mobile advisor for affordable childcare support, utilizing LLM models and AWS infrastructure.",
       "imageUrl": "/images/fullcirclefamily.jpeg",
       "category": ["top", "AI"],
-      "technologies": ["OpenAI GPT", "AWS Lambda", "API Gateway", "DynamoDB", "Amplify", "Cognito"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["OpenAI GPT", "React", "Node.js", "AWS"]
     },
     {
       "id": 4,
@@ -27,18 +24,16 @@
       "imageUrl": "/images/altlier.png",
       "category": "web",
       "technologies": ["Remix.js", "GraphQL", "Shopify API"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "website": "https://altlier.co/"
     },
     {
       "id": 5,
-      "title": "Full-Stack Microsoft Teams Extension",
+      "title": "Microsoft Teams Extension",
       "description": "A full-stack app integrated into Microsoft Teams for global user expansion.",
       "imageUrl": "/images/kunveno.jpg",
       "category": "web",
       "technologies": ["Node.js", "TypeScript", "Azure AD", "OAuth"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "website": "https://kunveno.de/"
     },
     {
       "id": 7,
@@ -46,9 +41,7 @@
       "description": "A web tool for tracking and managing time, featuring a serverless architecture.",
       "imageUrl": "/images/timesnap.png",
       "category": "web",
-      "technologies": ["React", "Tailwind", "Firebase", "HeadlessUI"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["React", "Tailwind", "Firebase", "HeadlessUI"]
     },
     {
       "id": 8,
@@ -56,9 +49,7 @@
       "description": "Developed ML prototypes for classifying music eras using audio data and spectrogram analysis.",
       "imageUrl": "/images/music.jpeg",
       "category": "AI",
-      "technologies": ["Python", "TensorFlow", "Pandas", "Keras"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["Python", "TensorFlow", "Pandas", "Keras"]
     },
     {
       "id": 10,
@@ -66,9 +57,7 @@
       "description": "Built an AI tool to screen and extract data from legal documents, optimizing operational costs.",
       "imageUrl": "/images/document.jpeg",
       "category": "AI",
-      "technologies": ["Google Vertex AI", "BigQuery", "dbt"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["Google Vertex AI", "TypeScript", "Firebase"]
     },
     {
       "id": 13,
@@ -76,9 +65,8 @@
       "description": "A visual workflow builder with chainable AI nodes, live co-editing, and multi-tab functionality. Supports multiple AI agents and provides configurable input/output for seamless automation.",
       "imageUrl": "/images/fluentAI.png",
       "category": "top",
-      "technologies": ["TypeScript", "Firebase", "React"],
-      "demoUrl": "https://example.com",
-      "githubUrl": "https://github.com"
+      "technologies": ["TypeScript", "Firebase", "React", "tailwind"],
+      "githubUrl": "https://github.com/fluent-ai/fluent-ai"
     }
   ]
 }

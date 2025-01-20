@@ -10,7 +10,7 @@ export interface Project {
   description: string;
   imageUrl: string;
   category: string | string[];
-  demoUrl?: string;
+  website?: string;
   githubUrl?: string;
   technologies: string[];
 }
@@ -29,7 +29,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects = defaultPro
 
   return (
     <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Projects</h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our portfolio of innovative solutions across web, mobile, and AI technologies.</p>
@@ -53,7 +53,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects = defaultPro
                   description={project.description}
                   imageUrl={project.imageUrl}
                   category={project.category}
-                  demoUrl={project.demoUrl}
+                  website={project.website}
                   githubUrl={project.githubUrl}
                   technologies={project.technologies}
                 />
