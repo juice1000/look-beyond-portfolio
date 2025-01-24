@@ -11,6 +11,7 @@ import {
   CardDescription,
 } from "../ui/card";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
+import { t, Language } from "../../lib/i18n";
 
 interface ContactSectionProps {
   onSubmit?: (data: FormData) => void;
@@ -19,6 +20,7 @@ interface ContactSectionProps {
     email: string;
     address: string;
   };
+  language?: Language;
 }
 
 const ContactSection = ({
@@ -28,15 +30,17 @@ const ContactSection = ({
     email: "contact@company.com",
     address: "123 Tech Street, Silicon Valley, CA 94025",
   },
+  language = "en",
 }: ContactSectionProps) => {
   return (
     <section className="w-full min-h-[600px] py-16 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            {t("contact.title", language)}
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Ready to start your next project? We'd love to hear from you and
-            discuss how we can help bring your vision to life.
+            {t("contact.subtitle", language)}
           </p>
         </div>
 
@@ -44,9 +48,9 @@ const ContactSection = ({
           {/* Contact Form */}
           <Card className="p-6 bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle>Send us a message</CardTitle>
+              <CardTitle>{t("contact.form.submit", language)}</CardTitle>
               <CardDescription>
-                Fill out the form below and we'll get back to you soon.
+                {t("contact.info.subtitle", language)}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -59,39 +63,45 @@ const ContactSection = ({
                 }}
               >
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name">
+                    {t("contact.form.name", language)}
+                  </Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="John Doe"
+                    placeholder={t("contact.form.name", language)}
                     className="w-full"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">
+                    {t("contact.form.email", language)}
+                  </Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder={t("contact.form.email", language)}
                     className="w-full"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">
+                    {t("contact.form.message", language)}
+                  </Label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Tell us about your project..."
+                    placeholder={t("contact.form.message", language)}
                     className="w-full min-h-[150px]"
                   />
                 </div>
 
                 <Button type="submit" className="w-full">
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {t("contact.form.submit", language)}
                 </Button>
               </form>
             </CardContent>
@@ -101,16 +111,18 @@ const ContactSection = ({
           <div className="space-y-8">
             <Card className="p-6 bg-white dark:bg-gray-800">
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle>{t("contact.info.title", language)}</CardTitle>
                 <CardDescription>
-                  Reach out to us through any of these channels
+                  {t("contact.info.subtitle", language)}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Phone className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="font-medium">Phone</p>
+                    <p className="font-medium">
+                      {t("contact.info.phone", language)}
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400">
                       {contactInfo.phone}
                     </p>
@@ -123,7 +135,9 @@ const ContactSection = ({
                 >
                   <Mail className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="font-medium">Email</p>
+                    <p className="font-medium">
+                      {t("contact.info.email", language)}
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400">
                       {contactInfo.email}
                     </p>
@@ -133,7 +147,9 @@ const ContactSection = ({
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="font-medium">Address</p>
+                    <p className="font-medium">
+                      {t("contact.info.address", language)}
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400">
                       {contactInfo.address}
                     </p>

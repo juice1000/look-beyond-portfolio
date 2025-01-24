@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
+import { t, Language } from "../../lib/i18n";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -14,19 +21,29 @@ import LBLogo from "/images/LB_logo_bg_removed.png";
 interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
+  onColorBlindToggle?: (
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+  ) => void;
+  colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
+  language?: Language;
+  onLanguageChange?: (lang: Language) => void;
 }
 
 const Navbar = ({
   onThemeToggle = () => {},
   isDarkMode = false,
+  onColorBlindToggle = () => {},
+  colorBlindMode = "none",
+  language = "en",
+  onLanguageChange = () => {},
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Home");
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: t("nav.home", language), href: "#home" },
+    { label: t("nav.projects", language), href: "/projects" },
+    { label: t("nav.contact", language), href: "#contact" },
   ];
 
   return (
@@ -70,21 +87,128 @@ const Navbar = ({
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={onThemeToggle}
-            className="ml-4 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-          >
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+          <div className="flex gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative"
+                  >
+                    <Globe size={20} />
+                    <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                      {language.toUpperCase()}
+                    </div>
+                  </motion.div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  onClick={() => onLanguageChange("en")}
+                  className={language === "en" ? "bg-accent" : ""}
+                >
+                  <span className="mr-2">🇬🇧</span>
+                  <span>English</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onLanguageChange("de")}
+                  className={language === "de" ? "bg-accent" : ""}
+                >
+                  <span className="mr-2">🇩🇪</span>
+                  <span>Deutsch</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative"
+                  >
+                    <Eye
+                      size={20}
+                      className={
+                        colorBlindMode !== "none" ? `text-blue-600` : ""
+                      }
+                    />
+                    {colorBlindMode !== "none" && (
+                      <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                        {colorBlindMode[0].toUpperCase()}
+                      </div>
+                    )}
+                  </motion.div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  onClick={() => onColorBlindToggle("none")}
+                  className={colorBlindMode === "none" ? "bg-accent" : ""}
+                >
+                  <Eye className="mr-2 h-4 w-4" />
+                  <span>Normal Vision</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onColorBlindToggle("protanopia")}
+                  className={colorBlindMode === "protanopia" ? "bg-accent" : ""}
+                >
+                  <div className="mr-2 h-4 w-4 flex items-center justify-center font-bold text-sm">
+                    P
+                  </div>
+                  <span>Protanopia (Red-Blind)</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onColorBlindToggle("deuteranopia")}
+                  className={
+                    colorBlindMode === "deuteranopia" ? "bg-accent" : ""
+                  }
+                >
+                  <div className="mr-2 h-4 w-4 flex items-center justify-center font-bold text-sm">
+                    D
+                  </div>
+                  <span>Deuteranopia (Green-Blind)</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onColorBlindToggle("tritanopia")}
+                  className={colorBlindMode === "tritanopia" ? "bg-accent" : ""}
+                >
+                  <div className="mr-2 h-4 w-4 flex items-center justify-center font-bold text-sm">
+                    T
+                  </div>
+                  <span>Tritanopia (Blue-Blind)</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={onThemeToggle}
+              className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </motion.div>
-          </Button>
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.div>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}

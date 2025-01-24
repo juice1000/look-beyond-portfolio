@@ -1,18 +1,53 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/LB_logo_bg_remove_white.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/LB_logo_bg_remove_white.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Look Beyond</title>
   </head>
 
   <body>
+    <svg style="display: none">
+      <defs>
+        <filter id="protanopia-filter">
+          <feColorMatrix
+            in="SourceGraphic"
+            type="matrix"
+            values="0.567, 0.433, 0,     0, 0
+                    0.558, 0.442, 0,     0, 0
+                    0,     0.242, 0.758, 0, 0
+                    0,     0,     0,     1, 0"
+          />
+        </filter>
+        <filter id="deuteranopia-filter">
+          <feColorMatrix
+            in="SourceGraphic"
+            type="matrix"
+            values="0.625, 0.375, 0,   0, 0
+                    0.7,   0.3,   0,   0, 0
+                    0,     0.3,   0.7, 0, 0
+                    0,     0,     0,   1, 0"
+          />
+        </filter>
+        <filter id="tritanopia-filter">
+          <feColorMatrix
+            in="SourceGraphic"
+            type="matrix"
+            values="0.95, 0.05,  0,     0, 0
+                    0,    0.433, 0.567, 0, 0
+                    0,    0.475, 0.525, 0, 0
+                    0,    0,     0,     1, 0"
+          />
+        </filter>
+      </defs>
+    </svg>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      src="https://api.tempolabs.ai/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js"></script>
+    <script src="https://api.tempolabs.ai/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js"></script>
   </body>
-
 </html>
