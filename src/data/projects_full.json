@@ -24,9 +24,16 @@
       "id": 3,
       "title": "AI-Powered Parent Advisor",
       "description": "An AI-based mobile advisor for affordable childcare support, utilizing LLM models and AWS infrastructure.",
-      "imageUrl": "/images/fullcirclefamily.jpeg",
+      "imageUrl": "/images/fullcirclefamily.png",
       "category": ["top", "AI"],
-      "technologies": ["OpenAI GPT", "AWS Lambda", "API Gateway", "DynamoDB", "Amplify", "Cognito"],
+      "technologies": [
+        "OpenAI GPT",
+        "AWS Lambda",
+        "API Gateway",
+        "DynamoDB",
+        "Amplify",
+        "Cognito"
+      ],
       "demoUrl": "https://example.com",
       "githubUrl": "https://github.com"
     },

@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from './ui/navigation-menu';
-import { motion } from 'framer-motion';
-import LBLogoWhite from '/images/LB_logo_bg_remove_white.png';
-import LBLogo from '/images/LB_logo_bg_removed.png';
+import React, { useState } from "react";
+import { Button } from "../ui/button";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuLink,
+} from "../ui/navigation-menu";
+import { motion } from "framer-motion";
+import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
+import LBLogo from "/images/LB_logo_bg_removed.png";
 
 interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
 }
 
-const Navbar = ({ onThemeToggle = () => {}, isDarkMode = false }: NavbarProps) => {
+const Navbar = ({
+  onThemeToggle = () => {},
+  isDarkMode = false,
+}: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home');
+  const [activeItem, setActiveItem] = useState("Home");
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: "Home", href: "#home" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -27,7 +35,11 @@ const Navbar = ({ onThemeToggle = () => {}, isDarkMode = false }: NavbarProps) =
         {/* Logo */}
         <div className="flex items-center">
           <a href="#" className="flex items-center">
-            <img className="h-28 w-auto" src={isDarkMode ? LBLogoWhite : LBLogo} alt="Logo" />
+            <img
+              className="h-28 w-auto"
+              src={isDarkMode ? LBLogoWhite : LBLogo}
+              alt="Logo"
+            />
           </a>
         </div>
 
@@ -58,8 +70,18 @@ const Navbar = ({ onThemeToggle = () => {}, isDarkMode = false }: NavbarProps) =
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button variant="outline" size="icon" onClick={onThemeToggle} className="ml-4 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-            <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.2 }}>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={onThemeToggle}
+            className="ml-4 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.div>
           </Button>
@@ -67,7 +89,11 @@ const Navbar = ({ onThemeToggle = () => {}, isDarkMode = false }: NavbarProps) =
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         </div>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import HeroSection from "./HeroSection";
-import ProjectShowcase from "./ProjectShowcase";
-import ContactSection from "./ContactSection";
+import Navbar from "./Home/Navbar";
+import HeroSection from "./Home/HeroSection";
+import ProjectShowcase from "./Home/ProjectShowcase";
+import ContactSection from "./Home/ContactSection";
 import projectsData from "../data/projects.json";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
   useEffect(() => {

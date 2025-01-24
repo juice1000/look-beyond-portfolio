@@ -1,15 +1,15 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Label } from "./ui/label";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Label } from "../ui/label";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
-} from "./ui/card";
+} from "../ui/card";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 
 interface ContactSectionProps {

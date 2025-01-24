@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
