@@ -39,7 +39,7 @@ const Home = () => {
         <section id="contact">
           <ContactSection
             contactInfo={{
-              phone: "+65 0161 267",
+              phone: "+65 8016 1267",
               email: "contact@lookbeyond.sg",
               address: "Midview City, Singapore",
             }}
