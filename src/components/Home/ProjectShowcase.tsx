@@ -1,46 +1,30 @@
-import React, { useState } from "react";
-import projectsData from "../../data/projects.json";
+import React, { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
+import { getProjects, Project } from "@/lib/getProjects";
+import { t, Language } from "../../lib/i18n";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-  category: string | string[];
-  website?: string;
-  githubUrl?: string;
-  technologies: string[];
-}
-
-interface ProjectShowcaseProps {
-  projects?: Project[];
-}
-
-const defaultProjects: Project[] = projectsData.projects;
-
-import { t, Language } from "../../lib/i18n";
-
-interface ProjectShowcaseProps {
-  projects?: Project[];
-  language?: Language;
-}
-
-const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
-  projects = defaultProjects,
-  language = "en",
-}) => {
+const ProjectShowcase = ({ language }: { language: Language }) => {
   const categories = ["top", "web", "AI"];
   const [activeCategory, setActiveCategory] = useState("top");
 
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    const category = pathname.split("/").pop();
+    if (category && categories.includes(category)) {
+      setActiveCategory(category);
+    }
+  }, []);
+
+  // filter projects by language
+  const projects: Project[] = getProjects(language);
   const filteredProjects = projects.filter((project) =>
-    project.category.includes(activeCategory),
+    project.category.includes(activeCategory)
   );
 
   return (
-    <section className="px-4 bg-gray-50 dark:bg-gray-900">
+    <section className="px-4 bg-gray-50 dark:bg-gray-900 container mx-auto">
       <div className="w-full mx-auto">
         <Tabs defaultValue="top" className="w-full mb-8">
           <TabsList className="flex justify-center">

@@ -9,7 +9,7 @@ import projectsData from "../data/projects.json";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
@@ -35,13 +35,13 @@ const Home = () => {
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia",
+      "tritanopia"
     );
     setColorBlindMode(mode);
     if (mode !== "none") {
@@ -89,10 +89,7 @@ const Home = () => {
               {t("projects.subtitle", language)}
             </p>
           </div>
-          <ProjectShowcase
-            projects={projectsData.projects}
-            language={language}
-          />
+          <ProjectShowcase language={language} />
           <div className="text-center mt-12">
             <Button
               size="lg"

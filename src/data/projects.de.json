@@ -1,0 +1,72 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Kundendashboard für den Plastikproduktionszyklus",
+      "description": "Eine Plattform zur Überwachung von Plastikproduktionszyklen über verschiedene Hersteller hinweg, um die Einhaltung von Recyclingvorgaben sicherzustellen.",
+      "imageUrl": "/images/rcycle.png",
+      "category": "top",
+      "technologies": ["React", "SASS", "CoreUI", "Firebase"],
+      "website": "https://www.r-cycle.org/de/"
+    },
+    {
+      "id": 3,
+      "title": "KI-gestützter Elternberater",
+      "description": "Ein KI-basierter mobiler Berater für erschwingliche Kinderbetreuung, der LLM-Modelle und AWS-Infrastruktur nutzt.",
+      "imageUrl": "/images/fullcirclefamily.png",
+      "category": ["top", "KI"],
+      "technologies": ["OpenAI GPT", "React", "Node.js", "AWS"]
+    },
+    {
+      "id": 4,
+      "title": "Individuelles Shopify-Storefront",
+      "description": "Ein maßgeschneidertes Shopify-Storefront, entwickelt mit Remix.js und Shopify-APIs.",
+      "imageUrl": "/images/altlier.png",
+      "category": "web",
+      "technologies": ["Remix.js", "GraphQL", "Shopify API"],
+      "website": "https://altlier.co/"
+    },
+    {
+      "id": 5,
+      "title": "Microsoft Teams Erweiterung",
+      "description": "Eine Full-Stack-App, integriert in Microsoft Teams, zur globalen Nutzererweiterung.",
+      "imageUrl": "/images/kunveno.jpg",
+      "category": "web",
+      "technologies": ["Node.js", "TypeScript", "Azure AD", "OAuth"],
+      "website": "https://kunveno.de/"
+    },
+    {
+      "id": 7,
+      "title": "Zeitmanagement-Tool",
+      "description": "Ein Web-Tool zur Nachverfolgung und Verwaltung von Zeit mit einer serverlosen Architektur.",
+      "imageUrl": "/images/timesnap.png",
+      "category": "web",
+      "technologies": ["React", "Tailwind", "Firebase", "HeadlessUI"]
+    },
+    {
+      "id": 8,
+      "title": "KI-Musikklassifizierer",
+      "description": "Entwicklung von ML-Prototypen zur Klassifizierung von Musikepochen anhand von Audiodaten und Spektrogrammanalysen.",
+      "imageUrl": "/images/music.jpeg",
+      "category": "KI",
+      "technologies": ["Python", "TensorFlow", "Pandas", "Keras"]
+    },
+    {
+      "id": 10,
+      "title": "KI-Screening-Tool für juristische Dokumente",
+      "description": "Entwicklung eines KI-Tools zum Screening und zur Extraktion von Daten aus juristischen Dokumenten, um die Betriebskosten zu optimieren.",
+      "imageUrl": "/images/document.jpeg",
+      "category": "KI",
+      "technologies": ["Google Vertex AI", "TypeScript", "Firebase"]
+    },
+    {
+      "id": 13,
+      "title": "KI-Workflow-Designer",
+      "description": "Ein visueller Workflow-Builder mit kaskadierbaren KI-Knoten, Live-Co-Editing und Multi-Tab-Funktionalität. Unterstützt mehrere KI-Agenten und bietet konfigurierbare Eingabe-/Ausgabeoptionen für nahtlose Automatisierung.",
+      "imageUrl": "/images/fluentAI.png",
+      "category": "top",
+      "technologies": ["TypeScript", "Firebase", "React", "Tailwind"],
+      "githubUrl": "https://github.com/fluent-ai/fluent-ai"
+    }
+  ]
+}

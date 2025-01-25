@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Home/Navbar";
 import { t } from "../lib/i18n";
 import ProjectShowcase from "./Home/ProjectShowcase";
-import projectsData from "../data/projects.json";
 
 export default function Projects() {
   const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
@@ -32,13 +31,13 @@ export default function Projects() {
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia",
+      "tritanopia"
     );
     setColorBlindMode(mode);
     if (mode !== "none") {
@@ -58,7 +57,7 @@ export default function Projects() {
       />
 
       <main className="pt-32 px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               {t("projects.title", language)}
@@ -68,10 +67,7 @@ export default function Projects() {
             </p>
           </div>
 
-          <ProjectShowcase
-            projects={projectsData.projects}
-            language={language}
-          />
+          <ProjectShowcase language={language} />
         </div>
       </main>
     </div>
