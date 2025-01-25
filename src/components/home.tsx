@@ -29,6 +29,7 @@ const Home = () => {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
+  // TODO: This whole navbar toggling functionality doesn't need to sit here
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle("dark");
