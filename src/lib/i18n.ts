@@ -62,14 +62,14 @@ export const translations: Translations = {
     "nav.tritanopia": "Tritanopie (Blaublind)",
 
     // Hero Section
-    "hero.title": "Smart bauen, Veränderung führen.",
+    "hero.title": "Build Smart, Lead Change.",
     "hero.subtitle":
       "Wir gehen über das bloße Erstellen von Produkten hinaus...",
     "hero.cta": "Erfahren Sie wie",
     "hero.service.1": "Wir Entwickeln",
     "hero.service.2": "Wir Liefern",
     "hero.service.3": "Wir Skalieren",
-    "hero.service.4": "Wir Befähigen",
+    "hero.service.4": "Wir Empowern",
 
     // Projects Section
     "projects.title": "Unsere Projekte",
