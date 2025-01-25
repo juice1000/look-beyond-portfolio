@@ -89,6 +89,7 @@ const Home = () => {
               {t("projects.subtitle", language)}
             </p>
           </div>
+          {/* TODO: Make this a solutions showcase */}
           <ProjectShowcase language={language} />
           <div className="text-center mt-12">
             <Button
