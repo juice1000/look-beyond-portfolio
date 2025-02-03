@@ -59,7 +59,17 @@ export default function Contact() {
 
       <main className="pt-32 px-4">
         <div className="w-full mx-auto">
-          <ContactSection language={language} />
+          <ContactSection
+            language={language}
+            contactInfo={{
+              phone: "+65 8016 1267",
+              email: "contact@lookbeyond.sg",
+              address: "Midview City, Singapore",
+            }}
+            onSubmit={(data) => {
+              console.log("Form submitted:", Object.fromEntries(data));
+            }}
+          />
         </div>
       </main>
     </div>
