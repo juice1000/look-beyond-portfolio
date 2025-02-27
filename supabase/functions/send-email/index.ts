@@ -17,9 +17,9 @@ Deno.serve(async (req) => {
       },
     });
   }
-  const { userEmail, message, subject } = await req.json();
+  const { email, message, subject } = await req.json();
 
-  if (!to || !subject || !message || !userEmail) {
+  if (!subject || !message || !email) {
     return new Response("Missing parameters", { status: 400 });
   }
 
@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
       to: "julien@lookbeyond.sg",
       subject,
       text: message,
-      replyTo: userEmail,
+      replyTo: email,
     });
 
     return new Response(JSON.stringify({ message: "Email sent!" }), {
