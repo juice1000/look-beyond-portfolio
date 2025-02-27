@@ -111,9 +111,6 @@ const Home = () => {
               email: "contact@lookbeyond.sg",
               address: "Midview City, Singapore",
             }}
-            onSubmit={(data) => {
-              console.log("Form submitted:", Object.fromEntries(data));
-            }}
           />
         </section>
       </main>

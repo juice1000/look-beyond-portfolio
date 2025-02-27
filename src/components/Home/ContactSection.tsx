@@ -24,7 +24,6 @@ interface ContactSectionProps {
 }
 
 const ContactSection = ({
-  onSubmit = (data: FormData) => console.log("Form submitted:", data),
   contactInfo = {
     phone: "+1 (555) 123-4567",
     email: "contact@company.com",
@@ -32,6 +31,25 @@ const ContactSection = ({
   },
   language = "en",
 }: ContactSectionProps) => {
+  const handleSubmit = async (data: FormData) => {
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+    const newMessage: string = `Message From: ${name}\nEmail: ${email}\n\n${message}`;
+
+    const res = await fetch(
+      "https://ctofqrlkfcuyjxabzvmn.supabase.co/functions/v1/send-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userEmail: email, message: newMessage }),
+      }
+    );
+    const result = await res.json();
+    console.log(result);
+  };
   return (
     <section className="w-full min-h-[600px] py-16 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
@@ -58,8 +76,10 @@ const ContactSection = ({
                 className="space-y-6"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  console.log(e.currentTarget);
+
                   const formData = new FormData(e.currentTarget);
-                  onSubmit(formData);
+                  handleSubmit(formData);
                 }}
               >
                 <div className="space-y-2">
