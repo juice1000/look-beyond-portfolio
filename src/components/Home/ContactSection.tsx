@@ -40,12 +40,7 @@ const ContactSection = ({
 
     // Send email
     try {
-      await sendEmail(
-        contactInfo.email,
-        "New Contact Form Submission",
-        newMessage,
-        email
-      );
+      await sendEmail(name, email, message);
       alert("Email sent successfully!");
     } catch (error) {
       console.error(error);

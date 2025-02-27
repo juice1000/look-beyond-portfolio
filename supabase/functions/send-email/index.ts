@@ -17,7 +17,7 @@ Deno.serve(async (req) => {
       },
     });
   }
-  const { to, subject, message, userEmail } = await req.json();
+  const { name, userEmail, message, subject } = await req.json();
 
   if (!to || !subject || !message || !userEmail) {
     return new Response("Missing parameters", { status: 400 });
