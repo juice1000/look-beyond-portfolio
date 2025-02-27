@@ -105,7 +105,6 @@ const ContactSection = ({
                     type="email"
                     placeholder={t("contact.form.email", language)}
                     className="w-full"
-                    validation="email"
                     required
                   />
                 </div>
