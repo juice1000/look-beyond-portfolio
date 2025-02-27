@@ -17,7 +17,7 @@ Deno.serve(async (req) => {
       },
     });
   }
-  const { name, userEmail, message, subject } = await req.json();
+  const { userEmail, message, subject } = await req.json();
 
   if (!to || !subject || !message || !userEmail) {
     return new Response("Missing parameters", { status: 400 });
@@ -34,10 +34,10 @@ Deno.serve(async (req) => {
   try {
     await transporter.sendMail({
       from: Deno.env.get("GMAIL_USER"),
-      to,
+      to: "julien@lookbeyond.sg",
       subject,
       text: message,
-      replyTo,
+      replyTo: userEmail,
     });
 
     return new Response(JSON.stringify({ message: "Email sent!" }), {

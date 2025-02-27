@@ -40,7 +40,7 @@ const ContactSection = ({
 
     // Send email
     try {
-      await sendEmail(name, email, message);
+      await sendEmail(email, message);
       alert("Email sent successfully!");
     } catch (error) {
       console.error(error);
