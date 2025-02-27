@@ -12,6 +12,7 @@ import {
 } from "../ui/card";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 import { t, Language } from "../../lib/i18n";
+import { sendEmail } from "../../lib/sendEmail";
 
 interface ContactSectionProps {
   onSubmit?: (data: FormData) => void;
@@ -25,9 +26,9 @@ interface ContactSectionProps {
 
 const ContactSection = ({
   contactInfo = {
-    phone: "+1 (555) 123-4567",
-    email: "contact@company.com",
-    address: "123 Tech Street, Silicon Valley, CA 94025",
+    phone: "+65 8016 1267",
+    email: "contact@lookbeyond.sg",
+    address: "Midview City, Singapore",
   },
   language = "en",
 }: ContactSectionProps) => {
@@ -37,18 +38,19 @@ const ContactSection = ({
     const message = data.get("message") as string;
     const newMessage: string = `Message From: ${name}\nEmail: ${email}\n\n${message}`;
 
-    const res = await fetch(
-      "https://ctofqrlkfcuyjxabzvmn.supabase.co/functions/v1/send-email",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userEmail: email, message: newMessage }),
-      }
-    );
-    const result = await res.json();
-    console.log(result);
+    // Send email
+    try {
+      await sendEmail(
+        contactInfo.email,
+        "New Contact Form Submission",
+        newMessage,
+        email
+      );
+      alert("Email sent successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send email. Please try again later.");
+    }
   };
   return (
     <section className="w-full min-h-[600px] py-16 px-4 bg-gray-50 dark:bg-gray-900">
@@ -76,8 +78,6 @@ const ContactSection = ({
                 className="space-y-6"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  console.log(e.currentTarget);
-
                   const formData = new FormData(e.currentTarget);
                   handleSubmit(formData);
                 }}
@@ -91,6 +91,7 @@ const ContactSection = ({
                     name="name"
                     placeholder={t("contact.form.name", language)}
                     className="w-full"
+                    required
                   />
                 </div>
 
@@ -104,6 +105,8 @@ const ContactSection = ({
                     type="email"
                     placeholder={t("contact.form.email", language)}
                     className="w-full"
+                    validation="email"
+                    required
                   />
                 </div>
 
@@ -116,6 +119,7 @@ const ContactSection = ({
                     name="message"
                     placeholder={t("contact.form.message", language)}
                     className="w-full min-h-[150px]"
+                    required
                   />
                 </div>
 
