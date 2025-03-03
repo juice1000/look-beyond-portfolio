@@ -2,9 +2,11 @@ import { supabase } from "./supabase";
 
 export const sendEmail = async (email: string, message: string) => {
   const { data, error } = await supabase.functions.invoke("send-email", {
-    email,
-    message,
-    subject: "Look Beyond Contact Form",
+    body: {
+      email,
+      message,
+      subject: "Look Beyond Contact Form",
+    },
   });
 
   if (error) {
