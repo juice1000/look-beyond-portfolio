@@ -6,6 +6,7 @@ import ProjectShowcase from "./Home/ProjectShowcase";
 import ContactSection from "./Home/ContactSection";
 import { Button } from "./ui/button";
 import projectsData from "../data/projects.json";
+import MapChart from "./Home/MapChart";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -102,7 +103,9 @@ const Home = () => {
             </Button>
           </div>
         </section>
-
+        <section id="map">
+          <MapChart isDarkMode={isDarkMode} language={language} />
+        </section>
         <section id="contact">
           <ContactSection
             language={language}

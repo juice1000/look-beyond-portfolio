@@ -21,7 +21,7 @@ export const translations: Translations = {
     "hero.title": "Build Smart, Lead Change.",
     "hero.subtitle": "We go beyond just building products...",
     "hero.cta": "See how we do it",
-    "hero.service.1": "We Idiate",
+    "hero.service.1": "We Ideate",
     "hero.service.2": "We Ship",
     "hero.service.3": "We Scale",
     "hero.service.4": "We Empower",
@@ -48,6 +48,10 @@ export const translations: Translations = {
     "contact.info.phone": "Phone",
     "contact.info.email": "Email",
     "contact.info.address": "Address",
+
+    "map.title": "Operating across the globe",
+    "map.subtitle":
+      "Our international team offers customized support, leveraging local insights for global solutions.",
   },
   de: {
     // Navbar
@@ -93,6 +97,10 @@ export const translations: Translations = {
     "contact.info.phone": "Telefon",
     "contact.info.email": "E-Mail",
     "contact.info.address": "Adresse",
+
+    "map.title": "Weltweit im Einsatz",
+    "map.subtitle":
+      "Unser Team bietet maßgeschneiderte Unterstützung, indem es lokale Erkenntnisse für globale Lösungen nutzt.",
   },
 };
 

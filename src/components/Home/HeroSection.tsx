@@ -14,7 +14,7 @@ interface HeroSectionProps {
 const HeroSection = ({
   title = "Build Smart, Lead Change.",
   subtitle = "We help you",
-  services = ["Idiate", "Ship", "Scale", "Dominate"],
+  services = ["Ideate", "Ship", "Scale", "Dominate"],
   ctaText = "Start Your Project",
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
