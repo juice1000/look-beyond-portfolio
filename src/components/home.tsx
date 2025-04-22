@@ -7,7 +7,6 @@ import ContactSection from "./Home/ContactSection";
 import { Button } from "./ui/button";
 import projectsData from "../data/projects.json";
 import MapChart from "./Home/MapChart";
-import VoiceAgentSection from "./Home/VoiceAgentSection";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -64,9 +63,6 @@ const Home = () => {
       />
 
       <main className="pt-20">
-        {/* <section id="voice-agent">
-          <VoiceAgentSection />
-        </section> */}
         <section id="home">
           <HeroSection
             title={t("hero.title", language)}

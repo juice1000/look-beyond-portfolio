@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const VoiceAgentSection = () => {
+const VoiceAgent = () => {
   const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID;
   useEffect(() => {
     const script = document.createElement("script");
@@ -13,6 +13,14 @@ const VoiceAgentSection = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const clickCalButton = () => {
+    const calButton = document.querySelector("cal-floating-button");
+    if (calButton) {
+      calButton.click();
+    }
+  };
+
   return (
     <>
       <elevenlabs-convai
@@ -23,4 +31,4 @@ const VoiceAgentSection = () => {
     </>
   );
 };
-export default VoiceAgentSection;
+export default VoiceAgent;
