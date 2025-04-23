@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import { useRoutes, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
-import routes from "tempo-routes";
+// import routes from "tempo-routes";
 import NotFound from "./pages/NotFound";
 import Calendar from "./components/calendar";
 import VoiceAgent from "./components/voiceagent";
@@ -18,7 +18,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+        {/* {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)} */}
         <Calendar />
         <VoiceAgent />
       </>

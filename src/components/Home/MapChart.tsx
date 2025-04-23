@@ -9,10 +9,11 @@ const stylingFunction = ({
   minValue,
   maxValue,
   color,
-}: CountryContext) => {
+}: CountryContext<string>) => {
   const calculatedValue =
     typeof countryValue === "string" ? minValue : countryValue;
   const countries = ["US", "DE", "IN", "MY", "JP"];
+  const value = parseFloat(countryValue);
   return {
     fill: countries.includes(countryCode) ? "#4c6ef5" : "grey",
     fillOpacity: countries.includes(countryCode) ? 1 : 0.2,
@@ -21,7 +22,14 @@ const stylingFunction = ({
     strokeOpacity: 0,
   };
 };
-const MapChart = ({ isDarkMode, language = "en" }) => {
+
+const MapChart = ({
+  isDarkMode,
+  language,
+}: {
+  isDarkMode: boolean;
+  language: Language;
+}) => {
   const data = [
     { country: "de", value: "" },
     { country: "us", value: "" },

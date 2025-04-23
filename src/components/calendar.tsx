@@ -8,6 +8,7 @@
 
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+
 export default function Calendar() {
   useEffect(() => {
     (async function () {
@@ -21,4 +22,5 @@ export default function Calendar() {
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
     })();
   }, []);
+  return <></>;
 }
