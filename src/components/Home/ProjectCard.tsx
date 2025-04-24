@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { ExternalLink, Github } from "lucide-react";
-import { Project } from "./ProjectShowcase";
+import { ExternalLink } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Project } from "../../lib/getProjects";
 
 const ProjectCard: React.FC<Project> = ({
   title,
@@ -53,6 +47,7 @@ const ProjectCard: React.FC<Project> = ({
                 variant="secondary"
                 size="sm"
                 className="flex items-center gap-2"
+                onClick={() => window.open(website, "_blank")}
               >
                 <ExternalLink size={16} />
                 Demo
@@ -63,8 +58,9 @@ const ProjectCard: React.FC<Project> = ({
                 variant="outline"
                 size="sm"
                 className="flex items-center gap-2"
+                onClick={() => window.open(githubUrl, "_blank")}
               >
-                <Github size={16} />
+                <GitHubLogoIcon />
                 Code
               </Button>
             )}

@@ -6,10 +6,11 @@ import ProjectShowcase from "./Home/ProjectShowcase";
 import ContactSection from "./Home/ContactSection";
 import { Button } from "./ui/button";
 import projectsData from "../data/projects.json";
+import MapChart from "./Home/MapChart";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
@@ -29,19 +30,20 @@ const Home = () => {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
+  // TODO: This whole navbar toggling functionality doesn't need to sit here
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle("dark");
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia",
+      "tritanopia"
     );
     setColorBlindMode(mode);
     if (mode !== "none") {
@@ -79,6 +81,9 @@ const Home = () => {
             }
           />
         </section>
+        {/* <section id="calendar">
+          <Calendar />
+        </section> */}
 
         <section id="projects" className="py-16">
           <div className="text-center mb-10">
@@ -89,10 +94,8 @@ const Home = () => {
               {t("projects.subtitle", language)}
             </p>
           </div>
-          <ProjectShowcase
-            projects={projectsData.projects}
-            language={language}
-          />
+          {/* TODO: Make this a solutions showcase */}
+          <ProjectShowcase language={language} />
           <div className="text-center mt-12">
             <Button
               size="lg"
@@ -103,7 +106,9 @@ const Home = () => {
             </Button>
           </div>
         </section>
-
+        <section id="map">
+          <MapChart isDarkMode={isDarkMode} language={language} />
+        </section>
         <section id="contact">
           <ContactSection
             language={language}
@@ -111,9 +116,6 @@ const Home = () => {
               phone: "+65 8016 1267",
               email: "contact@lookbeyond.sg",
               address: "Midview City, Singapore",
-            }}
-            onSubmit={(data) => {
-              console.log("Form submitted:", Object.fromEntries(data));
             }}
           />
         </section>

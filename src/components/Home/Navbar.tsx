@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
 import { t, Language } from "../../lib/i18n";
@@ -22,7 +22,7 @@ interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;
@@ -38,12 +38,23 @@ const Navbar = ({
   onLanguageChange = () => {},
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
+  const [activeItem, setActiveItem] = useState("");
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    // find the id from the path set the label as active item
+    if (path === "/") {
+      setActiveItem(t("nav.home", language));
+    } else {
+      const navItem = navItems.find((item) => item.href === path)?.label;
+      setActiveItem(navItem);
+    }
+  }, []);
 
   const navItems = [
-    { label: t("nav.home", language), href: "#home" },
+    { label: t("nav.home", language), href: "/" },
     { label: t("nav.projects", language), href: "/projects" },
-    { label: t("nav.contact", language), href: "#contact" },
+    { label: t("nav.contact", language), href: "/contact" },
   ];
 
   return (
