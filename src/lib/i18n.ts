@@ -52,6 +52,31 @@ export const translations: Translations = {
     "map.title": "Operating across the globe",
     "map.subtitle":
       "Our international team offers customized support, leveraging local insights for global solutions.",
+
+    "ai.tagline": "Empowering businesses with AI.",
+    "ai.subTagline":
+      "From content to customers, we turn bottlenecks into growth loops.",
+    "ai.kpi.1": "more content shipped",
+    "ai.kpi.2": "cost per lead",
+    "ai.kpi.3": "tickets auto-resolved",
+
+    // Case Studies Section
+    "caseStudies.title": "Real-world AI impact",
+    "caseStudies.subtitle":
+      "See how our AI solutions transform business operations across departments",
+    "caseStudies.cta": "See how",
+    "caseStudies.marketing.title": "Marketing",
+    "caseStudies.marketing.painPoint":
+      "Struggling to create consistent content at scale",
+    "caseStudies.marketing.kpi": "↑120% content velocity",
+    "caseStudies.sales.title": "Sales",
+    "caseStudies.sales.painPoint":
+      "Manual lead qualification slowing down pipeline",
+    "caseStudies.sales.kpi": "↓40% sales cycle time",
+    "caseStudies.operations.title": "Operations",
+    "caseStudies.operations.painPoint":
+      "Support tickets overwhelming your team",
+    "caseStudies.operations.kpi": "85% auto-resolution rate",
   },
   de: {
     // Navbar
@@ -101,6 +126,31 @@ export const translations: Translations = {
     "map.title": "Weltweit im Einsatz",
     "map.subtitle":
       "Unser Team bietet maßgeschneiderte Unterstützung, indem es lokale Erkenntnisse für globale Lösungen nutzt.",
+
+    // AI Section
+    "ai.tagline": "Unternehmen mit KI stärken.",
+    "ai.subTagline":
+      "Von Content bis zu Kunden verwandeln wir Engpässe in Wachstumsschleifen.",
+    "ai.kpi.1": "mehr Content produziert",
+    "ai.kpi.2": "Kosten pro Lead",
+    "ai.kpi.3": "Tickets automatisch gelöst",
+
+    // Case Studies Section
+    "caseStudies.title": "Reale KI-Auswirkungen",
+    "caseStudies.subtitle":
+      "Sehen Sie, wie unsere KI-Lösungen Geschäftsprozesse in allen Abteilungen transformieren",
+    "caseStudies.cta": "Mehr erfahren",
+    "caseStudies.marketing.title": "Marketing",
+    "caseStudies.marketing.painPoint":
+      "Schwierigkeiten, konsistente Inhalte in großem Umfang zu erstellen",
+    "caseStudies.marketing.kpi": "↑120% Content-Geschwindigkeit",
+    "caseStudies.sales.title": "Vertrieb",
+    "caseStudies.sales.painPoint":
+      "Manuelle Lead-Qualifizierung verlangsamt die Pipeline",
+    "caseStudies.sales.kpi": "↓40% Verkaufszyklus-Zeit",
+    "caseStudies.operations.title": "Betrieb",
+    "caseStudies.operations.painPoint": "Support-Tickets überfordern Ihr Team",
+    "caseStudies.operations.kpi": "85% automatische Lösungsrate",
   },
 };
 

@@ -28,4 +28,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: true, // 0.0.0.0 also works
+    allowedHosts: true,
+    hmr: { overlay: false },
+  },
 });
