@@ -4,11 +4,9 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
-// Needs to be disabled in order to make the Cal.com widget work
+// Should only be used in a tempo labs environment! Otherwise Cal.com will not work
 import { TempoDevtools } from "tempo-devtools";
-if (import.meta.env.VITE_TEMPO === "true") {
-  TempoDevtools.init();
-}
+import.meta.env.VITE_TEMPO === "true" && TempoDevtools.init();
 
 const basename = import.meta.env.BASE_URL;
 
