@@ -1,35 +1,27 @@
 import React, { useEffect } from "react";
 
 const VoiceAgent = () => {
-  // const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID;
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://elevenlabs.io/convai-widget/index.js";
-  //   script.async = true;
-  //   script.type = "text/javascript";
-  //   document.body.appendChild(script);
+  const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID;
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://elevenlabs.io/convai-widget/index.js";
+    script.async = true;
+    script.type = "text/javascript";
+    document.body.appendChild(script);
 
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   };
-  // }, []);
-
-  // const clickCalButton = () => {
-  //   const calButton = document.querySelector("cal-floating-button");
-  //   if (calButton) {
-  //     calButton.click();
-  //   }
-  // };
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <> </>
-    // <elevenlabs-convai
-    //   agent-id={agentId}
-    //   action-text="Having a Tech Problem?"
-    //   start-call-text="Ask our AI Agent"
-    // ></elevenlabs-convai>
-
-    // </>
+    <>
+      <elevenlabs-convai
+        agent-id={agentId}
+        action-text="Having a Tech Problem?"
+        start-call-text="Ask our AI Agent"
+      ></elevenlabs-convai>
+    </>
   );
 };
 export default VoiceAgent;
