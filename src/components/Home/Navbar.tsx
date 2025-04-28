@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
-import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
+import { Moon, Sun, Menu, X, Eye, Globe, ChevronDown } from "lucide-react";
 import { t, Language } from "../../lib/i18n";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
 import {
   NavigationMenu,
@@ -18,11 +19,17 @@ import { motion } from "framer-motion";
 import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 import LBLogo from "/images/LB_logo_bg_removed.png";
 
+interface NavItem {
+  label: string;
+  href: string;
+  subItems?: NavItem[];
+}
+
 interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;
@@ -53,7 +60,29 @@ const Navbar = ({
 
   const navItems = [
     { label: t("nav.home", language), href: "/" },
-    { label: t("nav.projects", language), href: "/projects" },
+    {
+      label: t("nav.howWeWork", language),
+      href: "/how-we-work",
+      subItems: [
+        {
+          label: t("nav.aiReadiness", language),
+          href: "/how-we-work/ai-readiness",
+        },
+        {
+          label: t("nav.ourProcess", language),
+          href: "/how-we-work/our-process",
+        },
+        {
+          label: t("nav.ourProjects", language),
+          href: "/how-we-work/our-projects",
+        },
+        {
+          label: t("nav.pricingEngagement", language),
+          href: "/how-we-work/pricing-engagement",
+        },
+        { label: t("nav.workshops", language), href: "/how-we-work/workshops" },
+      ],
+    },
     { label: t("nav.contact", language), href: "/contact" },
   ];
 
@@ -77,22 +106,65 @@ const Navbar = ({
             <NavigationMenuList className="space-x-8">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.label}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    onClick={() => setActiveItem(item.label)}
-                    className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-                  >
-                    {item.label}
-                    {activeItem === item.label && (
-                      <motion.div
-                        layoutId="underline"
-                        className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </NavigationMenuLink>
+                  {item.subItems ? (
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors flex items-center gap-1">
+                          {item.label}
+                          <ChevronDown size={16} />
+                          {activeItem === item.label && (
+                            <motion.div
+                              layoutId="underline"
+                              className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.3 }}
+                            />
+                          )}
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="center" className="w-56">
+                        <DropdownMenuItem asChild>
+                          <a
+                            href={item.href}
+                            onClick={() => setActiveItem(item.label)}
+                            className="w-full cursor-pointer"
+                          >
+                            {item.label} Overview
+                          </a>
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        {item.subItems.map((subItem) => (
+                          <DropdownMenuItem key={subItem.label} asChild>
+                            <a
+                              href={subItem.href}
+                              onClick={() => setActiveItem(subItem.label)}
+                              className="w-full cursor-pointer"
+                            >
+                              {subItem.label}
+                            </a>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  ) : (
+                    <NavigationMenuLink
+                      href={item.href}
+                      onClick={() => setActiveItem(item.label)}
+                      className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                    >
+                      {item.label}
+                      {activeItem === item.label && (
+                        <motion.div
+                          layoutId="underline"
+                          className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      )}
+                    </NavigationMenuLink>
+                  )}
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -245,17 +317,35 @@ const Navbar = ({
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="block py-3 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                onClick={() => {
-                  setActiveItem(item.label);
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                {item.label}
-              </a>
+              <div key={item.label}>
+                <a
+                  href={item.href}
+                  className="block py-3 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                  onClick={() => {
+                    setActiveItem(item.label);
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  {item.label}
+                </a>
+                {item.subItems && (
+                  <div className="pl-4 border-l border-gray-200 dark:border-gray-700 ml-2">
+                    {item.subItems.map((subItem) => (
+                      <a
+                        key={subItem.label}
+                        href={subItem.href}
+                        className="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        onClick={() => {
+                          setActiveItem(subItem.label);
+                          setIsMobileMenuOpen(false);
+                        }}
+                      >
+                        {subItem.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <div className="py-3">
               <Button
