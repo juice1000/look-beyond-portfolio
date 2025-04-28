@@ -31,7 +31,7 @@ function App() {
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         <Calendar />
-        <VoiceAgent />
+        {import.meta.env.VITE_TEMPO === "false" && <VoiceAgent />}
       </>
     </Suspense>
   );
