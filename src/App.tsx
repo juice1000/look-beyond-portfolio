@@ -3,8 +3,7 @@ import { useRoutes, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
-import routes from "tempo-routes";
-import NotFound from "./pages/NotFound";
+
 import Calendar from "./components/calendar";
 import VoiceAgent from "./components/voiceagent";
 import AIReadiness from "./components/AIReadiness";
