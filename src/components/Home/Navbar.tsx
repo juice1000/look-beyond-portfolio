@@ -62,25 +62,24 @@ const Navbar = ({
     { label: t("nav.home", language), href: "/" },
     {
       label: t("nav.howWeWork", language),
-      href: "/how-we-work",
       subItems: [
         {
           label: t("nav.aiReadiness", language),
-          href: "/how-we-work/ai-readiness",
+          href: "/ai-readiness",
         },
         {
           label: t("nav.ourProcess", language),
-          href: "/how-we-work/our-process",
+          href: "/our-process",
         },
         {
           label: t("nav.ourProjects", language),
-          href: "/how-we-work/our-projects",
+          href: "/our-projects",
         },
         {
           label: t("nav.pricingEngagement", language),
-          href: "/how-we-work/pricing-engagement",
+          href: "/pricing-engagement",
         },
-        { label: t("nav.workshops", language), href: "/how-we-work/workshops" },
+        { label: t("nav.workshops", language), href: "/workshops" },
       ],
     },
     { label: t("nav.contact", language), href: "/contact" },
@@ -91,7 +90,7 @@ const Navbar = ({
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
               className="h-28 w-auto"
               src={isDarkMode ? LBLogoWhite : LBLogo}
@@ -124,16 +123,6 @@ const Navbar = ({
                         </button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="center" className="w-56">
-                        <DropdownMenuItem asChild>
-                          <a
-                            href={item.href}
-                            onClick={() => setActiveItem(item.label)}
-                            className="w-full cursor-pointer"
-                          >
-                            {item.label} Overview
-                          </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
                         {item.subItems.map((subItem) => (
                           <DropdownMenuItem key={subItem.label} asChild>
                             <a

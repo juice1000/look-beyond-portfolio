@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Home/Navbar";
 import { t } from "../lib/i18n";
 import HeroSection from "./Home/HeroSection";
-import ProjectShowcase from "./Home/ProjectShowcase";
-import ContactSection from "./Home/ContactSection";
-import { Button } from "./ui/button";
+
 import projectsData from "../data/projects.json";
 import MapChart from "./Home/MapChart";
 import AISection from "./Home/AISection";
@@ -136,43 +134,8 @@ const Home = () => {
             language={language}
           />
         </section>
-        {/* <section id="calendar">
-          <Calendar />
-        </section> */}
-
-        <section id="projects" className="py-16">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-              {t("projects.title", language)}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {t("projects.subtitle", language)}
-            </p>
-          </div>
-          {/* TODO: Make this a solutions showcase */}
-          <ProjectShowcase language={language} />
-          <div className="text-center mt-12">
-            <Button
-              size="lg"
-              onClick={() => (document.location.href = "/projects")}
-              className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
-            >
-              {t("projects.viewMore", language)}
-            </Button>
-          </div>
-        </section>
         <section id="map">
           <MapChart isDarkMode={isDarkMode} language={language} />
-        </section>
-        <section id="contact">
-          <ContactSection
-            language={language}
-            contactInfo={{
-              phone: "+65 8016 1267",
-              email: "contact@lookbeyond.sg",
-              address: "Midview City, Singapore",
-            }}
-          />
         </section>
       </main>
     </div>

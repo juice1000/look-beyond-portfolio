@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { t, Language } from "../lib/i18n";
 import Navbar from "./Home/Navbar";
+import { Button } from "./ui/button";
 
 interface AIReadinessProps {
   language?: Language;
@@ -58,7 +59,7 @@ const AIReadiness = ({ language = "en" }: AIReadinessProps) => {
       />
 
       <main className="pt-20">
-        <div className="container mx-auto px-4 py-24">
+        <div className="container mx-auto px-4 py-24 flex flex-col  items-center justify-center">
           <h1 className="text-4xl font-bold mb-8 text-center">
             {t("aiReadiness.title", language)}
           </h1>
@@ -87,6 +88,26 @@ const AIReadiness = ({ language = "en" }: AIReadinessProps) => {
               </div>
             </div>
           </div>
+          <h2 className="text-2xl font-semibold mb-3 mt-10">
+            Curious how far you've come?
+          </h2>
+          <h2>
+            Do a free AI Readiness Assessment with us to see what next potential
+            steps you could adopt.
+          </h2>
+          <h2>It will take less than 5 minutes!</h2>
+          <Button
+            size="lg"
+            className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white mt-8"
+          >
+            <a
+              href="https://aireadinessassessment.fillout.com/shortassessment"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Assessment
+            </a>
+          </Button>
         </div>
       </main>
     </div>
