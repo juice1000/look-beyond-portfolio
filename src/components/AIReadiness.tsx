@@ -1,63 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { t, Language } from "../lib/i18n";
-import Navbar from "./Home/Navbar";
 import { Button } from "./ui/button";
 
-interface AIReadinessProps {
-  language?: Language;
-}
-
-const AIReadiness = ({ language = "en" }: AIReadinessProps) => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
-  );
-  const [colorBlindMode, setColorBlindMode] = useState<
-    "none" | "protanopia" | "deuteranopia" | "tritanopia"
-  >("none");
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-      document.documentElement.classList.toggle("dark", e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    document.documentElement.classList.toggle("dark", isDarkMode);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle("dark");
-  };
-
-  const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
-  ) => {
-    document.documentElement.classList.remove(
-      "protanopia",
-      "deuteranopia",
-      "tritanopia",
-    );
-    setColorBlindMode(mode);
-    if (mode !== "none") {
-      document.documentElement.classList.add(mode);
-    }
-  };
+const AIReadiness = ({ language = "en" }: { language: Language }) => {
+  const linkAIReadiness = `https://aireadinessassessment.fillout.com/${language}`;
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Navbar
-        onThemeToggle={toggleTheme}
-        isDarkMode={isDarkMode}
-        onColorBlindToggle={handleColorBlindMode}
-        colorBlindMode={colorBlindMode}
-        language={language}
-        onLanguageChange={(lang) => {}}
-      />
-
       <main className="pt-20">
         <div className="container mx-auto px-4 py-24 flex flex-col  items-center justify-center">
           <h1 className="text-4xl font-bold mb-8 text-center">
@@ -100,11 +49,7 @@ const AIReadiness = ({ language = "en" }: AIReadinessProps) => {
             size="lg"
             className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white mt-8"
           >
-            <a
-              href="https://aireadinessassessment.fillout.com/shortassessment"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={linkAIReadiness} target="_blank" rel="noopener noreferrer">
               Start Assessment
             </a>
           </Button>

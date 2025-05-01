@@ -7,56 +7,8 @@ interface OurProcessProps {
 }
 
 const OurProcess = ({ language = "en" }: OurProcessProps) => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches,
-  );
-  const [colorBlindMode, setColorBlindMode] = useState<
-    "none" | "protanopia" | "deuteranopia" | "tritanopia"
-  >("none");
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-      document.documentElement.classList.toggle("dark", e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    document.documentElement.classList.toggle("dark", isDarkMode);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle("dark");
-  };
-
-  const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
-  ) => {
-    document.documentElement.classList.remove(
-      "protanopia",
-      "deuteranopia",
-      "tritanopia",
-    );
-    setColorBlindMode(mode);
-    if (mode !== "none") {
-      document.documentElement.classList.add(mode);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Navbar
-        onThemeToggle={toggleTheme}
-        isDarkMode={isDarkMode}
-        onColorBlindToggle={handleColorBlindMode}
-        colorBlindMode={colorBlindMode}
-        language={language}
-        onLanguageChange={(lang) => {}}
-      />
-
       <main className="pt-20">
         <div className="container mx-auto px-4 py-24">
           <h1 className="text-4xl font-bold mb-8 text-center">

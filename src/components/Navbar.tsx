@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { Moon, Sun, Menu, X, Eye, Globe, ChevronDown } from "lucide-react";
-import { t, Language } from "../../lib/i18n";
+import { t, Language } from "../lib/i18n";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
-} from "../ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuLink,
-} from "../ui/navigation-menu";
+} from "./ui/navigation-menu";
 import { motion } from "framer-motion";
 import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 import LBLogo from "/images/LB_logo_bg_removed.png";
@@ -29,7 +29,7 @@ interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;

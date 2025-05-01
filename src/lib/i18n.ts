@@ -165,10 +165,10 @@ export const translations: Translations = {
     // Navbar
     "nav.home": "Startseite",
     "nav.howWeWork": "Wie Wir Arbeiten",
-    "nav.aiReadiness": "KI-Bereitschaft",
+    "nav.aiReadiness": "KI-Readiness",
     "nav.ourProcess": "Unser Prozess",
     "nav.ourProjects": "Unsere Projekte",
-    "nav.pricingEngagement": "Preise & Engagement",
+    "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Kontakt",
     "nav.darkMode": "Dunkelmodus",
