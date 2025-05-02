@@ -14,13 +14,6 @@ const VoiceAgent = () => {
     };
   }, []);
 
-  // const clickCalButton = () => {
-  //   const calButton = document.querySelector("cal-floating-button");
-  //   if (calButton) {
-  //     calButton.click();
-  //   }
-  // };
-
   return (
     <>
       <elevenlabs-convai

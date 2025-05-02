@@ -23,13 +23,7 @@ const stylingFunction = ({
   };
 };
 
-const MapChart = ({
-  isDarkMode,
-  language,
-}: {
-  isDarkMode: boolean;
-  language: Language;
-}) => {
+const MapChart = ({ language }: { language: Language }) => {
   const data = [
     { country: "de", value: "" },
     { country: "us", value: "" },
