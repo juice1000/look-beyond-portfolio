@@ -75,10 +75,10 @@ const Navbar = ({
           label: t("nav.projects", language),
           href: "/projects",
         },
-        {
-          label: t("nav.pricingEngagement", language),
-          href: "/pricing-engagement",
-        },
+        // {
+        //   label: t("nav.pricingEngagement", language),
+        //   href: "/pricing-engagement",
+        // },
         { label: t("nav.workshops", language), href: "/workshops" },
       ],
     },
