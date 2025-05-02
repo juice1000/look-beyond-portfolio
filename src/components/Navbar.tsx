@@ -72,8 +72,8 @@ const Navbar = ({
           href: "/our-process",
         },
         {
-          label: t("nav.ourProjects", language),
-          href: "/our-projects",
+          label: t("nav.projects", language),
+          href: "/projects",
         },
         {
           label: t("nav.pricingEngagement", language),

@@ -80,10 +80,7 @@ function App() {
             path="/our-process"
             element={<OurProcess language={language} />}
           />
-          <Route
-            path="/our-projects"
-            element={<Projects language={language} />}
-          />
+          <Route path="/projects" element={<Projects language={language} />} />
           <Route
             path="/pricing-engagement"
             element={<PricingEngagement language={language} />}

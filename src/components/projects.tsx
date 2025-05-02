@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Home/Navbar";
-import { t } from "../lib/i18n";
+import { t, Language } from "../lib/i18n";
 import ProjectShowcase from "./Home/ProjectShowcase";
 
-export default function Projects() {
+export default function Projects({ language }: { language: Language }) {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <main className="pt-32 px-4">
+      <main className="pt-32 px-4 pb-16">
         <div className="w-full mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">

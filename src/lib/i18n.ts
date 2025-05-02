@@ -12,7 +12,7 @@ export const translations: Translations = {
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
     "nav.ourProcess": "Our Process",
-    "nav.ourProjects": "Our Projects",
+    "nav.projects": "Our Projects",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Contact",
@@ -36,7 +36,6 @@ export const translations: Translations = {
     "projects.title": "Our Projects",
     "projects.subtitle":
       "Explore our portfolio of innovative solutions across web, mobile, and AI technologies.",
-    "projects.viewMore": "View More Projects",
     "projects.categories.top": "Top",
     "projects.categories.web": "Web",
     "projects.categories.ai": "AI",
@@ -98,11 +97,6 @@ export const translations: Translations = {
     "ourProcess.step4.title": "Deployment & Support",
     "ourProcess.step4.description":
       "We launch your product and provide ongoing support and maintenance to ensure optimal performance.",
-
-    // Our Projects Section
-    "ourProjects.title": "Our Projects",
-    "ourProjects.description":
-      "Explore our portfolio of innovative solutions across web, mobile, and AI technologies.",
 
     // AI Readiness Section
     "aiReadiness.title": "AI Readiness Assessment",
@@ -167,7 +161,7 @@ export const translations: Translations = {
     "nav.howWeWork": "Wie Wir Arbeiten",
     "nav.aiReadiness": "KI-Readiness",
     "nav.ourProcess": "Unser Prozess",
-    "nav.ourProjects": "Unsere Projekte",
+    "nav.projects": "Unsere Projekte",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Kontakt",
@@ -255,11 +249,6 @@ export const translations: Translations = {
     "ourProcess.step4.description":
       "Wir starten Ihr Produkt und bieten laufenden Support und Wartung, um eine optimale Leistung zu gewährleisten.",
 
-    // Our Projects Section
-    "ourProjects.title": "Unsere Projekte",
-    "ourProjects.description":
-      "Entdecken Sie unser Portfolio innovativer Lösungen in den Bereichen Web, Mobile und KI.",
-
     // AI Readiness Section
     "aiReadiness.title": "KI-Bereitschaftsbewertung",
     "aiReadiness.description":
@@ -322,5 +311,7 @@ export const translations: Translations = {
 export type Language = "en" | "de";
 
 export function t(key: string, lang: Language): string {
+  console.log(`Translating key: ${key} for language: ${lang}`);
+
   return translations[lang][key] || key;
 }
