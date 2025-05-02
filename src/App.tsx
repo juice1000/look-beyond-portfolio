@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
+import { Language } from "./lib/i18n";
 
 import Calendar from "./components/calendar";
 import VoiceAgent from "./components/voiceagent";
@@ -23,7 +24,7 @@ function App() {
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
   >("none");
-  const [language, setLanguage] = useState<"en" | "de">("en");
+  const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Home/Navbar";
 import { Language } from "../lib/i18n";
 import ContactSection from "./Home/ContactSection";
 

@@ -8,7 +8,7 @@ import MapChart from "./Home/MapChart";
 import AISection from "./Home/AISection";
 import CaseStudyCards from "./Home/CaseStudyCards";
 
-const Home = ({ language }: Language) => {
+const Home = ({ language }: { language: Language }) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <main className="pt-20">
