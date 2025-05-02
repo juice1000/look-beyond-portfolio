@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { t, Language } from "../lib/i18n";
-import Navbar from "./Home/Navbar";
 
 interface OurProcessProps {
   language?: Language;

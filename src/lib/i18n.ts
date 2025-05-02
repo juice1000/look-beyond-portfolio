@@ -12,7 +12,6 @@ export const translations: Translations = {
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
     "nav.ourProcess": "Our Process",
-    "nav.projects": "Our Projects",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Contact",
