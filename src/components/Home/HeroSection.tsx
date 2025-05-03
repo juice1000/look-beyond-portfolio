@@ -28,7 +28,7 @@ const HeroSection = ({
   }, [services.length]);
 
   return (
-    <section className="h-screen w-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="h-screen w-full bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ const HeroSection = ({
             size="lg"
             onClick={() => {
               document
-                .getElementById("projects")
+                .getElementById("ai-solutions")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
             className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white"

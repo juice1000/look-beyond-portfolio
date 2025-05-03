@@ -33,7 +33,7 @@ const MapChart = ({ language }: { language: Language }) => {
   ];
 
   return (
-    <section>
+    <section className="py-16 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">
