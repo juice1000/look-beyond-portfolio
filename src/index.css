@@ -76,15 +76,15 @@
 }
 
 .protanopia {
-  filter: url("#protanopia-filter");
+  filter: grayscale(0.3) sepia(0.8) hue-rotate(-45deg);
 }
 
 .deuteranopia {
-  filter: url("#deuteranopia-filter");
+  filter: grayscale(0.3) sepia(0.8) hue-rotate(20deg);
 }
 
 .tritanopia {
-  filter: url("#tritanopia-filter");
+  filter: grayscale(0.3) sepia(0.8) hue-rotate(90deg);
 }
 
 .loader {
