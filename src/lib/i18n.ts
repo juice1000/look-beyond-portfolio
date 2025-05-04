@@ -153,6 +153,10 @@ export const translations: Translations = {
       "Evaluate your current technical architecture and identify opportunities for improvement and modernization.",
     "workshops.workshop3.tag1": "Architecture",
     "workshops.workshop3.tag2": "Optimization",
+
+    // Footer
+    "footer.text":
+      "This website was 90% created by AI - Wanna know how we do this?",
   },
   de: {
     // Navbar
@@ -304,6 +308,10 @@ export const translations: Translations = {
       "Bewerten Sie Ihre aktuelle technische Architektur und identifizieren Sie Möglichkeiten zur Verbesserung und Modernisierung.",
     "workshops.workshop3.tag1": "Architektur",
     "workshops.workshop3.tag2": "Optimierung",
+
+    // Footer
+    "footer.text":
+      "Diese Website wurde fast vollständig von KI erstellt - Möchten Sie wissen, wie wir das machen?",
   },
 };
 
