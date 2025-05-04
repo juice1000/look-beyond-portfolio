@@ -72,7 +72,7 @@ export const translations: Translations = {
     "caseStudies.marketing.title": "Marketing",
     "caseStudies.marketing.painPoint":
       "Struggling to create consistent content at scale",
-    "caseStudies.marketing.kpi": "↑120% content velocity",
+    "caseStudies.marketing.kpi": "↑500% content velocity",
     "caseStudies.sales.title": "Sales",
     "caseStudies.sales.painPoint":
       "Manual lead qualification slowing down pipeline",
@@ -228,7 +228,7 @@ export const translations: Translations = {
     "caseStudies.marketing.title": "Marketing",
     "caseStudies.marketing.painPoint":
       "Schwierigkeiten, konsistente Inhalte in großem Umfang zu erstellen",
-    "caseStudies.marketing.kpi": "↑120% Content-Geschwindigkeit",
+    "caseStudies.marketing.kpi": "↑500% Content-Geschwindigkeit",
     "caseStudies.sales.title": "Vertrieb",
     "caseStudies.sales.painPoint":
       "Manuelle Lead-Qualifizierung verlangsamt die Pipeline",
@@ -318,7 +318,5 @@ export const translations: Translations = {
 export type Language = "en" | "de";
 
 export function t(key: string, lang: Language): string {
-  console.log(`Translating key: ${key} for language: ${lang}`);
-
   return translations[lang][key] || key;
 }

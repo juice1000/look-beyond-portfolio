@@ -22,7 +22,7 @@ const CaseStudyCard = ({
   return (
     <motion.div
       whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer"
+      className="h-44 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer"
       onClick={onClick}
     >
       <div className="p-6">
@@ -33,7 +33,7 @@ const CaseStudyCard = ({
         <Badge className="mb-4 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">
           {kpi}
         </Badge>
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <Button
             variant="ghost"
             className="p-0 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium"
@@ -44,7 +44,7 @@ const CaseStudyCard = ({
           >
             {ctaText} <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );
