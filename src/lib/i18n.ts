@@ -72,7 +72,7 @@ export const translations: Translations = {
     "caseStudies.marketing.title": "Marketing",
     "caseStudies.marketing.painPoint":
       "Struggling to create consistent content at scale",
-    "caseStudies.marketing.kpi": "↑120% content velocity",
+    "caseStudies.marketing.kpi": "↑500% content velocity",
     "caseStudies.sales.title": "Sales",
     "caseStudies.sales.painPoint":
       "Manual lead qualification slowing down pipeline",
@@ -224,7 +224,7 @@ export const translations: Translations = {
     "caseStudies.marketing.title": "Marketing",
     "caseStudies.marketing.painPoint":
       "Schwierigkeiten, konsistente Inhalte in großem Umfang zu erstellen",
-    "caseStudies.marketing.kpi": "↑120% Content-Geschwindigkeit",
+    "caseStudies.marketing.kpi": "↑500% Content-Geschwindigkeit",
     "caseStudies.sales.title": "Vertrieb",
     "caseStudies.sales.painPoint":
       "Manuelle Lead-Qualifizierung verlangsamt die Pipeline",
