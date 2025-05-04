@@ -318,7 +318,5 @@ export const translations: Translations = {
 export type Language = "en" | "de";
 
 export function t(key: string, lang: Language): string {
-  console.log(`Translating key: ${key} for language: ${lang}`);
-
   return translations[lang][key] || key;
 }
