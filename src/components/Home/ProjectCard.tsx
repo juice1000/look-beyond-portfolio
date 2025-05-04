@@ -16,7 +16,7 @@ const ProjectCard: React.FC<Project> = ({
   githubUrl,
 }) => {
   return (
-    <Card className="w-full min-h-[500px] h-[20vh] bg-white dark:bg-gray-800 overflow-hidden group relative transition-all duration-300 hover:shadow-lg">
+    <Card className="w-full h-[260px] bg-white dark:bg-gray-800 overflow-hidden group relative transition-all duration-300 hover:shadow-lg">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${imageUrl})` }}
