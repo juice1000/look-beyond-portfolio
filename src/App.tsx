@@ -58,6 +58,7 @@ function App() {
     setColorBlindMode(mode);
     if (mode !== "none") {
       document.documentElement.classList.add(mode);
+      console.log(`Applied ${mode} mode to document.documentElement`);
     }
   };
 
