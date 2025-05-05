@@ -23,11 +23,6 @@ const Home = ({ language }: { language: Language }) => {
               t("hero.service.4", language),
             ]}
             ctaText={t("hero.cta", language)}
-            onCtaClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
           />
         </section>
         <section id="ai-solutions">

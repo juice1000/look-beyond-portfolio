@@ -16,7 +16,6 @@ const HeroSection = ({
   subtitle = "We help you",
   services = ["Ideate", "Ship", "Scale", "Dominate"],
   ctaText = "Start Your Project",
-  onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
   const [currentServiceIndex, setCurrentServiceIndex] = React.useState(0);
 
@@ -66,9 +65,11 @@ const HeroSection = ({
           <Button
             size="lg"
             onClick={() => {
-              document
-                .getElementById("ai-solutions")
-                ?.scrollIntoView({ behavior: "smooth" });
+              const element = document.getElementById("ai-solutions");
+              if (!element) return;
+              const y =
+                element.getBoundingClientRect().top + window.scrollY - 50;
+              window.scrollTo({ top: y, behavior: "smooth" });
             }}
             className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
           >
