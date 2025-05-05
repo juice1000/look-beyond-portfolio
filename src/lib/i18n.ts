@@ -156,7 +156,7 @@ export const translations: Translations = {
 
     // Footer
     "footer.text":
-      "This website was 90% created by AI - Wanna know how we do this?",
+      "This website was 90% created by AI! Wanna know how we do this?",
   },
   de: {
     // Navbar
@@ -311,7 +311,7 @@ export const translations: Translations = {
 
     // Footer
     "footer.text":
-      "Diese Website wurde fast vollständig von KI erstellt - Möchten Sie wissen, wie wir das machen?",
+      "Diese Website wurde fast vollständig von KI erstellt! Möchten Sie wissen, wie wir das machen?",
   },
 };
 

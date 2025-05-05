@@ -23,16 +23,20 @@ const CaseStudyCard = ({
     <motion.div
       whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
       className="h-44 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer"
-      onClick={onClick}
+      //onClick={onClick}
     >
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          {title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{painPoint}</p>
-        <Badge className="mb-4 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">
-          {kpi}
-        </Badge>
+      <div className="p-6 h-full flex flex-col">
+        <div className="flex-grow">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {title}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300">{painPoint}</p>
+        </div>
+        <div className="mt-auto">
+          <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-medium">
+            {kpi}
+          </Badge>
+        </div>
         {/* <div className="mt-4">
           <Button
             variant="ghost"
