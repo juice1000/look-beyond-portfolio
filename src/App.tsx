@@ -19,43 +19,76 @@ import NotFound from "./pages/NotFound";
 import routes from "tempo-routes";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme !== null) {
+      return savedTheme === "dark";
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
-  >("none");
-  const [language, setLanguage] = useState<Language>("en");
+  >(() => {
+    const savedMode = localStorage.getItem("colorBlindMode") as
+      | "none"
+      | "protanopia"
+      | "deuteranopia"
+      | "tritanopia";
+    return savedMode || "none";
+  });
+
+  const [language, setLanguage] = useState<Language>(() => {
+    const savedLanguage = localStorage.getItem("language") as Language;
+    if (savedLanguage) return savedLanguage;
+
+    // Check browser language and default to German if it starts with 'de', otherwise English
+    const browserLang = navigator.language.toLowerCase();
+    return browserLang.startsWith("de") ? "de" : "en";
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-      document.documentElement.classList.toggle("dark", e.matches);
+      if (localStorage.getItem("theme") === null) {
+        setIsDarkMode(e.matches);
+        document.documentElement.classList.toggle("dark", e.matches);
+      }
     };
 
     mediaQuery.addEventListener("change", handleChange);
     document.documentElement.classList.toggle("dark", isDarkMode);
 
     return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [isDarkMode]);
+
+  // Apply color blind mode on initial load
+  useEffect(() => {
+    if (colorBlindMode !== "none") {
+      document.documentElement.classList.add(colorBlindMode);
+    }
   }, []);
 
   // TODO: This whole navbar toggling functionality doesn't need to sit here
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
     document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia"
+      "tritanopia",
     );
     setColorBlindMode(mode);
+    localStorage.setItem("colorBlindMode", mode);
+
     if (mode !== "none") {
       document.documentElement.classList.add(mode);
       console.log(`Applied ${mode} mode to document.documentElement`);

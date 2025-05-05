@@ -29,7 +29,7 @@ interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;
@@ -42,7 +42,9 @@ const Navbar = ({
   onColorBlindToggle = () => {},
   colorBlindMode = "none",
   language = "en",
-  onLanguageChange = () => {},
+  onLanguageChange = (lang: Language) => {
+    localStorage.setItem("language", lang);
+  },
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
