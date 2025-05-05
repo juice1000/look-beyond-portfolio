@@ -44,7 +44,9 @@ const ContactSection = ({
       alert("Email sent successfully!");
     } catch (error) {
       console.error(error);
-      alert("Failed to send email. Please try again later.");
+      alert(
+        "Failed to send email. Please use the email address displayed in the contact information."
+      );
     }
   };
   return (
