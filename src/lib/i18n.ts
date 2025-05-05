@@ -14,7 +14,8 @@ export const translations: Translations = {
     "nav.ourProcess": "Our Process",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
-    "nav.contact": "Contact",
+    "nav.contact": "Contact Us",
+    "nav.imprint": "Imprint",
     "nav.darkMode": "Dark Mode",
     "nav.lightMode": "Light Mode",
     "nav.normalVision": "Normal Vision",
@@ -157,6 +158,21 @@ export const translations: Translations = {
     // Footer
     "footer.text":
       "This website was 90% created by AI! Wanna know how we do this?",
+    "footer.company": "Company",
+    "footer.services": "Services",
+    "footer.projects": "Projects",
+    "footer.legal": "Legal",
+    "footer.copyright": "All rights reserved.",
+
+    // Imprint
+    "imprint.title": "Imprint",
+    "imprint.company": "Company",
+    "imprint.registrationNumber": "Company Registration Number (UEN)",
+    "imprint.address": "Registered Address",
+    "imprint.managingDirector": "Managing Director",
+    "imprint.contact": "Contact",
+    "imprint.responsible": "Responsible for content",
+    "imprint.sameAddress": "(Same as registered address)",
   },
   de: {
     // Navbar
@@ -168,6 +184,7 @@ export const translations: Translations = {
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Kontakt",
+    "nav.imprint": "Impressum",
     "nav.darkMode": "Dunkelmodus",
     "nav.lightMode": "Hellmodus",
     "nav.normalVision": "Normale Sicht",
@@ -312,6 +329,21 @@ export const translations: Translations = {
     // Footer
     "footer.text":
       "Diese Website wurde fast vollständig von KI erstellt! Möchten Sie wissen, wie wir das machen?",
+    "footer.company": "Unternehmen",
+    "footer.services": "Dienstleistungen",
+    "footer.projects": "Projekte",
+    "footer.legal": "Rechtliches",
+    "footer.copyright": "Alle Rechte vorbehalten.",
+
+    // Imprint
+    "imprint.title": "Impressum",
+    "imprint.company": "Unternehmen",
+    "imprint.registrationNumber": "Handelsregisternummer (UEN)",
+    "imprint.address": "Registrierte Adresse",
+    "imprint.managingDirector": "Geschäftsführer",
+    "imprint.contact": "Kontakt",
+    "imprint.responsible": "Verantwortlich für den Inhalt",
+    "imprint.sameAddress": "(Gleiche Adresse wie oben)",
   },
 };
 

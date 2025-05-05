@@ -12,6 +12,7 @@ import AIReadiness from "./components/AIReadiness";
 import OurProcess from "./components/OurProcess";
 import PricingEngagement from "./components/PricingEngagement";
 import Workshops from "./components/Workshops";
+import Imprint from "./components/Imprint";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
@@ -82,13 +83,13 @@ function App() {
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia"
+      "tritanopia",
     );
     setColorBlindMode(mode);
     localStorage.setItem("colorBlindMode", mode);
@@ -129,6 +130,7 @@ function App() {
             element={<Workshops language={language} />}
           />
           <Route path="/contact" element={<Contact language={language} />} />
+          <Route path="/imprint" element={<Imprint language={language} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
