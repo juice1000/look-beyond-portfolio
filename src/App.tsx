@@ -19,6 +19,11 @@ import NotFound from "./pages/NotFound";
 import routes from "tempo-routes";
 
 function App() {
+  const handleLanguageChange = (newLanguage: Language) => {
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  };
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme !== null) {
@@ -42,9 +47,9 @@ function App() {
     const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage) return savedLanguage;
 
-    // Check browser language and default to German if it starts with 'de', otherwise English
     const browserLang = navigator.language.toLowerCase();
-    return browserLang.startsWith("de") ? "de" : "en";
+    const defaultLanguage = browserLang.startsWith("de") ? "de" : "en";
+    return defaultLanguage;
   });
 
   useEffect(() => {
@@ -69,7 +74,6 @@ function App() {
     }
   }, []);
 
-  // TODO: This whole navbar toggling functionality doesn't need to sit here
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
@@ -78,20 +82,19 @@ function App() {
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia",
+      "tritanopia"
     );
     setColorBlindMode(mode);
     localStorage.setItem("colorBlindMode", mode);
 
     if (mode !== "none") {
       document.documentElement.classList.add(mode);
-      console.log(`Applied ${mode} mode to document.documentElement`);
     }
   };
 
@@ -104,7 +107,7 @@ function App() {
           onColorBlindToggle={handleColorBlindMode}
           colorBlindMode={colorBlindMode}
           language={language}
-          onLanguageChange={setLanguage}
+          onLanguageChange={handleLanguageChange} // Updated to use new handler
         />
         <Routes>
           <Route path="/" element={<Home language={language} />} />

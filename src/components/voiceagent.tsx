@@ -2,26 +2,26 @@ import React, { useEffect } from "react";
 
 const VoiceAgent = () => {
   const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID;
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://elevenlabs.io/convai-widget/index.js";
-    script.async = true;
-    script.type = "text/javascript";
-    document.body.appendChild(script);
+  const WIDGET_SRC = "https://elevenlabs.io/convai-widget/index.js";
 
-    return () => {
-      document.body.removeChild(script);
-    };
+  useEffect(() => {
+    // if we've already injected the widget script, skip
+    if (!document.querySelector(`script[src="${WIDGET_SRC}"]`)) {
+      const script = document.createElement("script");
+      script.src = WIDGET_SRC;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    // no cleanup—leave the script & element definition in place
   }, []);
 
   return (
-    <>
-      <elevenlabs-convai
-        agent-id={agentId}
-        action-text="Having a Tech Problem?"
-        start-call-text="Ask our AI Agent"
-      ></elevenlabs-convai>
-    </>
+    <elevenlabs-convai
+      agent-id={agentId}
+      action-text="Having a Tech Problem?"
+      start-call-text="Ask our AI Agent"
+    />
   );
 };
+
 export default VoiceAgent;
