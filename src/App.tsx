@@ -5,6 +5,10 @@ import Home from "./components/home";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
 import { Language } from "./lib/i18n";
+import {
+  fetchRowById,
+  triggerEmailAutomation,
+} from "./scripts/triggerEmailAutomation";
 
 import Calendar from "./components/calendar";
 import VoiceAgent from "./components/voiceagent";
@@ -77,6 +81,17 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    fetchRowById().then((data) => {
+      if (!data) {
+        console.error("No data found");
+        return;
+      }
+      // Process the fetched data as needed
+      triggerEmailAutomation(data.last_triggered);
+    });
+  }, []);
+
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
@@ -85,13 +100,13 @@ function App() {
   };
 
   const handleColorBlindMode = (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => {
     // Remove all color blind classes first
     document.documentElement.classList.remove(
       "protanopia",
       "deuteranopia",
-      "tritanopia",
+      "tritanopia"
     );
     setColorBlindMode(mode);
     localStorage.setItem("colorBlindMode", mode);
