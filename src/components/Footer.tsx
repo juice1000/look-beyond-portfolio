@@ -109,6 +109,22 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   {t("nav.imprint", language)}
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                >
+                  {t("nav.privacyPolicy", language)}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms-of-use"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                >
+                  {t("nav.termsOfUse", language)}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

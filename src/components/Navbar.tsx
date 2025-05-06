@@ -7,7 +7,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
 } from "./ui/dropdown-menu";
 import {
   NavigationMenu,
@@ -18,12 +17,6 @@ import {
 import { motion } from "framer-motion";
 import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 import LBLogo from "/images/LB_logo_bg_removed.png";
-
-interface NavItem {
-  label: string;
-  href: string;
-  subItems?: NavItem[];
-}
 
 interface NavbarProps {
   onThemeToggle?: () => void;
@@ -86,6 +79,7 @@ const Navbar = ({
     },
     { label: t("nav.contact", language), href: "/contact" },
     // { label: t("nav.imprint", language), href: "/imprint" },
+    // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
   ];
 
   return (

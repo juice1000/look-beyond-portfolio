@@ -13,6 +13,8 @@ import OurProcess from "./components/OurProcess";
 import PricingEngagement from "./components/PricingEngagement";
 import Workshops from "./components/Workshops";
 import Imprint from "./components/Imprint";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfUse from "./components/TermsOfUse";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
@@ -131,6 +133,14 @@ function App() {
           />
           <Route path="/contact" element={<Contact language={language} />} />
           <Route path="/imprint" element={<Imprint language={language} />} />
+          <Route
+            path="/privacy-policy"
+            element={<PrivacyPolicy language={language} />}
+          />
+          <Route
+            path="/terms-of-use"
+            element={<TermsOfUse language={language} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
