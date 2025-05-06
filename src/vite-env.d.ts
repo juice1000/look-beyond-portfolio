@@ -6,6 +6,10 @@ declare namespace JSX {
       "agent-id"?: string;
       "action-text"?: string;
       "start-call-text"?: string;
+      variant?: string;
+      onClick: () => void;
+      expandable?: string;
+      "data-voice-id"?: string;
     };
   }
 }
