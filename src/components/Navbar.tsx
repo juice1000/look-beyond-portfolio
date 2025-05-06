@@ -17,12 +17,13 @@ import {
 import { motion } from "framer-motion";
 import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 import LBLogo from "/images/LB_logo_bg_removed.png";
+import { useLocation } from "react-router-dom";
 
 interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;
@@ -39,23 +40,31 @@ const Navbar = ({
     localStorage.setItem("language", lang);
   },
 }: NavbarProps) => {
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
-  console.log("path", window.location.pathname);
-  console.log("activeItem", activeItem);
-  
-  
+
   useEffect(() => {
-    const path = window.location.pathname;
+    const path = location.pathname;
     // find the id from the path set the label as active item
-    console.log("path", path);
     if (path === "/") {
       setActiveItem(t("nav.home", language));
     } else {
-      const navItem = navItems.find((item) => item.href === path)?.label;
-      setActiveItem(navItem);
+      const navItem = navItems.find((item) => {
+        if (item.subItems) {
+          return item.subItems.some((subItem) => subItem.href === path);
+        }
+        return item.href === path;
+      });
+
+      if (navItem?.subItems) {
+        const subItem = navItem.subItems.find((item) => item.href === path);
+        setActiveItem(subItem?.label || "");
+      } else {
+        setActiveItem(navItem?.label || "");
+      }
     }
-  }, []);
+  }, [location.pathname, language]);
 
   const navItems = [
     { label: t("nav.home", language), href: "/" },

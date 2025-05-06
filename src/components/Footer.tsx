@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { t, Language } from "../lib/i18n";
 
 interface FooterProps {
@@ -7,6 +7,12 @@ interface FooterProps {
 }
 
 const Footer = ({ language = "en" }: FooterProps) => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string, label: string) => {
+    navigate(path);
+  };
+
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 py-8 px-4">
       <div className="container mx-auto">
@@ -21,6 +27,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/"
+                  onClick={() => handleNavigation("/", t("nav.home", language))}
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.home", language)}
@@ -29,6 +36,12 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/our-process"
+                  onClick={() =>
+                    handleNavigation(
+                      "/our-process",
+                      t("nav.ourProcess", language)
+                    )
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.ourProcess", language)}
@@ -37,6 +50,9 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/contact"
+                  onClick={() =>
+                    handleNavigation("/contact", t("nav.contact", language))
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.contact", language)}
@@ -54,6 +70,12 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/ai-readiness"
+                  onClick={() =>
+                    handleNavigation(
+                      "/ai-readiness",
+                      t("nav.aiReadiness", language)
+                    )
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.aiReadiness", language)}
@@ -62,6 +84,9 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/workshops"
+                  onClick={() =>
+                    handleNavigation("/workshops", t("nav.workshops", language))
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.workshops", language)}
@@ -70,6 +95,12 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/pricing-engagement"
+                  onClick={() =>
+                    handleNavigation(
+                      "/pricing-engagement",
+                      t("nav.pricingEngagement", language)
+                    )
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.pricingEngagement", language)}
@@ -87,6 +118,9 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/projects"
+                  onClick={() =>
+                    handleNavigation("/projects", t("nav.projects", language))
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.projects", language)}
@@ -104,6 +138,9 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/imprint"
+                  onClick={() =>
+                    handleNavigation("/imprint", t("nav.imprint", language))
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.imprint", language)}
@@ -112,6 +149,12 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/privacy-policy"
+                  onClick={() =>
+                    handleNavigation(
+                      "/privacy-policy",
+                      t("nav.privacyPolicy", language)
+                    )
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.privacyPolicy", language)}
@@ -120,6 +163,12 @@ const Footer = ({ language = "en" }: FooterProps) => {
               <li>
                 <Link
                   to="/terms-of-use"
+                  onClick={() =>
+                    handleNavigation(
+                      "/terms-of-use",
+                      t("nav.termsOfUse", language)
+                    )
+                  }
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.termsOfUse", language)}
