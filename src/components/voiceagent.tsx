@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 const VoiceAgent = () => {
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
   const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID;
   const WIDGET_SRC = "https://elevenlabs.io/convai-widget/index.js";
 
@@ -20,6 +23,7 @@ const VoiceAgent = () => {
       agent-id={agentId}
       action-text="Having a Tech Problem?"
       start-call-text="Ask our AI Agent"
+      variant={isMobile ? "compact" : "default"}
     />
   );
 };
