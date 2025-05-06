@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { t, Language } from "../lib/i18n";
 import HeroSection from "./Home/HeroSection";
 
-import projectsData from "../data/projects.json";
 import MapChart from "./Home/MapChart";
 import AISection from "./Home/AISection";
 import CaseStudyCards from "./Home/CaseStudyCards";
