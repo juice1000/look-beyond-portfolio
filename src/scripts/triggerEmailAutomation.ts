@@ -20,7 +20,7 @@ export async function fetchRowById() {
   }
 }
 
-export async function triggerEmailAutomation(last_triggered: string): void {
+export async function triggerEmailAutomation(last_triggered: string) {
   const lastTriggeredDate = new Date(last_triggered);
   const currentDate = new Date();
   const timeDifference = currentDate.getTime() - lastTriggeredDate.getTime();
@@ -34,17 +34,15 @@ export async function triggerEmailAutomation(last_triggered: string): void {
     );
 
     // Update the last_triggered date in the database
-    updateRowById({
-      last_triggered: currentDate.toISOString(),
-    });
+    updateRowById(currentDate.toISOString());
   }
 }
 
-export async function updateRowById(newData: Record<string>) {
+export async function updateRowById(newDate: string) {
   try {
     const { data, error } = await supabase
       .from("time_trigger")
-      .update(newData)
+      .update({ last_triggered: newDate })
       .eq("id", 1);
 
     if (error) {
