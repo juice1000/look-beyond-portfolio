@@ -41,10 +41,14 @@ const Navbar = ({
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
-
+  console.log("path", window.location.pathname);
+  console.log("activeItem", activeItem);
+  
+  
   useEffect(() => {
     const path = window.location.pathname;
     // find the id from the path set the label as active item
+    console.log("path", path);
     if (path === "/") {
       setActiveItem(t("nav.home", language));
     } else {
