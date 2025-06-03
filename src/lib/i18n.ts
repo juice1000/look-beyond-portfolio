@@ -175,6 +175,8 @@ export const translations: Translations = {
     "imprint.contact": "Contact",
     "imprint.responsible": "Responsible for content",
     "imprint.sameAddress": "(Same as registered address)",
+
+    phone: "+65 0161 267",
   },
   de: {
     // Navbar
@@ -348,6 +350,8 @@ export const translations: Translations = {
     "imprint.contact": "Kontakt",
     "imprint.responsible": "Verantwortlich für den Inhalt",
     "imprint.sameAddress": "(Gleiche Adresse wie oben)",
+
+    phone: "+49 157 3867 3535",
   },
 };
 

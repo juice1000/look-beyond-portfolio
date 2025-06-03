@@ -11,7 +11,7 @@ export default function Contact({ language = "en" }: { language?: Language }) {
           <ContactSection
             language={language}
             contactInfo={{
-              phone: "+65 8016 1267",
+              phone: {t("phone", language)},
               email: "contact@lookbeyond.sg",
               address: "Midview City, Singapore",
             }}

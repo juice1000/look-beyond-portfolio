@@ -52,7 +52,10 @@ export default function Imprint({ language }: ImprintProps) {
             <p className="text-gray-700 dark:text-gray-300">
               ✉️ contact@lookbeyond.sg
             </p>
-            <p className="text-gray-700 dark:text-gray-300">📞 +65 80161267</p>
+
+            <p className="text-gray-700 dark:text-gray-300">
+              📞 {t("phone", language)}
+            </p>
           </section>
         </div>
       </div>
