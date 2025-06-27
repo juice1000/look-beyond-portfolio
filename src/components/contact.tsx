@@ -13,7 +13,6 @@ export default function Contact({ language = "en" }: { language?: Language }) {
             contactInfo={{
               phone: t("phone", language),
               email: "contact@lookbeyond.sg",
-              address: "Midview City, Singapore",
             }}
           />
         </div>

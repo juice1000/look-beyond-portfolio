@@ -55,6 +55,8 @@ export const translations: Translations = {
     "contact.info.phone": "Phone",
     "contact.info.email": "Email",
     "contact.info.address": "Address",
+    "contact.info.map":
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.696832660774!2d103.8309802756972!3d1.3585276986286259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1785a6611061%3A0x20e7cf0f0b8c8095!2sLook%20Beyond%20Solutions%20Pte.%20Ltd.!5e0!3m2!1sen!2ssg!4v1735837964291!5m2!1sen!2ssg",
 
     "map.title": "Operating across the globe",
     "map.subtitle":
@@ -168,11 +170,17 @@ export const translations: Translations = {
 
     // Imprint
     "imprint.title": "Imprint",
-    "imprint.company": "Company",
-    "imprint.registrationNumber": "Company Registration Number (UEN)",
-    "imprint.address": "Registered Address",
-    "imprint.managingDirector": "Managing Director",
-    "imprint.contact": "Contact",
+    "imprint.company.title": "Company",
+    "imprint.company": "Look Beyond Solutions Pte. Ltd.",
+    "imprint.registrationNumber.title": "Company Registration Number (UEN)",
+    "imprint.registrationNumber": "202439104D",
+    "imprint.address.title": "Registered Address",
+    "imprint.address":
+      "22 Sin Ming Lane #06-76, Midview City, 573969 Singapore",
+    "imprint.managingDirector.title": "Managing Director",
+    "imprint.managingDirector": "Julien Look",
+    "imprint.contact.title": "Contact",
+    "imprint.contact": "contact@lookbeyond.sg",
     "imprint.responsible": "Responsible for content",
     "imprint.sameAddress": "(Same as registered address)",
 
@@ -230,6 +238,8 @@ export const translations: Translations = {
     "contact.info.phone": "Telefon",
     "contact.info.email": "E-Mail",
     "contact.info.address": "Adresse",
+    "contact.info.map":
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.5683948771793!2d13.425865077217276!3d52.48694997205244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84fb74c589cbb%3A0x73a2a17968909a22!2sSonnenallee%2023%2C%2012047%20Berlin!5e0!3m2!1sen!2sde!4v1751023037751!5m2!1sen!2sde",
 
     "map.title": "Weltweit im Einsatz",
     "map.subtitle":
@@ -343,15 +353,21 @@ export const translations: Translations = {
 
     // Imprint
     "imprint.title": "Impressum",
-    "imprint.company": "Unternehmen",
-    "imprint.registrationNumber": "Handelsregisternummer (UEN)",
-    "imprint.address": "Registrierte Adresse",
-    "imprint.managingDirector": "Geschäftsführer",
-    "imprint.contact": "Kontakt",
+    "imprint.company.title": "Unternehmen",
+    "imprint.company": "Look Beyond Solutions Pte. Ltd.",
+    "imprint.registrationNumber.title": "Firmenregistierungsnummer (UEN)",
+    "imprint.registrationNumber": "202439104D",
+    "imprint.address.title": "Registrierte Adresse",
+    "imprint.address":
+      "22 Sin Ming Lane #06-76, Midview City, 573969 Singapore",
+    "imprint.managingDirector.title": "Geschäftsführer",
+    "imprint.managingDirector": "Julien Look",
+    "imprint.contact.title": "Kontakt",
+    "imprint.contact": "contact@lookbeyond.sg",
     "imprint.responsible": "Verantwortlich für den Inhalt",
-    "imprint.sameAddress": "(Gleiche Adresse wie oben)",
+    "imprint.sameAddress": "Julien Look",
 
-    phone: "+49 157 3867 3535",
+    phone: "+49 160 9585 0537",
   },
 };
 

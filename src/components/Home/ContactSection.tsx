@@ -28,7 +28,6 @@ const ContactSection = ({
   contactInfo = {
     phone: "+65 8016 1267",
     email: "contact@lookbeyond.sg",
-    address: "Midview City, Singapore",
   },
   language = "en",
 }: ContactSectionProps) => {
@@ -164,7 +163,7 @@ const ContactSection = ({
                   </div>
                 </a>
 
-                <div className="flex items-center space-x-4">
+                {/* <div className="flex items-center space-x-4">
                   <MapPin className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-medium">
@@ -174,18 +173,18 @@ const ContactSection = ({
                       {contactInfo.address}
                     </p>
                   </div>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
 
             {/* Map placeholder */}
             <Card className="p-0 overflow-hidden bg-white dark:bg-gray-800">
-              <div className="h-[200px] bg-gray-200 dark:bg-gray-700">
+              <div className="h-[275px] bg-gray-200 dark:bg-gray-700">
                 <iframe
                   title="Maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.696832660774!2d103.8309802756972!3d1.3585276986286259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1785a6611061%3A0x20e7cf0f0b8c8095!2sLook%20Beyond%20Solutions%20Pte.%20Ltd.!5e0!3m2!1sen!2ssg!4v1735837964291!5m2!1sen!2ssg"
+                  src={t("contact.info.map", language)}
                   width="100%"
-                  height="200"
+                  height="275"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"

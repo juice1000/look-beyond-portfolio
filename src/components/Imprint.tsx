@@ -15,42 +15,50 @@ export default function Imprint({ language }: ImprintProps) {
         <div className="prose dark:prose-invert max-w-none">
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              {t("imprint.company.title", language)}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              {" "}
               {t("imprint.company", language)}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              Look Beyond Solutions Pte. Ltd.
             </p>
           </section>
 
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              {t("imprint.registrationNumber.title", language)}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              {" "}
               {t("imprint.registrationNumber", language)}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">202439104D</p>
-          </section>
-
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              {t("imprint.address", language)}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              22 Sin Ming Lane #06-76, Midview City, 573969 Singapore
             </p>
           </section>
 
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              {t("imprint.address.title", language)}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              {t("imprint.address", language)}
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              {t("imprint.managingDirector.title", language)}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              {" "}
               {t("imprint.managingDirector", language)}
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              {t("imprint.contact.title", language)}
             </h2>
             <p className="text-gray-700 dark:text-gray-300">Julien Look</p>
-          </section>
-
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              {t("imprint.contact", language)}
-            </h2>
             <p className="text-gray-700 dark:text-gray-300">
-              ✉️ contact@lookbeyond.sg
+              ✉️ {t("imprint.contact", language)}
             </p>
 
             <p className="text-gray-700 dark:text-gray-300">

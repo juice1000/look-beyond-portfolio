@@ -26,11 +26,6 @@ import NotFound from "./pages/NotFound";
 import routes from "tempo-routes";
 
 function App() {
-  const handleLanguageChange = (newLanguage: Language) => {
-    setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
-  };
-
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme !== null) {
@@ -58,6 +53,11 @@ function App() {
     const defaultLanguage = browserLang.startsWith("de") ? "de" : "en";
     return defaultLanguage;
   });
+
+  const handleLanguageChange = (newLanguage: Language) => {
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  };
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
