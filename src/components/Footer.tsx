@@ -180,9 +180,6 @@ const Footer = ({ language = "en" }: FooterProps) => {
 
         {/* Copyright */}
         <div className="border-t border-gray-200 dark:border-gray-700 pt-6 text-center">
-          <p className="text-gray-700 dark:text-gray-300">
-            {t("footer.text", language)}
-          </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
             © {new Date().getFullYear()} {t("footer.copyright", language)}
           </p>

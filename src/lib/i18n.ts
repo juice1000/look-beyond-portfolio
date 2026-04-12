@@ -160,8 +160,6 @@ export const translations: Translations = {
     "workshops.workshop3.tag2": "Optimization",
 
     // Footer
-    "footer.text":
-      "This website was 90% created by AI! Wanna know how we do this?",
     "footer.company": "Company",
     "footer.services": "Services",
     "footer.projects": "Projects",
@@ -343,8 +341,6 @@ export const translations: Translations = {
     "workshops.workshop3.tag2": "Optimierung",
 
     // Footer
-    "footer.text":
-      "Diese Website wurde fast vollständig von KI erstellt! Möchten Sie wissen, wie wir das machen?",
     "footer.company": "Unternehmen",
     "footer.services": "Dienstleistungen",
     "footer.projects": "Projekte",
