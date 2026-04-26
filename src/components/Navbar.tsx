@@ -15,8 +15,6 @@ import {
   NavigationMenuLink,
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
-import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
-import LBLogo from "/images/LB_logo_bg_removed.png";
 import { useLocation } from "react-router-dom";
 
 interface NavbarProps {
@@ -76,40 +74,39 @@ const Navbar = ({
   }, [location.pathname, language]);
 
   const navItems: NavItem[] = [
-    { label: t("nav.system", language), href: "/#system" },
+    { label: t("nav.solutions", language), href: "/#solutions" },
     { label: t("nav.industries", language), href: "/#industries" },
-    { label: t("nav.agents", language), href: "/#agents" },
-    { label: t("nav.security", language), href: "/#security" },
-    { label: t("nav.proof", language), href: "/#proof" },
-    { label: t("nav.contact", language), href: "/contact" },
+    { label: t("nav.process", language), href: "/#process" },
+    { label: t("nav.projects", language), href: "/#proof" },
     // { label: t("nav.imprint", language), href: "/imprint" },
     // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full h-28 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-50">
+    <nav className="fixed top-0 z-50 h-16 w-full border-b border-[#0f1e35] bg-[#060b18]/95 backdrop-blur-md">
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center">
-            <img
-              className="h-28 w-auto"
-              src={isDarkMode ? LBLogoWhite : LBLogo}
-              alt="Logo"
-            />
+          <a href="/" className="flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-white font-mono text-xs font-bold text-[#060b18]">
+              LB
+            </span>
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-white">
+              Look Beyond
+            </span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-12">
+        <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
-            <NavigationMenuList className="space-x-8">
+            <NavigationMenuList className="space-x-5">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.label}>
                   {item.subItems ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <button className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors flex items-center gap-1">
+                        <button className="relative flex items-center gap-1 px-2 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300">
                           {item.label}
                           <ChevronDown size={16} />
                           {activeItem === item.label && (
@@ -141,7 +138,7 @@ const Navbar = ({
                     <NavigationMenuLink
                       href={item.href}
                       onClick={() => setActiveItem(item.label)}
-                      className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                      className="relative px-2 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300"
                     >
                       {item.label}
                       {activeItem === item.label && (
@@ -161,12 +158,20 @@ const Navbar = ({
           </NavigationMenu>
 
           <div className="flex gap-2">
+            <Button
+              className="rounded-sm bg-blue-600 px-4 font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-blue-700"
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            >
+              Book a call
+            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
                   size="icon"
-                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -204,7 +209,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -270,7 +275,7 @@ const Navbar = ({
               variant="outline"
               size="icon"
               onClick={onThemeToggle}
-              className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
             >
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -290,6 +295,7 @@ const Navbar = ({
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -303,14 +309,14 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden absolute top-28 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+          className="absolute left-0 right-0 top-16 border-b border-[#0f1e35] bg-[#060b18] md:hidden"
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
               <div key={item.label}>
                 <a
                   href={item.href}
-                  className="block py-3 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                  className="block py-3 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
                   onClick={() => {
                     setActiveItem(item.label);
                     setIsMobileMenuOpen(false);
@@ -324,7 +330,7 @@ const Navbar = ({
                       <a
                         key={subItem.label}
                         href={subItem.href}
-                        className="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        className="block py-2 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
                         onClick={() => {
                           setActiveItem(subItem.label);
                           setIsMobileMenuOpen(false);
@@ -337,6 +343,13 @@ const Navbar = ({
                 )}
               </div>
             ))}
+            <a
+              href="/contact"
+              className="mt-3 block rounded-sm bg-blue-600 px-4 py-3 text-center font-mono text-xs font-semibold uppercase tracking-wide text-white"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Book a call
+            </a>
             <div className="py-3">
               <Button
                 variant="ghost"

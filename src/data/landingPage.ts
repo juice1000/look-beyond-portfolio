@@ -20,12 +20,16 @@ export interface LandingPageContent {
     subheadline: string;
     supportingLine: string;
     primaryCta: string;
-    secondaryCta: string;
     pipeline: Array<{
       label: string;
       items: string[];
     }>;
+    ticker: string[];
   };
+  kpis: Array<{
+    value: string;
+    label: string;
+  }>;
   problems: {
     heading: string;
     items: Array<{
@@ -80,14 +84,13 @@ export interface LandingPageContent {
 
 const englishContent: LandingPageContent = {
   hero: {
-    eyebrow: "AI workflow systems for real operations",
-    headline: "Secure AI workflow systems for operational teams",
+    headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "We help logistics, manufacturing, and procurement-heavy teams turn fragmented documents, emails, spreadsheets, and business tools into structured AI-assisted pipelines.",
+      "Autonomous agents, knowledge retrieval, data pipelines and AI security - production systems for operational workflows.",
     supportingLine:
       "Instead of isolated chatbots or one-off automations, we build connected systems where specialized agents extract, classify, route, draft, validate, and escalate work under clear security and review controls.",
-    primaryCta: "Map an automation opportunity",
-    secondaryCta: "Explore industry workflows",
+
+    primaryCta: "Start your process",
     pipeline: [
       {
         label: "Inputs",
@@ -127,7 +130,20 @@ const englishContent: LandingPageContent = {
         ],
       },
     ],
+    ticker: [
+      "AI workflow systems",
+      "Knowledge retrieval",
+      "Document-to-data pipelines",
+      "AI stability and security",
+      "Human review controls",
+    ],
   },
+  kpis: [
+    { value: "1", label: "workflow first" },
+    { value: "3", label: "focus industries" },
+    { value: "4", label: "system pillars" },
+    { value: "Built-in", label: "review and monitoring" },
+  ],
   problems: {
     heading:
       "Operations teams are stuck between fragmented tools and unreliable automation.",
@@ -155,35 +171,30 @@ const englishContent: LandingPageContent = {
     ],
   },
   system: {
-    eyebrow: "Core system",
-    heading: "One base system. Multiple operational workflows.",
+    eyebrow: "Core capabilities",
+    heading: "Four pillars of operational AI",
     description:
       "We do not only build individual agents. We build the workflow layer that makes agents useful, controlled, and reliable across real operational processes.",
     layers: [
       {
-        title: "Connect",
+        title: "AI workflow systems",
         description:
-          "Connect documents, inboxes, databases, ERPs, CRMs, spreadsheets, and knowledge sources.",
+          "Connected pipelines that classify, route, validate, approve, and log operational work.",
       },
       {
-        title: "Structure",
+        title: "Knowledge retrieval",
         description:
-          "Turn unstructured operational inputs into clean, usable data with source context preserved.",
+          "Permission-aware retrieval across documents, SOPs, inboxes, and company knowledge.",
       },
       {
-        title: "Orchestrate",
+        title: "Document-to-data pipelines",
         description:
-          "Route work through specialized agents, tools, and human decision points.",
+          "Extraction and structuring for PDFs, emails, spreadsheets, contracts, and ERP exports.",
       },
       {
-        title: "Secure",
+        title: "AI stability and security",
         description:
-          "Apply permissions, review steps, evaluations, monitoring, and audit logs.",
-      },
-      {
-        title: "Improve",
-        description:
-          "Track outcomes and improve workflows over time using real exceptions and operator feedback.",
+          "Evaluations, monitoring, access controls, audit trails, and human review paths.",
       },
     ],
   },
@@ -194,30 +205,27 @@ const englishContent: LandingPageContent = {
       "The base system stays consistent. The inputs, exception paths, review steps, and use cases change by industry.",
     workflows: [
       {
-        id: "logistics",
-        label: "Logistics",
-        accent: "teal",
+        id: "procurement",
+        label: "Procurement",
+        accent: "violet",
         problem:
-          "Shipment teams manage high-volume status requests, document handoffs, carrier follow-ups, and exceptions across disconnected channels.",
-        positioning:
-          "Automate shipment document handling, customer status requests, carrier coordination, and exception triage.",
+          "Procurement teams move requests, supplier context, quotes, policies, approvals, and spend data through manual comparison and follow-up.",
+        positioning: "Control supplier risk. Automate procurement intake.",
         workflow: [
-          "Customer email",
-          "Identify shipment",
-          "Retrieve status",
-          "Draft response",
-          "Flag exception",
-          "Human approval",
-          "Log update",
+          "Purchase request",
+          "Check policy",
+          "Extract requirements",
+          "Match suppliers",
+          "Compare quotes",
+          "Route approval",
         ],
         useCases: [
-          "Shipment status request automation",
-          "Bill of lading, delivery order, and invoice extraction",
-          "Carrier and vendor coordination",
-          "Exception triage",
-          "Customer communication drafting",
+          "Procurement intake assistant",
+          "Supplier risk scoring",
+          "Quote comparison workflow",
+          "Contract anomaly detection",
         ],
-        cta: "Discuss a logistics workflow",
+        cta: "Discuss procurement workflow",
       },
       {
         id: "manufacturing",
@@ -225,8 +233,7 @@ const englishContent: LandingPageContent = {
         accent: "amber",
         problem:
           "Production, quality, maintenance, and supplier workflows depend on reports, SOPs, handoffs, and recurring operational judgment.",
-        positioning:
-          "Automate production, quality, supplier, and maintenance workflows with AI-assisted operational pipelines.",
+        positioning: "Reduce production friction. Structure quality work.",
         workflow: [
           "Quality issue report",
           "Classify defect",
@@ -239,35 +246,32 @@ const englishContent: LandingPageContent = {
           "Quality issue triage",
           "Supplier follow-up workflows",
           "Production report structuring",
-          "Maintenance knowledge assistant",
-          "Work instruction retrieval",
+          "Maintenance knowledge retrieval",
         ],
-        cta: "Discuss a manufacturing workflow",
+        cta: "Discuss manufacturing workflow",
       },
       {
-        id: "procurement",
-        label: "Procurement",
-        accent: "violet",
+        id: "logistics",
+        label: "Logistics",
+        accent: "teal",
         problem:
-          "Procurement teams move requests, supplier context, quotes, policies, approvals, and spend data through manual comparison and follow-up.",
-        positioning:
-          "Automate procurement intake, supplier comparison, quote analysis, and approval routing.",
+          "Shipment teams manage high-volume status requests, document handoffs, carrier follow-ups, and exceptions across disconnected channels.",
+        positioning: "Route work smarter. Respond faster.",
         workflow: [
-          "Purchase request",
-          "Check policy",
-          "Extract requirements",
-          "Match suppliers",
-          "Compare quotes",
-          "Route approval",
+          "Customer email",
+          "Identify shipment",
+          "Retrieve status",
+          "Draft response",
+          "Flag exception",
+          "Human approval",
         ],
         useCases: [
-          "Procurement intake assistant",
-          "Supplier quote comparison",
-          "Invoice, PO, and contract extraction",
-          "Spend classification",
-          "Approval workflow routing",
+          "Shipment status request automation",
+          "Delivery order and invoice extraction",
+          "Carrier coordination",
+          "Exception handler",
         ],
-        cta: "Discuss a procurement workflow",
+        cta: "Discuss logistics workflow",
       },
     ],
   },
@@ -357,14 +361,14 @@ const germanContent: LandingPageContent = {
   hero: {
     ...englishContent.hero,
     eyebrow: "KI-Workflow-Systeme fur reale Operations",
-    headline: "Sichere KI-Workflow-Systeme fur operative Teams",
+    headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
       "Wir helfen Logistik-, Fertigungs- und Beschaffungsteams, fragmentierte Dokumente, E-Mails, Tabellen und Business-Tools in strukturierte KI-gestutzte Pipelines zu verwandeln.",
     supportingLine:
       "Statt isolierter Chatbots oder einzelner Automationen bauen wir verbundene Systeme, in denen spezialisierte Agenten extrahieren, klassifizieren, routen, entwerfen, validieren und eskalieren - mit klaren Sicherheits- und Review-Kontrollen.",
-    primaryCta: "Automatisierungspotenzial mappen",
-    secondaryCta: "Branchen-Workflows ansehen",
+    primaryCta: "Discovery Call buchen",
   },
+  kpis: englishContent.kpis,
   problems: {
     heading:
       "Operations-Teams stecken zwischen fragmentierten Tools und unzuverlassiger Automatisierung fest.",

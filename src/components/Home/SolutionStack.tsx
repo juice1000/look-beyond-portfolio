@@ -29,38 +29,49 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
     ];
 
   return (
-    <section id="system" className="py-16 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="solutions" className="border-b border-gray-200 bg-white py-10 dark:border-gray-800 dark:bg-gray-950">
+      <div className="max-w-7xl mx-auto px-4">
         {system?.eyebrow && (
           <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
             {system.eyebrow}
           </p>
         )}
-        <div className="max-w-4xl mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">
             {system?.heading || t("solutions.title", language)}
-          </h2>
-          {system?.description && (
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {system.description}
-            </p>
-          )}
+            </h2>
+            {system?.description && (
+              <p className="max-w-3xl text-base text-gray-600 dark:text-gray-300">
+                {system.description}
+              </p>
+            )}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 border-t border-gray-200 md:grid-cols-4 dark:border-gray-800">
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="p-5 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+              className={`flex min-h-56 flex-col border-b border-r border-gray-200 p-6 dark:border-gray-800 ${
+                index === 0
+                  ? "bg-blue-50 dark:bg-blue-950/20"
+                  : "bg-white dark:bg-gray-950"
+              }`}
             >
-              <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">
-                Layer {index + 1}
+              <p className="text-xs font-semibold font-mono text-blue-600 dark:text-blue-400 mb-4">
+                {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
                 {item.description}
               </p>
+              <div className="mt-auto flex justify-end pt-6">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600">
+                  →
+                </span>
+              </div>
             </div>
           ))}
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import MonitoringAnimation, { useMonitoringTime } from "./MonitoringAnimation";
 
 interface HeroSectionProps {
   eyebrow?: string;
@@ -10,13 +11,16 @@ interface HeroSectionProps {
   supportingLine?: string;
   services?: string[];
   ctaText?: string;
-  secondaryCtaText?: string;
   pipeline?: Array<{
     label: string;
     items: string[];
   }>;
+  ticker?: string[];
+  kpis?: Array<{
+    value: string;
+    label: string;
+  }>;
   onCtaClick?: () => void;
-  onSecondaryCtaClick?: () => void;
 }
 
 const HeroSection = ({
@@ -26,12 +30,13 @@ const HeroSection = ({
   supportingLine,
   services = ["Ideate", "Ship", "Scale", "Dominate"],
   ctaText = "Start Your Project",
-  secondaryCtaText,
   pipeline,
+  ticker = [],
+  kpis = [],
   onCtaClick,
-  onSecondaryCtaClick,
 }: HeroSectionProps) => {
   const [currentServiceIndex, setCurrentServiceIndex] = React.useState(0);
+  const time = useMonitoringTime();
 
   React.useEffect(() => {
     if (!services.length) return;
@@ -49,137 +54,116 @@ const HeroSection = ({
   };
 
   return (
-    <section className="min-h-[calc(100vh-7rem)] w-full bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center px-4 sm:px-6 lg:px-8 py-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
-        <div className="text-left">
-          {eyebrow && (
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
+    <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden border-b border-[#0f1e35] bg-[#060b18] text-white">
+      <div className="flex min-h-[calc(100vh-4rem)] flex-col lg:flex-row">
+        <div className="relative z-10 flex w-full flex-shrink-0 flex-col justify-center border-b border-[#0f1e35] px-5 py-12 sm:px-8 md:px-12 lg:w-[29rem] lg:border-b-0 lg:border-r lg:py-0">
+          <div className="pointer-events-none absolute left-[10%] top-[30%] h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
+
+          <div className="relative">
+            {eyebrow && (
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mb-6 inline-flex items-center gap-2 rounded-sm border border-blue-500/40 px-3 py-1.5 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-blue-500"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                {eyebrow}
+              </motion.p>
+            )}
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300 mb-6"
+              transition={{ duration: 0.5 }}
+              className="mb-4 whitespace-pre-line text-4xl font-bold leading-[1.08] tracking-normal text-slate-100 sm:text-5xl lg:text-4xl"
             >
-              <ShieldCheck className="h-4 w-4" />
-              {eyebrow}
-            </motion.p>
-          )}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
-          >
-            {title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 mb-5 max-w-3xl"
-          >
-            {subtitle}
-          </motion.p>
-          {supportingLine ? (
+              {title}
+            </motion.h1>
+            <div className="mb-5 h-1 w-8 rounded-full bg-blue-600" />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="mb-7 max-w-sm text-sm leading-7 text-[#4a6a8a] sm:text-base"
             >
-              {supportingLine}
+              {subtitle}
             </motion.p>
-          ) : (
-            <div className="h-20 mb-8">
-              <motion.div
-                key={currentServiceIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="sm:text-5xl font-semibold text-blue-600 dark:text-blue-400"
-              >
-                {services[currentServiceIndex]}
-              </motion.div>
-            </div>
-          )}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="flex flex-col sm:flex-row gap-3"
-          >
-            <Button
-              size="lg"
-              onClick={() =>
-                onCtaClick ? onCtaClick() : scrollToSection("contact")
-              }
-              className="text-base px-6 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
+            {!supportingLine && (
+              <div className="h-20 mb-8">
+                <motion.div
+                  key={currentServiceIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-semibold text-blue-500 sm:text-5xl"
+                >
+                  {services[currentServiceIndex]}
+                </motion.div>
+              </div>
+            )}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="mb-9 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row"
             >
-              {ctaText}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            {secondaryCtaText && (
               <Button
                 size="lg"
-                variant="outline"
                 onClick={() =>
-                  onSecondaryCtaClick
-                    ? onSecondaryCtaClick()
-                    : scrollToSection("industries")
+                  onCtaClick ? onCtaClick() : scrollToSection("contact")
                 }
-                className="text-base px-6 py-6 rounded-full"
+                className="rounded-sm bg-blue-600 px-5 py-5 font-mono text-[0.7rem] font-semibold uppercase tracking-widest text-white hover:bg-blue-700"
               >
-                {secondaryCtaText}
-                <ArrowDown className="ml-2 h-5 w-5" />
+                {ctaText}
+                <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
-            )}
-          </motion.div>
-        </div>
+            </motion.div>
 
-        {pipeline && (
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="rounded-2xl border border-gray-200 bg-white p-5 shadow-xl dark:border-gray-700 dark:bg-gray-800"
-          >
-            <div className="mb-5 flex items-center justify-between">
-              <p className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                Workflow pipeline
-              </p>
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">
-                Governed system
-              </span>
-            </div>
-            <div className="space-y-3">
-              {pipeline.map((stage, index) => (
-                <div
-                  key={stage.label}
-                  className="grid grid-cols-[7.5rem_1fr] gap-4 rounded-lg border border-gray-200 bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-900/50"
+            {kpis.length > 0 && (
+              <div className="grid grid-cols-3 border-t border-[#0f1e35] pt-6">
+                {kpis.slice(0, 3).map((kpi, index) => (
+                  <div
+                    key={kpi.label}
+                    className={`${
+                      index < 2 ? "border-r border-[#0f1e35] pr-4" : "pl-4"
+                    } ${index === 1 ? "px-4" : ""}`}
+                  >
+                    <div className="mb-1 text-xl font-bold text-blue-600">
+                      {kpi.value}
+                    </div>
+                    <div className="font-mono text-[0.48rem] uppercase leading-4 tracking-widest text-[#2a4060]">
+                      {kpi.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Procurement", "Manufacturing", "Logistics"].map((industry) => (
+                <span
+                  key={industry}
+                  className="rounded-sm border border-[#172540] px-2.5 py-1 font-mono text-[0.48rem] uppercase tracking-widest text-[#2a4060]"
                 >
-                  <div>
-                    <p className="text-xs font-semibold uppercase text-blue-600 dark:text-blue-400">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
-                      {stage.label}
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {stage.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                  {industry}
+                </span>
               ))}
             </div>
-          </motion.div>
-        )}
+          </div>
+        </div>
+
+        <div className="relative min-h-[34rem] flex-1 overflow-hidden lg:min-h-0">
+          <div className="absolute right-6 top-5 flex items-center gap-2 z-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-blue-500/60" />
+            <span className="font-mono text-[1.2rem] uppercase tracking-[0.2em] text-[#2a4a6a]">
+              AI Performance Monitoring
+            </span>
+          </div>
+          <MonitoringAnimation time={time} />
+        </div>
       </div>
     </section>
   );

@@ -20,28 +20,29 @@ const ClosingSection = ({ language, finalCta }: ClosingSectionProps) => {
     ];
 
   return (
-    <section id="contact" className="py-16 bg-blue-600 text-white">
-      <div className="max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          {finalCta?.heading || t("closing.title", language)}
-        </h2>
-        <p className="text-lg mb-6 text-blue-100">
-          {finalCta?.description || t("closing.description", language)}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-8">
-          {bullets.map((bullet) => (
-            <div key={bullet} className="flex items-start gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-white" />
-              <p className="text-lg">{bullet}</p>
-            </div>
-          ))}
+    <section id="contact" className="bg-slate-900 py-12 text-white">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 className="mb-3 text-3xl font-bold md:text-4xl">
+            {finalCta?.heading || t("closing.title", language)}
+          </h2>
+          <p className="max-w-2xl text-gray-400">
+            {finalCta?.description || t("closing.description", language)}
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-3 text-left sm:grid-cols-2">
+            {bullets.map((bullet) => (
+              <div key={bullet} className="flex items-start gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
+                <p className="text-sm text-gray-300">{bullet}</p>
+              </div>
+            ))}
+          </div>
         </div>
         {finalCta && (
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
             <Button
               size="lg"
-              variant="secondary"
-              className="rounded-full"
+              className="rounded-sm border border-white bg-transparent font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-white hover:text-slate-900"
               onClick={() => {
                 window.location.href = "/contact";
               }}
@@ -52,7 +53,7 @@ const ClosingSection = ({ language, finalCta }: ClosingSectionProps) => {
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full border-white text-white hover:bg-white hover:text-blue-700"
+              className="rounded-sm border-blue-500 bg-blue-600 font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-blue-700"
               onClick={() => {
                 const element = document.getElementById("industries");
                 if (!element) return;

@@ -14,7 +14,7 @@ const HowWeWorkSection = ({ language, implementation }: HowWeWorkSectionProps) =
   ];
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section id="process" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4">
         {implementation?.eyebrow && (
           <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
