@@ -37,20 +37,21 @@ const AIReadiness = ({ language = "en" }: { language: Language }) => {
               </div>
             </div>
           </div>
-          <h2 className="text-2xl font-semibold mb-3 mt-10">
-            Curious how far you've come?
+          <h2 className="text-2xl font-semibold mb-3 mt-10 text-center">
+            {t("aiReadiness.cta.title", language)}
           </h2>
-          <h2>
-            Do a free AI Readiness Assessment with us to see what next potential
-            steps you could adopt.
-          </h2>
-          <h2>It will take less than 5 minutes!</h2>
+          <p className="text-center text-lg text-gray-700 dark:text-gray-300">
+            {t("aiReadiness.cta.description1", language)}
+          </p>
+          <p className="text-center text-gray-600 dark:text-gray-400">
+            {t("aiReadiness.cta.description2", language)}
+          </p>
           <Button
             size="lg"
             className="text-lg px-8 py-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white mt-8"
           >
             <a href={linkAIReadiness} target="_blank" rel="noopener noreferrer">
-              Start Assessment
+              {t("aiReadiness.cta.button", language)}
             </a>
           </Button>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { t, Language } from "../lib/i18n";
-import ProjectShowcase from "./Home/ProjectShowcase";
+import CaseStudyCards from "./Home/CaseStudyCards";
 
 export default function Projects({ language }: { language: Language }) {
   return (
@@ -16,7 +16,7 @@ export default function Projects({ language }: { language: Language }) {
             </p>
           </div>
 
-          <ProjectShowcase language={language} />
+          <CaseStudyCards language={language} showHeader={false} />
         </div>
       </main>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 interface KPIBadgeProps {
-  value: string;
+  value?: string;
   label: string;
 }
 
@@ -14,9 +14,11 @@ const KPIBadge = ({ value, label }: KPIBadgeProps) => {
       transition={{ duration: 0.5 }}
       className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
     >
-      <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-        {value}
-      </span>
+      {value && (
+        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+          {value}
+        </span>
+      )}
       <span className="text-sm text-gray-600 dark:text-gray-300 text-center">
         {label}
       </span>
@@ -27,7 +29,7 @@ const KPIBadge = ({ value, label }: KPIBadgeProps) => {
 interface AISectionProps {
   tagline?: string;
   subTagline?: string;
-  kpis?: Array<{ value: string; label: string }>;
+  kpis?: Array<{ value?: string; label: string }>;
   language?: "en" | "de";
 }
 
@@ -58,7 +60,7 @@ const AISection = ({
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {kpis.map((kpi, index) => (
             <KPIBadge key={index} value={kpi.value} label={kpi.label} />
           ))}

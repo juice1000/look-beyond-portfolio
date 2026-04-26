@@ -30,6 +30,15 @@ interface NavbarProps {
   onLanguageChange?: (lang: Language) => void;
 }
 
+type NavItem = {
+  label: string;
+  href?: string;
+  subItems?: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
 const Navbar = ({
   onThemeToggle = () => {},
   isDarkMode = false,
@@ -66,30 +75,12 @@ const Navbar = ({
     }
   }, [location.pathname, language]);
 
-  const navItems = [
-    { label: t("nav.home", language), href: "/" },
-    {
-      label: t("nav.howWeWork", language),
-      subItems: [
-        {
-          label: t("nav.aiReadiness", language),
-          href: "/ai-readiness",
-        },
-        {
-          label: t("nav.ourProcess", language),
-          href: "/our-process",
-        },
-        {
-          label: t("nav.projects", language),
-          href: "/projects",
-        },
-        {
-          label: t("nav.pricingEngagement", language),
-          href: "/pricing-engagement",
-        },
-        { label: t("nav.workshops", language), href: "/workshops" },
-      ],
-    },
+  const navItems: NavItem[] = [
+    { label: t("nav.system", language), href: "/#system" },
+    { label: t("nav.industries", language), href: "/#industries" },
+    { label: t("nav.agents", language), href: "/#agents" },
+    { label: t("nav.security", language), href: "/#security" },
+    { label: t("nav.proof", language), href: "/#proof" },
     { label: t("nav.contact", language), href: "/contact" },
     // { label: t("nav.imprint", language), href: "/imprint" },
     // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
@@ -312,7 +303,7 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+          className="md:hidden absolute top-28 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (

@@ -19,7 +19,7 @@ interface ContactSectionProps {
   contactInfo?: {
     phone: string;
     email: string;
-    address: string;
+    address?: string;
   };
   language?: Language;
 }

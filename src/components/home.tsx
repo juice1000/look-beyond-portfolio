@@ -1,85 +1,57 @@
 import React from "react";
 
-import { t, Language } from "../lib/i18n";
+import { Language } from "../lib/i18n";
+import { getLandingPageContent } from "../data/landingPage";
 import HeroSection from "./Home/HeroSection";
-
-import MapChart from "./Home/MapChart";
-import AISection from "./Home/AISection";
 import CaseStudyCards from "./Home/CaseStudyCards";
+import ProblemAreas from "./Home/ProblemAreas";
+import SolutionStack from "./Home/SolutionStack";
+import HowWeWorkSection from "./Home/HowWeWorkSection";
+import ClosingSection from "./Home/ClosingSection";
+import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
+import AgentCardsSection from "./Home/AgentCardsSection";
+import SecurityControlsSection from "./Home/SecurityControlsSection";
 
 const Home = ({ language }: { language: Language }) => {
+  const content = getLandingPageContent(language);
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const y = element.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <main className="pt-20">
+      <main className="pt-28">
         <section id="home">
           <HeroSection
-            title={t("hero.title", language)}
-            subtitle={t("hero.subtitle", language)}
-            services={[
-              t("hero.service.1", language),
-              t("hero.service.2", language),
-              t("hero.service.3", language),
-              t("hero.service.4", language),
-            ]}
-            ctaText={t("hero.cta", language)}
+            eyebrow={content.hero.eyebrow}
+            title={content.hero.headline}
+            subtitle={content.hero.subheadline}
+            supportingLine={content.hero.supportingLine}
+            ctaText={content.hero.primaryCta}
+            secondaryCtaText={content.hero.secondaryCta}
+            pipeline={content.hero.pipeline}
+            onCtaClick={() => {
+              window.location.href = "/contact";
+            }}
+            onSecondaryCtaClick={() => scrollTo("industries")}
           />
         </section>
-        <section id="ai-solutions">
-          <AISection
-            tagline={
-              t("ai.tagline", language) || "Empowering businesses with AI."
-            }
-            subTagline={
-              t("ai.subTagline", language) ||
-              "From content to customers, we turn bottlenecks into growth loops."
-            }
-            kpis={[
-              {
-                value: "5x",
-                label: t("ai.kpi.1", language) || "more content shipped",
-              },
-              {
-                value: "-30%",
-                label: t("ai.kpi.2", language) || "cost per lead",
-              },
-              {
-                value: "85%",
-                label: t("ai.kpi.3", language) || "tickets auto-resolved",
-              },
-            ]}
-            language={language}
-          />
+        <ProblemAreas language={language} problems={content.problems} />
+        <SolutionStack language={language} system={content.system} />
+        <IndustryWorkflowTabs content={content.industries} />
+        <AgentCardsSection content={content.agents} />
+        <SecurityControlsSection content={content.security} />
+        <section id="proof">
+          <CaseStudyCards language={language} />
         </section>
-        <section id="case-studies">
-          <CaseStudyCards
-            title={t("caseStudies.title", language)}
-            subtitle={t("caseStudies.subtitle", language)}
-            cards={[
-              {
-                title: t("caseStudies.marketing.title", language),
-                painPoint: t("caseStudies.marketing.painPoint", language),
-                kpi: t("caseStudies.marketing.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-              {
-                title: t("caseStudies.sales.title", language),
-                painPoint: t("caseStudies.sales.painPoint", language),
-                kpi: t("caseStudies.sales.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-              {
-                title: t("caseStudies.operations.title", language),
-                painPoint: t("caseStudies.operations.painPoint", language),
-                kpi: t("caseStudies.operations.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-            ]}
-            language={language}
-          />
-        </section>
-        <section id="map">
-          <MapChart language={language} />
-        </section>
+        <HowWeWorkSection
+          language={language}
+          implementation={content.implementation}
+        />
+        <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>
   );
