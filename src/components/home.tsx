@@ -9,7 +9,13 @@ import ClosingSection from "./Home/ClosingSection";
 import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
 import ImpactSection from "./Home/ImpactSection";
 
-const Home = ({ language }: { language: Language }) => {
+const Home = ({
+  language,
+  isDarkMode,
+}: {
+  language: Language;
+  isDarkMode: boolean;
+}) => {
   const content = getLandingPageContent(language);
 
   return (
@@ -23,6 +29,7 @@ const Home = ({ language }: { language: Language }) => {
             pipeline={content.hero.pipeline}
             ticker={content.hero.ticker}
             kpis={content.kpis}
+            isDarkMode={isDarkMode}
           />
         </section>
         <SolutionStack language={language} system={content.system} />

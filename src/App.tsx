@@ -135,7 +135,10 @@ function App() {
           onLanguageChange={handleLanguageChange} // Updated to use new handler
         />
         <Routes>
-          <Route path="/" element={<Home language={language} />} />
+          <Route
+            path="/"
+            element={<Home language={language} isDarkMode={isDarkMode} />}
+          />
           <Route
             path="/ai-readiness"
             element={<AIReadiness language={language} />}
@@ -191,7 +194,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
-        <Calendar />
+        <Calendar isDarkMode={isDarkMode} />
         {import.meta.env.VITE_TEMPO !== "true" && <VoiceAgent />}
         <Footer language={language} />
       </>

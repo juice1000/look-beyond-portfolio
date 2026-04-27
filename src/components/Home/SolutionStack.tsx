@@ -59,11 +59,7 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
           {items.map((item, index) => (
             <div
               key={item.title}
-              className={`flex min-h-56 flex-col border-b border-r border-[#0f1e35] p-6 ${
-                index === 0
-                  ? "bg-[#08101f]"
-                  : "bg-[#060b18]"
-              }`}
+              className="flex min-h-56 flex-col border-b border-r border-[#0f1e35] bg-[#08101f] p-6"
             >
               <p className="mb-4 font-mono text-xs font-semibold text-blue-500">
                 {String(index + 1).padStart(2, "0")}

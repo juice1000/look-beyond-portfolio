@@ -58,6 +58,7 @@ interface HeroSectionProps {
   pipeline?: Array<{ label: string; items: string[] }>;
   ticker?: string[];
   kpis?: Array<{ value: string; label: string }>;
+  isDarkMode: boolean;
 }
 
 const HeroSection = ({
@@ -67,6 +68,7 @@ const HeroSection = ({
   services = ["Ideate", "Ship", "Scale", "Dominate"],
   ticker = [],
   kpis = [],
+  isDarkMode,
 }: HeroSectionProps) => {
   const [currentServiceIndex, setCurrentServiceIndex] = React.useState(0);
   const [activeTab, setActiveTab] = React.useState<TabKey>("vp");
@@ -130,9 +132,9 @@ const HeroSection = ({
     if (opacity <= 0) return null;
     return (
       <div key={key} className="absolute inset-0" style={{ opacity }}>
-        {key === "vp"  && <VerticalPipeline time={times.vp} />}
-        {key === "an"  && <AgentNetwork time={times.an} />}
-        {key === "mon" && <MonitoringAnimation time={times.mon} />}
+        {key === "vp"  && <VerticalPipeline time={times.vp} isDarkMode={isDarkMode} />}
+        {key === "an"  && <AgentNetwork time={times.an} isDarkMode={isDarkMode} />}
+        {key === "mon" && <MonitoringAnimation time={times.mon} isDarkMode={isDarkMode} />}
       </div>
     );
   };

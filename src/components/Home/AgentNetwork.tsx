@@ -162,9 +162,50 @@ const EDGES = (
 
 interface AgentNetworkProps {
   time: number;
+  isDarkMode: boolean;
 }
 
-const AgentNetwork = ({ time }: AgentNetworkProps) => {
+const AgentNetwork = ({ time, isDarkMode }: AgentNetworkProps) => {
+  const theme = isDarkMode
+    ? {
+        bg: "#060b18",
+        dots: "rgba(255,255,255,0.06)",
+        edge: "#0e1c30",
+        inactiveFill: "#08111f",
+        inactiveStroke: "#0e1c32",
+        inactiveLabel: "#172540",
+        inactiveTitle: "#162035",
+        inactiveSubtle: "#0f1e30",
+        panel: "#060e1d",
+        panelText: "#8eaace",
+        doneText: "#304060",
+        activeText: "#dde8f8",
+        activeOutputText: "#ffffff",
+        legendBg: "#040811",
+        legendLine: "#0d1c30",
+        vignette: "#030610",
+        vignetteOpacity: "0.6",
+      }
+    : {
+        bg: "#f8fafc",
+        dots: "rgba(37,99,235,0.08)",
+        edge: "#cbd5e1",
+        inactiveFill: "#ffffff",
+        inactiveStroke: "#c2cedb",
+        inactiveLabel: "#94a3b8",
+        inactiveTitle: "#94a3b8",
+        inactiveSubtle: "#94a3b8",
+        panel: "#ffffff",
+        panelText: "#64748b",
+        doneText: "#334155",
+        activeText: "#0f172a",
+        activeOutputText: "#0f172a",
+        legendBg: "#eef3f8",
+        legendLine: "#cbd5e1",
+        vignette: "#f8fafc",
+        vignetteOpacity: "0",
+      };
+
   const particles = React.useMemo(() => {
     const ps: Array<{ x: number; y: number; color: string; r: number; op: number; glow: boolean }> = [];
     EDGES.forEach((e) => {
@@ -197,7 +238,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
     >
       <defs>
         <pattern id="an-dots" width="28" height="28" patternUnits="userSpaceOnUse">
-          <circle cx="14" cy="14" r="0.8" fill="rgba(255,255,255,0.06)" />
+          <circle cx="14" cy="14" r="0.8" fill={theme.dots} />
         </pattern>
         <filter id="an-glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="3.5" result="b" />
@@ -222,11 +263,11 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
         </filter>
         <radialGradient id="an-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent" />
-          <stop offset="100%" stopColor="#030610" stopOpacity="0.6" />
+          <stop offset="100%" stopColor={theme.vignette} stopOpacity={theme.vignetteOpacity} />
         </radialGradient>
       </defs>
 
-      <rect width={W} height={H} fill="#060b18" />
+      <rect width={W} height={H} fill={theme.bg} />
       <rect width={W} height={H} fill="url(#an-dots)" />
 
       {/* Edges */}
@@ -240,7 +281,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
             <path
               d={pathD}
               fill="none"
-              stroke="#0e1c30"
+              stroke={theme.edge}
               strokeWidth={isReturn ? "0.8" : "1.2"}
               strokeDasharray={isReturn ? "4 4" : undefined}
             />
@@ -315,8 +356,8 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
               width={node.hw * 2}
               height={node.hh * 2}
               rx={rx}
-              fill={on ? `${node.color}20` : "#08111f"}
-              stroke={on ? node.color : "#0e1c32"}
+              fill={on ? `${node.color}20` : theme.inactiveFill}
+              stroke={on ? node.color : theme.inactiveStroke}
               strokeWidth={
                 on
                   ? node.type === "orchestrator"
@@ -330,7 +371,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
               x={node.x - node.hw + 8}
               y={node.y - node.hh + 11}
               dominantBaseline="middle"
-              fill={on ? node.color : "#172540"}
+              fill={on ? node.color : theme.inactiveLabel}
               fillOpacity="0.55"
               fontSize="7"
               fontWeight="700"
@@ -347,9 +388,9 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
               fill={
                 on
                   ? node.type === "trigger" || node.type === "output"
-                    ? "#fff"
-                    : "#dde8f8"
-                  : "#162035"
+                    ? theme.activeOutputText
+                    : theme.activeText
+                  : theme.inactiveTitle
               }
               fontSize={
                 node.type === "orchestrator"
@@ -368,7 +409,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                 y={node.y + 11}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fill={on ? node.color : "#0f1e30"}
+                fill={on ? node.color : theme.inactiveSubtle}
                 fillOpacity="0.6"
                 fontSize="8.5"
                 fontFamily="Space Grotesk, sans-serif"
@@ -451,7 +492,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                           ? `${tr.x},${node.y} ${tr.x - 9},${node.y - 5} ${tr.x - 9},${node.y + 5}`
                           : `${tr.x + tr.w},${node.y} ${tr.x + tr.w + 9},${node.y - 5} ${tr.x + tr.w + 9},${node.y + 5}`
                       }
-                      fill="#060e1d"
+                      fill={theme.panel}
                       stroke={node.color}
                       strokeOpacity="0.3"
                       strokeWidth="1"
@@ -461,7 +502,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                       y={node.y - 7}
                       width={4}
                       height={14}
-                      fill="#060e1d"
+                      fill={theme.panel}
                     />
                     <rect
                       x={tr.x}
@@ -469,7 +510,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                       width={tr.w}
                       height={tr.h}
                       rx={5}
-                      fill="#060e1d"
+                      fill={theme.panel}
                       stroke={node.color}
                       strokeOpacity="0.28"
                       strokeWidth="1"
@@ -519,7 +560,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                             cy={icy}
                             r={ir}
                             fill="none"
-                            stroke={done ? node.color : "#1a3050"}
+                            stroke={done ? node.color : theme.inactiveLabel}
                             strokeWidth="0.8"
                             strokeOpacity="0.45"
                           />
@@ -548,7 +589,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                             x={tr.x + 27}
                             y={rowY}
                             dominantBaseline="middle"
-                            fill={done ? "#304060" : "#8eaace"}
+                            fill={done ? theme.doneText : theme.panelText}
                             fontSize="9"
                             fontFamily="Space Mono, monospace"
                           >
@@ -588,8 +629,8 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
       ))}
 
       {/* Legend */}
-      <rect x={0} y={H - 46} width={W} height={46} fill="#040811" fillOpacity="0.93" />
-      <line x1={0} y1={H - 46} x2={W} y2={H - 46} stroke="#0d1c30" strokeWidth="1" />
+      <rect x={0} y={H - 46} width={W} height={46} fill={theme.legendBg} fillOpacity="0.93" />
+      <line x1={0} y1={H - 46} x2={W} y2={H - 46} stroke={theme.legendLine} strokeWidth="1" />
       {[
         { color: "#f59e0b", label: "Supervisor" },
         { color: "#3b82f6", label: "Inventory" },

@@ -209,9 +209,46 @@ export const useAnimationCycle = () => {
 
 interface VerticalPipelineProps {
   time: number;
+  isDarkMode: boolean;
 }
 
-const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
+const VerticalPipeline = ({ time, isDarkMode }: VerticalPipelineProps) => {
+  const theme = isDarkMode
+    ? {
+        bg: "#060b18",
+        dots: "rgba(255,255,255,0.06)",
+        baseLine: "#0f1e38",
+        inactiveFill: "#090f1e",
+        inactiveStroke: "#101e35",
+        rail: "#0e1e35",
+        inactiveLabel: "#172540",
+        inactiveTitle: "#162035",
+        inactiveSubtle: "#0f1e32",
+        panel: "#07111f",
+        panelText: "#8eaace",
+        doneText: "#3a5872",
+        activeTitle: "#e8f0ff",
+        leftFade: "#060b18",
+        leftFadeOpacity: "1",
+      }
+    : {
+        bg: "#f8fafc",
+        dots: "rgba(37,99,235,0.08)",
+        baseLine: "#cbd5e1",
+        inactiveFill: "#ffffff",
+        inactiveStroke: "#c2cedb",
+        rail: "#dbeafe",
+        inactiveLabel: "#94a3b8",
+        inactiveTitle: "#94a3b8",
+        inactiveSubtle: "#94a3b8",
+        panel: "#ffffff",
+        panelText: "#64748b",
+        doneText: "#334155",
+        activeTitle: "#0f172a",
+        leftFade: "#f8fafc",
+        leftFadeOpacity: "0",
+      };
+
   const particles = React.useMemo(() => {
     const items: Array<{
       x: number;
@@ -285,7 +322,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
     >
       <defs>
         <pattern id="vp-dots" width="26" height="26" patternUnits="userSpaceOnUse">
-          <circle cx="13" cy="13" r="0.8" fill="rgba(255,255,255,0.06)" />
+          <circle cx="13" cy="13" r="0.8" fill={theme.dots} />
         </pattern>
         <filter id="vp-glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -309,12 +346,12 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
           </feMerge>
         </filter>
         <linearGradient id="vp-left-fade" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopColor="#060b18" stopOpacity="1" />
-          <stop offset="12%" stopColor="#060b18" stopOpacity="0" />
+          <stop offset="0%" stopColor={theme.leftFade} stopOpacity={theme.leftFadeOpacity} />
+          <stop offset="12%" stopColor={theme.leftFade} stopOpacity="0" />
         </linearGradient>
       </defs>
 
-      <rect width="1100" height="760" fill="#060b18" />
+      <rect width="1100" height="760" fill={theme.bg} />
       <rect width="1100" height="760" fill="url(#vp-dots)" />
 
       {connections.map((connection, index) => {
@@ -324,7 +361,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
 
         return (
           <g key={index}>
-            <path d={path} fill="none" stroke="#0f1e38" strokeWidth="1.5" />
+            <path d={path} fill="none" stroke={theme.baseLine} strokeWidth="1.5" />
             {alpha > 0 && (
               <path
                 d={path}
@@ -395,8 +432,8 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
               width={HW * 2}
               height={HH * 2}
               rx="5"
-              fill={active ? `${stage.color}1e` : "#090f1e"}
-              stroke={active ? stage.color : "#101e35"}
+              fill={active ? `${stage.color}1e` : theme.inactiveFill}
+              stroke={active ? stage.color : theme.inactiveStroke}
               strokeWidth={active ? 1.5 : 0.8}
               filter={active ? "url(#vp-glow)" : undefined}
             />
@@ -408,7 +445,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                   width="3"
                   height={HH * 2 - 20}
                   rx="1.5"
-                  fill="#0e1e35"
+                  fill={theme.rail}
                 />
                 <rect
                   x={stage.hx - HW}
@@ -426,7 +463,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
               x={stage.hx - HW + 14}
               y={stage.hy - 5}
               dominantBaseline="middle"
-              fill={active ? stage.color : "#172540"}
+              fill={active ? stage.color : theme.inactiveLabel}
               fillOpacity="0.65"
               fontSize="8"
               fontWeight="700"
@@ -438,7 +475,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
               x={stage.hx - HW + 28}
               y={stage.hy - 6}
               dominantBaseline="middle"
-              fill={active ? "#e8f0ff" : "#162035"}
+              fill={active ? theme.activeTitle : theme.inactiveTitle}
               fontSize="11"
               fontWeight="700"
               fontFamily="monospace"
@@ -450,7 +487,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
               x={stage.hx - HW + 28}
               y={stage.hy + 9}
               dominantBaseline="middle"
-              fill={active ? stage.color : "#0f1e32"}
+              fill={active ? stage.color : theme.inactiveSubtle}
               fillOpacity="0.6"
               fontSize="8.5"
             >
@@ -485,7 +522,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                   points={`${PX},${stage.hy} ${PX - 9},${stage.hy - 5} ${
                     PX - 9
                   },${stage.hy + 5}`}
-                  fill="#07111f"
+                  fill={theme.panel}
                   stroke={stage.color}
                   strokeOpacity="0.3"
                   strokeWidth="1"
@@ -495,7 +532,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                   y={stage.hy - 7}
                   width="4"
                   height="14"
-                  fill="#07111f"
+                  fill={theme.panel}
                 />
                 <rect
                   x={PX}
@@ -503,7 +540,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                   width={PW}
                   height={PANEL_H}
                   rx="5"
-                  fill="#07111f"
+                  fill={theme.panel}
                   stroke={stage.color}
                   strokeOpacity="0.28"
                   strokeWidth="1"
@@ -554,7 +591,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                         cy={iconY}
                         r={iconR}
                         fill="none"
-                        stroke={complete ? stage.color : "#172540"}
+                        stroke={complete ? stage.color : theme.inactiveLabel}
                         strokeWidth="0.8"
                         strokeOpacity="0.45"
                       />
@@ -583,7 +620,7 @@ const VerticalPipeline = ({ time }: VerticalPipelineProps) => {
                         x={PX + 28}
                         y={rowY}
                         dominantBaseline="middle"
-                        fill={complete ? "#3a5872" : "#8eaace"}
+                        fill={complete ? theme.doneText : theme.panelText}
                         fontSize="9"
                         fontFamily="monospace"
                       >

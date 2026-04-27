@@ -3,15 +3,24 @@ import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
 
-const calendarButtonColor = "#2563eb";
+type CalendarProps = {
+  isDarkMode: boolean;
+};
 
-export default function Calendar() {
+const calendarButtonColor = {
+  dark: "#2563eb",
+  light: "#1d4ed8",
+};
+
+export default function Calendar({ isDarkMode }: CalendarProps) {
   const { width } = useWindowSize();
   const isMobile = width < 768;
 
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "30min" });
+      document.querySelector("cal-floating-button")?.remove();
+
       if (!isMobile) {
         cal("floatingButton", {
           calLink: "look-beyond/30min",
@@ -19,13 +28,12 @@ export default function Calendar() {
             layout: "month_view",
             useSlotsViewOnSmallScreen: "true",
           },
-          buttonColor: calendarButtonColor,
+          buttonColor: isDarkMode
+            ? calendarButtonColor.dark
+            : calendarButtonColor.light,
           buttonPosition: "bottom-left",
           buttonText: "Let's Chat!",
         });
-      } else {
-        const calElement = document.querySelector("cal-floating-button");
-        calElement && document.body.removeChild(calElement);
       }
 
       cal("ui", {
@@ -33,7 +41,7 @@ export default function Calendar() {
         layout: "month_view",
       });
     })();
-  }, [isMobile]);
+  }, [isDarkMode, isMobile]);
 
   if (isMobile) {
     return (
@@ -41,7 +49,7 @@ export default function Calendar() {
         data-cal-namespace="30min"
         data-cal-link="look-beyond/30min"
         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-        className="fixed bottom-[32px] left-4 z-50 flex h-[62px] items-center gap-3 rounded-full border border-[#3b82f6] bg-[#0b1426] px-6 py-4 text-[#dbeafe] shadow-[0_12px_32px_rgba(37,99,235,0.32)] transition-colors hover:bg-[#10203a] focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50 active:scale-95"
+        className="fixed bottom-[32px] left-4 z-50 flex h-[62px] items-center gap-3 rounded-full border border-blue-600 bg-white px-6 py-4 text-blue-900 shadow-[0_12px_32px_rgba(37,99,235,0.18)] transition-colors hover:bg-blue-50 focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50 active:scale-95 dark:border-[#3b82f6] dark:bg-[#0b1426] dark:text-[#dbeafe] dark:shadow-[0_12px_32px_rgba(37,99,235,0.32)] dark:hover:bg-[#10203a]"
       >
         <div className="flex items-center justify-center">
           <svg

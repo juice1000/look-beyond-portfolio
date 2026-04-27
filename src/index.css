@@ -71,8 +71,152 @@
     @apply border-border;
   }
   body {
-    @apply bg-[#060b18] text-slate-100;
+    @apply bg-[#f8fafc] text-slate-900 dark:bg-[#060b18] dark:text-slate-100;
   }
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) .bg-\[\#060b18\],
+html:not(.dark) .bg-\[\#060b18\]\/95 {
+  background-color: #eef3f8 !important;
+}
+
+html:not(.dark) .bg-\[\#08101f\],
+html:not(.dark) .bg-\[\#0b1426\] {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-\[\#0f1e35\] {
+  background-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .bg-\[\#08101f\] {
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.06),
+    0 14px 32px rgba(15, 23, 42, 0.08);
+}
+
+html:not(.dark) .hover\:bg-\[\#08101f\]:hover,
+html:not(.dark) .hover\:bg-\[\#0b1426\]:hover,
+html:not(.dark) .hover\:bg-\[\#10203a\]:hover {
+  background-color: #f8fbff !important;
+}
+
+html:not(.dark) .border-\[\#0f1e35\],
+html:not(.dark) .border-\[\#1a3050\] {
+  border-color: #c2cedb !important;
+}
+
+html:not(.dark) .text-slate-100,
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-\[\#bfd0e3\],
+html:not(.dark) .bg-\[\#060b18\].text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-\[\#4a6a8a\],
+html:not(.dark) .text-\[\#5f7793\],
+html:not(.dark) .text-\[\#6f86a2\],
+html:not(.dark) .text-\[\#89a7c7\] {
+  color: #475569 !important;
+}
+
+html:not(.dark) .text-\[\#2a4060\],
+html:not(.dark) .text-\[\#3a5872\],
+html:not(.dark) .text-\[\#1a3050\] {
+  color: #64748b !important;
+}
+
+html:not(.dark) .hover\:text-blue-300:hover {
+  color: #2563eb !important;
+}
+
+html:not(.dark) .shadow-\[0_12px_32px_rgba\(37\2c 99\2c 235\2c 0\.32\)\] {
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.18) !important;
+}
+
+html:not(.dark) nav img[alt="Look Beyond"] {
+  filter: invert(1);
+}
+
+html:not(.dark) svg [fill="#060b18"],
+html:not(.dark) svg [fill="#060e1d"],
+html:not(.dark) svg [fill="#060e1e"],
+html:not(.dark) svg [fill="#08111f"],
+html:not(.dark) svg [fill="#07111f"],
+html:not(.dark) svg [fill="#080f20"],
+html:not(.dark) svg [fill="#090f1e"],
+html:not(.dark) svg [fill="#040910"],
+html:not(.dark) svg [fill="#040811"],
+html:not(.dark) svg [fill="#030610"],
+html:not(.dark) svg [fill="#0a0a0a"] {
+  fill: #f8fafc !important;
+}
+
+html:not(.dark) svg [fill="#08101f"],
+html:not(.dark) svg [fill="#0a1525"],
+html:not(.dark) svg [fill="#0c1a2e"],
+html:not(.dark) svg [fill="#0e0e30"],
+html:not(.dark) svg [fill="#0e1e35"],
+html:not(.dark) svg [fill="#0f2540"],
+html:not(.dark) svg [fill="#0f1e30"],
+html:not(.dark) svg [fill="#0f1e32"],
+html:not(.dark) svg [fill="#162035"],
+html:not(.dark) svg [fill="#172540"],
+html:not(.dark) svg [fill="#1a2e50"],
+html:not(.dark) svg [fill="#1e3a5f"],
+html:not(.dark) svg [fill="#2a4d80"] {
+  fill: #eaf1f9 !important;
+}
+
+html:not(.dark) svg [fill="#06120e"],
+html:not(.dark) svg [fill="#0a1e14"],
+html:not(.dark) svg [fill="#0f2e20"],
+html:not(.dark) svg [fill="#1a4a2e"] {
+  fill: #dcfce7 !important;
+}
+
+html:not(.dark) svg [fill="#1a0800"],
+html:not(.dark) svg [fill="#2a0e00"] {
+  fill: #ffedd5 !important;
+}
+
+html:not(.dark) svg [fill="#1a1060"],
+html:not(.dark) svg [fill="#0c0c2a"] {
+  fill: #eef2ff !important;
+}
+
+html:not(.dark) svg [stroke="#0f1e35"],
+html:not(.dark) svg [stroke="#0e1c30"],
+html:not(.dark) svg [stroke="#0e1c32"],
+html:not(.dark) svg [stroke="#0d1c30"],
+html:not(.dark) svg [stroke="#0d1c32"],
+html:not(.dark) svg [stroke="#0a1828"],
+html:not(.dark) svg [stroke="#101e35"],
+html:not(.dark) svg [stroke="#1a3050"],
+html:not(.dark) svg [stroke="#172540"],
+html:not(.dark) svg [stroke="#0f2540"],
+html:not(.dark) svg [stroke="#0f1e38"],
+html:not(.dark) svg [stroke="#1e3a5f"],
+html:not(.dark) svg [stroke="#1e3a6e"],
+html:not(.dark) svg [stroke="#2a4d80"],
+html:not(.dark) svg [stroke="#1a1a1a"] {
+  stroke: #cbd5e1 !important;
+}
+
+html:not(.dark) svg [fill="#dde8f8"],
+html:not(.dark) svg [fill="#c8d8f0"],
+html:not(.dark) svg [fill="#8eaace"],
+html:not(.dark) svg [fill="#304060"],
+html:not(.dark) svg [fill="#3a5872"] {
+  fill: #334155 !important;
 }
 
 .protanopia {

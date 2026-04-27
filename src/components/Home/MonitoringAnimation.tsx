@@ -154,9 +154,66 @@ const BOT_LINES = [
   { text: "ship within 2–3 business days.",            activeAt: 2.4  },
 ];
 
-interface MonitoringAnimationProps { time: number; }
+interface MonitoringAnimationProps {
+  time: number;
+  isDarkMode: boolean;
+}
 
-const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
+const MonitoringAnimation = ({ time, isDarkMode }: MonitoringAnimationProps) => {
+  const theme = isDarkMode
+    ? {
+        bg: "#060b18",
+        dots: "rgba(255,255,255,0.06)",
+        edge: "#0e1c30",
+        window: "#060e1e",
+        header: "#0a1525",
+        panel: "#0c1a2e",
+        panelStroke: "#0f2540",
+        bubble: "#1e3a5f",
+        bubbleStroke: "#2a4d80",
+        iconBg: "#1a2e50",
+        text: "#c8d8f0",
+        activeText: "#dde8f8",
+        inactiveFill: "#08111f",
+        inactiveStroke: "#0e1c32",
+        inactiveLabel: "#172540",
+        inactiveTitle: "#162035",
+        inactiveSubtle: "#0f1e30",
+        rowText: "#8eaace",
+        doneText: "#304060",
+        spinnerTrack: "#1a3050",
+        legendBg: "#040811",
+        legendLine: "#0d1c30",
+        vignette: "#030610",
+        vignetteOpacity: "0.6",
+      }
+    : {
+        bg: "#f8fafc",
+        dots: "rgba(37,99,235,0.08)",
+        edge: "#cbd5e1",
+        window: "#ffffff",
+        header: "#eaf1f9",
+        panel: "#ffffff",
+        panelStroke: "#c2cedb",
+        bubble: "#dbeafe",
+        bubbleStroke: "#93c5fd",
+        iconBg: "#dbeafe",
+        text: "#334155",
+        activeText: "#0f172a",
+        inactiveFill: "#ffffff",
+        inactiveStroke: "#c2cedb",
+        inactiveLabel: "#94a3b8",
+        inactiveTitle: "#94a3b8",
+        inactiveSubtle: "#94a3b8",
+        rowText: "#64748b",
+        doneText: "#334155",
+        spinnerTrack: "#94a3b8",
+        legendBg: "#eef3f8",
+        legendLine: "#cbd5e1",
+        vignette: "#f8fafc",
+        vignetteOpacity: "0",
+      };
+
   const particles = React.useMemo(() => {
     const ps: Array<{ x: number; y: number; color: string; r: number; op: number; glow: boolean }> = [];
 
@@ -223,7 +280,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
     >
       <defs>
         <pattern id="mon-dots" width="28" height="28" patternUnits="userSpaceOnUse">
-          <circle cx="14" cy="14" r="0.8" fill="rgba(255,255,255,0.06)" />
+          <circle cx="14" cy="14" r="0.8" fill={theme.dots} />
         </pattern>
         <filter id="mon-glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="3.5" result="b" />
@@ -239,18 +296,18 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         </filter>
         <radialGradient id="mon-vig" cx="50%" cy="50%" r="65%">
           <stop offset="0%" stopColor="transparent" />
-          <stop offset="100%" stopColor="#030610" stopOpacity="0.6" />
+          <stop offset="100%" stopColor={theme.vignette} stopOpacity={theme.vignetteOpacity} />
         </radialGradient>
       </defs>
 
-      <rect width={W} height={H} fill="#060b18" />
+      <rect width={W} height={H} fill={theme.bg} />
       <rect width={W} height={H} fill="url(#mon-dots)" />
 
       {/* ── Chat window (shifted right 80px) ── */}
       <g transform="translate(80, 0)" opacity={chatWinF}>
         <rect x={20} y={18} width={335} height={450} rx={8}
-          fill="#060e1e"
-          stroke={monBadgeF > 0 ? "#6366f1" : "#0d1c32"}
+          fill={theme.window}
+          stroke={monBadgeF > 0 ? "#6366f1" : theme.inactiveStroke}
           strokeWidth={monBadgeF > 0 ? 1.5 : 1}
           strokeOpacity={monBadgeF > 0 ? 0.6 + 0.25 * Math.sin(time * 3) : 1} />
         {/* Outer glow ring around whole window */}
@@ -260,11 +317,11 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             strokeWidth={2} strokeOpacity={0.12 * monBadgeF}
             filter="url(#mon-glow)" />
         )}
-        <rect x={20} y={18} width={335} height={38} rx={8} fill="#0a1525" />
-        <rect x={20} y={42} width={335} height={14} fill="#0a1525" />
+        <rect x={20} y={18} width={335} height={38} rx={8} fill={theme.header} />
+        <rect x={20} y={42} width={335} height={14} fill={theme.header} />
         <circle cx={46} cy={37} r={4} fill="#22c55e" opacity={0.9} filter="url(#mon-pg)" />
         <text x={58} y={37} dominantBaseline="middle"
-          fill="#c8d8f0" fontSize={10} fontWeight={700}
+          fill={theme.text} fontSize={10} fontWeight={700}
           fontFamily="Space Mono, monospace" letterSpacing={0.5}>
           AI Support Bot
         </text>
@@ -272,27 +329,27 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
           fill="#22c55e" fontSize={8} fontFamily="Space Mono, monospace" opacity={0.8}>
           ONLINE
         </text>
-        <line x1={20} y1={56} x2={355} y2={56} stroke="#0d1c32" strokeWidth={0.8} />
+        <line x1={20} y1={56} x2={355} y2={56} stroke={theme.inactiveStroke} strokeWidth={0.8} />
 
         <g opacity={userBubF}>
           <rect x={168} y={66} width={177} height={52} rx={8}
-            fill="#1e3a5f" stroke="#2a4d80" strokeWidth={0.8} />
+            fill={theme.bubble} stroke={theme.bubbleStroke} strokeWidth={0.8} />
           <text x={180} y={86} dominantBaseline="middle"
-            fill="#c8d8f0" fontSize={9} fontFamily="Space Mono, monospace">
+            fill={theme.text} fontSize={9} fontFamily="Space Mono, monospace">
             I got the wrong item for
           </text>
           <text x={180} y={102} dominantBaseline="middle"
-            fill="#c8d8f0" fontSize={9} fontFamily="Space Mono, monospace">
+            fill={theme.text} fontSize={9} fontFamily="Space Mono, monospace">
             order <tspan fill="#60a5fa">#ORD-2847</tspan>. Fix this.
           </text>
-          <circle cx={339} cy={124} r={5} fill="#2a4d80" />
+          <circle cx={339} cy={124} r={5} fill={theme.bubbleStroke} />
           <text x={339} y={124} textAnchor="middle" dominantBaseline="middle"
             fill="#60a5fa" fontSize={7} fontWeight={700}>U</text>
         </g>
 
         {typingF > 0 && (
           <g opacity={typingF}>
-            <rect x={30} y={130} width={64} height={26} rx={6} fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
+            <rect x={30} y={130} width={64} height={26} rx={6} fill={theme.panel} stroke={theme.panelStroke} strokeWidth={0.8} />
             {[0, 1, 2].map((i) => (
               <circle key={i} cx={46 + i * 16} cy={143} r={3.5}
                 fill="#6366f1"
@@ -303,8 +360,8 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
 
         <g>
           <rect x={30} y={130} width={315} height={158} rx={8}
-            fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
-          <circle cx={48} cy={148} r={8} fill="#1a2e50" stroke="#3b82f6" strokeWidth={0.8} />
+            fill={theme.panel} stroke={theme.panelStroke} strokeWidth={0.8} />
+          <circle cx={48} cy={148} r={8} fill={theme.iconBg} stroke="#3b82f6" strokeWidth={0.8} />
           <text x={48} y={148} textAnchor="middle" dominantBaseline="middle"
             fill="#60a5fa" fontSize={7} fontWeight={700}>AI</text>
 
@@ -313,7 +370,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             if (lf <= 0) return null;
             return (
               <text key={i} x={64} y={148 + i * 18} dominantBaseline="middle"
-                fill="#c8d8f0" fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
+                fill={theme.text} fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
                 opacity={lf}>
                 {line.text}
               </text>
@@ -335,12 +392,12 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         {/* User message 2 */}
         <g opacity={userBub2F}>
           <rect x={168} y={302} width={177} height={36} rx={8}
-            fill="#1e3a5f" stroke="#2a4d80" strokeWidth={0.8} />
+            fill={theme.bubble} stroke={theme.bubbleStroke} strokeWidth={0.8} />
           <text x={180} y={320} dominantBaseline="middle"
-            fill="#c8d8f0" fontSize={9} fontFamily="Space Mono, monospace">
+            fill={theme.text} fontSize={9} fontFamily="Space Mono, monospace">
             Can I get expedited shipping?
           </text>
-          <circle cx={339} cy={344} r={5} fill="#2a4d80" />
+          <circle cx={339} cy={344} r={5} fill={theme.bubbleStroke} />
           <text x={339} y={344} textAnchor="middle" dominantBaseline="middle"
             fill="#60a5fa" fontSize={7} fontWeight={700}>U</text>
         </g>
@@ -348,7 +405,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         {/* Typing indicator 2 */}
         {typing2F > 0 && (
           <g opacity={typing2F}>
-            <rect x={30} y={352} width={64} height={26} rx={6} fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
+            <rect x={30} y={352} width={64} height={26} rx={6} fill={theme.panel} stroke={theme.panelStroke} strokeWidth={0.8} />
             {[0, 1, 2].map((i) => (
               <circle key={i} cx={46 + i * 16} cy={365} r={3.5}
                 fill="#6366f1"
@@ -361,18 +418,18 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         {bot2Line1F > 0 && (
           <g>
             <rect x={30} y={352} width={315} height={100} rx={8}
-              fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
-            <circle cx={48} cy={370} r={8} fill="#1a2e50" stroke="#3b82f6" strokeWidth={0.8} />
+              fill={theme.panel} stroke={theme.panelStroke} strokeWidth={0.8} />
+            <circle cx={48} cy={370} r={8} fill={theme.iconBg} stroke="#3b82f6" strokeWidth={0.8} />
             <text x={48} y={370} textAnchor="middle" dominantBaseline="middle"
               fill="#60a5fa" fontSize={7} fontWeight={700}>AI</text>
             <text x={64} y={370} dominantBaseline="middle"
-              fill="#c8d8f0" fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
+              fill={theme.text} fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
               opacity={bot2Line1F}>
               I've upgraded your shipment to express.
             </text>
             {bot2Line2F > 0 && (
               <text x={64} y={388} dominantBaseline="middle"
-                fill="#c8d8f0" fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
+                fill={theme.text} fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
                 opacity={bot2Line2F}>
                 New tracking number: <tspan fill="#60a5fa">TRK-9921-B</tspan>.
               </text>
@@ -416,7 +473,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
       )}
 
       {/* ── Intercept edge (chat → observer) ── */}
-      <path d={interceptPath} fill="none" stroke="#0e1c30" strokeWidth="1" strokeDasharray="4 3" />
+      <path d={interceptPath} fill="none" stroke={theme.edge} strokeWidth="1" strokeDasharray="4 3" />
       {interceptF > 0 && (
         <path d={interceptPath} fill="none" stroke="#6366f1"
           strokeWidth="1.5" strokeOpacity={0.45 * interceptF}
@@ -430,7 +487,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         const srcColor = NMAP[e.from].color;
         return (
           <g key={i}>
-            <path d={pathD} fill="none" stroke="#0e1c30" strokeWidth="1.2" />
+            <path d={pathD} fill="none" stroke={theme.edge} strokeWidth="1.2" />
             {af > 0 && (
               <path d={pathD} fill="none" stroke={srcColor}
                 strokeWidth="1.5" strokeOpacity={0.4 * af}
@@ -482,7 +539,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
           {/* Main title */}
           <text x={obs.x} y={cardTop + 30}
             textAnchor="middle" dominantBaseline="middle"
-            fill="#dde8f8" fontSize={11} fontWeight="700"
+            fill={theme.activeText} fontSize={11} fontWeight="700"
             fontFamily="Space Mono, monospace">
             Observation Engine
           </text>
@@ -513,7 +570,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
                   rx={3} fill={sp.color} fillOpacity={0.07} />
                 {/* Spinner / check */}
                 <circle cx={iconX} cy={rowY} r={iconR} fill="none"
-                  stroke={done ? sp.color : "#1a3050"}
+                  stroke={done ? sp.color : theme.spinnerTrack}
                   strokeWidth="0.8" strokeOpacity="0.45" />
                 {!done
                   ? <path d={spinnerPath(iconX, rowY, iconR, spPct)}
@@ -525,7 +582,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
                 }
                 {/* Label */}
                 <text x={iconX + 14} y={rowY} dominantBaseline="middle"
-                  fill={done ? "#304060" : "#8eaace"}
+                  fill={done ? theme.doneText : theme.rowText}
                   fontSize="9" fontFamily="Space Mono, monospace">
                   {sp.label}
                 </text>
@@ -558,21 +615,21 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             <rect x={node.x - node.hw} y={node.y - node.hh}
               width={node.hw * 2} height={node.hh * 2}
               rx={rx}
-              fill={on ? `${node.color}20` : "#08111f"}
-              stroke={on ? node.color : "#0e1c32"}
+              fill={on ? `${node.color}20` : theme.inactiveFill}
+              stroke={on ? node.color : theme.inactiveStroke}
               strokeWidth={on ? 1.3 : 0.7}
               filter={on ? "url(#mon-glow)" : undefined} />
 
             <text x={node.x - node.hw + 8} y={node.y - node.hh + 11}
               dominantBaseline="middle"
-              fill={on ? node.color : "#172540"} fillOpacity="0.55"
+              fill={on ? node.color : theme.inactiveLabel} fillOpacity="0.55"
               fontSize="7" fontWeight="700"
               fontFamily="Space Mono, monospace" letterSpacing="1.2">
               {TYPE_LABEL[node.type]}
             </text>
             <text x={node.x} y={node.y - 2}
               textAnchor="middle" dominantBaseline="middle"
-              fill={on ? (node.type === "alert" ? "#fff" : "#dde8f8") : "#162035"}
+              fill={on ? (node.type === "alert" ? "#ffffff" : theme.activeText) : theme.inactiveTitle}
               fontSize={10} fontWeight="700"
               fontFamily="Space Mono, monospace" letterSpacing="0.8">
               {node.label}
@@ -580,7 +637,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             {node.sublabel && (
               <text x={node.x} y={node.y + 11}
                 textAnchor="middle" dominantBaseline="middle"
-                fill={on ? node.color : "#0f1e30"} fillOpacity="0.6"
+                fill={on ? node.color : theme.inactiveSubtle} fillOpacity="0.6"
                 fontSize="8.5" fontFamily="Space Grotesk, sans-serif">
                 {node.sublabel}
               </text>
@@ -613,8 +670,8 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
       ))}
 
       {/* ── Legend ── */}
-      <rect x={0} y={H - 46} width={W} height={46} fill="#040811" fillOpacity="0.93" />
-      <line x1={0} y1={H - 46} x2={W} y2={H - 46} stroke="#0d1c30" strokeWidth="1" />
+      <rect x={0} y={H - 46} width={W} height={46} fill={theme.legendBg} fillOpacity="0.93" />
+      <line x1={0} y1={H - 46} x2={W} y2={H - 46} stroke={theme.legendLine} strokeWidth="1" />
       {[
         { color: "#6366f1", label: "Observer" },
         { color: "#ef4444", label: "Factuality" },
