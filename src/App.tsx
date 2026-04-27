@@ -22,6 +22,12 @@ import TermsOfUse from "./components/TermsOfUse";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
+import AIWorkflowSystems from "./components/pillars/AIWorkflowSystems";
+import AutonomousAgents from "./components/pillars/AutonomousAgents";
+import AIPerformanceMonitoring from "./components/pillars/AIPerformanceMonitoring";
+import Procurement from "./components/industries/Procurement";
+import Manufacturing from "./components/industries/Manufacturing";
+import Logistics from "./components/industries/Logistics";
 
 import routes from "tempo-routes";
 
@@ -155,6 +161,30 @@ function App() {
           <Route
             path="/terms-of-use"
             element={<TermsOfUse language={language} />}
+          />
+          <Route
+            path="/pillars/ai-workflow-systems"
+            element={<AIWorkflowSystems language={language} />}
+          />
+          <Route
+            path="/pillars/autonomous-agents"
+            element={<AutonomousAgents language={language} />}
+          />
+          <Route
+            path="/pillars/ai-performance-monitoring"
+            element={<AIPerformanceMonitoring language={language} />}
+          />
+          <Route
+            path="/industries/procurement"
+            element={<Procurement language={language} />}
+          />
+          <Route
+            path="/industries/manufacturing"
+            element={<Manufacturing language={language} />}
+          />
+          <Route
+            path="/industries/logistics"
+            element={<Logistics language={language} />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

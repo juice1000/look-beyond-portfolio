@@ -16,6 +16,7 @@ import {
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 
 interface NavbarProps {
   onThemeToggle?: () => void;
@@ -87,13 +88,12 @@ const Navbar = ({
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-white font-mono text-xs font-bold text-[#060b18]">
-              LB
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-white">
-              Look Beyond
-            </span>
+          <a href="/" className="flex items-center">
+            <img
+              className="h-14 w-auto object-contain"
+              src={LBLogoWhite}
+              alt="Look Beyond"
+            />
           </a>
         </div>
 
@@ -158,14 +158,6 @@ const Navbar = ({
           </NavigationMenu>
 
           <div className="flex gap-2">
-            <Button
-              className="rounded-sm bg-blue-600 px-4 font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-blue-700"
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
-            >
-              Book a call
-            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -343,13 +335,6 @@ const Navbar = ({
                 )}
               </div>
             ))}
-            <a
-              href="/contact"
-              className="mt-3 block rounded-sm bg-blue-600 px-4 py-3 text-center font-mono text-xs font-semibold uppercase tracking-wide text-white"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Book a call
-            </a>
             <div className="py-3">
               <Button
                 variant="ghost"

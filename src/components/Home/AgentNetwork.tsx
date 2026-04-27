@@ -319,7 +319,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
               stroke={on ? node.color : "#0e1c32"}
               strokeWidth={
                 on
-                  ? node.type === "orchestrator" || node.type === "controller"
+                  ? node.type === "orchestrator"
                     ? 1.8
                     : 1.3
                   : 0.7
@@ -352,7 +352,7 @@ const AgentNetwork = ({ time }: AgentNetworkProps) => {
                   : "#162035"
               }
               fontSize={
-                node.type === "orchestrator" || node.type === "controller"
+                node.type === "orchestrator"
                   ? 12
                   : 10
               }

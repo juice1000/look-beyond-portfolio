@@ -1,42 +1,120 @@
 import React from "react";
-import { Button } from "../ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
-import MonitoringAnimation, { useMonitoringTime } from "./MonitoringAnimation";
+import VerticalPipeline from "./VerticalPipeline";
+import AgentNetwork from "./AgentNetwork";
+import MonitoringAnimation from "./MonitoringAnimation";
+
+const TABS = [
+  { key: "vp",  label: "AI Workflow Systems",      dur: 16.5 },
+  { key: "an",  label: "Autonomous Agents",         dur: 12   },
+  { key: "mon", label: "AI Performance Monitoring", dur: 12   },
+] as const;
+type TabKey = typeof TABS[number]["key"];
+
+const FADE = 0.6;
+const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+
+const useAnimationTimes = (activeTab: TabKey, prevTab: TabKey | null) => {
+  const [times, setTimes] = React.useState<Record<TabKey, number>>({ vp: 0, an: 0, mon: 0 });
+  const frameRef = React.useRef<number>();
+  // Track accumulated elapsed per tab so paused tabs resume where they left off
+  const accumulated = React.useRef<Record<TabKey, number>>({ vp: 0, an: 0, mon: 0 });
+  const lastNow = React.useRef<number>();
+
+  // Which tabs are visible right now — updated synchronously by the component
+  const activeTabRef = React.useRef(activeTab);
+  const prevTabRef = React.useRef(prevTab);
+  activeTabRef.current = activeTab;
+  prevTabRef.current = prevTab;
+
+  React.useEffect(() => {
+    const tick = (now: number) => {
+      const delta = lastNow.current != null ? (now - lastNow.current) / 1000 : 0;
+      lastNow.current = now;
+
+      const visible = new Set<TabKey>([activeTabRef.current]);
+      if (prevTabRef.current) visible.add(prevTabRef.current);
+
+      visible.forEach((key) => {
+        const dur = TABS.find((t) => t.key === key)!.dur;
+        accumulated.current[key] = (accumulated.current[key] + delta) % dur;
+      });
+
+      setTimes({ ...accumulated.current });
+      frameRef.current = requestAnimationFrame(tick);
+    };
+    frameRef.current = requestAnimationFrame(tick);
+    return () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); };
+  }, []);
+
+  return times;
+};
 
 interface HeroSectionProps {
-  eyebrow?: string;
   title?: string;
   subtitle?: string;
   supportingLine?: string;
   services?: string[];
-  ctaText?: string;
-  pipeline?: Array<{
-    label: string;
-    items: string[];
-  }>;
+  pipeline?: Array<{ label: string; items: string[] }>;
   ticker?: string[];
-  kpis?: Array<{
-    value: string;
-    label: string;
-  }>;
-  onCtaClick?: () => void;
+  kpis?: Array<{ value: string; label: string }>;
 }
 
 const HeroSection = ({
-  eyebrow,
   title = "Build Smart, Lead Change.",
   subtitle = "We help you",
   supportingLine,
   services = ["Ideate", "Ship", "Scale", "Dominate"],
-  ctaText = "Start Your Project",
-  pipeline,
   ticker = [],
   kpis = [],
-  onCtaClick,
 }: HeroSectionProps) => {
   const [currentServiceIndex, setCurrentServiceIndex] = React.useState(0);
-  const time = useMonitoringTime();
+  const [activeTab, setActiveTab] = React.useState<TabKey>("vp");
+  const [prevTab, setPrevTab] = React.useState<TabKey | null>(null);
+  const [fadeT, setFadeT] = React.useState(1);
+  const fadeFrame = React.useRef<number>();
+  const fadeStart = React.useRef<number>();
+  const times = useAnimationTimes(activeTab, prevTab);
+
+  // Auto-advance cycle
+  const autoTimer = React.useRef<ReturnType<typeof setTimeout>>();
+  const scheduleNext = React.useCallback((key: TabKey) => {
+    clearTimeout(autoTimer.current);
+    const dur = TABS.find((t) => t.key === key)!.dur * 1000;
+    autoTimer.current = setTimeout(() => {
+      const idx = TABS.findIndex((t) => t.key === key);
+      switchTo(TABS[(idx + 1) % TABS.length].key);
+    }, dur);
+  }, []); // eslint-disable-line
+
+  const switchTo = React.useCallback((next: TabKey) => {
+    setActiveTab((cur) => {
+      if (cur === next) return cur;
+      setPrevTab(cur);
+      setFadeT(0);
+      cancelAnimationFrame(fadeFrame.current!);
+      fadeStart.current = undefined;
+      const tick = (now: number) => {
+        if (!fadeStart.current) fadeStart.current = now;
+        const t = clamp01((now - fadeStart.current) / (FADE * 1000));
+        setFadeT(t);
+        if (t < 1) fadeFrame.current = requestAnimationFrame(tick);
+        else setPrevTab(null);
+      };
+      fadeFrame.current = requestAnimationFrame(tick);
+      scheduleNext(next);
+      return next;
+    });
+  }, [scheduleNext]);
+
+  // Start auto-cycle on mount
+  React.useEffect(() => {
+    scheduleNext("vp");
+    return () => {
+      clearTimeout(autoTimer.current);
+      cancelAnimationFrame(fadeFrame.current!);
+    };
+  }, [scheduleNext]);
 
   React.useEffect(() => {
     if (!services.length) return;
@@ -46,11 +124,17 @@ const HeroSection = ({
     return () => clearInterval(interval);
   }, [services.length]);
 
-  const scrollToSection = (id: string, offset = 80) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const y = element.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top: y, behavior: "smooth" });
+  const activeLabel = TABS.find((t) => t.key === activeTab)!.label;
+
+  const renderAnim = (key: TabKey, opacity: number) => {
+    if (opacity <= 0) return null;
+    return (
+      <div key={key} className="absolute inset-0" style={{ opacity }}>
+        {key === "vp"  && <VerticalPipeline time={times.vp} />}
+        {key === "an"  && <AgentNetwork time={times.an} />}
+        {key === "mon" && <MonitoringAnimation time={times.mon} />}
+      </div>
+    );
   };
 
   return (
@@ -60,18 +144,6 @@ const HeroSection = ({
           <div className="pointer-events-none absolute left-[10%] top-[30%] h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
 
           <div className="relative">
-            {eyebrow && (
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-sm border border-blue-500/40 px-3 py-1.5 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-blue-500"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                {eyebrow}
-              </motion.p>
-            )}
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,39 +176,15 @@ const HeroSection = ({
               </div>
             )}
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="mb-9 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row"
-            >
-              <Button
-                size="lg"
-                onClick={() =>
-                  onCtaClick ? onCtaClick() : scrollToSection("contact")
-                }
-                className="rounded-sm bg-blue-600 px-5 py-5 font-mono text-[0.7rem] font-semibold uppercase tracking-widest text-white hover:bg-blue-700"
-              >
-                {ctaText}
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </Button>
-            </motion.div>
-
             {kpis.length > 0 && (
               <div className="grid grid-cols-3 border-t border-[#0f1e35] pt-6">
                 {kpis.slice(0, 3).map((kpi, index) => (
                   <div
                     key={kpi.label}
-                    className={`${
-                      index < 2 ? "border-r border-[#0f1e35] pr-4" : "pl-4"
-                    } ${index === 1 ? "px-4" : ""}`}
+                    className={`${index < 2 ? "border-r border-[#0f1e35] pr-4" : "pl-4"} ${index === 1 ? "px-4" : ""}`}
                   >
-                    <div className="mb-1 text-xl font-bold text-blue-600">
-                      {kpi.value}
-                    </div>
-                    <div className="font-mono text-[0.48rem] uppercase leading-4 tracking-widest text-[#2a4060]">
-                      {kpi.label}
-                    </div>
+                    <div className="mb-1 text-xl font-bold text-blue-600">{kpi.value}</div>
+                    <div className="font-mono text-[0.48rem] uppercase leading-4 tracking-widest text-[#2a4060]">{kpi.label}</div>
                   </div>
                 ))}
               </div>
@@ -156,13 +204,30 @@ const HeroSection = ({
         </div>
 
         <div className="relative min-h-[34rem] flex-1 overflow-hidden lg:min-h-0">
-          <div className="absolute right-6 top-5 flex items-center gap-2 z-10">
-            <span className="h-2.5 w-2.5 rounded-full bg-blue-500/60" />
-            <span className="font-mono text-[1.2rem] uppercase tracking-[0.2em] text-[#2a4a6a]">
-              AI Performance Monitoring
-            </span>
+          {/* Tab controls + label */}
+          <div className="absolute bottom-14 left-0 right-0 z-10 flex justify-center gap-2 px-6">
+            {TABS.map((tab) => {
+              const isActive = tab.key === activeTab;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => switchTo(tab.key)}
+                  className={`flex items-center gap-2 rounded-sm border px-3 py-1.5 font-mono text-[0.55rem] uppercase tracking-widest transition-colors duration-300 ${
+                    isActive
+                      ? "border-blue-500/60 bg-blue-500/10 text-blue-400"
+                      : "border-[#0f1e35] text-[#2a4060] hover:border-blue-500/30 hover:text-[#3a5a7a]"
+                  }`}
+                >
+                  <span className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${isActive ? "bg-blue-500" : "bg-[#1a3050]"}`} />
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
-          <MonitoringAnimation time={time} />
+
+          {/* Animations */}
+          {prevTab && renderAnim(prevTab, 1 - fadeT)}
+          {renderAnim(activeTab, prevTab ? fadeT : 1)}
         </div>
       </div>
     </section>

@@ -15,11 +15,9 @@ export interface IndustryWorkflow {
 
 export interface LandingPageContent {
   hero: {
-    eyebrow: string;
     headline: string;
     subheadline: string;
     supportingLine: string;
-    primaryCta: string;
     pipeline: Array<{
       label: string;
       items: string[];
@@ -44,6 +42,7 @@ export interface LandingPageContent {
     layers: Array<{
       title: string;
       description: string;
+      subProduct?: string;
     }>;
   };
   industries: {
@@ -90,7 +89,6 @@ const englishContent: LandingPageContent = {
     supportingLine:
       "Instead of isolated chatbots or one-off automations, we build connected systems where specialized agents extract, classify, route, draft, validate, and escalate work under clear security and review controls.",
 
-    primaryCta: "Start your process",
     pipeline: [
       {
         label: "Inputs",
@@ -139,9 +137,9 @@ const englishContent: LandingPageContent = {
     ],
   },
   kpis: [
-    { value: "1", label: "workflow first" },
-    { value: "3", label: "focus industries" },
-    { value: "4", label: "system pillars" },
+    { value: "30%", label: "manual effort reduction observed" },
+    { value: "25%", label: "cost savings observed" },
+    { value: "40%", label: "avoidable error reduction observed" },
     { value: "Built-in", label: "review and monitoring" },
   ],
   problems: {
@@ -172,37 +170,32 @@ const englishContent: LandingPageContent = {
   },
   system: {
     eyebrow: "Core capabilities",
-    heading: "Four pillars of operational AI",
+    heading: "Three Pillars of Operational AI",
     description:
       "We do not only build individual agents. We build the workflow layer that makes agents useful, controlled, and reliable across real operational processes.",
     layers: [
       {
         title: "AI workflow systems",
         description:
-          "Connected pipelines that classify, route, validate, approve, and log operational work.",
+          "Connected pipelines that classify, route, validate, approve, and log operational work across documents, emails, and ERP exports.",
       },
       {
-        title: "Knowledge retrieval",
+        title: "Autonomous agents",
         description:
-          "Permission-aware retrieval across documents, SOPs, inboxes, and company knowledge.",
+          "Specialized agents that extract, classify, route, draft, and escalate work — with knowledge retrieval built in for permission-aware access across documents, SOPs, and company knowledge.",
       },
       {
-        title: "Document-to-data pipelines",
+        title: "AI performance monitoring",
         description:
-          "Extraction and structuring for PDFs, emails, spreadsheets, contracts, and ERP exports.",
-      },
-      {
-        title: "AI stability and security",
-        description:
-          "Evaluations, monitoring, access controls, audit trails, and human review paths.",
+          "Evaluations, real-time monitoring, access controls, audit trails, and human review paths that keep production systems reliable.",
       },
     ],
   },
   industries: {
-    eyebrow: "Industry workflows",
-    heading: "The same operating system, adapted to your workflow route.",
+    eyebrow: "Industries",
+    heading: "The Industries we Specialise in",
     description:
-      "The base system stays consistent. The inputs, exception paths, review steps, and use cases change by industry.",
+      "The same operational AI system, adapted to the specific inputs, exception paths, and review steps of each industry.",
     workflows: [
       {
         id: "procurement",
@@ -360,13 +353,11 @@ const germanContent: LandingPageContent = {
   ...englishContent,
   hero: {
     ...englishContent.hero,
-    eyebrow: "KI-Workflow-Systeme fur reale Operations",
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
       "Wir helfen Logistik-, Fertigungs- und Beschaffungsteams, fragmentierte Dokumente, E-Mails, Tabellen und Business-Tools in strukturierte KI-gestutzte Pipelines zu verwandeln.",
     supportingLine:
       "Statt isolierter Chatbots oder einzelner Automationen bauen wir verbundene Systeme, in denen spezialisierte Agenten extrahieren, klassifizieren, routen, entwerfen, validieren und eskalieren - mit klaren Sicherheits- und Review-Kontrollen.",
-    primaryCta: "Discovery Call buchen",
   },
   kpis: englishContent.kpis,
   problems: {
@@ -377,12 +368,12 @@ const germanContent: LandingPageContent = {
   system: {
     ...englishContent.system,
     eyebrow: "Kernsystem",
-    heading: "Ein Basissystem. Mehrere operative Workflows.",
+    heading: "Drei Säulen operativer KI.",
   },
   industries: {
     ...englishContent.industries,
-    eyebrow: "Branchen-Workflows",
-    heading: "Dasselbe Betriebssystem, angepasst an Ihren Workflow.",
+    eyebrow: "Branchen",
+    heading: "Drei Branchen, auf die wir uns spezialisieren.",
   },
   agents: {
     ...englishContent.agents,

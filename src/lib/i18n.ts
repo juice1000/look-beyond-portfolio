@@ -111,29 +111,42 @@ export const translations: Translations = {
       "Turning fragmented document landscapes into decision-ready knowledge",
     "caseStudies.sprinkenhof.description":
       "Sprinkenhof manages a large and complex document environment with around 1.5 million files across many structures, classes, and permission layers. Important knowledge is distributed across documents, systems, and organizational contexts, making it difficult to find and use the right information.",
-    "caseStudies.sprinkenhof.bullet1": "Faster access to relevant internal knowledge",
-    "caseStudies.sprinkenhof.bullet2": "Less time spent searching across complex document environments",
-    "caseStudies.sprinkenhof.bullet3": "Better-informed decision making in knowledge-heavy workflows",
-    "caseStudies.sprinkenhof.bullet4": "A foundation for AI support in highly regulated enterprise contexts",
+    "caseStudies.sprinkenhof.bullet1":
+      "Faster access to relevant internal knowledge",
+    "caseStudies.sprinkenhof.bullet2":
+      "Less time spent searching across complex document environments",
+    "caseStudies.sprinkenhof.bullet3":
+      "Better-informed decision making in knowledge-heavy workflows",
+    "caseStudies.sprinkenhof.bullet4":
+      "A foundation for AI support in highly regulated enterprise contexts",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
       "Making enterprise AI safer through evaluation, monitoring, and operational control",
     "caseStudies.fgs.description":
       "At FGS Global, we strengthened the reliability of AI systems used in enterprise settings. The work focused on AIOps foundations for the Fergus ecosystem, with an emphasis on making AI behavior measurable, testable, and easier to improve over time.",
-    "caseStudies.fgs.bullet1": "More reliable AI performance in enterprise use cases",
-    "caseStudies.fgs.bullet2": "Earlier detection of quality issues and regressions",
-    "caseStudies.fgs.bullet3": "Clearer visibility into how AI systems behave over time",
-    "caseStudies.fgs.bullet4": "Safer rollout of AI across internal workflows and teams",
+    "caseStudies.fgs.bullet1":
+      "More reliable AI performance in enterprise use cases",
+    "caseStudies.fgs.bullet2":
+      "Earlier detection of quality issues and regressions",
+    "caseStudies.fgs.bullet3":
+      "Clearer visibility into how AI systems behave over time",
+    "caseStudies.fgs.bullet4":
+      "Safer rollout of AI across internal workflows and teams",
 
     "caseStudies.sourcera.title": "Sourcera",
-    "caseStudies.sourcera.tagline": "Automating strategic workflow execution with AI",
+    "caseStudies.sourcera.tagline":
+      "Automating strategic workflow execution with AI",
     "caseStudies.sourcera.description":
       "At Sourcera, we contributed to workflow-driven AI systems for procurement intelligence and supplier operations. The goal was to reduce manual research and coordination work in areas where teams traditionally spend significant time gathering information, evaluating fit, and moving decisions forward.",
-    "caseStudies.sourcera.bullet1": "Less manual effort in research-heavy workflows",
-    "caseStudies.sourcera.bullet2": "Faster progression from information gathering to decision support",
-    "caseStudies.sourcera.bullet3": "More scalable handling of repetitive knowledge tasks",
-    "caseStudies.sourcera.bullet4": "Improved process efficiency in operational and procurement contexts",
+    "caseStudies.sourcera.bullet1":
+      "Less manual effort in research-heavy workflows",
+    "caseStudies.sourcera.bullet2":
+      "Faster progression from information gathering to decision support",
+    "caseStudies.sourcera.bullet3":
+      "More scalable handling of repetitive knowledge tasks",
+    "caseStudies.sourcera.bullet4":
+      "Improved process efficiency in operational and procurement contexts",
 
     // What We Solve
     "whatWeSolve.title": "What we solve",
@@ -229,14 +242,16 @@ export const translations: Translations = {
       "Successful AI adoption is not just a systems problem. It is a people problem as well.",
     "training.paragraph2":
       "We bring experience in training and enablement, helping teams understand how to work with AI effectively and how to lead change internally. This ranges from practical workshops and hands-on guidance to building the internal confidence needed for long-term ownership.",
-    "training.outro": "That means clients do not just receive a solution. They build capability.",
+    "training.outro":
+      "That means clients do not just receive a solution. They build capability.",
 
     // Closing Positioning
     "closing.title": "AI that delivers from day one.",
     "closing.description": "For enterprises, that means:",
     "closing.point1": "Better decisions from internal knowledge",
     "closing.point2": "Less operational drag through workflow automation",
-    "closing.point3": "AI systems that are safe, measurable, and ready to scale",
+    "closing.point3":
+      "AI systems that are safe, measurable, and ready to scale",
     "closing.point4": "Internal teams equipped to lead the change",
 
     // Our Process Section
@@ -276,7 +291,43 @@ export const translations: Translations = {
     // Pricing & Engagement Section
     "pricingEngagement.title": "Pricing & Engagement",
     "pricingEngagement.description":
-      "Engagement models built for enterprise AI delivery and enablement.",
+      "Transparent starting points for workshops, prototypes, and scaling work.",
+    "pricingEngagement.tiers.free.title": "First meeting",
+    "pricingEngagement.tiers.free.price": "Free",
+    "pricingEngagement.tiers.free.description":
+      "A short working session to map the workflow, surface constraints, and decide whether a workshop or POC is the right next step.",
+    "pricingEngagement.tiers.free.item1": "Workflow framing and priority check",
+    "pricingEngagement.tiers.free.item2": "No charge, no deck, no commitment",
+    "pricingEngagement.tiers.workshop.title": "Discovery workshop",
+    "pricingEngagement.tiers.workshop.price": "Starting at $2K USD",
+    "pricingEngagement.tiers.workshop.description":
+      "A focused workshop to understand the process, define the pipeline, and identify what should be automated first.",
+    "pricingEngagement.tiers.workshop.item1": "Process mapping and stakeholder review",
+    "pricingEngagement.tiers.workshop.item2": "Workflow opportunities and risks",
+    "pricingEngagement.tiers.workshop.item3": "Next-step recommendation",
+    "pricingEngagement.tiers.poc.title": "POC development",
+    "pricingEngagement.tiers.poc.price": "Starting at $15K USD",
+    "pricingEngagement.tiers.poc.description":
+      "A working prototype built against real examples so you can validate usefulness, controls, and edge cases before scaling.",
+    "pricingEngagement.tiers.poc.item1": "Prototype build and testing",
+    "pricingEngagement.tiers.poc.item2": "Real sample data and exception handling",
+    "pricingEngagement.tiers.poc.item3": "Review loop and handoff plan",
+    "pricingEngagement.tiers.retainer.title": "Scaling solutions",
+    "pricingEngagement.tiers.retainer.price": "Retainer basis",
+    "pricingEngagement.tiers.retainer.description":
+      "Ongoing implementation support for adjacent workflows, improvements, monitoring, and operational rollout.",
+    "pricingEngagement.tiers.retainer.item1": "Continuous delivery support",
+    "pricingEngagement.tiers.retainer.item2": "Monitoring and refinements",
+    "pricingEngagement.tiers.retainer.item3": "Roadmap for adjacent workflows",
+    "pricingEngagement.details.title": "What else to mention",
+    "pricingEngagement.details.point1":
+      "What is included in each phase and what is out of scope.",
+    "pricingEngagement.details.point2":
+      "Typical timeline for workshop, POC, and retainer work.",
+    "pricingEngagement.details.point3":
+      "Whether tax, travel, or third-party tooling costs are separate.",
+    "pricingEngagement.details.point4":
+      "Whether workshop fees are credited toward a POC if the project continues.",
     "pricingEngagement.pricing.title": "How we scope",
     "pricingEngagement.pricing.description":
       "We align work around measurable outcomes instead of vanity experiments.",
@@ -339,7 +390,7 @@ export const translations: Translations = {
     "imprint.responsible": "Responsible for content",
     "imprint.sameAddress": "(Same as registered address)",
 
-    phone: "+65 0161 267",
+    phone: "+65 8035 0340",
   },
   de: {
     // Navbar
@@ -384,7 +435,8 @@ export const translations: Translations = {
       "Die Veränderungen, auf die wir abzielen, wenn wir KI in Unternehmensprozesse einbetten.",
     "ai.kpi.1": "weniger manueller Aufwand in Zielprozessen",
     "ai.kpi.2": "schnellere Durchlaufzeiten in wissenslastigen Bereichen",
-    "ai.kpi.3": "schneller Zugang zu entscheidungsrelevantem Kontext im Unternehmen",
+    "ai.kpi.3":
+      "schneller Zugang zu entscheidungsrelevantem Kontext im Unternehmen",
     "ai.kpi.4": "mehr Vertrauen durch kontinuierliche Tests und Monitoring",
 
     // Projects / Case Studies Page
@@ -447,30 +499,41 @@ export const translations: Translations = {
       "Zersplitterte Dokumentlandschaften werden zu entscheidungsreifem Wissen",
     "caseStudies.sprinkenhof.description":
       "Sprinkenhof verwaltet eine große Dokumentlandschaft mit rund 1,5 Millionen Dateien, zahlreichen Strukturen und Berechtigungen. Wissen ist über Dokumente, Systeme und Organisationseinheiten verteilt – der Zugriff auf die richtige Information kostet Zeit und Vertrauen.",
-    "caseStudies.sprinkenhof.bullet1": "Schnellerer Zugriff auf relevantes internes Wissen",
-    "caseStudies.sprinkenhof.bullet2": "Weniger Suchaufwand in komplexen Ablagen",
-    "caseStudies.sprinkenhof.bullet3": "Besser informierte Entscheidungen in wissensintensiven Workflows",
-    "caseStudies.sprinkenhof.bullet4": "Fundament für KI-Unterstützung in regulierten Kontexten",
+    "caseStudies.sprinkenhof.bullet1":
+      "Schnellerer Zugriff auf relevantes internes Wissen",
+    "caseStudies.sprinkenhof.bullet2":
+      "Weniger Suchaufwand in komplexen Ablagen",
+    "caseStudies.sprinkenhof.bullet3":
+      "Besser informierte Entscheidungen in wissensintensiven Workflows",
+    "caseStudies.sprinkenhof.bullet4":
+      "Fundament für KI-Unterstützung in regulierten Kontexten",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
       "Unternehmens-KI durch Evaluation, Monitoring und Steuerung absichern",
     "caseStudies.fgs.description":
       "Bei FGS Global haben wir die Zuverlässigkeit der im Fergus-Ökosystem eingesetzten KI gestärkt. Der Fokus lag auf AIOps-Grundlagen, die das Verhalten von KI messbar, testbar und fortlaufend verbesserbar machen.",
-    "caseStudies.fgs.bullet1": "Zuverlässigere KI-Leistung in Unternehmenseinsatzszenarien",
+    "caseStudies.fgs.bullet1":
+      "Zuverlässigere KI-Leistung in Unternehmenseinsatzszenarien",
     "caseStudies.fgs.bullet2": "Frühzeitige Erkennung von Qualitätsproblemen",
-    "caseStudies.fgs.bullet3": "Bessere Transparenz über das Verhalten der KI im Zeitverlauf",
-    "caseStudies.fgs.bullet4": "Sicherere Einführung von KI über Teams und Workflows hinweg",
+    "caseStudies.fgs.bullet3":
+      "Bessere Transparenz über das Verhalten der KI im Zeitverlauf",
+    "caseStudies.fgs.bullet4":
+      "Sicherere Einführung von KI über Teams und Workflows hinweg",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
       "Strategische Workflows mit KI automatisieren",
     "caseStudies.sourcera.description":
       "Für Sourcera haben wir KI-gestützte Workflows für Beschaffungs- und Lieferantenprozesse mit aufgebaut. Ziel war es, manuelle Recherche und Abstimmung zu reduzieren und Entscheidungen schneller voranzutreiben.",
-    "caseStudies.sourcera.bullet1": "Weniger manueller Aufwand in research-intensiven Aufgaben",
-    "caseStudies.sourcera.bullet2": "Schnellere Schritte von Information zu Entscheidung",
-    "caseStudies.sourcera.bullet3": "Skalierbare Bearbeitung wiederkehrender Wissensarbeit",
-    "caseStudies.sourcera.bullet4": "Höhere Prozesseffizienz in Beschaffung und Operations",
+    "caseStudies.sourcera.bullet1":
+      "Weniger manueller Aufwand in research-intensiven Aufgaben",
+    "caseStudies.sourcera.bullet2":
+      "Schnellere Schritte von Information zu Entscheidung",
+    "caseStudies.sourcera.bullet3":
+      "Skalierbare Bearbeitung wiederkehrender Wissensarbeit",
+    "caseStudies.sourcera.bullet4":
+      "Höhere Prozesseffizienz in Beschaffung und Operations",
 
     // What We Solve
     "whatWeSolve.title": "Was wir lösen",
@@ -612,7 +675,43 @@ export const translations: Translations = {
     // Pricing & Engagement
     "pricingEngagement.title": "Pricing & Collaboration",
     "pricingEngagement.description":
-      "Zusammenarbeitsmodelle für Enterprise-KI und Enablement.",
+      "Transparente Einstiegspunkte für Workshops, Prototypen und Skalierung.",
+    "pricingEngagement.tiers.free.title": "Erstes Meeting",
+    "pricingEngagement.tiers.free.price": "Kostenlos",
+    "pricingEngagement.tiers.free.description":
+      "Ein kurzes Arbeitstreffen, um den Workflow zu skizzieren, Rahmenbedingungen zu prüfen und zu entscheiden, ob Workshop oder POC der nächste Schritt ist.",
+    "pricingEngagement.tiers.free.item1": "Workflow-Orientierung und Priorisierung",
+    "pricingEngagement.tiers.free.item2": "Ohne Kosten, ohne Deck, ohne Verpflichtung",
+    "pricingEngagement.tiers.workshop.title": "Discovery-Workshop",
+    "pricingEngagement.tiers.workshop.price": "Ab 2K USD",
+    "pricingEngagement.tiers.workshop.description":
+      "Ein fokussierter Workshop, um den Prozess zu verstehen, die Pipeline zu definieren und zu bestimmen, was zuerst automatisiert werden sollte.",
+    "pricingEngagement.tiers.workshop.item1": "Prozessmapping und Stakeholder-Review",
+    "pricingEngagement.tiers.workshop.item2": "Chancen und Risiken im Workflow",
+    "pricingEngagement.tiers.workshop.item3": "Empfehlung für den nächsten Schritt",
+    "pricingEngagement.tiers.poc.title": "POC-Entwicklung",
+    "pricingEngagement.tiers.poc.price": "Ab 15K USD",
+    "pricingEngagement.tiers.poc.description":
+      "Ein funktionierender Prototyp auf Basis realer Beispiele, um Nutzen, Kontrollen und Edge Cases vor dem Skalieren zu validieren.",
+    "pricingEngagement.tiers.poc.item1": "Prototype Build und Tests",
+    "pricingEngagement.tiers.poc.item2": "Reale Beispieldaten und Ausnahmebehandlung",
+    "pricingEngagement.tiers.poc.item3": "Review-Schleife und Übergabeplan",
+    "pricingEngagement.tiers.retainer.title": "Skalierungslösungen",
+    "pricingEngagement.tiers.retainer.price": "Auf Retainer-Basis",
+    "pricingEngagement.tiers.retainer.description":
+      "Laufende Unterstützung bei angrenzenden Workflows, Verbesserungen, Monitoring und operativem Rollout.",
+    "pricingEngagement.tiers.retainer.item1": "Kontinuierliche Delivery-Unterstützung",
+    "pricingEngagement.tiers.retainer.item2": "Monitoring und Optimierungen",
+    "pricingEngagement.tiers.retainer.item3": "Roadmap für weitere Workflows",
+    "pricingEngagement.details.title": "Was Sie zusätzlich erwähnen sollten",
+    "pricingEngagement.details.point1":
+      "Was in jeder Phase enthalten ist und was nicht.",
+    "pricingEngagement.details.point2":
+      "Typische Timeline für Workshop, POC und Retainer.",
+    "pricingEngagement.details.point3":
+      "Ob Steuern, Reise oder Drittanbieter-Tools separat berechnet werden.",
+    "pricingEngagement.details.point4":
+      "Ob Workshop-Gebühren bei einem anschließenden POC angerechnet werden.",
     "pricingEngagement.pricing.title": "So scopen wir",
     "pricingEngagement.pricing.description":
       "Wir richten Arbeit an messbaren Outcomes statt an Showcases aus.",

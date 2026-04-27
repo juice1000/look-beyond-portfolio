@@ -1,9 +1,18 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { IndustryWorkflow, LandingPageContent } from "../../data/landingPage";
 import { cn } from "../../lib/utils";
-import { Button } from "../ui/button";
+import ManufacturingAnimation from "./ManufacturingAnimation";
+import ProcurementAnimation from "./ProcurementAnimation";
+import LogisticsAnimation from "./LogisticsAnimation";
+
+const industryRoutes: Record<string, string> = {
+  procurement: "/industries/procurement",
+  manufacturing: "/industries/manufacturing",
+  logistics: "/industries/logistics",
+};
 
 interface IndustryWorkflowTabsProps {
   content: LandingPageContent["industries"];
@@ -61,7 +70,7 @@ const IndustryWorkflowTabs = ({ content }: IndustryWorkflowTabsProps) => {
               className={cn(
                 "border-b border-r border-gray-200 px-5 py-4 text-center font-mono text-xs font-semibold uppercase tracking-wide text-gray-400 transition-colors md:border-b-0 dark:border-gray-800",
                 activeWorkflow.id === workflow.id &&
-                  "border-b-2 border-b-blue-600 bg-blue-50 text-blue-600 dark:bg-blue-950/20"
+                  "border-b-2 border-b-blue-600 bg-blue-50 text-blue-600 dark:bg-blue-950/20",
               )}
             >
               {workflow.label}
@@ -87,34 +96,21 @@ const IndustryWorkflowTabs = ({ content }: IndustryWorkflowTabsProps) => {
                 </div>
               ))}
             </div>
-            <Button
-              variant="outline"
-              className="rounded-sm border-blue-600 font-mono text-xs uppercase tracking-wide text-blue-600"
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
-            >
-              {activeWorkflow.cta}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            {industryRoutes[activeWorkflow.id] && (
+              <Link
+                to={industryRoutes[activeWorkflow.id]}
+                className="inline-flex items-center gap-2 rounded-sm border border-gray-300 px-4 py-2 font-mono text-xs uppercase tracking-wide text-gray-500 transition-colors hover:border-gray-400 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300"
+              >
+                How We Engage →
+              </Link>
+            )}
           </div>
-          <div className="bg-slate-50 p-8 dark:bg-gray-900">
-            <div className="mb-6 grid grid-cols-3 border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
-              {["Inputs", "Controls", "Outcome"].map((label) => (
-                <div
-                  key={label}
-                  className="border-r border-gray-200 px-4 py-3 text-center last:border-r-0 dark:border-gray-800"
-                >
-                  <p className="font-mono text-xs uppercase tracking-wide text-blue-600">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-wide text-gray-400">
-              Workflow route
-            </p>
-            <WorkflowPipeline {...activeWorkflow} />
+          <div className="relative min-h-[320px] flex-1 overflow-hidden bg-[#060b18]">
+            {activeWorkflow.id === "manufacturing" && (
+              <ManufacturingAnimation />
+            )}
+            {activeWorkflow.id === "procurement" && <ProcurementAnimation />}
+            {activeWorkflow.id === "logistics" && <LogisticsAnimation />}
           </div>
         </div>
       </div>

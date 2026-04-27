@@ -26,7 +26,7 @@ interface ContactSectionProps {
 
 const ContactSection = ({
   contactInfo = {
-    phone: "+65 8016 1267",
+    phone: "+65 8035 0340",
     email: "contact@lookbeyond.sg",
   },
   language = "en",
@@ -44,7 +44,7 @@ const ContactSection = ({
     } catch (error) {
       console.error(error);
       alert(
-        "Failed to send email. Please use the email address displayed in the contact information."
+        "Failed to send email. Please use the email address displayed in the contact information.",
       );
     }
   };

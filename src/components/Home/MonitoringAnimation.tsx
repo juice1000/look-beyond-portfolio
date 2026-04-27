@@ -51,13 +51,7 @@ function spinnerPath(cx: number, cy: number, r: number, pct: number) {
   },1 ${cx + r * Math.cos(e)},${cy + r * Math.sin(e)}`;
 }
 
-type NodeType = "monitor" | "evaluator" | "report" | "alert";
-
-interface TooltipCall {
-  call: string;
-  activeAt: number;
-  doneAt: number;
-}
+type NodeType = "monitor" | "report" | "alert";
 
 interface NodeData {
   id: string;
@@ -70,59 +64,57 @@ interface NodeData {
   hw: number;
   hh: number;
   activateAt: number;
-  tooltip?: TooltipCall[];
-  status?: string;
 }
 
-// Chat window occupies x:20–355, y:18–300
-// Observer left edge at x:450 (540 - hw:90)
-// Intercept edge exits chat window right edge (x:356) at y:220 → arrives observer left (450,255)
+interface SubProc {
+  label: string;
+  color: string;
+  activeAt: number;
+  doneAt: number;
+}
+
+const SUBPROCS: SubProc[] = [
+  { label: "Factuality Check",   color: "#ef4444", activeAt: 3.8, doneAt: 6.8 },
+  { label: "Sentiment Analyzer", color: "#06b6d4", activeAt: 3.9, doneAt: 6.4 },
+  { label: "Quality Scorer",     color: "#3b82f6", activeAt: 4.0, doneAt: 6.6 },
+  { label: "Policy Check",       color: "#10b981", activeAt: 4.1, doneAt: 6.5 },
+];
+
+// Chat window in SVG space: x:100–435, y:18–468 (shifted right +80 via <g transform>)
+// Observer left edge: x:605
 const INTERCEPT = {
-  activeAt: 2.4,
+  activeAt: 0.5,
   color: "#6366f1",
-  p0: { x: 356, y: 215 },
-  p1: { x: 420, y: 215 },
-  p2: { x: 450, y: 250 },
-  p3: { x: 450, y: 255 },
+  p0: { x: 436, y: 243 },
+  p1: { x: 510, y: 243 },
+  p2: { x: 555, y: 300 },
+  p3: { x: 605, y: 320 },
 };
 
+// Observer: centered x:720, y:320, hw:115, hh:105 → card 230×210, top:215, bottom:425
+// Report / Alert stacked below
 const RAW_NODES: NodeData[] = [
   {
     id: "observer", label: "Observation Engine", sublabel: "Performance Monitor",
-    type: "monitor", color: "#6366f1", x: 540, y: 255, hw: 90, hh: 30, activateAt: 2.4,
-    tooltip: [
-      { call: "extract_response_data()",    activeAt: 2.6, doneAt: 3.1 },
-      { call: "run_evaluators(parallel=4)", activeAt: 3.1, doneAt: 3.6 },
-    ],
+    type: "monitor", color: "#6366f1", x: 720, y: 320, hw: 115, hh: 105, activateAt: 2.4,
   },
-  { id: "factuality", label: "Factuality Check",   sublabel: "Claim Verification",  type: "evaluator", color: "#ef4444", x: 870, y: 130, hw: 80, hh: 21, activateAt: 3.8, status: "Verifying claims..." },
-  { id: "sentiment",  label: "Sentiment Analyzer", sublabel: "Emotion Detection",   type: "evaluator", color: "#06b6d4", x: 870, y: 265, hw: 80, hh: 21, activateAt: 3.9, status: "Analyzing tone..." },
-  { id: "quality",    label: "Quality Scorer",     sublabel: "Response Quality",    type: "evaluator", color: "#3b82f6", x: 870, y: 400, hw: 78, hh: 21, activateAt: 4.0, status: "Measuring clarity..." },
-  { id: "compliance", label: "Policy Check",       sublabel: "Safety & Guidelines", type: "evaluator", color: "#10b981", x: 870, y: 535, hw: 80, hh: 21, activateAt: 4.1, status: "Validating policies..." },
-  { id: "report",     label: "Health Report",      sublabel: "Analysis Complete",   type: "report",    color: "#8b5cf6", x: 540, y: 430, hw: 88, hh: 22, activateAt: 5.8 },
-  { id: "alert",      label: "Email Alert Sent",   sublabel: "Factuality: 0.41 ⚠", type: "alert",     color: "#f97316", x: 540, y: 545, hw: 90, hh: 22, activateAt: 6.3 },
+  {
+    id: "report", label: "Health Report", sublabel: "Analysis Complete",
+    type: "report", color: "#8b5cf6", x: 720, y: 565, hw: 90, hh: 26, activateAt: 7.0,
+  },
+  {
+    id: "alert", label: "Email Alert Sent", sublabel: "Factuality: 0.41 ⚠",
+    type: "alert", color: "#f97316", x: 720, y: 650, hw: 90, hh: 26, activateAt: 7.6,
+  },
 ];
 
 const NMAP = Object.fromEntries(RAW_NODES.map((n) => [n.id, n]));
 
 const TYPE_LABEL: Record<NodeType, string> = {
-  monitor:   "OBSERVER",
-  evaluator: "EVALUATOR",
-  report:    "REPORT",
-  alert:     "ALERT",
+  monitor: "OBSERVER",
+  report:  "REPORT",
+  alert:   "ALERT",
 };
-
-const TP_W = 270;
-const TP_H_ROW = 27;
-
-function tooltipRect(node: NodeData) {
-  const n = node.tooltip!.length;
-  const h = 14 + n * TP_H_ROW + 10;
-  const side = node.x < W / 2 ? "right" : "left";
-  const x = side === "right" ? node.x + node.hw + 16 : node.x - node.hw - 16 - TP_W;
-  const y = node.y - h / 2;
-  return { x, y, w: TP_W, h, side };
-}
 
 function routeEdge(src: NodeData, dst: NodeData) {
   const down = dst.y > src.y + 40;
@@ -150,25 +142,16 @@ interface RawEdge { from: string; to: string; activeAt: number; type?: string; }
 
 const EDGES = (
   [
-    { from: "observer",   to: "factuality", activeAt: 3.7 },
-    { from: "observer",   to: "sentiment",  activeAt: 3.8 },
-    { from: "observer",   to: "quality",    activeAt: 3.9 },
-    { from: "observer",   to: "compliance", activeAt: 4.0 },
-    { from: "factuality", to: "observer",   activeAt: 4.6, type: "query" },
-    { from: "sentiment",  to: "observer",   activeAt: 4.8, type: "response" },
-    { from: "quality",    to: "observer",   activeAt: 5.0, type: "response" },
-    { from: "compliance", to: "observer",   activeAt: 5.2, type: "response" },
-    { from: "observer",   to: "report",     activeAt: 5.5 },
-    { from: "observer",   to: "alert",      activeAt: 6.0 },
+    { from: "observer", to: "report", activeAt: 6.8 },
+    { from: "report",   to: "alert",  activeAt: 7.3 },
   ] as RawEdge[]
 ).map((e) => ({ ...e, ...routeEdge(NMAP[e.from], NMAP[e.to]) }));
 
-// Chat conversation content
 const BOT_LINES = [
-  { text: "I'm sorry to hear about your order.", activeAt: 1.4 },
+  { text: "I'm sorry to hear about your order.",       activeAt: 1.4  },
   { text: "I can see #ORD-2847 was placed on Apr 24.", activeAt: 1.85 },
-  { text: "A replacement has been approved and will", activeAt: 2.2 },
-  { text: "ship within 2–3 business days.", activeAt: 2.4 },
+  { text: "A replacement has been approved and will",  activeAt: 2.2  },
+  { text: "ship within 2–3 business days.",            activeAt: 2.4  },
 ];
 
 interface MonitoringAnimationProps { time: number; }
@@ -177,7 +160,6 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
   const particles = React.useMemo(() => {
     const ps: Array<{ x: number; y: number; color: string; r: number; op: number; glow: boolean }> = [];
 
-    // Intercept edge particles
     if (time >= INTERCEPT.activeAt) {
       const el = time - INTERCEPT.activeAt;
       for (let i = 0; i < 4; i++) {
@@ -194,14 +176,11 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
     EDGES.forEach((e) => {
       if (time < e.activeAt) return;
       const el = time - e.activeAt;
-      const isReturn = e.type === "response" || e.type === "query";
-      const speed = isReturn ? 0.75 : 0.6;
-      const count = isReturn ? 3 : 4;
       const color = NMAP[e.from].color;
-      for (let i = 0; i < count; i++) {
-        const t = (el * speed + i / count) % 1;
+      for (let i = 0; i < 4; i++) {
+        const t = (el * 0.6 + i / 4) % 1;
         const pos = cubicBezier(t, e.p0, e.p1, e.p2, e.p3);
-        ps.push({ ...pos, color, r: isReturn ? 2.5 : 3.5, op: isReturn ? 0.7 : 0.88, glow: true });
+        ps.push({ ...pos, color, r: 3.5, op: 0.88, glow: true });
         if (t > 0.06) {
           const pos2 = cubicBezier(Math.max(0, t - 0.06), e.p0, e.p1, e.p2, e.p3);
           ps.push({ ...pos2, color, r: 1.5, op: 0.2, glow: false });
@@ -211,13 +190,28 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
     return ps;
   }, [time]);
 
-  const chatWinF   = fade(time, 0.0, 0.4);
-  const userBubF   = fade(time, 0.3, 0.35);
-  const typingF    = time >= 0.9 && time < 1.4 ? fade(time, 0.9, 0.3) : 0;
-  const interceptF = fade(time, INTERCEPT.activeAt, 0.5);
+  const chatWinF    = fade(time, 0.0, 0.4);
+  const userBubF    = fade(time, 0.3, 0.35);
+  const typingF     = time >= 0.9 && time < 1.4 ? fade(time, 0.9, 0.3) : 0;
+  const interceptF  = fade(time, INTERCEPT.activeAt, 0.5);
+  const monBadgeF   = fade(time, 2.4, 0.5); // badge + border highlight
+  const userBub2F   = fade(time, 8.0, 0.35);
+  const typing2F    = time >= 8.5 && time < 9.2 ? fade(time, 8.5, 0.3) : 0;
+  const bot2Line1F  = fade(time, 9.2, 0.4);
+  const bot2Line2F  = fade(time, 9.6, 0.4);
 
-  // Intercept path string
   const interceptPath = `M${INTERCEPT.p0.x},${INTERCEPT.p0.y} C${INTERCEPT.p1.x},${INTERCEPT.p1.y} ${INTERCEPT.p2.x},${INTERCEPT.p2.y} ${INTERCEPT.p3.x},${INTERCEPT.p3.y}`;
+
+  const obs = NMAP["observer"];
+  const obs_hf = fade(time, obs.activateAt, 0.45);
+  // Card geometry constants
+  const cardLeft  = obs.x - obs.hw;  // 605
+  const cardTop   = obs.y - obs.hh;  // 215
+  const cardRight = obs.x + obs.hw;  // 835
+  const rowBaseY  = cardTop + 68;    // 283 — first subprocess row center
+  const rowStep   = 33;
+  const iconX     = cardLeft + 18;   // 623
+  const iconR     = 5;
 
   return (
     <svg
@@ -252,16 +246,22 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
       <rect width={W} height={H} fill="#060b18" />
       <rect width={W} height={H} fill="url(#mon-dots)" />
 
-      {/* ── Chat window ── */}
-      <g opacity={chatWinF}>
-        {/* Window background */}
-        <rect x={20} y={18} width={335} height={282} rx={8}
-          fill="#060e1e" stroke="#0d1c32" strokeWidth={1} />
-
-        {/* Header bar */}
+      {/* ── Chat window (shifted right 80px) ── */}
+      <g transform="translate(80, 0)" opacity={chatWinF}>
+        <rect x={20} y={18} width={335} height={450} rx={8}
+          fill="#060e1e"
+          stroke={monBadgeF > 0 ? "#6366f1" : "#0d1c32"}
+          strokeWidth={monBadgeF > 0 ? 1.5 : 1}
+          strokeOpacity={monBadgeF > 0 ? 0.6 + 0.25 * Math.sin(time * 3) : 1} />
+        {/* Outer glow ring around whole window */}
+        {monBadgeF > 0 && (
+          <rect x={16} y={14} width={343} height={458} rx={10}
+            fill="none" stroke="#6366f1"
+            strokeWidth={2} strokeOpacity={0.12 * monBadgeF}
+            filter="url(#mon-glow)" />
+        )}
         <rect x={20} y={18} width={335} height={38} rx={8} fill="#0a1525" />
         <rect x={20} y={42} width={335} height={14} fill="#0a1525" />
-        {/* Status dot */}
         <circle cx={46} cy={37} r={4} fill="#22c55e" opacity={0.9} filter="url(#mon-pg)" />
         <text x={58} y={37} dominantBaseline="middle"
           fill="#c8d8f0" fontSize={10} fontWeight={700}
@@ -274,7 +274,6 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         </text>
         <line x1={20} y1={56} x2={355} y2={56} stroke="#0d1c32" strokeWidth={0.8} />
 
-        {/* User message bubble — right aligned */}
         <g opacity={userBubF}>
           <rect x={168} y={66} width={177} height={52} rx={8}
             fill="#1e3a5f" stroke="#2a4d80" strokeWidth={0.8} />
@@ -286,13 +285,11 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             fill="#c8d8f0" fontSize={9} fontFamily="Space Mono, monospace">
             order <tspan fill="#60a5fa">#ORD-2847</tspan>. Fix this.
           </text>
-          {/* User avatar dot */}
           <circle cx={339} cy={124} r={5} fill="#2a4d80" />
           <text x={339} y={124} textAnchor="middle" dominantBaseline="middle"
             fill="#60a5fa" fontSize={7} fontWeight={700}>U</text>
         </g>
 
-        {/* Typing indicator */}
         {typingF > 0 && (
           <g opacity={typingF}>
             <rect x={30} y={130} width={64} height={26} rx={6} fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
@@ -304,15 +301,9 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
           </g>
         )}
 
-        {/* Bot response bubble — streams in */}
         <g>
           <rect x={30} y={130} width={315} height={158} rx={8}
-            fill="#0c1a2e"
-            stroke={interceptF > 0 ? "#6366f1" : "#0f2540"}
-            strokeWidth={interceptF > 0 ? 1.2 : 0.8}
-            strokeOpacity={interceptF > 0 ? 0.6 + 0.3 * Math.sin(time * 3) : 1}
-          />
-          {/* Bot avatar */}
+            fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
           <circle cx={48} cy={148} r={8} fill="#1a2e50" stroke="#3b82f6" strokeWidth={0.8} />
           <text x={48} y={148} textAnchor="middle" dominantBaseline="middle"
             fill="#60a5fa" fontSize={7} fontWeight={700}>AI</text>
@@ -329,7 +320,6 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             );
           })}
 
-          {/* Cursor blink while last line not yet shown */}
           {time >= 1.4 && time < 2.55 && (
             <rect
               x={64 + (time < 1.85 ? 185 : time < 2.2 ? 208 : time < 2.4 ? 208 : 150)}
@@ -340,22 +330,92 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             />
           )}
 
-          {/* "Intercepted" badge */}
-          {interceptF > 0 && (
-            <g opacity={interceptF}>
-              <rect x={236} y={274} width={100} height={18} rx={4}
-                fill="#1a1060" stroke="#6366f1" strokeWidth={0.8} strokeOpacity={0.7} />
-              <text x={286} y={283} textAnchor="middle" dominantBaseline="middle"
-                fill="#818cf8" fontSize={7} fontWeight={700}
-                fontFamily="Space Mono, monospace" letterSpacing={0.8}>
-                ⚡ MONITORING
-              </text>
-            </g>
-          )}
         </g>
+
+        {/* User message 2 */}
+        <g opacity={userBub2F}>
+          <rect x={168} y={302} width={177} height={36} rx={8}
+            fill="#1e3a5f" stroke="#2a4d80" strokeWidth={0.8} />
+          <text x={180} y={320} dominantBaseline="middle"
+            fill="#c8d8f0" fontSize={9} fontFamily="Space Mono, monospace">
+            Can I get expedited shipping?
+          </text>
+          <circle cx={339} cy={344} r={5} fill="#2a4d80" />
+          <text x={339} y={344} textAnchor="middle" dominantBaseline="middle"
+            fill="#60a5fa" fontSize={7} fontWeight={700}>U</text>
+        </g>
+
+        {/* Typing indicator 2 */}
+        {typing2F > 0 && (
+          <g opacity={typing2F}>
+            <rect x={30} y={352} width={64} height={26} rx={6} fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
+            {[0, 1, 2].map((i) => (
+              <circle key={i} cx={46 + i * 16} cy={365} r={3.5}
+                fill="#6366f1"
+                opacity={0.4 + 0.6 * Math.abs(Math.sin(time * 6 + i * 1.2))} />
+            ))}
+          </g>
+        )}
+
+        {/* Bot response 2 */}
+        {bot2Line1F > 0 && (
+          <g>
+            <rect x={30} y={352} width={315} height={100} rx={8}
+              fill="#0c1a2e" stroke="#0f2540" strokeWidth={0.8} />
+            <circle cx={48} cy={370} r={8} fill="#1a2e50" stroke="#3b82f6" strokeWidth={0.8} />
+            <text x={48} y={370} textAnchor="middle" dominantBaseline="middle"
+              fill="#60a5fa" fontSize={7} fontWeight={700}>AI</text>
+            <text x={64} y={370} dominantBaseline="middle"
+              fill="#c8d8f0" fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
+              opacity={bot2Line1F}>
+              I've upgraded your shipment to express.
+            </text>
+            {bot2Line2F > 0 && (
+              <text x={64} y={388} dominantBaseline="middle"
+                fill="#c8d8f0" fontSize={9.5} fontFamily="Space Grotesk, sans-serif"
+                opacity={bot2Line2F}>
+                New tracking number: <tspan fill="#60a5fa">TRK-9921-B</tspan>.
+              </text>
+            )}
+            {/* Cursor */}
+            {time >= 9.2 && time < 9.75 && (
+              <rect
+                x={64 + (time < 9.6 ? 210 : 196)}
+                y={(time < 9.6 ? 370 : 388) - 7}
+                width={1.5} height={13}
+                fill="#6366f1"
+                opacity={Math.sin(time * 8) > 0 ? 0.9 : 0}
+              />
+            )}
+          </g>
+        )}
+        {/* ⚡ MONITORING badge — bottom of full window */}
+        {monBadgeF > 0 && (
+          <g opacity={monBadgeF}>
+            <rect x={138} y={451} width={120} height={18} rx={4}
+              fill="#1a1060" stroke="#6366f1" strokeWidth={0.8} strokeOpacity={0.8} />
+            <text x={198} y={460} textAnchor="middle" dominantBaseline="middle"
+              fill="#818cf8" fontSize={7} fontWeight={700}
+              fontFamily="Space Mono, monospace" letterSpacing={0.8}>
+              ⚡ MONITORING ACTIVE
+            </text>
+          </g>
+        )}
       </g>
 
-      {/* ── Intercept edge (chat window → observer) ── */}
+      {/* ── Full chat window right-edge tap bar ── */}
+      {interceptF > 0 && (
+        <g opacity={interceptF}>
+          {/* Glow bar spanning full chat window height */}
+          <rect x={433} y={18} width={4} height={450} rx={2}
+            fill="#6366f1" fillOpacity={0.18 + 0.08 * Math.sin(time * 3)}
+            filter="url(#mon-glow)" />
+          <rect x={434} y={18} width={2} height={450} rx={1}
+            fill="#6366f1" fillOpacity={0.55 + 0.2 * Math.sin(time * 3)} />
+        </g>
+      )}
+
+      {/* ── Intercept edge (chat → observer) ── */}
       <path d={interceptPath} fill="none" stroke="#0e1c30" strokeWidth="1" strokeDasharray="4 3" />
       {interceptF > 0 && (
         <path d={interceptPath} fill="none" stroke="#6366f1"
@@ -368,17 +428,12 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         const af = time >= e.activeAt ? fade(time, e.activeAt, 0.5) : 0;
         const pathD = `M${e.p0.x},${e.p0.y} C${e.p1.x},${e.p1.y} ${e.p2.x},${e.p2.y} ${e.p3.x},${e.p3.y}`;
         const srcColor = NMAP[e.from].color;
-        const isReturn = e.type === "response" || e.type === "query";
         return (
           <g key={i}>
-            <path d={pathD} fill="none" stroke="#0e1c30"
-              strokeWidth={isReturn ? "0.8" : "1.2"}
-              strokeDasharray={isReturn ? "4 4" : undefined} />
+            <path d={pathD} fill="none" stroke="#0e1c30" strokeWidth="1.2" />
             {af > 0 && (
               <path d={pathD} fill="none" stroke={srcColor}
-                strokeWidth={isReturn ? "1" : "1.5"}
-                strokeOpacity={(isReturn ? 0.28 : 0.4) * af}
-                strokeDasharray={isReturn ? "4 4" : undefined}
+                strokeWidth="1.5" strokeOpacity={0.4 * af}
                 filter="url(#mon-glow)" />
             )}
             {af > 0.5 && (() => {
@@ -396,24 +451,102 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
         );
       })}
 
-      {/* ── Nodes ── */}
-      {RAW_NODES.map((node) => {
+      {/* ── Observer card (custom: subprocess rows inside) ── */}
+      {obs_hf > 0 && (
+        <g opacity={obs_hf}>
+          {/* Outer glow */}
+          <rect x={cardLeft - 8} y={cardTop - 8}
+            width={(obs.hw + 8) * 2} height={(obs.hh + 8) * 2}
+            rx={10} fill={obs.color} fillOpacity={0.06}
+            filter="url(#mon-glow2)" />
+          {/* Card background */}
+          <rect x={cardLeft} y={cardTop}
+            width={obs.hw * 2} height={obs.hh * 2}
+            rx={6} fill={`${obs.color}18`}
+            stroke={obs.color} strokeWidth={1.8}
+            filter="url(#mon-glow)" />
+
+          {/* Type label */}
+          <text x={cardLeft + 10} y={cardTop + 13}
+            dominantBaseline="middle"
+            fill={obs.color} fillOpacity="0.55"
+            fontSize="7" fontWeight="700"
+            fontFamily="Space Mono, monospace" letterSpacing="1.2">
+            OBSERVER
+          </text>
+          {/* Activity pulse */}
+          <circle cx={cardRight - 10} cy={cardTop + 13}
+            r={3} fill={obs.color}
+            opacity={0.6 + 0.4 * Math.sin(time * 5)}
+            filter="url(#mon-pg)" />
+          {/* Main title */}
+          <text x={obs.x} y={cardTop + 30}
+            textAnchor="middle" dominantBaseline="middle"
+            fill="#dde8f8" fontSize={11} fontWeight="700"
+            fontFamily="Space Mono, monospace">
+            Observation Engine
+          </text>
+          {/* Sublabel */}
+          <text x={obs.x} y={cardTop + 45}
+            textAnchor="middle" dominantBaseline="middle"
+            fill={obs.color} fillOpacity="0.55"
+            fontSize="8.5" fontFamily="Space Grotesk, sans-serif">
+            Performance Monitor
+          </text>
+          {/* Separator */}
+          <line x1={cardLeft + 8} y1={cardTop + 57}
+            x2={cardRight - 8} y2={cardTop + 57}
+            stroke={obs.color} strokeOpacity="0.2" strokeWidth="0.8" />
+
+          {/* Subprocess rows */}
+          {SUBPROCS.map((sp, i) => {
+            const sf = fade(time, sp.activeAt, 0.3);
+            if (sf <= 0) return null;
+            const done = time >= sp.doneAt;
+            const rowY = rowBaseY + i * rowStep;
+            const spPct = done ? 1 : clamp((time - sp.activeAt) / (sp.doneAt - sp.activeAt), 0.05, 0.95);
+            return (
+              <g key={i} opacity={sf}>
+                {/* Row highlight */}
+                <rect x={cardLeft + 8} y={rowY - 11}
+                  width={(obs.hw - 8) * 2} height={22}
+                  rx={3} fill={sp.color} fillOpacity={0.07} />
+                {/* Spinner / check */}
+                <circle cx={iconX} cy={rowY} r={iconR} fill="none"
+                  stroke={done ? sp.color : "#1a3050"}
+                  strokeWidth="0.8" strokeOpacity="0.45" />
+                {!done
+                  ? <path d={spinnerPath(iconX, rowY, iconR, spPct)}
+                      fill="none" stroke={sp.color}
+                      strokeWidth="1.5" strokeLinecap="round" />
+                  : <text x={iconX} y={rowY + 1} textAnchor="middle"
+                      dominantBaseline="middle"
+                      fill={sp.color} fontSize="7" fontWeight="700">✓</text>
+                }
+                {/* Label */}
+                <text x={iconX + 14} y={rowY} dominantBaseline="middle"
+                  fill={done ? "#304060" : "#8eaace"}
+                  fontSize="9" fontFamily="Space Mono, monospace">
+                  {sp.label}
+                </text>
+                {/* Running indicator */}
+                {!done && (
+                  <circle cx={cardRight - 14} cy={rowY} r={2.5}
+                    fill={sp.color}
+                    opacity={0.65 + 0.35 * Math.sin(time * 7 + i)}
+                    filter="url(#mon-pg)" />
+                )}
+              </g>
+            );
+          })}
+        </g>
+      )}
+
+      {/* ── Report & Alert nodes (generic) ── */}
+      {RAW_NODES.filter((n) => n.id !== "observer").map((node) => {
         const hf = fade(time, node.activateAt, 0.45);
         const on = hf > 0;
-        const rx = node.type === "monitor" ? 6 : 4;
-        const hasTooltip = !!node.tooltip;
-
-        let tp: { tr: ReturnType<typeof tooltipRect>; panelOp: number } | null = null;
-        if (hasTooltip && node.tooltip) {
-          const panelIn = fade(time, node.tooltip[0].activeAt, 0.3);
-          const lastTool = node.tooltip[node.tooltip.length - 1];
-          const panelOut = lastTool.doneAt + 0.8 < DURATION ? fade(time, lastTool.doneAt + 0.8, 0.5) : 0;
-          const panelOp = Math.max(0, panelIn - panelOut);
-          if (panelOp > 0.01) tp = { tr: tooltipRect(node), panelOp };
-        }
-
-        const showStatus = !hasTooltip && node.status && on && hf > 0.3;
-
+        const rx = 4;
         return (
           <g key={node.id}>
             {on && (
@@ -427,7 +560,7 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
               rx={rx}
               fill={on ? `${node.color}20` : "#08111f"}
               stroke={on ? node.color : "#0e1c32"}
-              strokeWidth={on ? (node.type === "monitor" ? 1.8 : 1.3) : 0.7}
+              strokeWidth={on ? 1.3 : 0.7}
               filter={on ? "url(#mon-glow)" : undefined} />
 
             <text x={node.x - node.hw + 8} y={node.y - node.hh + 11}
@@ -440,8 +573,8 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
             <text x={node.x} y={node.y - 2}
               textAnchor="middle" dominantBaseline="middle"
               fill={on ? (node.type === "alert" ? "#fff" : "#dde8f8") : "#162035"}
-              fontSize={node.type === "monitor" ? 12 : 10}
-              fontWeight="700" fontFamily="Space Mono, monospace" letterSpacing="0.8">
+              fontSize={10} fontWeight="700"
+              fontFamily="Space Mono, monospace" letterSpacing="0.8">
               {node.label}
             </text>
             {node.sublabel && (
@@ -453,7 +586,6 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
               </text>
             )}
 
-            {/* Alert glow ring */}
             {node.type === "alert" && on && (
               <rect x={node.x - node.hw - 5} y={node.y - node.hh - 5}
                 width={(node.hw + 5) * 2} height={(node.hh + 5) * 2}
@@ -463,78 +595,12 @@ const MonitoringAnimation = ({ time }: MonitoringAnimationProps) => {
                 filter="url(#mon-glow)" />
             )}
 
-            {/* Activity pulse dot */}
-            {on && !hasTooltip && node.type !== "alert" && (
+            {on && node.type !== "alert" && (
               <circle cx={node.x + node.hw - 10} cy={node.y - node.hh + 10}
                 r={3} fill={node.color}
                 opacity={0.6 + 0.4 * Math.sin(time * 5 + node.x)}
                 filter="url(#mon-pg)" />
             )}
-
-            {showStatus && (
-              <text x={node.x} y={node.y + node.hh + 14}
-                textAnchor="middle" dominantBaseline="middle"
-                fill={node.color} fillOpacity="0.7"
-                fontSize="8" fontFamily="Space Mono, monospace">
-                {node.status}
-              </text>
-            )}
-
-            {tp && (() => {
-              const { tr, panelOp } = tp;
-              const arrowX = tr.side === "right" ? tr.x : tr.x + tr.w;
-              const connX = tr.side === "right" ? node.x + node.hw : node.x - node.hw;
-              return (
-                <g opacity={panelOp}>
-                  <line x1={connX} y1={node.y} x2={arrowX + (tr.side === "right" ? -1 : 1) * 10} y2={node.y}
-                    stroke={node.color} strokeWidth="1" strokeOpacity="0.3" strokeDasharray="3 3" />
-                  <polygon
-                    points={tr.side === "right"
-                      ? `${tr.x},${node.y} ${tr.x - 9},${node.y - 5} ${tr.x - 9},${node.y + 5}`
-                      : `${tr.x + tr.w},${node.y} ${tr.x + tr.w + 9},${node.y - 5} ${tr.x + tr.w + 9},${node.y + 5}`}
-                    fill="#060e1d" stroke={node.color} strokeOpacity="0.3" strokeWidth="1" />
-                  <rect x={tr.side === "right" ? tr.x : tr.x + tr.w - 2} y={node.y - 7} width={4} height={14} fill="#060e1d" />
-                  <rect x={tr.x} y={tr.y} width={tr.w} height={tr.h} rx={5}
-                    fill="#060e1d" stroke={node.color} strokeOpacity="0.28" strokeWidth="1" />
-                  <text x={tr.x + 12} y={tr.y + 14} dominantBaseline="middle"
-                    fill={node.color} fillOpacity="0.5" fontSize="7" fontWeight="700"
-                    fontFamily="Space Mono, monospace" letterSpacing="1.5">
-                    TOOL CALLS
-                  </text>
-                  <line x1={tr.x} y1={tr.y + 23} x2={tr.x + tr.w} y2={tr.y + 23}
-                    stroke={node.color} strokeOpacity="0.1" strokeWidth="0.8" />
-                  {node.tooltip!.map((tool, ti) => {
-                    if (time < tool.activeAt) return null;
-                    const done = time >= tool.doneAt;
-                    const rf = fade(time, tool.activeAt, 0.2);
-                    const rowY = tr.y + 27 + ti * TP_H_ROW + TP_H_ROW / 2;
-                    const icx = tr.x + 14, icy = rowY, ir = 4.5;
-                    const spPct = done ? 1 : clamp((time - tool.activeAt) / (tool.doneAt - tool.activeAt), 0.05, 0.95);
-                    return (
-                      <g key={ti} opacity={rf}>
-                        <circle cx={icx} cy={icy} r={ir} fill="none"
-                          stroke={done ? node.color : "#1a3050"} strokeWidth="0.8" strokeOpacity="0.45" />
-                        {!done
-                          ? <path d={spinnerPath(icx, icy, ir, spPct)} fill="none" stroke={node.color} strokeWidth="1.5" strokeLinecap="round" />
-                          : <text x={icx} y={icy + 1} textAnchor="middle" dominantBaseline="middle" fill={node.color} fontSize="7" fontWeight="700">✓</text>
-                        }
-                        <text x={tr.x + 27} y={rowY} dominantBaseline="middle"
-                          fill={done ? "#304060" : "#8eaace"}
-                          fontSize="9" fontFamily="Space Mono, monospace">
-                          {tool.call}
-                        </text>
-                        {!done && (
-                          <circle cx={tr.x + tr.w - 11} cy={rowY} r={2.5}
-                            fill={node.color}
-                            opacity={0.65 + 0.35 * Math.sin(time * 7 + ti)}
-                            filter="url(#mon-pg)" />
-                        )}
-                      </g>
-                    );
-                  })}
-                </g>
-              );
-            })()}
           </g>
         );
       })}

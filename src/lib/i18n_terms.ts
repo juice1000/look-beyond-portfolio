@@ -6,7 +6,7 @@ export const termsOfUse = {
     "terms.companyInfo.name": "Look Beyond Solutions Pte. Ltd.",
     "terms.companyInfo.address":
       "22 Sin Ming Lane #06-76, Midview City, Singapore 573969",
-    "terms.companyInfo.phone": "Phone: +65 8016 1267",
+    "terms.companyInfo.phone": "Phone: +65 8035 0340",
     "terms.companyInfo.email": "Email: contact@lookbeyond.sg",
 
     "terms.section1.title": "1. Acceptance of Terms",
@@ -52,7 +52,7 @@ export const termsOfUse = {
     "terms.section10.content":
       "For any questions regarding these Terms of Use, please contact us at:",
     "terms.section10.email": "Email: contact@lookbeyond.sg",
-    "terms.section10.phone": "Phone: +65 8016 1267",
+    "terms.section10.phone": "Phone: +65 8035 0340",
   },
   de: {
     "terms.title": "Nutzungsbedingungen",
@@ -61,7 +61,7 @@ export const termsOfUse = {
     "terms.companyInfo.name": "Look Beyond Solutions Pte. Ltd.",
     "terms.companyInfo.address":
       "22 Sin Ming Lane #06-76, Midview City, Singapur 573969",
-    "terms.companyInfo.phone": "Telefon: +65 8016 1267",
+    "terms.companyInfo.phone": "Telefon: +65 8035 0340",
     "terms.companyInfo.email": "E-Mail: contact@lookbeyond.sg",
 
     "terms.section1.title": "1. Annahme der Bedingungen",
@@ -107,6 +107,6 @@ export const termsOfUse = {
     "terms.section10.content":
       "Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns bitte unter:",
     "terms.section10.email": "E-Mail: contact@lookbeyond.sg",
-    "terms.section10.phone": "Telefon: +65 8016 1267",
+    "terms.section10.phone": "Telefon: +65 8035 0340",
   },
 };

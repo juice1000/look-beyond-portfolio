@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { t, Language } from "../../lib/i18n";
 import { LandingPageContent } from "../../data/landingPage";
 
@@ -15,28 +16,36 @@ const HowWeWorkSection = ({ language, implementation }: HowWeWorkSectionProps) =
 
   return (
     <section id="process" className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4">
-        {implementation?.eyebrow && (
-          <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
-            {implementation.eyebrow}
-          </p>
-        )}
-        <div className="max-w-4xl mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            {implementation?.heading || t("howWeWork.title", language)}
-          </h2>
-          {implementation?.description ? (
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {implementation.description}
-            </p>
-          ) : (
-            <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
-              {paragraphs.map((text, index) => (
-                <p key={index}>{text}</p>
-              ))}
-            </div>
-          )}
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-4">
+          <div>
+            {implementation?.eyebrow && (
+              <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
+                {implementation.eyebrow}
+              </p>
+            )}
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              {implementation?.heading || t("howWeWork.title", language)}
+            </h2>
+          </div>
+          <Link
+            to="/our-process"
+            className="shrink-0 inline-flex items-center gap-2 rounded-sm border border-blue-600/40 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-blue-600 dark:text-blue-400 transition-colors hover:bg-blue-600/10"
+          >
+            See full approach →
+          </Link>
         </div>
+        {implementation?.description ? (
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
+            {implementation.description}
+          </p>
+        ) : (
+          <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-8">
+            {paragraphs.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
+          </div>
+        )}
         {implementation?.steps && (
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {implementation.steps.map((step, index) => (

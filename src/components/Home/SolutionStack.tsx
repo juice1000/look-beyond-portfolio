@@ -1,6 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { t, Language } from "../../lib/i18n";
 import { LandingPageContent } from "../../data/landingPage";
+
+const PILLAR_ROUTES: Record<number, string> = {
+  0: "/pillars/ai-workflow-systems",
+  1: "/pillars/autonomous-agents",
+  2: "/pillars/ai-performance-monitoring",
+};
 
 interface SolutionStackProps {
   language: Language;
@@ -48,7 +55,7 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 border-t border-gray-200 md:grid-cols-4 dark:border-gray-800">
+        <div className="grid grid-cols-1 border-t border-gray-200 md:grid-cols-3 dark:border-gray-800">
           {items.map((item, index) => (
             <div
               key={item.title}
@@ -68,9 +75,18 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
                 {item.description}
               </p>
               <div className="mt-auto flex justify-end pt-6">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600">
-                  →
-                </span>
+                {PILLAR_ROUTES[index] ? (
+                  <Link
+                    to={PILLAR_ROUTES[index]}
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
+                  >
+                    →
+                  </Link>
+                ) : (
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600">
+                    →
+                  </span>
+                )}
               </div>
             </div>
           ))}
