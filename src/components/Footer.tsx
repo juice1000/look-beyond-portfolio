@@ -17,7 +17,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
     <footer className="bg-gray-100 dark:bg-gray-800 py-8 px-4">
       <div className="container mx-auto">
         {/* Footer Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
@@ -124,6 +124,23 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
                 >
                   {t("nav.projects", language)}
+                </Link>
+              </li>
+            </ul>
+
+            <h3 className="mt-6 text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              {t("footer.partners", language)}
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/partners"
+                  onClick={() =>
+                    handleNavigation("/partners", t("nav.partners", language))
+                  }
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                >
+                  {t("nav.partners", language)}
                 </Link>
               </li>
             </ul>

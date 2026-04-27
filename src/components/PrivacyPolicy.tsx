@@ -10,13 +10,13 @@ const PrivacyPolicy = ({ language = "en" }: PrivacyPolicyProps) => {
   const privacyPolicy = getPrivacyPolicy(language);
 
   return (
-    <div className="container mx-auto px-4 py-24 mt-16">
-      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-[#060b18] px-4 py-24 mt-16 text-slate-100">
+      <div className="mx-auto max-w-4xl rounded-lg border border-[#0f1e35] bg-[#08101f] p-8">
+        <h1 className="mb-6 text-3xl font-bold text-slate-100">
           {privacyPolicy.title}
         </h1>
         <div className="prose dark:prose-invert max-w-none">
-          <pre className="whitespace-pre-wrap font-sans text-gray-700 dark:text-gray-300">
+          <pre className="whitespace-pre-wrap font-sans text-[#4a6a8a]">
             {privacyPolicy.content}
           </pre>
         </div>

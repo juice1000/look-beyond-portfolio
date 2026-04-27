@@ -1,85 +1,45 @@
 import React from "react";
 
-import { t, Language } from "../lib/i18n";
+import { Language } from "../lib/i18n";
+import { getLandingPageContent } from "../data/landingPage";
 import HeroSection from "./Home/HeroSection";
+import SolutionStack from "./Home/SolutionStack";
+import HowWeWorkSection from "./Home/HowWeWorkSection";
+import ClosingSection from "./Home/ClosingSection";
+import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
+import ImpactSection from "./Home/ImpactSection";
 
-import MapChart from "./Home/MapChart";
-import AISection from "./Home/AISection";
-import CaseStudyCards from "./Home/CaseStudyCards";
+const Home = ({
+  language,
+  isDarkMode,
+}: {
+  language: Language;
+  isDarkMode: boolean;
+}) => {
+  const content = getLandingPageContent(language);
 
-const Home = ({ language }: { language: Language }) => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <main className="pt-20">
+    <div className="min-h-screen bg-[#060b18] text-slate-100">
+      <main className="pt-16">
         <section id="home">
           <HeroSection
-            title={t("hero.title", language)}
-            subtitle={t("hero.subtitle", language)}
-            services={[
-              t("hero.service.1", language),
-              t("hero.service.2", language),
-              t("hero.service.3", language),
-              t("hero.service.4", language),
-            ]}
-            ctaText={t("hero.cta", language)}
+            title={content.hero.headline}
+            subtitle={content.hero.subheadline}
+            supportingLine={content.hero.supportingLine}
+            pipeline={content.hero.pipeline}
+            ticker={content.hero.ticker}
+            kpis={content.kpis}
+            isDarkMode={isDarkMode}
           />
         </section>
-        <section id="ai-solutions">
-          <AISection
-            tagline={
-              t("ai.tagline", language) || "Empowering businesses with AI."
-            }
-            subTagline={
-              t("ai.subTagline", language) ||
-              "From content to customers, we turn bottlenecks into growth loops."
-            }
-            kpis={[
-              {
-                value: "5x",
-                label: t("ai.kpi.1", language) || "more content shipped",
-              },
-              {
-                value: "-30%",
-                label: t("ai.kpi.2", language) || "cost per lead",
-              },
-              {
-                value: "85%",
-                label: t("ai.kpi.3", language) || "tickets auto-resolved",
-              },
-            ]}
-            language={language}
-          />
-        </section>
-        <section id="case-studies">
-          <CaseStudyCards
-            title={t("caseStudies.title", language)}
-            subtitle={t("caseStudies.subtitle", language)}
-            cards={[
-              {
-                title: t("caseStudies.marketing.title", language),
-                painPoint: t("caseStudies.marketing.painPoint", language),
-                kpi: t("caseStudies.marketing.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-              {
-                title: t("caseStudies.sales.title", language),
-                painPoint: t("caseStudies.sales.painPoint", language),
-                kpi: t("caseStudies.sales.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-              {
-                title: t("caseStudies.operations.title", language),
-                painPoint: t("caseStudies.operations.painPoint", language),
-                kpi: t("caseStudies.operations.kpi", language),
-                ctaText: t("caseStudies.cta", language),
-              },
-            ]}
-            language={language}
-          />
-        </section>
-        <section id="map">
-          <MapChart language={language} />
-        </section>
+        <SolutionStack language={language} system={content.system} />
+        <IndustryWorkflowTabs content={content.industries} />
+        <HowWeWorkSection
+          language={language}
+          implementation={content.implementation}
+        />
+        <ImpactSection language={language} />
+        <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>
   );

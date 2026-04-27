@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Moon, Sun, Menu, X, Eye, Globe, ChevronDown } from "lucide-react";
+import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import {
   DropdownMenu,
@@ -15,9 +15,8 @@ import {
   NavigationMenuLink,
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
-import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
-import LBLogo from "/images/LB_logo_bg_removed.png";
 import { useLocation } from "react-router-dom";
+import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 
 interface NavbarProps {
   onThemeToggle?: () => void;
@@ -29,6 +28,15 @@ interface NavbarProps {
   language?: Language;
   onLanguageChange?: (lang: Language) => void;
 }
+
+type NavItem = {
+  label: string;
+  href?: string;
+  subItems?: Array<{
+    label: string;
+    href: string;
+  }>;
+};
 
 const Navbar = ({
   onThemeToggle = () => {},
@@ -46,124 +54,55 @@ const Navbar = ({
 
   useEffect(() => {
     const path = location.pathname;
-    // find the id from the path set the label as active item
-    if (path === "/") {
-      setActiveItem(t("nav.home", language));
-    } else {
-      const navItem = navItems.find((item) => {
-        if (item.subItems) {
-          return item.subItems.some((subItem) => subItem.href === path);
-        }
-        return item.href === path;
-      });
-
-      if (navItem?.subItems) {
-        const subItem = navItem.subItems.find((item) => item.href === path);
-        setActiveItem(subItem?.label || "");
-      } else {
-        setActiveItem(navItem?.label || "");
-      }
-    }
+    const navItem = navItems.find((item) => item.href === path);
+    setActiveItem(navItem?.label || "");
   }, [location.pathname, language]);
 
-  const navItems = [
-    { label: t("nav.home", language), href: "/" },
-    {
-      label: t("nav.howWeWork", language),
-      subItems: [
-        {
-          label: t("nav.aiReadiness", language),
-          href: "/ai-readiness",
-        },
-        {
-          label: t("nav.ourProcess", language),
-          href: "/our-process",
-        },
-        {
-          label: t("nav.projects", language),
-          href: "/projects",
-        },
-        {
-          label: t("nav.pricingEngagement", language),
-          href: "/pricing-engagement",
-        },
-        { label: t("nav.workshops", language), href: "/workshops" },
-      ],
-    },
+  const navItems: NavItem[] = [
+    { label: t("nav.ourProcess", language), href: "/our-process" },
+    { label: t("nav.projects", language), href: "/projects" },
+    { label: t("nav.partners", language), href: "/partners" },
     { label: t("nav.contact", language), href: "/contact" },
     // { label: t("nav.imprint", language), href: "/imprint" },
     // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full h-28 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-50">
+    <nav className="fixed top-0 z-50 h-16 w-full border-b border-[#0f1e35] bg-[#060b18]/95 backdrop-blur-md">
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img
-              className="h-28 w-auto"
-              src={isDarkMode ? LBLogoWhite : LBLogo}
-              alt="Logo"
+              className="h-14 w-auto object-contain"
+              src={LBLogoWhite}
+              alt="Look Beyond"
             />
           </a>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-12">
+        <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
-            <NavigationMenuList className="space-x-8">
+            <NavigationMenuList className="space-x-4">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.label}>
-                  {item.subItems ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors flex items-center gap-1">
-                          {item.label}
-                          <ChevronDown size={16} />
-                          {activeItem === item.label && (
-                            <motion.div
-                              layoutId="underline"
-                              className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.3 }}
-                            />
-                          )}
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="center" className="w-56">
-                        {item.subItems.map((subItem) => (
-                          <DropdownMenuItem key={subItem.label} asChild>
-                            <a
-                              href={subItem.href}
-                              onClick={() => setActiveItem(subItem.label)}
-                              className="w-full cursor-pointer"
-                            >
-                              {subItem.label}
-                            </a>
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <NavigationMenuLink
-                      href={item.href}
-                      onClick={() => setActiveItem(item.label)}
-                      className="relative px-3 py-2 text-xl font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-                    >
-                      {item.label}
-                      {activeItem === item.label && (
-                        <motion.div
-                          layoutId="underline"
-                          className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
-                    </NavigationMenuLink>
-                  )}
+                  <NavigationMenuLink
+                    href={item.href}
+                    onClick={() => setActiveItem(item.label)}
+                    className="relative px-2 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300"
+                  >
+                    {item.label}
+                    {activeItem === item.label && (
+                      <motion.div
+                        layoutId="underline"
+                        className="absolute left-0 right-0 bottom-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -175,7 +114,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -213,7 +152,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
+                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -279,7 +218,7 @@ const Navbar = ({
               variant="outline"
               size="icon"
               onClick={onThemeToggle}
-              className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
             >
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -299,6 +238,7 @@ const Navbar = ({
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -312,14 +252,14 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+          className="absolute left-0 right-0 top-16 border-b border-[#0f1e35] bg-[#060b18] md:hidden"
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
               <div key={item.label}>
                 <a
                   href={item.href}
-                  className="block py-3 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                  className="block py-3 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
                   onClick={() => {
                     setActiveItem(item.label);
                     setIsMobileMenuOpen(false);
@@ -333,7 +273,7 @@ const Navbar = ({
                       <a
                         key={subItem.label}
                         href={subItem.href}
-                        className="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        className="block py-2 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
                         onClick={() => {
                           setActiveItem(subItem.label);
                           setIsMobileMenuOpen(false);

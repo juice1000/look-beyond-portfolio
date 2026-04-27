@@ -13,7 +13,7 @@ Effective Date: 01 January 2025
 Company Name: Look Beyond Solutions Pte. Ltd.
 Address: 22 Sin Ming Lane #06-76, Midview City, 573969 Singapore
 Contact Email: contact@lookbeyond.sg
-Contact Number: +65 8016 1267
+Contact Number: +65 8035 0340
 
 1. Introduction
 
@@ -96,7 +96,7 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 If you have any questions about this Privacy Policy or our data protection practices, please contact us:
 
 Email: contact@lookbeyond.sg
-Phone: +65 8016 1267
+Phone: +65 8035 0340
 Address: 22 Sin Ming Lane #06-76, Midview City, 573969 Singapore
 `,
   },
@@ -107,7 +107,7 @@ Gültig ab: 01. Januar 2025
 Firmenname: Look Beyond Solutions Pte. Ltd.
 Adresse: 22 Sin Ming Lane #06-76, Midview City, 573969 Singapur
 Kontakt-E-Mail: contact@lookbeyond.sg
-Kontaktnummer: +65 8016 1267
+Kontaktnummer: +65 8035 0340
 
 1. Einleitung
 
@@ -190,7 +190,7 @@ Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werd
 Wenn Sie Fragen zu dieser Datenschutzerklärung oder unseren Datenschutzpraktiken haben, kontaktieren Sie uns bitte:
 
 E-Mail: contact@lookbeyond.sg
-Telefon: +65 8016 1267
+Telefon: +65 8035 0340
 Adresse: 22 Sin Ming Lane #06-76, Midview City, 573969 Singapur
 `,
   },

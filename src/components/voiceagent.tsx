@@ -30,8 +30,8 @@ const VoiceAgent = () => {
   return (
     <elevenlabs-convai
       agent-id={agentId}
-      action-text="Having a Tech Problem?"
-      start-call-text="Ask our AI Agent"
+      action-text="Want to know how we can help you?"
+      start-call-text="Ask our AI Sales Agent!"
       variant={isMobile && expanded ? "compact" : "default"}
       expandable="mobile"
       onClick={activateVoiceAgent}
