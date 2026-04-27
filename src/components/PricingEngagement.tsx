@@ -50,11 +50,11 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-24 mt-28">
-      <h1 className="text-4xl font-bold mb-4 text-center">
+    <div className="min-h-screen bg-[#060b18] px-4 py-24 text-slate-100 mt-28">
+      <h1 className="mb-4 text-center text-4xl font-bold">
         {t("pricingEngagement.title", language)}
       </h1>
-      <p className="max-w-3xl mx-auto text-lg text-center mb-12 text-gray-600 dark:text-gray-300">
+      <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-[#4a6a8a]">
           {t("pricingEngagement.description", language)}
       </p>
 
@@ -65,23 +65,23 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
               key={tier.title}
               className={`rounded-lg border p-6 shadow-sm ${
                 index === 0
-                  ? "border-blue-500 bg-blue-50 dark:border-blue-700 dark:bg-blue-950/20"
-                  : "border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
+                  ? "border-blue-500 bg-[#08101f]"
+                  : "border-[#0f1e35] bg-[#08101f]"
               }`}
             >
-              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-[#6f86a2]">
                 {tier.title}
               </p>
-              <div className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+              <div className="mb-3 text-3xl font-bold text-slate-100">
                 {tier.price}
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-5">
+              <p className="mb-5 text-sm text-[#4a6a8a]">
                 {tier.description}
               </p>
               <ul className="space-y-3">
                 {tier.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-blue-600 shrink-0" />
+                  <li key={item} className="flex items-start gap-2 text-sm text-[#bfd0e3]">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -90,11 +90,11 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
           ))}
         </div>
 
-        <div className="rounded-lg border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
-            <h2 className="text-2xl font-semibold mb-4">
+        <div className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-8">
+            <h2 className="mb-4 text-2xl font-semibold text-slate-100">
               {t("pricingEngagement.details.title", language)}
             </h2>
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+            <ul className="space-y-3 text-[#4a6a8a]">
               {[
                 t("pricingEngagement.details.point1", language),
                 t("pricingEngagement.details.point2", language),
@@ -102,7 +102,7 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
                 t("pricingEngagement.details.point4", language),
               ].map((detail) => (
                 <li key={detail} className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
+                  <span className="mt-1 text-blue-400">•</span>
                   <span>{detail}</span>
                 </li>
               ))}

@@ -13,7 +13,7 @@ const Home = ({ language }: { language: Language }) => {
   const content = getLandingPageContent(language);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-16">
         <section id="home">
           <HeroSection

@@ -13,12 +13,12 @@ const TrainingSection = ({ language }: TrainingSectionProps) => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="bg-[#060b18] py-16">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="mb-6 text-3xl font-bold text-slate-100">
           {t("training.title", language)}
         </h2>
-        <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+        <div className="space-y-4 text-lg text-[#4a6a8a]">
           {paragraphs.map((text, index) => (
             <p key={index}>{text}</p>
           ))}

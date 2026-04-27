@@ -1,46 +1,51 @@
-// npm install @calcom/embed-react
-
 import { getCalApi } from "@calcom/embed-react";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
+
+const calendarButtonColor = "#2563eb";
 
 export default function Calendar() {
   const { width } = useWindowSize();
   const isMobile = width < 768;
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "30min" });
       if (!isMobile) {
         cal("floatingButton", {
           calLink: "look-beyond/30min",
-          config: { layout: "month_view" },
-          buttonText: "Let's Chat!",
+          config: {
+            layout: "month_view",
+            useSlotsViewOnSmallScreen: "true",
+          },
+          buttonColor: calendarButtonColor,
           buttonPosition: "bottom-left",
+          buttonText: "Let's Chat!",
         });
       } else {
         const calElement = document.querySelector("cal-floating-button");
         calElement && document.body.removeChild(calElement);
       }
 
-      cal("ui", { hideEventTypeDetails: isMobile, layout: "month_view" });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
     })();
-  }, [width]);
+  }, [isMobile]);
 
   if (isMobile) {
     return (
       <button
         data-cal-namespace="30min"
         data-cal-link="look-beyond/30min"
-        data-cal-config='{"layout":"month_view"}'
-        className="fixed z-50 bottom-[32px] left-4 flex h-[62px] items-center 
-            rounded-full bg-black px-6 py-4
-            focus:ring-4 focus:ring-gray-600 focus:ring-opacity-50 
-            active:scale-95"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        className="fixed bottom-[32px] left-4 z-50 flex h-[62px] items-center gap-3 rounded-full border border-[#3b82f6] bg-[#0b1426] px-6 py-4 text-[#dbeafe] shadow-[0_12px_32px_rgba(37,99,235,0.32)] transition-colors hover:bg-[#10203a] focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50 active:scale-95"
       >
         <div className="flex items-center justify-center">
           <svg
-            className="h-7 w-7"
+            className="h-6 w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -54,8 +59,12 @@ export default function Calendar() {
             />
           </svg>
         </div>
+        <span className="whitespace-nowrap text-sm font-semibold">
+          Let's Chat!
+        </span>
       </button>
     );
   }
-  return <></>;
+
+  return null;
 }

@@ -22,7 +22,7 @@ const ImpactSection = (_props: ImpactSectionProps) => {
         {/* Header */}
         <div className="flex flex-col gap-4 border-b border-[#0f1e35] py-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+            <p className="mb-2 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-blue-500">
               Proof &amp; experience
             </p>
             <h2 className="text-2xl font-bold text-slate-100 md:text-3xl">
@@ -51,7 +51,7 @@ const ImpactSection = (_props: ImpactSectionProps) => {
               <div className="mb-1 text-2xl font-bold text-blue-500 md:text-3xl">
                 {stat.value}
               </div>
-              <div className="mb-1 text-xs font-semibold text-slate-200">
+              <div className="mb-1 text-xs font-semibold text-slate-100">
                 {stat.label}
               </div>
               <div className="font-mono text-[0.55rem] uppercase leading-4 tracking-widest text-[#2a4060]">
@@ -63,7 +63,7 @@ const ImpactSection = (_props: ImpactSectionProps) => {
 
         {/* Methodology note */}
         <div className="py-4">
-          <p className="font-mono text-[0.55rem] uppercase tracking-widest text-[#1a3050]">
+          <p className="font-mono text-[0.55rem] uppercase tracking-widest text-[#2a4060]">
             Hours and value estimates based on 30K+ users × 20% productivity
             gain × ~1h/day on affected workflows × 250 working days × €42/h
             blended cost (German public sector reference rate).

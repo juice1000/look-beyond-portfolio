@@ -15,6 +15,7 @@ import VoiceAgent from "./components/voiceagent";
 import AIReadiness from "./components/AIReadiness";
 import OurProcess from "./components/OurProcess";
 import PricingEngagement from "./components/PricingEngagement";
+import Partners from "./components/Partners";
 import Workshops from "./components/Workshops";
 import Imprint from "./components/Imprint";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -148,6 +149,7 @@ function App() {
             path="/pricing-engagement"
             element={<PricingEngagement language={language} />}
           />
+          <Route path="/partners" element={<Partners language={language} />} />
           <Route
             path="/workshops"
             element={<Workshops language={language} />}

@@ -30,21 +30,21 @@ const Differentiators = ({ language }: DifferentiatorsProps) => {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="bg-[#060b18] py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        <h2 className="mb-8 text-3xl font-bold text-slate-100">
           {t("differentiators.title", language)}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item) => (
             <div
               key={item.title}
-              className="p-6 border border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800"
+              className="rounded-2xl border border-[#0f1e35] bg-[#08101f] p-6"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="mb-3 text-xl font-semibold text-slate-100">
                 {item.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
+              <p className="text-[#4a6a8a]">{item.description}</p>
             </div>
           ))}
         </div>

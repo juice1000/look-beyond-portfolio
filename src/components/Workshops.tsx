@@ -7,62 +7,62 @@ interface WorkshopsProps {
 
 const Workshops = ({ language = "en" }: WorkshopsProps) => {
   return (
-    <div className="container mx-auto px-4 py-24 mt-28">
-      <h1 className="text-4xl font-bold mb-8 text-center">
+    <div className="min-h-screen bg-[#060b18] px-4 py-24 text-slate-100 mt-28">
+      <h1 className="mb-8 text-center text-4xl font-bold">
         {t("workshops.title", language)}
       </h1>
       <div className="max-w-4xl mx-auto">
-        <p className="text-lg text-center mb-12">
+        <p className="mb-12 text-center text-lg text-[#4a6a8a]">
           {t("workshops.description", language)}
         </p>
 
         <div className="space-y-12">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-8">
+            <h2 className="mb-4 text-2xl font-semibold text-slate-100">
               {t("workshops.workshop1.title", language)}
             </h2>
-            <p className="text-lg mb-4">
+            <p className="mb-4 text-lg text-[#4a6a8a]">
               {t("workshops.workshop1.description", language)}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop1.tag1", language)}
               </span>
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop1.tag2", language)}
               </span>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-8">
+            <h2 className="mb-4 text-2xl font-semibold text-slate-100">
               {t("workshops.workshop2.title", language)}
             </h2>
-            <p className="text-lg mb-4">
+            <p className="mb-4 text-lg text-[#4a6a8a]">
               {t("workshops.workshop2.description", language)}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop2.tag1", language)}
               </span>
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop2.tag2", language)}
               </span>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-8">
+            <h2 className="mb-4 text-2xl font-semibold text-slate-100">
               {t("workshops.workshop3.title", language)}
             </h2>
-            <p className="text-lg mb-4">
+            <p className="mb-4 text-lg text-[#4a6a8a]">
               {t("workshops.workshop3.description", language)}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop3.tag1", language)}
               </span>
-              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
                 {t("workshops.workshop3.tag2", language)}
               </span>
             </div>

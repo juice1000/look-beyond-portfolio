@@ -49,22 +49,22 @@ const ContactSection = ({
     }
   };
   return (
-    <section className="w-full min-h-[600px] py-16 px-4 bg-gray-50 dark:bg-gray-900">
+    <section className="w-full min-h-[600px] px-4 py-16 bg-[#060b18]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-slate-100">
             {t("contact.title", language)}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-[#4a6a8a]">
             {t("contact.subtitle", language)}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <Card className="p-6 bg-white dark:bg-gray-800">
+          <Card className="border border-[#0f1e35] bg-[#08101f] p-6">
             <CardHeader>
-              <CardTitle>{t("contact.form.submit", language)}</CardTitle>
+              <CardTitle className="text-slate-100">{t("contact.form.submit", language)}</CardTitle>
               <CardDescription>
                 {t("contact.info.subtitle", language)}
               </CardDescription>
@@ -128,9 +128,9 @@ const ContactSection = ({
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="p-6 bg-white dark:bg-gray-800">
+            <Card className="border border-[#0f1e35] bg-[#08101f] p-6">
               <CardHeader>
-                <CardTitle>{t("contact.info.title", language)}</CardTitle>
+                <CardTitle className="text-slate-100">{t("contact.info.title", language)}</CardTitle>
                 <CardDescription>
                   {t("contact.info.subtitle", language)}
                 </CardDescription>
@@ -178,8 +178,8 @@ const ContactSection = ({
             </Card>
 
             {/* Map placeholder */}
-            <Card className="p-0 overflow-hidden bg-white dark:bg-gray-800">
-              <div className="h-[275px] bg-gray-200 dark:bg-gray-700">
+            <Card className="overflow-hidden border border-[#0f1e35] bg-[#08101f] p-0">
+              <div className="h-[275px] bg-[#0b1426]">
                 <iframe
                   title="Maps"
                   src={t("contact.info.map", language)}

@@ -29,24 +29,24 @@ const ProblemAreas = ({ language, problems }: ProblemAreasProps) => {
     ];
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="bg-[#060b18] py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 max-w-4xl">
+        <h2 className="mb-8 max-w-4xl text-3xl font-bold text-slate-100 md:text-4xl">
           {problems?.heading || t("problems.title", language)}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm"
+              className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-6"
             >
-              <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold mb-2">
+              <p className="mb-2 text-sm font-semibold text-blue-500">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="mb-3 text-xl font-semibold text-slate-100">
                 {item.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
+              <p className="text-[#4a6a8a]">{item.description}</p>
             </div>
           ))}
         </div>

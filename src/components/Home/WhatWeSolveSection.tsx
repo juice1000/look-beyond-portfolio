@@ -15,16 +15,16 @@ const WhatWeSolveSection = ({ language }: WhatWeSolveSectionProps) => {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="bg-[#060b18] py-16">
       <div className="max-w-4xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 mb-4">
+        <p className="mb-4 text-sm uppercase tracking-wide text-blue-500">
           {t("whatWeSolve.title", language)}
         </p>
-        <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+        <div className="space-y-4 text-lg text-[#4a6a8a]">
           {paragraphs.map((text, index) => (
             <p key={index}>{text}</p>
           ))}
-          <p className="text-xl font-medium text-gray-900 dark:text-white pt-2">
+          <p className="pt-2 text-xl font-medium text-slate-100">
             {t("whatWeSolve.outro", language)}
           </p>
         </div>

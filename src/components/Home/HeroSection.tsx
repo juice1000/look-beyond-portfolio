@@ -190,22 +190,12 @@ const HeroSection = ({
               </div>
             )}
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["Procurement", "Manufacturing", "Logistics"].map((industry) => (
-                <span
-                  key={industry}
-                  className="rounded-sm border border-[#172540] px-2.5 py-1 font-mono text-[0.48rem] uppercase tracking-widest text-[#2a4060]"
-                >
-                  {industry}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
 
         <div className="relative min-h-[34rem] flex-1 overflow-hidden lg:min-h-0">
-          {/* Tab controls + label */}
-          <div className="absolute bottom-14 left-0 right-0 z-10 flex justify-center gap-2 px-6">
+          {/* Tab controls — top right */}
+          <div className="absolute right-5 top-5 z-10 flex flex-col gap-1.5 items-end">
             {TABS.map((tab) => {
               const isActive = tab.key === activeTab;
               return (

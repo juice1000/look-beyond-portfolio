@@ -30,3 +30,4 @@ dist-ssr
 **/tempobook/storyboards/
 
 .env
+.claude

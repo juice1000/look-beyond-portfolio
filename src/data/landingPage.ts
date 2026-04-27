@@ -338,7 +338,7 @@ const englishContent: LandingPageContent = {
     heading: "Start with one workflow worth automating.",
     description:
       "We will map one operational workflow and identify where AI agents, structured data, and human review can reduce manual work without increasing risk.",
-    primaryCta: "Map an automation opportunity",
+    primaryCta: "Contact Us",
     secondaryCta: "See example workflows",
     points: [
       "AI workflow systems",

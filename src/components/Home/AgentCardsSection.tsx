@@ -29,16 +29,16 @@ const icons = [
 
 const AgentCardsSection = ({ content }: AgentCardsSectionProps) => {
   return (
-    <section id="agents" className="py-16 bg-white dark:bg-gray-900">
+    <section id="agents" className="bg-[#060b18] py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-500">
           {content.eyebrow}
         </p>
         <div className="max-w-4xl mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-slate-100 md:text-4xl">
             {content.heading}
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300">
+          <p className="text-lg text-[#4a6a8a]">
             {content.description}
           </p>
         </div>
@@ -48,12 +48,12 @@ const AgentCardsSection = ({ content }: AgentCardsSectionProps) => {
             return (
               <div
                 key={item}
-                className="rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-800"
+                className="rounded-lg border border-[#0f1e35] bg-[#08101f] p-5"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-base font-semibold text-slate-100">
                   {item}
                 </h3>
               </div>

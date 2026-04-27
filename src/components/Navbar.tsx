@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Moon, Sun, Menu, X, Eye, Globe, ChevronDown } from "lucide-react";
+import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import {
   DropdownMenu,
@@ -54,31 +54,15 @@ const Navbar = ({
 
   useEffect(() => {
     const path = location.pathname;
-    // find the id from the path set the label as active item
-    if (path === "/") {
-      setActiveItem(t("nav.home", language));
-    } else {
-      const navItem = navItems.find((item) => {
-        if (item.subItems) {
-          return item.subItems.some((subItem) => subItem.href === path);
-        }
-        return item.href === path;
-      });
-
-      if (navItem?.subItems) {
-        const subItem = navItem.subItems.find((item) => item.href === path);
-        setActiveItem(subItem?.label || "");
-      } else {
-        setActiveItem(navItem?.label || "");
-      }
-    }
+    const navItem = navItems.find((item) => item.href === path);
+    setActiveItem(navItem?.label || "");
   }, [location.pathname, language]);
 
   const navItems: NavItem[] = [
-    { label: t("nav.solutions", language), href: "/#solutions" },
-    { label: t("nav.industries", language), href: "/#industries" },
-    { label: t("nav.process", language), href: "/#process" },
-    { label: t("nav.projects", language), href: "/#proof" },
+    { label: t("nav.ourProcess", language), href: "/our-process" },
+    { label: t("nav.projects", language), href: "/projects" },
+    { label: t("nav.partners", language), href: "/partners" },
+    { label: t("nav.contact", language), href: "/contact" },
     // { label: t("nav.imprint", language), href: "/imprint" },
     // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
   ];
@@ -100,58 +84,25 @@ const Navbar = ({
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
-            <NavigationMenuList className="space-x-5">
+            <NavigationMenuList className="space-x-4">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.label}>
-                  {item.subItems ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button className="relative flex items-center gap-1 px-2 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300">
-                          {item.label}
-                          <ChevronDown size={16} />
-                          {activeItem === item.label && (
-                            <motion.div
-                              layoutId="underline"
-                              className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.3 }}
-                            />
-                          )}
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="center" className="w-56">
-                        {item.subItems.map((subItem) => (
-                          <DropdownMenuItem key={subItem.label} asChild>
-                            <a
-                              href={subItem.href}
-                              onClick={() => setActiveItem(subItem.label)}
-                              className="w-full cursor-pointer"
-                            >
-                              {subItem.label}
-                            </a>
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <NavigationMenuLink
-                      href={item.href}
-                      onClick={() => setActiveItem(item.label)}
-                      className="relative px-2 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300"
-                    >
-                      {item.label}
-                      {activeItem === item.label && (
-                        <motion.div
-                          layoutId="underline"
-                          className="absolute left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 bottom-0"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
-                    </NavigationMenuLink>
-                  )}
+                  <NavigationMenuLink
+                    href={item.href}
+                    onClick={() => setActiveItem(item.label)}
+                    className="relative px-2 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300"
+                  >
+                    {item.label}
+                    {activeItem === item.label && (
+                      <motion.div
+                        layoutId="underline"
+                        className="absolute left-0 right-0 bottom-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>

@@ -16,6 +16,7 @@ export const translations: Translations = {
     "nav.proof": "Proof",
     "nav.process": "Process",
     "nav.projects": "Case Studies",
+    "nav.partners": "Partners",
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
     "nav.ourProcess": "Our Process",
@@ -58,6 +59,41 @@ export const translations: Translations = {
     "projects.categories.top": "Highlights",
     "projects.categories.web": "Knowledge",
     "projects.categories.ai": "Automation",
+
+    // Partners Page
+    "partners.title": "Partners",
+    "partners.subtitle":
+      "Selected partners that extend our delivery capabilities across procurement, AI operations, document intelligence, and app delivery.",
+    "partners.intro":
+      "Each partner covers a distinct part of the stack. Together we cover discovery, implementation, and ongoing operations without stretching into weak spots.",
+    "partners.sourcera.name": "Sourcera",
+    "partners.sourcera.url": "sourcera.ai",
+    "partners.sourcera.role": "Procurement solution",
+    "partners.sourcera.capability":
+      "Procurement intelligence that automates tenders and surfaces savings.",
+    "partners.sourcera.point1": "Tender automation and supplier scoring",
+    "partners.sourcera.point2": "EU data residency and compliance posture",
+    "partners.innovandio.name": "Innovandio",
+    "partners.innovandio.url": "innovandio.com",
+    "partners.innovandio.role": "AI operations specialist",
+    "partners.innovandio.capability":
+      "Production AI delivery with governance, monitoring, and predictable outcomes.",
+    "partners.innovandio.point1": "Heavy AI operations and governance",
+    "partners.innovandio.point2": "Regulated-industry readiness",
+    "partners.mueller.name": "Mueller AI Solutions",
+    "partners.mueller.url": "muelleraisolutions.de",
+    "partners.mueller.role": "Document specialist",
+    "partners.mueller.capability":
+      "Document intelligence for PDF-heavy back-office workflows.",
+    "partners.mueller.point1": "Document extraction, classification, and search",
+    "partners.mueller.point2": "Regulated, document-heavy operations",
+    "partners.kuatsu.name": "Kuatsu",
+    "partners.kuatsu.url": "kuatsu.de",
+    "partners.kuatsu.role": "App and deployment specialist",
+    "partners.kuatsu.capability":
+      "App delivery, MVP validation, and long-term maintenance.",
+    "partners.kuatsu.point1": "App design, development, and deployment",
+    "partners.kuatsu.point2": "Orientation sprints and MVP validation",
 
     // Contact Section
     "contact.title": "Start a conversation",
@@ -302,15 +338,18 @@ export const translations: Translations = {
     "pricingEngagement.tiers.workshop.price": "Starting at $2K USD",
     "pricingEngagement.tiers.workshop.description":
       "A focused workshop to understand the process, define the pipeline, and identify what should be automated first.",
-    "pricingEngagement.tiers.workshop.item1": "Process mapping and stakeholder review",
-    "pricingEngagement.tiers.workshop.item2": "Workflow opportunities and risks",
+    "pricingEngagement.tiers.workshop.item1":
+      "Process mapping and stakeholder review",
+    "pricingEngagement.tiers.workshop.item2":
+      "Workflow opportunities and risks",
     "pricingEngagement.tiers.workshop.item3": "Next-step recommendation",
     "pricingEngagement.tiers.poc.title": "POC development",
     "pricingEngagement.tiers.poc.price": "Starting at $15K USD",
     "pricingEngagement.tiers.poc.description":
       "A working prototype built against real examples so you can validate usefulness, controls, and edge cases before scaling.",
     "pricingEngagement.tiers.poc.item1": "Prototype build and testing",
-    "pricingEngagement.tiers.poc.item2": "Real sample data and exception handling",
+    "pricingEngagement.tiers.poc.item2":
+      "Real sample data and exception handling",
     "pricingEngagement.tiers.poc.item3": "Review loop and handoff plan",
     "pricingEngagement.tiers.retainer.title": "Scaling solutions",
     "pricingEngagement.tiers.retainer.price": "Retainer basis",
@@ -371,6 +410,7 @@ export const translations: Translations = {
     "footer.company": "Company",
     "footer.services": "Services",
     "footer.projects": "Case Studies",
+    "footer.partners": "Partners",
     "footer.legal": "Legal",
     "footer.copyright": "All rights reserved.",
 
@@ -403,6 +443,7 @@ export const translations: Translations = {
     "nav.proof": "Nachweise",
     "nav.process": "Prozess",
     "nav.projects": "Fallstudien",
+    "nav.partners": "Partner",
     "nav.howWeWork": "Wie wir arbeiten",
     "nav.aiReadiness": "KI-Readiness",
     "nav.ourProcess": "Unser Prozess",
@@ -446,6 +487,41 @@ export const translations: Translations = {
     "projects.categories.top": "Highlights",
     "projects.categories.web": "Wissen",
     "projects.categories.ai": "Automatisierung",
+
+    // Partners Page
+    "partners.title": "Partner",
+    "partners.subtitle":
+      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in Beschaffung, KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
+    "partners.intro":
+      "Jeder Partner deckt einen klaren Teil des Stacks ab. Gemeinsam unterstützen wir Discovery, Umsetzung und den laufenden Betrieb, ohne Schwachstellen zu überdecken.",
+    "partners.sourcera.name": "Sourcera",
+    "partners.sourcera.url": "sourcera.ai",
+    "partners.sourcera.role": "Beschaffungslösung",
+    "partners.sourcera.capability":
+      "Procurement Intelligence, die Tenders automatisiert und Einsparungen sichtbar macht.",
+    "partners.sourcera.point1": "Tender-Automatisierung und Supplier Scoring",
+    "partners.sourcera.point2": "EU-Datenresidenz und Compliance-Posture",
+    "partners.innovandio.name": "Innovandio",
+    "partners.innovandio.url": "innovandio.com",
+    "partners.innovandio.role": "KI-Operations-Spezialist",
+    "partners.innovandio.capability":
+      "Produktive KI-Delivery mit Governance, Monitoring und planbaren Ergebnissen.",
+    "partners.innovandio.point1": "Heavy AI Operations und Governance",
+    "partners.innovandio.point2": "Regulierte Branchen und planbare Ergebnisse",
+    "partners.mueller.name": "Mueller AI Solutions",
+    "partners.mueller.url": "muelleraisolutions.de",
+    "partners.mueller.role": "Dokumentenspezialist",
+    "partners.mueller.capability":
+      "Dokumentenintelligenz für PDF-lastige Backoffice-Workflows.",
+    "partners.mueller.point1": "Dokument-Extraktion, Klassifikation und Suche",
+    "partners.mueller.point2": "Regulierte, dokumentenintensive Abläufe",
+    "partners.kuatsu.name": "Kuatsu",
+    "partners.kuatsu.url": "kuatsu.de",
+    "partners.kuatsu.role": "App- und Deployment-Spezialist",
+    "partners.kuatsu.capability":
+      "App-Delivery, MVP-Validierung und langfristige Wartung.",
+    "partners.kuatsu.point1": "App-Design, Entwicklung und Deployment",
+    "partners.kuatsu.point2": "Orientation Sprints und MVP-Validierung",
 
     // Contact Section
     "contact.title": "Lassen Sie uns sprechen",
@@ -680,27 +756,33 @@ export const translations: Translations = {
     "pricingEngagement.tiers.free.price": "Kostenlos",
     "pricingEngagement.tiers.free.description":
       "Ein kurzes Arbeitstreffen, um den Workflow zu skizzieren, Rahmenbedingungen zu prüfen und zu entscheiden, ob Workshop oder POC der nächste Schritt ist.",
-    "pricingEngagement.tiers.free.item1": "Workflow-Orientierung und Priorisierung",
-    "pricingEngagement.tiers.free.item2": "Ohne Kosten, ohne Deck, ohne Verpflichtung",
+    "pricingEngagement.tiers.free.item1":
+      "Workflow-Orientierung und Priorisierung",
+    "pricingEngagement.tiers.free.item2":
+      "Ohne Kosten, ohne Deck, ohne Verpflichtung",
     "pricingEngagement.tiers.workshop.title": "Discovery-Workshop",
     "pricingEngagement.tiers.workshop.price": "Ab 2K USD",
     "pricingEngagement.tiers.workshop.description":
       "Ein fokussierter Workshop, um den Prozess zu verstehen, die Pipeline zu definieren und zu bestimmen, was zuerst automatisiert werden sollte.",
-    "pricingEngagement.tiers.workshop.item1": "Prozessmapping und Stakeholder-Review",
+    "pricingEngagement.tiers.workshop.item1":
+      "Prozessmapping und Stakeholder-Review",
     "pricingEngagement.tiers.workshop.item2": "Chancen und Risiken im Workflow",
-    "pricingEngagement.tiers.workshop.item3": "Empfehlung für den nächsten Schritt",
+    "pricingEngagement.tiers.workshop.item3":
+      "Empfehlung für den nächsten Schritt",
     "pricingEngagement.tiers.poc.title": "POC-Entwicklung",
     "pricingEngagement.tiers.poc.price": "Ab 15K USD",
     "pricingEngagement.tiers.poc.description":
       "Ein funktionierender Prototyp auf Basis realer Beispiele, um Nutzen, Kontrollen und Edge Cases vor dem Skalieren zu validieren.",
     "pricingEngagement.tiers.poc.item1": "Prototype Build und Tests",
-    "pricingEngagement.tiers.poc.item2": "Reale Beispieldaten und Ausnahmebehandlung",
+    "pricingEngagement.tiers.poc.item2":
+      "Reale Beispieldaten und Ausnahmebehandlung",
     "pricingEngagement.tiers.poc.item3": "Review-Schleife und Übergabeplan",
     "pricingEngagement.tiers.retainer.title": "Skalierungslösungen",
     "pricingEngagement.tiers.retainer.price": "Auf Retainer-Basis",
     "pricingEngagement.tiers.retainer.description":
       "Laufende Unterstützung bei angrenzenden Workflows, Verbesserungen, Monitoring und operativem Rollout.",
-    "pricingEngagement.tiers.retainer.item1": "Kontinuierliche Delivery-Unterstützung",
+    "pricingEngagement.tiers.retainer.item1":
+      "Kontinuierliche Delivery-Unterstützung",
     "pricingEngagement.tiers.retainer.item2": "Monitoring und Optimierungen",
     "pricingEngagement.tiers.retainer.item3": "Roadmap für weitere Workflows",
     "pricingEngagement.details.title": "Was Sie zusätzlich erwähnen sollten",
@@ -755,6 +837,7 @@ export const translations: Translations = {
     "footer.company": "Unternehmen",
     "footer.services": "Leistungen",
     "footer.projects": "Fallstudien",
+    "footer.partners": "Partner",
     "footer.legal": "Rechtliches",
     "footer.copyright": "Alle Rechte vorbehalten.",
 

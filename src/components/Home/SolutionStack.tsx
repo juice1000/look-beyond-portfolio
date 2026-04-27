@@ -36,42 +36,42 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
     ];
 
   return (
-    <section id="solutions" className="border-b border-gray-200 bg-white py-10 dark:border-gray-800 dark:bg-gray-950">
+    <section id="solutions" className="border-b border-[#0f1e35] bg-[#060b18] py-10">
       <div className="max-w-7xl mx-auto px-4">
         {system?.eyebrow && (
-          <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold mb-3">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-500">
             {system.eyebrow}
           </p>
         )}
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">
+            <h2 className="mb-3 text-2xl font-bold text-slate-100 md:text-3xl">
             {system?.heading || t("solutions.title", language)}
             </h2>
             {system?.description && (
-              <p className="max-w-3xl text-base text-gray-600 dark:text-gray-300">
+              <p className="max-w-3xl text-base text-[#4a6a8a]">
                 {system.description}
               </p>
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 border-t border-gray-200 md:grid-cols-3 dark:border-gray-800">
+        <div className="grid grid-cols-1 border-t border-[#0f1e35] md:grid-cols-3">
           {items.map((item, index) => (
             <div
               key={item.title}
-              className={`flex min-h-56 flex-col border-b border-r border-gray-200 p-6 dark:border-gray-800 ${
+              className={`flex min-h-56 flex-col border-b border-r border-[#0f1e35] p-6 ${
                 index === 0
-                  ? "bg-blue-50 dark:bg-blue-950/20"
-                  : "bg-white dark:bg-gray-950"
+                  ? "bg-[#08101f]"
+                  : "bg-[#060b18]"
               }`}
             >
-              <p className="text-xs font-semibold font-mono text-blue-600 dark:text-blue-400 mb-4">
+              <p className="mb-4 font-mono text-xs font-semibold text-blue-500">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+              <h3 className="mb-3 text-xl font-semibold text-slate-100">
                 {item.title}
               </h3>
-              <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
+              <p className="text-sm leading-6 text-[#4a6a8a]">
                 {item.description}
               </p>
               <div className="mt-auto flex justify-end pt-6">

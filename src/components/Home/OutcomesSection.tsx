@@ -15,23 +15,23 @@ const OutcomesSection = ({ language }: OutcomesSectionProps) => {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="bg-[#060b18] py-16">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="mb-6 text-3xl font-bold text-slate-100">
           {t("outcomes.title", language)}
         </h2>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        <p className="mb-6 text-lg text-[#4a6a8a]">
           {t("outcomes.description", language)}
         </p>
-        <ul className="space-y-3 text-lg text-gray-900 dark:text-white">
+        <ul className="space-y-3 text-lg text-slate-100">
           {bullets.map((bullet) => (
             <li key={bullet} className="flex items-start gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400" />
-              <span className="text-gray-700 dark:text-gray-300">{bullet}</span>
+              <span className="mt-2 h-2 w-2 rounded-full bg-blue-500" />
+              <span className="text-[#4a6a8a]">{bullet}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-gray-600 dark:text-gray-400">
+        <p className="mt-6 text-[#5f7793]">
           {t("outcomes.note", language)}
         </p>
       </div>

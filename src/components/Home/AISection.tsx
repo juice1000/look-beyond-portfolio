@@ -12,14 +12,14 @@ const KPIBadge = ({ value, label }: KPIBadgeProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+      className="flex flex-col items-center justify-center rounded-lg border border-[#0f1e35] bg-[#08101f] p-6"
     >
       {value && (
-        <span className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+        <span className="mb-2 text-3xl font-bold text-blue-500">
           {value}
         </span>
       )}
-      <span className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <span className="text-center text-sm text-[#4a6a8a]">
         {label}
       </span>
     </motion.div>
@@ -44,7 +44,7 @@ const AISection = ({
   language = "en",
 }: AISectionProps) => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900">
+    <section className="bg-[#060b18] py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -52,10 +52,10 @@ const AISection = ({
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="mb-4 text-4xl font-bold text-slate-100 md:text-5xl">
             {tagline}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-[#4a6a8a]">
             {subTagline}
           </p>
         </motion.div>
