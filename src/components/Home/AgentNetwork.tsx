@@ -187,7 +187,7 @@ const AgentNetwork = ({ time, isDarkMode }: AgentNetworkProps) => {
         vignetteOpacity: "0.6",
       }
     : {
-        bg: "#f8fafc",
+        bg: "#eef3f8",
         dots: "rgba(37,99,235,0.08)",
         edge: "#cbd5e1",
         inactiveFill: "#ffffff",
@@ -202,7 +202,7 @@ const AgentNetwork = ({ time, isDarkMode }: AgentNetworkProps) => {
         activeOutputText: "#0f172a",
         legendBg: "#eef3f8",
         legendLine: "#cbd5e1",
-        vignette: "#f8fafc",
+        vignette: "#eef3f8",
         vignetteOpacity: "0",
       };
 

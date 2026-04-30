@@ -140,7 +140,7 @@ const HeroSection = ({
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden border-b border-[#0f1e35] bg-[#060b18] text-white">
+    <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden border-b border-[#0f1e35] bg-[#060b18] text-slate-100">
       <div className="flex min-h-[calc(100vh-4rem)] flex-col lg:flex-row">
         <div className="relative z-10 flex w-full flex-shrink-0 flex-col justify-center border-b border-[#0f1e35] px-5 py-12 sm:px-8 md:px-12 lg:w-[29rem] lg:border-b-0 lg:border-r lg:py-0">
           <div className="pointer-events-none absolute left-[10%] top-[30%] h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />

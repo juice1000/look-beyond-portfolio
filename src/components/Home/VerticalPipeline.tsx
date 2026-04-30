@@ -232,7 +232,7 @@ const VerticalPipeline = ({ time, isDarkMode }: VerticalPipelineProps) => {
         leftFadeOpacity: "1",
       }
     : {
-        bg: "#f8fafc",
+        bg: "#eef3f8",
         dots: "rgba(37,99,235,0.08)",
         baseLine: "#cbd5e1",
         inactiveFill: "#ffffff",
@@ -245,7 +245,7 @@ const VerticalPipeline = ({ time, isDarkMode }: VerticalPipelineProps) => {
         panelText: "#64748b",
         doneText: "#334155",
         activeTitle: "#0f172a",
-        leftFade: "#f8fafc",
+        leftFade: "#eef3f8",
         leftFadeOpacity: "0",
       };
 

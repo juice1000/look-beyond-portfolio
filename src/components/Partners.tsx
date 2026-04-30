@@ -55,14 +55,14 @@ const Partners = ({ language = "en" }: PartnersProps) => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060b18] text-white">
+    <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-[#4d6b8d]">
               {t("nav.partners", language)}
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-slate-100 md:text-5xl">
               {t("partners.title", language)}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#91a8c2] md:text-lg">
@@ -82,7 +82,7 @@ const Partners = ({ language = "en" }: PartnersProps) => {
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#6f86a2]">
                   {partner.role}
                 </p>
-                <h2 className="mt-2 text-lg font-semibold text-white">
+                <h2 className="mt-2 text-lg font-semibold text-slate-100">
                   {partner.name}
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-[#9bb0c8]">
@@ -103,7 +103,7 @@ const Partners = ({ language = "en" }: PartnersProps) => {
                     <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#4d6b8d]">
                       {partner.url}
                     </p>
-                    <h2 className="mt-3 text-2xl font-semibold text-white">
+                    <h2 className="mt-3 text-2xl font-semibold text-slate-100">
                       {partner.name}
                     </h2>
                   </div>

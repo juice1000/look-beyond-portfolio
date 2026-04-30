@@ -89,11 +89,13 @@ html:not(.dark) .bg-\[\#060b18\]\/95 {
 }
 
 html:not(.dark) .bg-\[\#08101f\],
-html:not(.dark) .bg-\[\#0b1426\] {
+html:not(.dark) .bg-\[\#0b1426\],
+html:not(.dark) .bg-\[\#081120\] {
   background-color: #ffffff !important;
 }
 
-html:not(.dark) .bg-\[\#0f1e35\] {
+html:not(.dark) .bg-\[\#0f1e35\],
+html:not(.dark) .bg-\[\#1a3050\] {
   background-color: #cbd5e1 !important;
 }
 
@@ -110,7 +112,12 @@ html:not(.dark) .hover\:bg-\[\#10203a\]:hover {
 }
 
 html:not(.dark) .border-\[\#0f1e35\],
-html:not(.dark) .border-\[\#1a3050\] {
+html:not(.dark) .border-\[\#1a3050\],
+html:not(.dark) .border-\[\#132640\] {
+  border-color: #c2cedb !important;
+}
+
+html:not(.dark) .divide-\[\#0f1e35\] > :not([hidden]) ~ :not([hidden]) {
   border-color: #c2cedb !important;
 }
 
@@ -124,7 +131,10 @@ html:not(.dark) .bg-\[\#060b18\].text-white {
 html:not(.dark) .text-\[\#4a6a8a\],
 html:not(.dark) .text-\[\#5f7793\],
 html:not(.dark) .text-\[\#6f86a2\],
-html:not(.dark) .text-\[\#89a7c7\] {
+html:not(.dark) .text-\[\#89a7c7\],
+html:not(.dark) .text-\[\#91a8c2\],
+html:not(.dark) .text-\[\#9bb0c8\],
+html:not(.dark) .text-\[\#4d6b8d\] {
   color: #475569 !important;
 }
 
@@ -135,6 +145,10 @@ html:not(.dark) .text-\[\#1a3050\] {
 }
 
 html:not(.dark) .hover\:text-blue-300:hover {
+  color: #2563eb !important;
+}
+
+html:not(.dark) .hover\:text-\[\#3a5a7a\]:hover {
   color: #2563eb !important;
 }
 
@@ -150,6 +164,7 @@ html:not(.dark) svg [fill="#060b18"],
 html:not(.dark) svg [fill="#060e1d"],
 html:not(.dark) svg [fill="#060e1e"],
 html:not(.dark) svg [fill="#08111f"],
+html:not(.dark) svg [fill="#08111e"],
 html:not(.dark) svg [fill="#07111f"],
 html:not(.dark) svg [fill="#080f20"],
 html:not(.dark) svg [fill="#090f1e"],

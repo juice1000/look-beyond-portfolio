@@ -188,7 +188,7 @@ const MonitoringAnimation = ({ time, isDarkMode }: MonitoringAnimationProps) => 
         vignetteOpacity: "0.6",
       }
     : {
-        bg: "#f8fafc",
+        bg: "#eef3f8",
         dots: "rgba(37,99,235,0.08)",
         edge: "#cbd5e1",
         window: "#ffffff",
@@ -210,7 +210,7 @@ const MonitoringAnimation = ({ time, isDarkMode }: MonitoringAnimationProps) => 
         spinnerTrack: "#94a3b8",
         legendBg: "#eef3f8",
         legendLine: "#cbd5e1",
-        vignette: "#f8fafc",
+        vignette: "#eef3f8",
         vignetteOpacity: "0",
       };
 
@@ -459,18 +459,6 @@ const MonitoringAnimation = ({ time, isDarkMode }: MonitoringAnimationProps) => 
           </g>
         )}
       </g>
-
-      {/* ── Full chat window right-edge tap bar ── */}
-      {interceptF > 0 && (
-        <g opacity={interceptF}>
-          {/* Glow bar spanning full chat window height */}
-          <rect x={433} y={18} width={4} height={450} rx={2}
-            fill="#6366f1" fillOpacity={0.18 + 0.08 * Math.sin(time * 3)}
-            filter="url(#mon-glow)" />
-          <rect x={434} y={18} width={2} height={450} rx={1}
-            fill="#6366f1" fillOpacity={0.55 + 0.2 * Math.sin(time * 3)} />
-        </g>
-      )}
 
       {/* ── Intercept edge (chat → observer) ── */}
       <path d={interceptPath} fill="none" stroke={theme.edge} strokeWidth="1" strokeDasharray="4 3" />
