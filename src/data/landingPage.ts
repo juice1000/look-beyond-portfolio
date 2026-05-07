@@ -137,10 +137,9 @@ const englishContent: LandingPageContent = {
     ],
   },
   kpis: [
-    { value: "30%", label: "manual effort reduction observed" },
-    { value: "25%", label: "cost savings observed" },
-    { value: "40%", label: "avoidable error reduction observed" },
-    { value: "Built-in", label: "review and monitoring" },
+    { value: "30K+", label: "people directly reached" },
+    { value: "1.5M+", label: "hours saved" },
+    { value: "€60M+", label: "in manual work value freed" },
   ],
   problems: {
     heading:

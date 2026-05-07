@@ -1,33 +1,7 @@
 import React from "react";
+import { clamp, fade, cubicBezier, useAnimationTime } from "../../utils/animationHelpers";
 
-const DURATION = 10;
-
-const clamp = (v: number, lo: number, hi: number) =>
-  Math.max(lo, Math.min(hi, v));
-
-const fade = (t: number, s: number, d = 0.35) => clamp((t - s) / d, 0, 1);
-
-function cubicBezier(
-  t: number,
-  p0: { x: number; y: number },
-  p1: { x: number; y: number },
-  p2: { x: number; y: number },
-  p3: { x: number; y: number },
-) {
-  const u = 1 - t;
-  return {
-    x:
-      u ** 3 * p0.x +
-      3 * u ** 2 * t * p1.x +
-      3 * u * t ** 2 * p2.x +
-      t ** 3 * p3.x,
-    y:
-      u ** 3 * p0.y +
-      3 * u ** 2 * t * p1.y +
-      3 * u * t ** 2 * p2.y +
-      t ** 3 * p3.y,
-  };
-}
+interface ProcurementAnimationProps { isDarkMode: boolean; }
 
 const DOCS = [
   { label: "PO Request", activeAt: 0.3, offsetY: 0 },
@@ -42,22 +16,11 @@ const NODES = [
   { label: "Route Approval", y: 285, activeAt: 4.2, color: "#10b981" },
 ];
 
-const ProcurementAnimation: React.FC = () => {
-  const [time, setTime] = React.useState(0);
-  const frame = React.useRef<number>();
-  const start = React.useRef<number>();
+const ProcurementAnimation: React.FC<ProcurementAnimationProps> = ({ isDarkMode }) => {
+  const time = useAnimationTime(10);
 
-  React.useEffect(() => {
-    const tick = (now: number) => {
-      if (!start.current) start.current = now;
-      setTime(((now - start.current) / 1000) % DURATION);
-      frame.current = requestAnimationFrame(tick);
-    };
-    frame.current = requestAnimationFrame(tick);
-    return () => {
-      if (frame.current) cancelAnimationFrame(frame.current);
-    };
-  }, []);
+  const connectorStroke = isDarkMode ? "#1e3a5f" : "#64748b";
+  const connectorWidth = isDarkMode ? 0.8 : 2;
 
   const approvalF = fade(time, 4.8, 0.5);
 
@@ -68,9 +31,9 @@ const ProcurementAnimation: React.FC = () => {
     for (let i = 0; i < 4; i++) {
       const t = (time * 0.6 + i / 4) % 1;
       const p0 = { x: 160, y: 155 };
-      const p1 = { x: 200, y: 155 };
-      const p2 = { x: 230, y: 110 };
-      const p3 = { x: 260, y: 90 };
+      const p1 = { x: 185, y: 155 };
+      const p2 = { x: 175, y: 90 };
+      const p3 = { x: 190, y: 90 };
       const pos = cubicBezier(t, p0, p1, p2, p3);
       ps.push({ ...pos, op: 0.9 });
       if (t > 0.07) {
@@ -145,9 +108,7 @@ const ProcurementAnimation: React.FC = () => {
         </filter>
       </defs>
 
-      {/* Background */}
-      <rect width={520} height={340} fill="#060b18" />
-      <rect width={520} height={340} fill="url(#proc-dots)" />
+      {/* Background — transparent so glass card shows through */}
 
       {/* ── Document stack (x:20-160) ── */}
       {DOCS.map((doc, i) => {
@@ -219,13 +180,30 @@ const ProcurementAnimation: React.FC = () => {
       {/* Connection line: docs → pipeline */}
       {time >= 1.3 && (
         <path
-          d="M160,155 C200,155 230,110 260,90"
+          d="M160,155 C185,155 175,90 190,90"
           fill="none"
-          stroke="#1e3a5f"
-          strokeWidth={0.8}
+          stroke={connectorStroke}
+          strokeWidth={connectorWidth}
           strokeDasharray="4 3"
         />
       )}
+
+      {/* Vertical connection lines between nodes */}
+      {NODES.slice(0, -1).map((node, i) => {
+        const nextNode = NODES[i + 1];
+        return (
+          <line
+            key={`vline-${i}`}
+            x1={270}
+            y1={node.y + 14}
+            x2={270}
+            y2={nextNode.y - 14}
+            stroke={connectorStroke}
+            strokeWidth={connectorWidth}
+            strokeDasharray="3 3"
+          />
+        );
+      })}
 
       {/* ── Pipeline nodes (x:190-350, centered x:270) ── */}
       {NODES.map((node, i) => {
@@ -241,7 +219,7 @@ const ProcurementAnimation: React.FC = () => {
                 height={44}
                 rx={5}
                 fill={node.color}
-                fillOpacity={0.06 * f}
+                fillOpacity={(isDarkMode ? 0.06 : 0.18) * f}
                 filter="url(#proc-glow2)"
               />
             )}
@@ -252,8 +230,8 @@ const ProcurementAnimation: React.FC = () => {
               width={160}
               height={28}
               rx={4}
-              fill={f > 0 ? `${node.color}18` : "#08111f"}
-              stroke={f > 0 ? node.color : "#0e1c32"}
+              fill={f > 0 ? (isDarkMode ? `${node.color}18` : `${node.color}55`) : (isDarkMode ? "#08111f" : "rgba(255,255,255,0.5)")}
+              stroke={f > 0 ? node.color : (isDarkMode ? "#0e1c32" : "#cbd5e1")}
               strokeWidth={f > 0 ? 1.3 : 0.7}
               filter={f > 0 ? "url(#proc-glow)" : undefined}
             />
@@ -262,15 +240,15 @@ const ProcurementAnimation: React.FC = () => {
               cx={205}
               cy={node.y}
               r={8}
-              fill={f > 0 ? node.color : "#0a1525"}
-              fillOpacity={f > 0 ? 0.25 : 1}
+              fill={f > 0 ? node.color : (isDarkMode ? "#0a1525" : "#e2e8f0")}
+              fillOpacity={f > 0 ? (isDarkMode ? 0.25 : 0.5) : 1}
             />
             <text
               x={205}
               y={node.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill={f > 0 ? node.color : "#1a3050"}
+              fill={f > 0 ? node.color : (isDarkMode ? "#1a3050" : "#94a3b8")}
               fontSize={7}
               fontWeight={700}
               fontFamily="Space Mono, monospace"
@@ -281,7 +259,7 @@ const ProcurementAnimation: React.FC = () => {
               x={220}
               y={node.y}
               dominantBaseline="middle"
-              fill={f > 0 ? "#c8d8f0" : "#162035"}
+              fill={f > 0 ? (isDarkMode ? "#c8d8f0" : "#1e293b") : (isDarkMode ? "#162035" : "#94a3b8")}
               fontSize={9}
               fontFamily="Space Mono, monospace"
             >
@@ -299,23 +277,6 @@ const ProcurementAnimation: React.FC = () => {
               />
             )}
           </g>
-        );
-      })}
-
-      {/* Vertical connection lines between nodes */}
-      {NODES.slice(0, -1).map((node, i) => {
-        const nextNode = NODES[i + 1];
-        return (
-          <line
-            key={`vline-${i}`}
-            x1={270}
-            y1={node.y + 14}
-            x2={270}
-            y2={nextNode.y - 14}
-            stroke="#0e1c30"
-            strokeWidth={0.8}
-            strokeDasharray="3 3"
-          />
         );
       })}
 
@@ -386,9 +347,9 @@ const ProcurementAnimation: React.FC = () => {
           y1={285}
           x2={403}
           y2={200}
-          stroke="#10b981"
-          strokeWidth={0.8}
-          strokeOpacity={0.3 * approvalF}
+          stroke={connectorStroke}
+          strokeWidth={connectorWidth}
+          strokeOpacity={isDarkMode ? 0.3 * approvalF : 0.7 * approvalF}
           strokeDasharray="4 3"
         />
       )}

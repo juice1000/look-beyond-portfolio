@@ -156,9 +156,6 @@ html:not(.dark) .shadow-\[0_12px_32px_rgba\(37\2c 99\2c 235\2c 0\.32\)\] {
   box-shadow: 0 12px 32px rgba(37, 99, 235, 0.18) !important;
 }
 
-html:not(.dark) nav img[alt="Look Beyond"] {
-  filter: invert(1);
-}
 
 html:not(.dark) svg [fill="#060b18"],
 html:not(.dark) svg [fill="#060e1d"],

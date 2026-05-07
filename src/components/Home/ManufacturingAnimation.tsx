@@ -1,34 +1,7 @@
 import React from "react";
+import { clamp, fade, cubicBezier, useAnimationTime } from "../../utils/animationHelpers";
 
-const DURATION = 10;
-
-const clamp = (v: number, lo: number, hi: number) =>
-  Math.max(lo, Math.min(hi, v));
-
-const fade = (t: number, s: number, d = 0.35) =>
-  clamp((t - s) / d, 0, 1);
-
-function cubicBezier(
-  t: number,
-  p0: { x: number; y: number },
-  p1: { x: number; y: number },
-  p2: { x: number; y: number },
-  p3: { x: number; y: number },
-) {
-  const u = 1 - t;
-  return {
-    x:
-      u ** 3 * p0.x +
-      3 * u ** 2 * t * p1.x +
-      3 * u * t ** 2 * p2.x +
-      t ** 3 * p3.x,
-    y:
-      u ** 3 * p0.y +
-      3 * u ** 2 * t * p1.y +
-      3 * u * t ** 2 * p2.y +
-      t ** 3 * p3.y,
-  };
-}
+interface ManufacturingAnimationProps { isDarkMode: boolean; }
 
 const SENSORS = [
   {
@@ -66,22 +39,12 @@ const SENSORS = [
   },
 ];
 
-const ManufacturingAnimation: React.FC = () => {
-  const [time, setTime] = React.useState(0);
-  const frame = React.useRef<number>();
-  const start = React.useRef<number>();
+const ManufacturingAnimation: React.FC<ManufacturingAnimationProps> = ({ isDarkMode }) => {
+  const time = useAnimationTime(10);
 
-  React.useEffect(() => {
-    const tick = (now: number) => {
-      if (!start.current) start.current = now;
-      setTime(((now - start.current) / 1000) % DURATION);
-      frame.current = requestAnimationFrame(tick);
-    };
-    frame.current = requestAnimationFrame(tick);
-    return () => {
-      if (frame.current) cancelAnimationFrame(frame.current);
-    };
-  }, []);
+  const connectorStroke = isDarkMode ? undefined : "#64748b";
+  const connectorOpacity = isDarkMode ? 0.2 : 0.75;
+  const connectorWidth = isDarkMode ? 0.8 : 2;
 
   const rotorAngle = time * 1.2; // radians, ~69°/s
 
@@ -164,9 +127,7 @@ const ManufacturingAnimation: React.FC = () => {
         )}
       </defs>
 
-      {/* Background */}
-      <rect width={520} height={340} fill="#060b18" />
-      <rect width={520} height={340} fill="url(#mfg-dots)" />
+      {/* Background — transparent so glass card shows through */}
 
       {/* ── Machine block (x:30-210, y:50-290) ── */}
       <rect
@@ -175,13 +136,13 @@ const ManufacturingAnimation: React.FC = () => {
         width={180}
         height={240}
         rx={6}
-        fill="#060e1e"
-        stroke="#0f1e35"
+        fill={isDarkMode ? "#060e1e" : "rgba(248,250,252,0.85)"}
+        stroke={isDarkMode ? "#0f1e35" : "#cbd5e1"}
         strokeWidth={1.2}
       />
       {/* Machine header */}
-      <rect x={30} y={50} width={180} height={30} rx={6} fill="#080f20" />
-      <rect x={30} y={68} width={180} height={12} fill="#080f20" />
+      <rect x={30} y={50} width={180} height={30} rx={6} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.95)"} />
+      <rect x={30} y={68} width={180} height={12} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.95)"} />
       <text
         x={120}
         y={65}
@@ -230,7 +191,7 @@ const ManufacturingAnimation: React.FC = () => {
         cx={120}
         cy={170}
         r={40}
-        fill="#08111e"
+        fill={isDarkMode ? "#08111e" : "rgba(241,245,249,0.8)"}
         stroke="#1e3a5f"
         strokeWidth={1}
       />
@@ -258,7 +219,7 @@ const ManufacturingAnimation: React.FC = () => {
         cx={120}
         cy={170}
         r={12}
-        fill="#060b18"
+        fill={isDarkMode ? "#060b18" : "rgba(241,245,249,0.9)"}
         stroke="#3b82f6"
         strokeWidth={1}
         filter="url(#mfg-pg)"
@@ -306,9 +267,9 @@ const ManufacturingAnimation: React.FC = () => {
           y1={s.y}
           x2={310}
           y2={s.y}
-          stroke={s.color}
-          strokeWidth={0.8}
-          strokeOpacity={0.2}
+          stroke={connectorStroke ?? s.color}
+          strokeWidth={connectorWidth}
+          strokeOpacity={connectorOpacity}
           strokeDasharray="4 3"
         />
       ))}
@@ -320,20 +281,20 @@ const ManufacturingAnimation: React.FC = () => {
         width={180}
         height={240}
         rx={6}
-        fill="#060e1e"
-        stroke={alertActive ? "#f97316" : "#0f1e35"}
+        fill={isDarkMode ? "#060e1e" : "rgba(248,250,252,0.85)"}
+        stroke={alertActive ? "#f97316" : (isDarkMode ? "#0f1e35" : "#cbd5e1")}
         strokeWidth={alertActive ? 1.5 : 1}
         strokeOpacity={alertActive ? 0.6 + 0.3 * Math.sin(time * 4) : 1}
         filter={alertActive ? "url(#mfg-alert-glow)" : undefined}
       />
       {/* Monitor header */}
-      <rect x={310} y={50} width={180} height={28} rx={6} fill="#080f20" />
-      <rect x={310} y={66} width={180} height={12} fill="#080f20" />
+      <rect x={310} y={50} width={180} height={28} rx={6} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.95)"} />
+      <rect x={310} y={66} width={180} height={12} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.95)"} />
       <text
         x={325}
         y={64}
         dominantBaseline="middle"
-        fill="#8eaace"
+        fill={isDarkMode ? "#8eaace" : "#64748b"}
         fontSize={8}
         fontWeight={700}
         fontFamily="Space Mono, monospace"
@@ -362,7 +323,7 @@ const ManufacturingAnimation: React.FC = () => {
                 y1={rowY - 12}
                 x2={482}
                 y2={rowY - 12}
-                stroke="#0d1c30"
+                stroke={isDarkMode ? "#0d1c30" : "#e2e8f0"}
                 strokeWidth={0.8}
               />
             )}
@@ -384,7 +345,7 @@ const ManufacturingAnimation: React.FC = () => {
               y={rowY + 6}
               textAnchor="end"
               dominantBaseline="middle"
-              fill="#c8d8f0"
+              fill={isDarkMode ? "#c8d8f0" : "#1e293b"}
               fontSize={9}
               fontFamily="Space Mono, monospace"
             >
@@ -402,8 +363,8 @@ const ManufacturingAnimation: React.FC = () => {
           width={100}
           height={22}
           rx={4}
-          fill={alertActive ? "#2a0e00" : "#0a0a0a"}
-          stroke={alertActive ? "#f97316" : "#1a1a1a"}
+          fill={alertActive ? (isDarkMode ? "#2a0e00" : "rgba(255,241,235,0.9)") : (isDarkMode ? "#0a0a0a" : "rgba(248,250,252,0.9)")}
+          stroke={alertActive ? "#f97316" : (isDarkMode ? "#1a1a1a" : "#cbd5e1")}
           strokeWidth={alertActive ? 1.5 : 0.8}
           strokeOpacity={alertActive ? 0.8 + 0.2 * Math.sin(time * 5) : 1}
         />
@@ -412,7 +373,7 @@ const ManufacturingAnimation: React.FC = () => {
           y={269}
           textAnchor="middle"
           dominantBaseline="middle"
-          fill={alertActive ? "#f97316" : "#333"}
+          fill={alertActive ? "#f97316" : (isDarkMode ? "#333" : "#94a3b8")}
           fontSize={8}
           fontWeight={700}
           fontFamily="Space Mono, monospace"

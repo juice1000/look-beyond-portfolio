@@ -14,13 +14,13 @@ const Footer = ({ language = "en" }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 py-8 px-4">
+    <footer className="bg-white/20 dark:bg-[#060b18]/60 backdrop-blur-xl backdrop-saturate-150 border-t border-white/40 dark:border-white/[0.06] py-8 px-4">
       <div className="container mx-auto">
         {/* Footer Navigation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="text-lg font-semibold mb-4 text-[#0f1e35] dark:text-slate-100">
               {t("footer.company", language)}
             </h3>
             <ul className="space-y-2">
@@ -28,7 +28,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                 <Link
                   to="/"
                   onClick={() => handleNavigation("/", t("nav.home", language))}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.home", language)}
                 </Link>
@@ -42,7 +42,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                       t("nav.ourProcess", language)
                     )
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.ourProcess", language)}
                 </Link>
@@ -53,7 +53,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   onClick={() =>
                     handleNavigation("/contact", t("nav.contact", language))
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.contact", language)}
                 </Link>
@@ -63,7 +63,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="text-lg font-semibold mb-4 text-[#0f1e35] dark:text-slate-100">
               {t("footer.services", language)}
             </h3>
             <ul className="space-y-2">
@@ -76,7 +76,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                       t("nav.aiReadiness", language)
                     )
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.aiReadiness", language)}
                 </Link>
@@ -87,7 +87,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   onClick={() =>
                     handleNavigation("/workshops", t("nav.workshops", language))
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.workshops", language)}
                 </Link>
@@ -101,7 +101,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                       t("nav.pricingEngagement", language)
                     )
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.pricingEngagement", language)}
                 </Link>
@@ -111,7 +111,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
 
           {/* Projects */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="text-lg font-semibold mb-4 text-[#0f1e35] dark:text-slate-100">
               {t("footer.projects", language)}
             </h3>
             <ul className="space-y-2">
@@ -121,14 +121,14 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   onClick={() =>
                     handleNavigation("/projects", t("nav.projects", language))
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.projects", language)}
                 </Link>
               </li>
             </ul>
 
-            <h3 className="mt-6 text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="mt-6 text-lg font-semibold mb-4 text-[#0f1e35] dark:text-slate-100">
               {t("footer.partners", language)}
             </h3>
             <ul className="space-y-2">
@@ -138,7 +138,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   onClick={() =>
                     handleNavigation("/partners", t("nav.partners", language))
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.partners", language)}
                 </Link>
@@ -148,7 +148,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="text-lg font-semibold mb-4 text-[#0f1e35] dark:text-slate-100">
               {t("footer.legal", language)}
             </h3>
             <ul className="space-y-2">
@@ -158,7 +158,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   onClick={() =>
                     handleNavigation("/imprint", t("nav.imprint", language))
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.imprint", language)}
                 </Link>
@@ -172,7 +172,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                       t("nav.privacyPolicy", language)
                     )
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.privacyPolicy", language)}
                 </Link>
@@ -186,7 +186,7 @@ const Footer = ({ language = "en" }: FooterProps) => {
                       t("nav.termsOfUse", language)
                     )
                   }
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
                 >
                   {t("nav.termsOfUse", language)}
                 </Link>
@@ -196,8 +196,8 @@ const Footer = ({ language = "en" }: FooterProps) => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-6 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+        <div className="border-t border-white/40 dark:border-white/[0.06] pt-6 text-center">
+          <p className="text-sm text-slate-500 dark:text-[#4a6a8a] mt-2">
             © {new Date().getFullYear()} {t("footer.copyright", language)}
           </p>
         </div>

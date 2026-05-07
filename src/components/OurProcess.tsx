@@ -1,9 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Language } from "../lib/i18n";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface OurProcessProps { language?: Language; }
 
 const STEPS = [
   {
@@ -102,8 +98,7 @@ const PRINCIPLES = [
   },
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const OurProcess = (_props: OurProcessProps) => {
+const OurProcess = () => {
   return (
     <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-16">

@@ -36,8 +36,11 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
     ];
 
   return (
-    <section id="solutions" className="border-b border-[#0f1e35] bg-[#060b18] py-10">
-      <div className="max-w-7xl mx-auto px-4">
+    <section
+      id="solutions"
+      className="-mt-32 relative z-10 border-b border-white/30 dark:border-[#0f1e35] pb-12 pt-16"
+    >
+      <div className="relative max-w-7xl mx-auto px-4">
         {system?.eyebrow && (
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-500">
             {system.eyebrow}
@@ -45,41 +48,50 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
         )}
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <h2 className="mb-3 text-2xl font-bold text-slate-100 md:text-3xl">
+            <h2 className="mb-3 text-2xl font-bold text-[#0f1e35] dark:text-slate-100 md:text-3xl">
             {system?.heading || t("solutions.title", language)}
             </h2>
             {system?.description && (
-              <p className="max-w-3xl text-base text-[#4a6a8a]">
+              <p className="max-w-3xl text-base text-slate-500 dark:text-[#4a6a8a]">
                 {system.description}
               </p>
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 border-t border-[#0f1e35] md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="flex min-h-56 flex-col border-b border-r border-[#0f1e35] bg-[#08101f] p-6"
+              className="relative overflow-hidden flex min-h-56 flex-col rounded-2xl
+                         border border-white/60 dark:border-[#0f1e35]
+                         bg-gradient-to-br from-white/40 to-white/15
+                         dark:bg-[#08101f]/80
+                         backdrop-blur-xl backdrop-saturate-150
+                         shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)]
+                         dark:shadow-none
+                         p-6"
             >
+              {/* Specular inner blob — light mode only */}
+              <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
               <p className="mb-4 font-mono text-xs font-semibold text-blue-500">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mb-3 text-xl font-semibold text-slate-100">
+              <h3 className="mb-3 text-xl font-semibold text-[#0f1e35] dark:text-slate-100">
                 {item.title}
               </h3>
-              <p className="text-sm leading-6 text-[#4a6a8a]">
+              <p className="text-sm leading-6 text-slate-500 dark:text-[#4a6a8a]">
                 {item.description}
               </p>
               <div className="mt-auto flex justify-end pt-6">
                 {PILLAR_ROUTES[index] ? (
                   <Link
                     to={PILLAR_ROUTES[index]}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-800 font-mono text-sm text-slate-800 transition-colors hover:bg-slate-800 hover:text-white dark:border-blue-600 dark:text-blue-600 dark:hover:bg-blue-600 dark:hover:text-white"
                   >
                     →
                   </Link>
                 ) : (
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 font-mono text-sm text-blue-600">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-800 font-mono text-sm text-slate-800 dark:border-blue-600 dark:text-blue-600">
                     →
                   </span>
                 )}

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Language } from "../../lib/i18n";
+import PillarAnimationPanel from "./PillarAnimationPanel";
 
 interface AIPerformanceMonitoringProps {
   language?: Language;
+  isDarkMode: boolean;
 }
 
 const capabilities = [
@@ -56,56 +58,58 @@ const steps = [
   },
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const AIPerformanceMonitoring = (_props: AIPerformanceMonitoringProps) => {
+const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) => {
   return (
     <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-20">
         {/* Hero */}
-        <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
-            <Link
-              to="/"
-              className="mb-8 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060] transition-colors hover:text-blue-500"
-            >
-              ← Back
-            </Link>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
-                Pillar 03
-              </span>
-              <span className="h-px w-6 bg-[#0f1e35]" />
-              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060]">
-                Reliability & Oversight
-              </span>
+        <section className="border-b border-[#0f1e35] px-5 py-12 sm:px-8 md:px-12 xl:px-16">
+          <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[minmax(17rem,0.34fr)_minmax(0,1fr)] lg:items-center xl:gap-12">
+            <div className="max-w-md">
+              <Link
+                to="/"
+                className="mb-8 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060] transition-colors hover:text-blue-500"
+              >
+                ← Back
+              </Link>
+              <div className="mb-5 flex items-center gap-3">
+                <span className="font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+                  Pillar 03
+                </span>
+                <span className="h-px w-6 bg-[#0f1e35]" />
+                <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060]">
+                  Reliability & Oversight
+                </span>
+              </div>
+              <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-slate-100 sm:text-5xl">
+                AI Performance Monitoring
+              </h1>
+              <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
+              <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
+                Evaluations, real-time monitoring, access controls, and audit
+                trails for production AI systems.
+              </p>
             </div>
-            <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-slate-100 sm:text-5xl">
-              AI Performance Monitoring
-            </h1>
-            <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
-            <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
-              Evaluations, real-time monitoring, access controls, and audit
-              trails for production AI systems.
-            </p>
+            <PillarAnimationPanel kind="monitoring" isDarkMode={isDarkMode} />
           </div>
         </section>
 
         {/* What we build */}
-        <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-8 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+        <section className="border-b border-[#0f1e35] px-5 py-16 sm:px-8 md:px-12 xl:px-16">
+          <div className="mx-auto max-w-[94rem]">
+            <p className="mb-8 font-mono text-xs uppercase tracking-widest text-blue-500">
               What we build
             </p>
             <div className="grid grid-cols-1 gap-px border border-[#0f1e35] bg-[#0f1e35] sm:grid-cols-2">
               {capabilities.map((cap) => (
                 <div
                   key={cap.title}
-                  className="bg-[#060b18] p-6 transition-colors hover:bg-[#08101f]"
+                  className="bg-[#060b18] p-8 transition-colors hover:bg-[#08101f]"
                 >
-                  <h3 className="mb-2 text-sm font-semibold text-slate-100">
+                  <h3 className="mb-3 text-lg font-semibold text-slate-100">
                     {cap.title}
                   </h3>
-                  <p className="text-sm leading-6 text-[#4a6a8a]">
+                  <p className="text-base leading-7 text-[#4a6a8a]">
                     {cap.description}
                   </p>
                 </div>
@@ -115,22 +119,22 @@ const AIPerformanceMonitoring = (_props: AIPerformanceMonitoringProps) => {
         </section>
 
         {/* How it works */}
-        <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-10 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+        <section className="border-b border-[#0f1e35] px-5 py-16 sm:px-8 md:px-12 xl:px-16">
+          <div className="mx-auto max-w-[94rem]">
+            <p className="mb-10 font-mono text-xs uppercase tracking-widest text-blue-500">
               How it works
             </p>
             <div className="space-y-0 divide-y divide-[#0f1e35]">
               {steps.map((step) => (
-                <div key={step.number} className="flex gap-8 py-8">
-                  <span className="mt-0.5 flex-shrink-0 font-mono text-[0.65rem] font-semibold text-blue-600">
+                <div key={step.number} className="flex gap-8 py-9">
+                  <span className="mt-1 flex-shrink-0 font-mono text-xs font-semibold text-blue-600">
                     {step.number}
                   </span>
                   <div>
-                    <h3 className="mb-2 text-sm font-semibold text-slate-100">
+                    <h3 className="mb-3 text-lg font-semibold text-slate-100">
                       {step.title}
                     </h3>
-                    <p className="text-sm leading-6 text-[#4a6a8a]">
+                    <p className="max-w-4xl text-base leading-7 text-[#4a6a8a]">
                       {step.description}
                     </p>
                   </div>
@@ -141,22 +145,22 @@ const AIPerformanceMonitoring = (_props: AIPerformanceMonitoringProps) => {
         </section>
 
         {/* Case study placeholder */}
-        <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
-            <p className="mb-8 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+        <section className="border-b border-[#0f1e35] px-5 py-16 sm:px-8 md:px-12 xl:px-16">
+          <div className="mx-auto max-w-[94rem]">
+            <p className="mb-8 font-mono text-xs uppercase tracking-widest text-blue-500">
               Case study
             </p>
             <div className="rounded-sm border border-dashed border-[#1a3050] p-8">
               <div className="mb-3 flex items-center gap-3">
-                <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#1a3050]">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#1a3050]">
                   Locked
                 </span>
                 <span className="h-px flex-1 bg-[#0f1e35]" />
               </div>
-              <h3 className="mb-2 text-base font-semibold text-[#2a4060]">
+              <h3 className="mb-3 text-lg font-semibold text-[#2a4060]">
                 AI support bot monitoring
               </h3>
-              <p className="text-sm text-[#1a3050]">
+              <p className="text-base leading-7 text-[#1a3050]">
                 Client case study coming soon — details under NDA.
               </p>
             </div>
@@ -164,14 +168,14 @@ const AIPerformanceMonitoring = (_props: AIPerformanceMonitoringProps) => {
         </section>
 
         {/* CTA */}
-        <section className="px-6 py-16 md:px-12 lg:px-20">
-          <div className="mx-auto max-w-4xl">
+        <section className="px-5 py-16 sm:px-8 md:px-12 xl:px-16">
+          <div className="mx-auto max-w-[94rem]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="mb-1 text-xl font-bold text-slate-100">
+                <h2 className="mb-2 text-2xl font-bold text-slate-100">
                   Ready to put your AI systems under observation?
                 </h2>
-                <p className="text-sm text-[#4a6a8a]">
+                <p className="text-base leading-7 text-[#4a6a8a]">
                   Let's design an evaluation and monitoring layer for your
                   production AI.
                 </p>

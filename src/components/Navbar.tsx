@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
+import LBLogoBlack from "/images/LB_logo_bg_removed.png";
 import { Button } from "./ui/button";
-import { Moon, Sun, Menu, X, Eye, Globe } from "lucide-react";
+import { Menu, X, Eye, Globe } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import {
   DropdownMenu,
@@ -16,13 +18,12 @@ import {
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import LBLogoWhite from "/images/LB_logo_bg_remove_white.png";
 
 interface NavbarProps {
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
   onColorBlindToggle?: (
-    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia"
+    mode: "none" | "protanopia" | "deuteranopia" | "tritanopia",
   ) => void;
   colorBlindMode?: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   language?: Language;
@@ -63,58 +64,64 @@ const Navbar = ({
     { label: t("nav.projects", language), href: "/projects" },
     { label: t("nav.partners", language), href: "/partners" },
     { label: t("nav.contact", language), href: "/contact" },
-    // { label: t("nav.imprint", language), href: "/imprint" },
-    // { label: t("nav.privacyPolicy", language), href: "/privacy-policy" },
   ];
 
   return (
-    <nav className="fixed top-0 z-50 h-16 w-full border-b border-[#0f1e35] bg-[#060b18]/95 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-full flex items-center justify-between">
-        {/* Logo */}
+    <nav className="fixed top-0 z-50 h-16 w-full border-b border-white/30 dark:border-white/[0.06] bg-white/20 dark:bg-[#060b18]/40 backdrop-blur-sm">
+      <div className="container mx-auto px-4 h-full grid grid-cols-3 items-center">
+        {/* Logo — left */}
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img
-              className="h-14 w-auto object-contain"
-              src={LBLogoWhite}
+              className="h-16 w-auto object-contain"
+              src={isDarkMode ? LBLogoWhite : LBLogoBlack}
               alt="Look Beyond"
             />
           </a>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-4">
-              {navItems.map((item) => (
-                <NavigationMenuItem key={item.label}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    onClick={() => setActiveItem(item.label)}
-                    className="relative px-2 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide text-[#3a5872] transition-colors hover:text-blue-300"
-                  >
-                    {item.label}
-                    {activeItem === item.label && (
-                      <motion.div
-                        layoutId="underline"
-                        className="absolute left-0 right-0 bottom-0 h-0.5 bg-blue-600 dark:bg-blue-400"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
+        {/* Desktop Navigation — glass pill, truly centered */}
+        <div className="hidden md:flex justify-center">
+          <div className="relative overflow-hidden rounded-full
+                          border border-white/60 dark:border-white/[0.08]
+                          bg-gradient-to-br from-white/50 to-white/25
+                          dark:bg-white/[0.05]
+                          backdrop-blur-xl backdrop-saturate-150
+                          shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.25),0_8px_24px_rgba(0,0,0,0.06)]
+                          dark:shadow-none
+                          px-2 py-1">
+            <div className="pointer-events-none absolute -top-3 -right-3 h-12 w-12 rounded-full bg-white/70 blur-xl dark:hidden" />
+            <NavigationMenu>
+              <NavigationMenuList className="space-x-1">
+                {navItems.map((item) => (
+                  <NavigationMenuItem key={item.label}>
+                    <NavigationMenuLink
+                      href={item.href}
+                      onClick={() => setActiveItem(item.label)}
+                      className={`relative px-3 py-1.5 rounded-full font-mono text-[13px] font-semibold uppercase tracking-wide transition-colors
+                        ${activeItem === item.label
+                          ? "bg-white/60 dark:bg-white/10 text-blue-600 dark:text-blue-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
+                          : "text-slate-600 dark:text-[#3a5872] hover:text-blue-600 dark:hover:text-blue-300 hover:bg-white/40 dark:hover:bg-white/5"
+                        }`}
+                    >
+                      {item.label}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+        </div>
 
-          <div className="flex gap-2">
+        {/* Right controls — col 3 always visible for grid; desktop vs mobile contents swap */}
+        <div className="flex items-center justify-end gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
                   size="icon"
-                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
+                  className="relative rounded-sm border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -152,7 +159,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="relative rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
+                  className="relative rounded-sm border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -214,31 +221,14 @@ const Navbar = ({
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={onThemeToggle}
-              className="rounded-sm border-[#1a3050] bg-transparent text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
-            >
-              <motion.div
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.5, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </motion.div>
-            </Button>
-          </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
+          </div>
+          {/* Mobile hamburger */}
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-[#4a6a8a] hover:bg-[#0b1426] hover:text-blue-300"
+            className="md:hidden text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -252,14 +242,14 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="absolute left-0 right-0 top-16 border-b border-[#0f1e35] bg-[#060b18] md:hidden"
+          className="absolute left-0 right-0 top-16 border-b border-white/[0.06] bg-white/95 dark:bg-[#060b18]/90 backdrop-blur-md md:hidden"
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
               <div key={item.label}>
                 <a
                   href={item.href}
-                  className="block py-3 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
+                  className="block py-3 font-mono text-xs uppercase tracking-wide text-slate-600 dark:text-[#3a5872] hover:text-blue-600 dark:hover:text-blue-300"
                   onClick={() => {
                     setActiveItem(item.label);
                     setIsMobileMenuOpen(false);
@@ -273,7 +263,7 @@ const Navbar = ({
                       <a
                         key={subItem.label}
                         href={subItem.href}
-                        className="block py-2 font-mono text-xs uppercase tracking-wide text-[#3a5872] hover:text-blue-300"
+                        className="block py-2 font-mono text-xs uppercase tracking-wide text-slate-600 dark:text-[#3a5872] hover:text-blue-600 dark:hover:text-blue-300"
                         onClick={() => {
                           setActiveItem(subItem.label);
                           setIsMobileMenuOpen(false);
@@ -286,27 +276,6 @@ const Navbar = ({
                 )}
               </div>
             ))}
-            <div className="py-3">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  onThemeToggle();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full justify-start"
-              >
-                {isDarkMode ? (
-                  <>
-                    <Sun size={20} className="mr-2" /> Light Mode
-                  </>
-                ) : (
-                  <>
-                    <Moon size={20} className="mr-2" /> Dark Mode
-                  </>
-                )}
-              </Button>
-            </div>
           </div>
         </motion.div>
       )}

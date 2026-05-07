@@ -145,7 +145,7 @@ function App() {
           />
           <Route
             path="/our-process"
-            element={<OurProcess language={language} />}
+            element={<OurProcess />}
           />
           <Route path="/projects" element={<Projects language={language} />} />
           <Route
@@ -169,27 +169,36 @@ function App() {
           />
           <Route
             path="/pillars/ai-workflow-systems"
-            element={<AIWorkflowSystems language={language} />}
+            element={
+              <AIWorkflowSystems language={language} isDarkMode={isDarkMode} />
+            }
           />
           <Route
             path="/pillars/autonomous-agents"
-            element={<AutonomousAgents language={language} />}
+            element={
+              <AutonomousAgents language={language} isDarkMode={isDarkMode} />
+            }
           />
           <Route
             path="/pillars/ai-performance-monitoring"
-            element={<AIPerformanceMonitoring language={language} />}
+            element={
+              <AIPerformanceMonitoring
+                language={language}
+                isDarkMode={isDarkMode}
+              />
+            }
           />
           <Route
             path="/industries/procurement"
-            element={<Procurement language={language} />}
+            element={<Procurement />}
           />
           <Route
             path="/industries/manufacturing"
-            element={<Manufacturing language={language} />}
+            element={<Manufacturing />}
           />
           <Route
             path="/industries/logistics"
-            element={<Logistics language={language} />}
+            element={<Logistics />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

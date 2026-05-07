@@ -1,10 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Language } from "../../lib/i18n";
-
-interface LogisticsProps {
-  language?: Language;
-}
 
 const useCases = [
   {
@@ -68,8 +63,7 @@ const steps = [
   },
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Logistics = (_props: LogisticsProps) => {
+const Logistics = () => {
   return (
     <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-20">

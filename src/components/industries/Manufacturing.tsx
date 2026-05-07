@@ -1,10 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Language } from "../../lib/i18n";
-
-interface ManufacturingProps {
-  language?: Language;
-}
 
 const useCases = [
   {
@@ -68,8 +63,7 @@ const steps = [
   },
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Manufacturing = (_props: ManufacturingProps) => {
+const Manufacturing = () => {
   return (
     <div className="min-h-screen bg-[#060b18] text-slate-100">
       <main className="pt-20">

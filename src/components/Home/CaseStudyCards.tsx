@@ -86,7 +86,7 @@ const CaseStudyCards = ({ language, showHeader = true }: CaseStudyCardsProps) =>
             </div>
             <Link
               to="/projects"
-              className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-blue-500/40 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500 transition-colors hover:bg-blue-500/10"
+              className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
             >
               See all projects →
             </Link>

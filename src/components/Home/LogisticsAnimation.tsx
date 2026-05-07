@@ -1,34 +1,7 @@
 import React from "react";
+import { clamp, fade, cubicBezier, useAnimationTime } from "../../utils/animationHelpers";
 
-const DURATION = 10;
-
-const clamp = (v: number, lo: number, hi: number) =>
-  Math.max(lo, Math.min(hi, v));
-
-const fade = (t: number, s: number, d = 0.35) =>
-  clamp((t - s) / d, 0, 1);
-
-function cubicBezier(
-  t: number,
-  p0: { x: number; y: number },
-  p1: { x: number; y: number },
-  p2: { x: number; y: number },
-  p3: { x: number; y: number },
-) {
-  const u = 1 - t;
-  return {
-    x:
-      u ** 3 * p0.x +
-      3 * u ** 2 * t * p1.x +
-      3 * u * t ** 2 * p2.x +
-      t ** 3 * p3.x,
-    y:
-      u ** 3 * p0.y +
-      3 * u ** 2 * t * p1.y +
-      3 * u * t ** 2 * p2.y +
-      t ** 3 * p3.y,
-  };
-}
+interface LogisticsAnimationProps { isDarkMode: boolean; }
 
 // Route path: origin(70,170) → arc through (255,80) → dest(440,170)
 // Using symmetric cubic bezier
@@ -41,22 +14,13 @@ const ROUTE = {
 
 const SHIPMENT_DURATION = 5; // seconds to travel the route
 
-const LogisticsAnimation: React.FC = () => {
-  const [time, setTime] = React.useState(0);
-  const frame = React.useRef<number>();
-  const start = React.useRef<number>();
+const LogisticsAnimation: React.FC<LogisticsAnimationProps> = ({ isDarkMode }) => {
+  const time = useAnimationTime(10);
 
-  React.useEffect(() => {
-    const tick = (now: number) => {
-      if (!start.current) start.current = now;
-      setTime(((now - start.current) / 1000) % DURATION);
-      frame.current = requestAnimationFrame(tick);
-    };
-    frame.current = requestAnimationFrame(tick);
-    return () => {
-      if (frame.current) cancelAnimationFrame(frame.current);
-    };
-  }, []);
+  const routeStroke = isDarkMode ? "#0d1c30" : "#64748b";
+  const routeWidth = isDarkMode ? 1.5 : 2.5;
+  const connectorStroke = isDarkMode ? "#6366f1" : "#64748b";
+  const connectorWidth = isDarkMode ? 0.8 : 2;
 
   // Shipment dot position — starts at t:0.5, loops every 5s
   const shipmentActive = time >= 0.5;
@@ -136,25 +100,23 @@ const LogisticsAnimation: React.FC = () => {
         </filter>
       </defs>
 
-      {/* Background */}
-      <rect width={520} height={340} fill="#060b18" />
-      <rect width={520} height={340} fill="url(#log-dots)" />
+      {/* Background — transparent so glass card shows through */}
 
       {/* ── Route path ── */}
       <path
         d={`M${ROUTE.p0.x},${ROUTE.p0.y} C${ROUTE.p1.x},${ROUTE.p1.y} ${ROUTE.p2.x},${ROUTE.p2.y} ${ROUTE.p3.x},${ROUTE.p3.y}`}
         fill="none"
-        stroke="#0d1c30"
-        strokeWidth={1.5}
+        stroke={routeStroke}
+        strokeWidth={routeWidth}
         strokeDasharray="5 4"
       />
       {/* Glowing route */}
       <path
         d={`M${ROUTE.p0.x},${ROUTE.p0.y} C${ROUTE.p1.x},${ROUTE.p1.y} ${ROUTE.p2.x},${ROUTE.p2.y} ${ROUTE.p3.x},${ROUTE.p3.y}`}
         fill="none"
-        stroke="#1e3a5f"
-        strokeWidth={1}
-        strokeOpacity={0.4}
+        stroke={routeStroke}
+        strokeWidth={isDarkMode ? 1 : 1.5}
+        strokeOpacity={isDarkMode ? 0.4 : 0.6}
         strokeDasharray="5 4"
         filter="url(#log-glow)"
       />
@@ -164,12 +126,12 @@ const LogisticsAnimation: React.FC = () => {
         cx={70}
         cy={170}
         r={26}
-        fill="#060e1e"
+        fill={isDarkMode ? "#060e1e" : "rgba(255,255,255,0.7)"}
         stroke="#3b82f6"
         strokeWidth={1.5}
         filter="url(#log-glow)"
       />
-      <circle cx={70} cy={170} r={20} fill="#08111e" stroke="#1e3a5f" strokeWidth={0.8} />
+      <circle cx={70} cy={170} r={20} fill={isDarkMode ? "#08111e" : "rgba(255,255,255,0.9)"} stroke={isDarkMode ? "#1e3a5f" : "#bfdbfe"} strokeWidth={0.8} />
       <text
         x={70}
         y={168}
@@ -200,11 +162,11 @@ const LogisticsAnimation: React.FC = () => {
         cx={450}
         cy={170}
         r={26}
-        fill="#060e1e"
-        stroke={destArrived ? "#10b981" : "#0f2e20"}
+        fill={isDarkMode ? "#060e1e" : "rgba(255,255,255,0.7)"}
+        stroke={destArrived ? "#10b981" : (isDarkMode ? "#0f2e20" : "#cbd5e1")}
         strokeWidth={destArrived ? 2 : 1.2}
         filter={destArrived ? "url(#log-glow)" : undefined}
-        opacity={destArrived ? 1 : 0.6}
+        opacity={destArrived ? 1 : 0.8}
       />
       {/* Pulse when arrived */}
       {destArrived && (
@@ -222,8 +184,8 @@ const LogisticsAnimation: React.FC = () => {
         cx={450}
         cy={170}
         r={20}
-        fill="#08111e"
-        stroke={destArrived ? "#10b981" : "#0a1e14"}
+        fill={isDarkMode ? "#08111e" : "rgba(255,255,255,0.9)"}
+        stroke={destArrived ? "#10b981" : (isDarkMode ? "#0a1e14" : "#e2e8f0")}
         strokeWidth={0.8}
       />
       <text
@@ -231,7 +193,7 @@ const LogisticsAnimation: React.FC = () => {
         y={168}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill={destArrived ? "#10b981" : "#1a4a2e"}
+        fill={destArrived ? "#10b981" : (isDarkMode ? "#1a4a2e" : "#64748b")}
         fontSize={8}
         fontWeight={700}
         fontFamily="Space Mono, monospace"
@@ -243,10 +205,10 @@ const LogisticsAnimation: React.FC = () => {
         y={205}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill={destArrived ? "#10b981" : "#0f2e20"}
+        fill={destArrived ? "#10b981" : (isDarkMode ? "#0f2e20" : "#94a3b8")}
         fontSize={7}
         fontFamily="Space Mono, monospace"
-        opacity={0.6}
+        opacity={0.8}
       >
         DESTINATION
       </text>
@@ -292,13 +254,13 @@ const LogisticsAnimation: React.FC = () => {
             width={130}
             height={55}
             rx={5}
-            fill="#0c0c2a"
+            fill={isDarkMode ? "#0c0c2a" : "rgba(255,255,255,0.75)"}
             stroke="#6366f1"
             strokeWidth={1.3}
             filter="url(#log-glow)"
           />
-          <rect x={195} y={20} width={130} height={20} rx={5} fill="#0e0e30" />
-          <rect x={195} y={32} width={130} height={8} fill="#0e0e30" />
+          <rect x={195} y={20} width={130} height={20} rx={5} fill={isDarkMode ? "#0e0e30" : "rgba(238,232,255,0.8)"} />
+          <rect x={195} y={32} width={130} height={8} fill={isDarkMode ? "#0e0e30" : "rgba(238,232,255,0.8)"} />
           <text
             x={260}
             y={30}
@@ -346,9 +308,9 @@ const LogisticsAnimation: React.FC = () => {
           y1={75}
           x2={260}
           y2={230}
-          stroke="#6366f1"
-          strokeWidth={0.8}
-          strokeOpacity={0.3 * Math.min(aiResponseF, statusF)}
+          stroke={connectorStroke}
+          strokeWidth={connectorWidth}
+          strokeOpacity={isDarkMode ? 0.3 * Math.min(aiResponseF, statusF) : 0.75 * Math.min(aiResponseF, statusF)}
           strokeDasharray="3 4"
         />
       )}
@@ -362,13 +324,13 @@ const LogisticsAnimation: React.FC = () => {
             width={220}
             height={80}
             rx={5}
-            fill="#060e1e"
-            stroke="#0f1e35"
+            fill={isDarkMode ? "#060e1e" : "rgba(255,255,255,0.75)"}
+            stroke={isDarkMode ? "#0f1e35" : "#e2e8f0"}
             strokeWidth={1}
           />
           {/* Header */}
-          <rect x={150} y={235} width={220} height={22} rx={5} fill="#080f20" />
-          <rect x={150} y={247} width={220} height={10} fill="#080f20" />
+          <rect x={150} y={235} width={220} height={22} rx={5} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.9)"} />
+          <rect x={150} y={247} width={220} height={10} fill={isDarkMode ? "#080f20" : "rgba(241,245,249,0.9)"} />
           <text
             x={260}
             y={246}
@@ -388,7 +350,7 @@ const LogisticsAnimation: React.FC = () => {
             x={162}
             y={270}
             dominantBaseline="middle"
-            fill="#8eaace"
+            fill={isDarkMode ? "#8eaace" : "#64748b"}
             fontSize={8}
             fontFamily="Space Mono, monospace"
           >
@@ -398,7 +360,7 @@ const LogisticsAnimation: React.FC = () => {
             x={195}
             y={270}
             dominantBaseline="middle"
-            fill="#c8d8f0"
+            fill={isDarkMode ? "#c8d8f0" : "#1e293b"}
             fontSize={8}
             fontFamily="Space Mono, monospace"
           >
@@ -410,7 +372,7 @@ const LogisticsAnimation: React.FC = () => {
             x={162}
             y={288}
             dominantBaseline="middle"
-            fill="#8eaace"
+            fill={isDarkMode ? "#8eaace" : "#64748b"}
             fontSize={8}
             fontFamily="Space Mono, monospace"
           >
@@ -420,7 +382,7 @@ const LogisticsAnimation: React.FC = () => {
             x={205}
             y={288}
             dominantBaseline="middle"
-            fill="#c8d8f0"
+            fill={isDarkMode ? "#c8d8f0" : "#1e293b"}
             fontSize={8}
             fontFamily="Space Mono, monospace"
           >
@@ -436,7 +398,7 @@ const LogisticsAnimation: React.FC = () => {
                 width={52}
                 height={18}
                 rx={3}
-                fill="#1a0800"
+                fill={isDarkMode ? "#1a0800" : "rgba(255,241,235,0.9)"}
                 stroke="#f97316"
                 strokeWidth={1}
                 strokeOpacity={0.9}

@@ -20,20 +20,20 @@ const ClosingSection = ({ language, finalCta }: ClosingSectionProps) => {
     ];
 
   return (
-    <section id="contact" className="border-b border-[#0f1e35] bg-[#060b18] py-12">
+    <section id="contact" className="border-b border-[#dde6f3] dark:border-[#0f1e35] bg-transparent dark:bg-[#060b18] py-12">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="mb-3 text-3xl font-bold text-slate-100 md:text-4xl">
+          <h2 className="mb-3 text-3xl font-bold text-[#0f1e35] dark:text-slate-100 md:text-4xl">
             {finalCta?.heading || t("closing.title", language)}
           </h2>
-          <p className="max-w-2xl text-[#4a6a8a]">
+          <p className="max-w-2xl text-slate-500 dark:text-[#4a6a8a]">
             {finalCta?.description || t("closing.description", language)}
           </p>
           <div className="mt-6 grid grid-cols-1 gap-3 text-left sm:grid-cols-2">
             {bullets.map((bullet) => (
               <div key={bullet} className="flex items-start gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600" />
-                <p className="text-sm text-[#4a6a8a]">{bullet}</p>
+                <p className="text-sm text-slate-500 dark:text-[#4a6a8a]">{bullet}</p>
               </div>
             ))}
           </div>
