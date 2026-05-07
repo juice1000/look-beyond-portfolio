@@ -208,12 +208,12 @@ const HeroSection = ({
   }, [services.length]);
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] bg-transparent dark:bg-[#04060f] text-[#0f1e35] dark:text-[#f1f5f9]">
+    <section className="relative min-h-[calc(100vh-5rem)] bg-transparent dark:bg-[#04060f] text-[#0f1e35] dark:text-[#f1f5f9]">
       {/* Left vignette — dark mode only */}
       <div className="pointer-events-none absolute inset-0 hidden dark:block bg-[linear-gradient(90deg,rgba(4,6,15,0.72)_0%,rgba(4,6,15,0.28)_50%,rgba(4,6,15,0.04)_100%)]" />
       {/* Bottom fade — dark mode only; light mode transition is handled by SolutionStack's top gradient */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 hidden dark:block bg-[linear-gradient(180deg,rgba(6,11,24,0)_0%,rgba(6,11,24,0.62)_52%,#060b18_100%)]" />
-      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center px-5 py-12 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+      <div className="relative z-10 flex min-h-[calc(100vh-5rem)] items-center px-5 py-12 sm:px-8 md:px-12 lg:px-20 xl:px-24">
         <div className="w-full max-w-[44rem] dark:drop-shadow-[0_4px_64px_rgba(4,6,15,0.78)]">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}

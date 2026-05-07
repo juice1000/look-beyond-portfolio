@@ -44,6 +44,7 @@ const ImpactSection = () => {
                          backdrop-blur-xl backdrop-saturate-150
                          shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_12px_32px_rgba(0,0,0,0.06)]
                          dark:shadow-none
+                         transition-transform duration-200 hover:-translate-y-1
                          px-5 py-6"
             >
               <div className="pointer-events-none absolute -top-6 -right-6 h-20 w-20 rounded-full bg-white/60 blur-2xl dark:hidden" />

@@ -67,13 +67,13 @@ const Navbar = ({
   ];
 
   return (
-    <nav className="fixed top-0 z-50 h-16 w-full border-b border-white/30 dark:border-white/[0.06] bg-white/20 dark:bg-[#060b18]/40 backdrop-blur-sm">
+    <nav className="fixed top-0 z-50 h-20 w-full border-b border-white/30 dark:border-white/[0.06] bg-white/20 dark:bg-[#060b18]/40 backdrop-blur-sm">
       <div className="container mx-auto px-4 h-full grid grid-cols-3 items-center">
         {/* Logo — left */}
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img
-              className="h-16 w-auto object-contain"
+              className="h-20 w-auto object-contain"
               src={isDarkMode ? LBLogoWhite : LBLogoBlack}
               alt="Look Beyond"
             />

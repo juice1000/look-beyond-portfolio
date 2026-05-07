@@ -101,7 +101,7 @@ const PRINCIPLES = [
 const OurProcess = () => {
   return (
     <div className="min-h-screen bg-[#060b18] text-slate-100">
-      <main className="pt-16">
+      <main className="pt-20">
 
         {/* Hero */}
         <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">

@@ -24,7 +24,7 @@ const Home = ({
       <div className="fixed inset-0 -z-10 dark:hidden">
         <AuroraBackground isDarkMode={false} />
       </div>
-      <main className="pt-16">
+      <main className="pt-20">
         <section id="home">
           <HeroSection
             title={content.hero.headline}
