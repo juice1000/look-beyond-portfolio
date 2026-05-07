@@ -1,6 +1,7 @@
 import React from "react";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { t, Language } from "../lib/i18n";
+import { AuroraBackground } from "./Home/HeroSection";
 
 interface PartnersProps {
   language?: Language;
@@ -55,14 +56,18 @@ const Partners = ({ language = "en" }: PartnersProps) => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060b18] text-slate-100">
+    <div className="min-h-screen bg-transparent dark:bg-[#060b18] text-[#0f1e35] dark:text-slate-100">
+      {/* Fixed aurora — light mode only */}
+      <div className="fixed inset-0 -z-10 dark:hidden">
+        <AuroraBackground isDarkMode={false} />
+      </div>
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-[#4d6b8d]">
               {t("nav.partners", language)}
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-slate-100 md:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-[#0f1e35] dark:text-slate-100 md:text-5xl">
               {t("partners.title", language)}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#91a8c2] md:text-lg">
@@ -77,12 +82,13 @@ const Partners = ({ language = "en" }: PartnersProps) => {
             {partners.map((partner) => (
               <div
                 key={partner.href}
-                className="rounded-lg border border-[#132640] bg-[#081120] px-4 py-4"
+                className="relative overflow-hidden rounded-2xl border border-white/60 dark:border-[#132640] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#081120] backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)] dark:shadow-none px-4 py-4"
               >
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#6f86a2]">
                   {partner.role}
                 </p>
-                <h2 className="mt-2 text-lg font-semibold text-slate-100">
+                <h2 className="mt-2 text-lg font-semibold text-[#0f1e35] dark:text-slate-100">
                   {partner.name}
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-[#9bb0c8]">
@@ -96,14 +102,15 @@ const Partners = ({ language = "en" }: PartnersProps) => {
             {partners.map((partner) => (
               <article
                 key={partner.href}
-                className="rounded-xl border border-[#132640] bg-[#081120] p-6 shadow-[0_0_0_1px_rgba(11,18,37,0.35)]"
+                className="relative overflow-hidden rounded-2xl border border-white/60 dark:border-[#132640] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#081120] backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)] dark:shadow-[0_0_0_1px_rgba(11,18,37,0.35)] p-6"
               >
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#4d6b8d]">
                       {partner.url}
                     </p>
-                    <h2 className="mt-3 text-2xl font-semibold text-slate-100">
+                    <h2 className="mt-3 text-2xl font-semibold text-[#0f1e35] dark:text-slate-100">
                       {partner.name}
                     </h2>
                   </div>

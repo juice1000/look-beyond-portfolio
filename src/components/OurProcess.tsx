@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AuroraBackground } from "./Home/HeroSection";
 
 const STEPS = [
   {
@@ -100,22 +101,26 @@ const PRINCIPLES = [
 
 const OurProcess = () => {
   return (
-    <div className="min-h-screen bg-[#060b18] text-slate-100">
+    <div className="min-h-screen bg-transparent dark:bg-[#060b18] text-[#0f1e35] dark:text-slate-100">
+      {/* Fixed aurora — light mode only */}
+      <div className="fixed inset-0 -z-10 dark:hidden">
+        <AuroraBackground isDarkMode={false} />
+      </div>
       <main className="pt-20">
 
         {/* Hero */}
-        <section className="border-b border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
+        <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <Link
               to="/#process"
-              className="mb-8 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060] transition-colors hover:text-blue-500"
+              className="mb-8 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-slate-500 dark:text-[#2a4060] transition-colors hover:text-blue-500"
             >
               ← Back
             </Link>
             <p className="mb-3 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
               Implementation approach
             </p>
-            <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-slate-100 sm:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-[#0f1e35] dark:text-slate-100 sm:text-5xl">
               From workflow map to reliable AI system.
             </h1>
             <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
@@ -126,15 +131,16 @@ const OurProcess = () => {
         </section>
 
         {/* Principles */}
-        <section className="border-b border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
+        <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <p className="mb-8 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
               How we think
             </p>
-            <div className="grid grid-cols-1 gap-px border border-[#0f1e35] bg-[#0f1e35] sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {PRINCIPLES.map((p) => (
-                <div key={p.title} className="bg-[#060b18] p-6 hover:bg-[#08101f] transition-colors">
-                  <h3 className="mb-2 text-sm font-semibold text-slate-100">{p.title}</h3>
+                <div key={p.title} className="relative overflow-hidden rounded-2xl border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)] dark:shadow-none transition-transform duration-200 hover:-translate-y-1 p-6">
+                  <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
+                  <h3 className="mb-2 text-sm font-semibold text-[#0f1e35] dark:text-slate-100">{p.title}</h3>
                   <p className="text-sm leading-6 text-[#4a6a8a]">{p.description}</p>
                 </div>
               ))}
@@ -143,12 +149,12 @@ const OurProcess = () => {
         </section>
 
         {/* Steps */}
-        <section className="border-b border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
+        <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <p className="mb-10 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
               The five phases
             </p>
-            <div className="divide-y divide-[#0f1e35]">
+            <div className="divide-y divide-white/30 dark:divide-[#0f1e35]">
               {STEPS.map((step) => (
                 <div key={step.number} className="py-10 lg:grid lg:grid-cols-[160px_1fr] lg:gap-10">
                   {/* Left */}
@@ -158,7 +164,7 @@ const OurProcess = () => {
                   </div>
                   {/* Right */}
                   <div>
-                    <h2 className="mb-3 text-xl font-bold text-slate-100">{step.title}</h2>
+                    <h2 className="mb-3 text-xl font-bold text-[#0f1e35] dark:text-slate-100">{step.title}</h2>
                     <p className="mb-5 text-sm leading-7 text-[#4a6a8a]">{step.description}</p>
                     <ul className="mb-5 space-y-2">
                       {step.details.map((d) => (
@@ -168,9 +174,9 @@ const OurProcess = () => {
                         </li>
                       ))}
                     </ul>
-                    <div className="rounded-sm border border-[#0f1e35] bg-[#08101f] px-4 py-3">
+                    <div className="rounded-sm border border-white/30 dark:border-[#0f1e35] bg-white/40 dark:bg-[#08101f] px-4 py-3">
                       <span className="font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Outcome — </span>
-                      <span className="text-sm text-slate-300">{step.outcome}</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-300">{step.outcome}</span>
                     </div>
                   </div>
                 </div>
@@ -179,11 +185,38 @@ const OurProcess = () => {
           </div>
         </section>
 
+        {/* Explore solutions */}
+        <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-10 md:px-12 lg:px-20">
+          <div className="mx-auto max-w-4xl">
+            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Explore the solution stack</p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/pillars/ai-workflow-systems"
+                className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
+              >
+                AI Workflow Systems →
+              </Link>
+              <Link
+                to="/pillars/autonomous-agents"
+                className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
+              >
+                Autonomous Agents →
+              </Link>
+              <Link
+                to="/pillars/ai-performance-monitoring"
+                className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
+              >
+                AI Performance Monitoring →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="px-6 py-16 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="mb-1 text-xl font-bold text-slate-100">Ready to map a workflow?</h2>
+              <h2 className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">Ready to map a workflow?</h2>
               <p className="text-sm text-[#4a6a8a]">
                 We'll scope one operational process and show you where AI can reduce manual work without increasing risk.
               </p>

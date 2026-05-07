@@ -72,15 +72,15 @@ const STUDIES = [
 
 const CaseStudyCards = ({ language, showHeader = true }: CaseStudyCardsProps) => {
   return (
-    <section id="proof" className="border-b border-[#0f1e35] bg-[#060b18]">
+    <section id="proof" className="border-b border-white/30 dark:border-[#0f1e35] bg-transparent dark:bg-[#060b18]">
       <div className="mx-auto max-w-7xl px-4">
         {showHeader && (
-          <div className="flex flex-col gap-4 border-b border-[#0f1e35] py-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-4 border-b border-white/30 dark:border-[#0f1e35] py-10 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
                 Success stories
               </p>
-              <h2 className="text-2xl font-bold text-slate-100 md:text-3xl">
+              <h2 className="text-2xl font-bold text-[#0f1e35] dark:text-slate-100 md:text-3xl">
                 Work we've shipped.
               </h2>
             </div>
@@ -93,35 +93,36 @@ const CaseStudyCards = ({ language, showHeader = true }: CaseStudyCardsProps) =>
           </div>
         )}
 
-        <div className="divide-y divide-[#0f1e35]">
+        <div className="divide-y divide-white/30 dark:divide-[#0f1e35]">
           {STUDIES.map((study) => (
             <div key={study.id} className="py-10 lg:grid lg:grid-cols-[1fr_2fr] lg:gap-12">
               {/* Left: meta */}
               <div className="mb-6 lg:mb-0">
-                <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060]">
+                <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-slate-400 dark:text-[#2a4060]">
                   {study.index}
                 </p>
-                <h3 className="mb-1 text-xl font-bold text-slate-100">
+                <h3 className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">
                   {study.client}
                 </h3>
-                <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-widest text-[#2a4060]">
+                <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-widest text-slate-400 dark:text-[#2a4060]">
                   {study.industry}
                 </p>
                 <span className="inline-block rounded-sm border border-blue-500/30 px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-widest text-blue-500">
                   {study.pillar}
                 </span>
 
-                {/* Stats */}
-                <div className="mt-6 grid grid-cols-3 gap-px border border-[#0f1e35] bg-[#0f1e35] lg:grid-cols-1 lg:gap-0 lg:border-0 lg:bg-transparent">
+                {/* Stats — glass chips */}
+                <div className="mt-6 grid grid-cols-3 gap-2 lg:grid-cols-1">
                   {study.stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="bg-[#060b18] px-3 py-3 lg:border-b lg:border-[#0f1e35] lg:px-0 lg:py-3"
+                      className="relative overflow-hidden rounded-xl border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-none px-3 py-3"
                     >
+                      <div className="pointer-events-none absolute -top-4 -right-4 h-12 w-12 rounded-full bg-white/60 blur-xl dark:hidden" />
                       <div className="text-lg font-bold text-blue-500 lg:text-xl">
                         {stat.value}
                       </div>
-                      <div className="font-mono text-[0.55rem] uppercase leading-4 tracking-widest text-[#2a4060]">
+                      <div className="font-mono text-[0.55rem] uppercase leading-4 tracking-widest text-slate-400 dark:text-[#2a4060]">
                         {stat.label}
                       </div>
                     </div>
@@ -131,15 +132,15 @@ const CaseStudyCards = ({ language, showHeader = true }: CaseStudyCardsProps) =>
 
               {/* Right: content */}
               <div>
-                <p className="mb-4 text-base font-semibold leading-snug text-slate-100 sm:text-lg">
+                <p className="mb-4 text-base font-semibold leading-snug text-[#0f1e35] dark:text-slate-100 sm:text-lg">
                   {t(study.taglineKey, language)}
                 </p>
                 <p className="mb-6 text-sm leading-7 text-[#4a6a8a]">
                   {t(study.descriptionKey, language)}
                 </p>
 
-                <div className="border-t border-[#0f1e35] pt-5">
-                  <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-widest text-[#2a4060]">
+                <div className="border-t border-white/30 dark:border-[#0f1e35] pt-5">
+                  <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-widest text-slate-400 dark:text-[#2a4060]">
                     What this enabled
                   </p>
                   <ul className="space-y-2">

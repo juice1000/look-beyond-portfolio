@@ -232,20 +232,20 @@ const VerticalPipeline = ({ time, isDarkMode }: VerticalPipelineProps) => {
         leftFadeOpacity: "1",
       }
     : {
-        bg: "#eef3f8",
-        dots: "rgba(37,99,235,0.08)",
-        baseLine: "#cbd5e1",
-        inactiveFill: "#ffffff",
-        inactiveStroke: "#c2cedb",
-        rail: "#dbeafe",
+        bg: "transparent",
+        dots: "rgba(37,99,235,0.07)",
+        baseLine: "#94a3b8",
+        inactiveFill: "rgba(255,255,255,0.55)",
+        inactiveStroke: "rgba(148,163,184,0.45)",
+        rail: "#bfdbfe",
         inactiveLabel: "#94a3b8",
         inactiveTitle: "#94a3b8",
         inactiveSubtle: "#94a3b8",
-        panel: "#ffffff",
+        panel: "rgba(255,255,255,0.82)",
         panelText: "#64748b",
         doneText: "#334155",
         activeTitle: "#0f172a",
-        leftFade: "#eef3f8",
+        leftFade: "rgba(240,245,250,0.0)",
         leftFadeOpacity: "0",
       };
 

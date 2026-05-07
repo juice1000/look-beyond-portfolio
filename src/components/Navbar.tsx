@@ -68,7 +68,7 @@ const Navbar = ({
 
   return (
     <nav className="fixed top-0 z-50 h-20 w-full border-b border-white/30 dark:border-white/[0.06] bg-white/20 dark:bg-[#060b18]/40 backdrop-blur-sm">
-      <div className="container mx-auto px-4 h-full grid grid-cols-3 items-center">
+      <div className="container mx-auto px-4 h-full grid grid-cols-[auto_1fr_auto] items-center">
         {/* Logo — left */}
         <div className="flex items-center">
           <a href="/" className="flex items-center">
@@ -81,8 +81,8 @@ const Navbar = ({
         </div>
 
         {/* Desktop Navigation — glass pill, truly centered */}
-        <div className="hidden md:flex justify-center">
-          <div className="relative overflow-hidden rounded-full
+        <div className="hidden lg:flex justify-center">
+          <div className="relative overflow-visible rounded-full
                           border border-white/60 dark:border-white/[0.08]
                           bg-gradient-to-br from-white/50 to-white/25
                           dark:bg-white/[0.05]
@@ -98,7 +98,7 @@ const Navbar = ({
                     <NavigationMenuLink
                       href={item.href}
                       onClick={() => setActiveItem(item.label)}
-                      className={`relative px-3 py-1.5 rounded-full font-mono text-[13px] font-semibold uppercase tracking-wide transition-colors
+                      className={`relative whitespace-nowrap px-3 py-1.5 rounded-full font-mono text-[13px] font-semibold uppercase tracking-wide transition-colors
                         ${activeItem === item.label
                           ? "bg-white/60 dark:bg-white/10 text-blue-600 dark:text-blue-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
                           : "text-slate-600 dark:text-[#3a5872] hover:text-blue-600 dark:hover:text-blue-300 hover:bg-white/40 dark:hover:bg-white/5"
@@ -115,7 +115,7 @@ const Navbar = ({
 
         {/* Right controls — col 3 always visible for grid; desktop vs mobile contents swap */}
         <div className="flex items-center justify-end gap-2">
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -228,7 +228,7 @@ const Navbar = ({
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
+            className="lg:hidden text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -242,7 +242,7 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="absolute left-0 right-0 top-16 border-b border-white/[0.06] bg-white/95 dark:bg-[#060b18]/90 backdrop-blur-md md:hidden"
+          className="absolute left-0 right-0 top-16 border-b border-white/[0.06] bg-white/95 dark:bg-[#060b18]/90 backdrop-blur-md lg:hidden"
         >
           <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
