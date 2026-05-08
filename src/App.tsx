@@ -33,13 +33,7 @@ import Logistics from "./components/industries/Logistics";
 import routes from "tempo-routes";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme !== null) {
-      return savedTheme === "dark";
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const [colorBlindMode, setColorBlindMode] = useState<
     "none" | "protanopia" | "deuteranopia" | "tritanopia"
@@ -67,18 +61,7 @@ function App() {
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (localStorage.getItem("theme") === null) {
-        setIsDarkMode(e.matches);
-        document.documentElement.classList.toggle("dark", e.matches);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
     document.documentElement.classList.toggle("dark", isDarkMode);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
   }, [isDarkMode]);
 
   // Apply color blind mode on initial load
