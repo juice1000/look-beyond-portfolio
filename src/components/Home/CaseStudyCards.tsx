@@ -39,8 +39,8 @@ const STUDIES = [
     descriptionKey: "caseStudies.fgs.description",
     stats: [
       { value: "30+", label: "Specialized AI agents" },
-      { value: "12", label: "Evaluation scorers" },
-      { value: "500+", label: "Evaluation test cases" },
+      { value: "12", label: "Quality dimensions tracked" },
+      { value: "500+", label: "Test scenarios validated" },
     ],
     bullets: [
       "caseStudies.fgs.bullet1",
