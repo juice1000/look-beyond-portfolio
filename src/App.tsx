@@ -23,6 +23,7 @@ import TermsOfUse from "./components/TermsOfUse";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
+import AllProjects from "./components/AllProjects";
 import AIWorkflowSystems from "./components/pillars/AIWorkflowSystems";
 import AutonomousAgents from "./components/pillars/AutonomousAgents";
 import AIPerformanceMonitoring from "./components/pillars/AIPerformanceMonitoring";
@@ -142,6 +143,7 @@ function App() {
             element={<OurProcess />}
           />
           <Route path="/projects" element={<Projects language={language} />} />
+          <Route path="/projects/all" element={<AllProjects language={language} />} />
           <Route
             path="/pricing-engagement"
             element={<PricingEngagement language={language} />}

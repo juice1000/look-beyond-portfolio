@@ -142,7 +142,20 @@ export const translations: Translations = {
     "caseStudies.operations.kpi": "Less manual research effort",
 
     // Deep Case Study Content
-    "caseStudies.sprinkenhof.title": "Sprinkenhof",
+    "caseStudies.strict.tagline":
+      "An AI-first operational transformation that frees more than 2 hours per person per day",
+    "caseStudies.strict.description":
+      "Strict's backoffice handles email, invoicing, and operations across disconnected tools. We are building an AI-first transformation on top of an ERPNext backbone: an AI email assistant that auto-drafts shared inbox replies, an OCR and LLM invoice extraction tool that classifies and counts line items automatically, and a centralised ERP replacing Lexware, Google Sheets, and legacy systems. The combined transformation is projected to free more than 2 hours per person per day and reduce the mental load of context-switching across fragmented tools.",
+    "caseStudies.strict.bullet1":
+      "AI email assistant drafts shared inbox replies automatically — staff review and send, the system never does",
+    "caseStudies.strict.bullet2":
+      "OCR and LLM invoice tool extracts and classifies line items (prints, textiles, non-relevant) into a GDPR-compliant cloud database",
+    "caseStudies.strict.bullet3":
+      "ERPNext centralises Lexware, Google Sheets, and legacy tools into one workplace, migrating 15+ years of historical data",
+    "caseStudies.strict.bullet4":
+      "Projected to free 2+ hours per person daily — measurable recoverable capacity across the entire backoffice",
+
+    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
     "caseStudies.sprinkenhof.tagline":
       "Turning fragmented document landscapes into decision-ready knowledge",
     "caseStudies.sprinkenhof.description":
@@ -183,6 +196,97 @@ export const translations: Translations = {
       "More scalable handling of repetitive knowledge tasks",
     "caseStudies.sourcera.bullet4":
       "Improved process efficiency in operational and procurement contexts",
+
+    "caseStudies.expresssteuer.tagline":
+      "Rebuilding a cloud data foundation and cutting costs with AI-driven automation",
+    "caseStudies.expresssteuer.description":
+      "Expresssteuer, a tax services company, needed to modernize its cloud data infrastructure and reduce both storage and operational costs. We rebuilt the data warehouse using Big Query and dbt, deployed AI solutions for legal document screening, and built an autonomous chatbot to handle individual client case inquiries.",
+    "caseStudies.expresssteuer.bullet1":
+      "More than 90% reduction in database infrastructure costs after data warehouse rebuild",
+    "caseStudies.expresssteuer.bullet2":
+      "Around 70% cut in operational costs through custom internal AI solutions",
+    "caseStudies.expresssteuer.bullet3":
+      "Automated legal document screening and extraction using Google Vertex AI",
+    "caseStudies.expresssteuer.bullet4":
+      "Client-facing agentic chatbot reducing manual handling of case inquiries",
+
+    "caseStudies.fullcircle.tagline":
+      "Building an AI-powered mobile advisor for personalized parenting guidance",
+    "caseStudies.fullcircle.description":
+      "Full-Circle Family needed an accessible AI advisor that parents could reach through everyday channels. We led the architecture and implementation of an AI-powered chatbot accessible via WhatsApp, using a fine-tuned LLM combined with a domain-specific RAG knowledge base for accurate, safe parenting guidance.",
+    "caseStudies.fullcircle.bullet1":
+      "Mobile-first AI advisor accessible directly through WhatsApp",
+    "caseStudies.fullcircle.bullet2":
+      "Fine-tuned LLM with domain-specific knowledge base for consistent, accurate responses",
+    "caseStudies.fullcircle.bullet3":
+      "Scalable microservices architecture on AWS for reliable production deployment",
+    "caseStudies.fullcircle.bullet4":
+      "User behavior analytics dashboard to track engagement and inform product strategy",
+
+    "caseStudies.rcycle.tagline":
+      "Giving manufacturers real-time visibility into recycling compliance across facilities",
+    "caseStudies.rcycle.description":
+      "R-Cycle needed a centralized dashboard to help manufacturers monitor plastic production data and meet government recycling mandates. We led development of the customer-facing platform, rebuilt the data and file management layer on GCP, and introduced a comprehensive testing strategy for a previously untested application.",
+    "caseStudies.rcycle.bullet1":
+      "Cross-manufacturer tracking of plastic production data in a unified dashboard",
+    "caseStudies.rcycle.bullet2":
+      "GCP-based data transformation for scalable file and record management",
+    "caseStudies.rcycle.bullet3":
+      "Compliance visibility aligned with government recycling mandates",
+    "caseStudies.rcycle.bullet4":
+      "End-to-end testing strategy introduced to stabilize a previously untested codebase",
+
+    "caseStudies.cinoware.tagline":
+      "Connecting remote robot operation to ML performance monitoring in critical infrastructure",
+    "caseStudies.cinoware.description":
+      "Cinoware builds testing and automation software for critical infrastructure in the government and telecommunications sector. We developed a remote robot operation console, implemented navigation tracking through image detection, and built an ML pipeline with performance monitoring to benchmark and improve algorithm accuracy over time.",
+    "caseStudies.cinoware.bullet1":
+      "Remote robot control application with command-issuance interface built in Python and React",
+    "caseStudies.cinoware.bullet2":
+      "Navigation tracking through real-time image detection using OpenCV",
+    "caseStudies.cinoware.bullet3":
+      "ML pipeline for algorithm benchmarking and performance tracking with MLflow",
+    "caseStudies.cinoware.bullet4":
+      "Selenium Grid testing suite with Allure reporting for systematic quality assurance",
+
+    "caseStudies.samgen.tagline":
+      "Building cloud infrastructure and MLOps pipelines for an industrial SaaS platform",
+    "caseStudies.samgen.description":
+      "SAMGEN is building a SaaS platform for industrial clients that depends on reliable cloud infrastructure and data-driven operations. We are designing the GCP architecture, implementing CI/CD workflows, and building MLOps pipelines to automate integrated model retraining across the platform.",
+    "caseStudies.samgen.bullet1":
+      "GCP cloud infrastructure designed and scaled for a multi-client industrial SaaS platform",
+    "caseStudies.samgen.bullet2":
+      "CI/CD deployment pipelines for streamlined and reliable release workflows",
+    "caseStudies.samgen.bullet3":
+      "Automated model retraining pipeline built in collaboration with the data science team",
+    "caseStudies.samgen.bullet4":
+      "Data-driven DevOps practices embedded across the engineering delivery process",
+
+    "caseStudies.applai.tagline":
+      "Automating job application workflows with an agentic AI pipeline",
+    "caseStudies.applai.description":
+      "Applai needed to accelerate the job search and cover letter process for users at scale. We built a fully agentic backend using LangGraph for workflow orchestration and multiple LLMs with RAG for high-quality, consistent cover letter generation, tracked and evaluated through LangSmith.",
+    "caseStudies.applai.bullet1":
+      "Agentic pipeline orchestrated with LangGraph for end-to-end job search automation",
+    "caseStudies.applai.bullet2":
+      "Multi-LLM cover letter generation with RAG for domain-specific accuracy and consistency",
+    "caseStudies.applai.bullet3":
+      "Selenium-based scraper backend built on FastAPI for live job market data",
+    "caseStudies.applai.bullet4":
+      "LangSmith integration for continuous model evaluation and quality tracking",
+
+    "caseStudies.kunveno.tagline":
+      "Integrating an enterprise application directly into Microsoft Teams for 270 million users",
+    "caseStudies.kunveno.description":
+      "kunveno needed to extend their SaaS product into the Microsoft Teams ecosystem to reach corporate users at scale. We architected the Azure cloud environment, implemented the Teams Message Extension, and built organization-wide authentication via Microsoft's delegated OAuth protocol.",
+    "caseStudies.kunveno.bullet1":
+      "Microsoft Teams Message Extension built to extend product reach to 270 million potential users",
+    "caseStudies.kunveno.bullet2":
+      "Microsoft Azure environment architected from the ground up as lead developer",
+    "caseStudies.kunveno.bullet3":
+      "Organization-wide authentication implemented via Azure AD and delegated OAuth",
+    "caseStudies.kunveno.bullet4":
+      "CI/CD pipeline managed across multiple deployment stages in close collaboration with the CTO",
 
     // What We Solve
     "whatWeSolve.title": "What we solve",
@@ -570,7 +674,20 @@ export const translations: Translations = {
     "caseStudies.operations.kpi": "Weniger manuelle Recherche",
 
     // Deep Case Study Content
-    "caseStudies.sprinkenhof.title": "Sprinkenhof",
+    "caseStudies.strict.tagline":
+      "Eine KI-zuerst-Transformation, die mehr als 2 Stunden pro Person und Tag freisetzt",
+    "caseStudies.strict.description":
+      "Das Backoffice von Strict verwaltet E-Mails, Rechnungen und operative Abläufe über fragmentierte Tools. Wir bauen eine KI-zuerst-Transformation auf einem ERPNext-Backbone: einen KI-E-Mail-Assistenten, der Antworten im geteilten Posteingang automatisch entwirft, ein OCR- und LLM-Rechnungsextraktionstool zur automatischen Klassifikation von Positionen sowie ein zentralisiertes ERP als Ersatz für Lexware, Google Sheets und Altsysteme. Die Transformation soll mehr als 2 Stunden pro Person und Tag freisetzen und den mentalen Aufwand durch Kontextwechsel zwischen fragmentierten Tools deutlich reduzieren.",
+    "caseStudies.strict.bullet1":
+      "KI-E-Mail-Assistent entwirft Antworten im geteilten Posteingang automatisch — Mitarbeitende prüfen und senden, das System nie",
+    "caseStudies.strict.bullet2":
+      "OCR- und LLM-Rechnungstool extrahiert und klassifiziert Positionen (Drucke, Textilien, nicht relevant) in einer DSGVO-konformen Cloud-Datenbank",
+    "caseStudies.strict.bullet3":
+      "ERPNext konsolidiert Lexware, Google Sheets und Altsysteme in einem zentralen Arbeitsplatz — mit Migration von über 15 Jahren Geschäftsdaten",
+    "caseStudies.strict.bullet4":
+      "Projektiert: 2+ Stunden täglich je Person freigesetzt — messbar wiedergewinnbare Kapazität im gesamten Backoffice",
+
+    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
     "caseStudies.sprinkenhof.tagline":
       "Zersplitterte Dokumentlandschaften werden zu entscheidungsreifem Wissen",
     "caseStudies.sprinkenhof.description":
@@ -610,6 +727,97 @@ export const translations: Translations = {
       "Skalierbare Bearbeitung wiederkehrender Wissensarbeit",
     "caseStudies.sourcera.bullet4":
       "Höhere Prozesseffizienz in Beschaffung und Operations",
+
+    "caseStudies.expresssteuer.tagline":
+      "Cloud-Datenfundament neu aufgebaut und Kosten durch KI-Automatisierung drastisch gesenkt",
+    "caseStudies.expresssteuer.description":
+      "Expresssteuer musste seine Cloud-Dateninfrastruktur modernisieren und sowohl Speicher- als auch Betriebskosten senken. Wir bauten das Data Warehouse mit Big Query und dbt neu auf, entwickelten KI-Lösungen für die Prüfung rechtlicher Dokumente und bauten einen autonomen Chatbot für Mandantenanfragen.",
+    "caseStudies.expresssteuer.bullet1":
+      "Mehr als 90 % Reduktion der Datenbankinfrastrukturkosten nach dem Data-Warehouse-Umbau",
+    "caseStudies.expresssteuer.bullet2":
+      "Rund 70 % weniger Betriebskosten durch interne KI-Lösungen",
+    "caseStudies.expresssteuer.bullet3":
+      "Automatisierte Prüfung und Extraktion rechtlicher Dokumente mit Google Vertex AI",
+    "caseStudies.expresssteuer.bullet4":
+      "Mandantenseitiger KI-Chatbot reduziert manuelle Bearbeitung von Fallanfragen",
+
+    "caseStudies.fullcircle.tagline":
+      "KI-gestützter mobiler Berater für personalisierte Erziehungsbegleitung",
+    "caseStudies.fullcircle.description":
+      "Full-Circle Family benötigte einen zugänglichen KI-Berater für Eltern über alltägliche Kanäle. Wir führten Architektur und Umsetzung eines WhatsApp-basierten KI-Chatbots – mit fein-tuned LLM und domänenspezifischer RAG-Wissensbasis für zuverlässige Elternberatung.",
+    "caseStudies.fullcircle.bullet1":
+      "Mobile-first KI-Berater direkt über WhatsApp erreichbar",
+    "caseStudies.fullcircle.bullet2":
+      "Fein-tuned LLM mit domänenspezifischer Wissensbasis für konsistente, akkurate Antworten",
+    "caseStudies.fullcircle.bullet3":
+      "Skalierbare Microservices-Architektur auf AWS für zuverlässigen Produktivbetrieb",
+    "caseStudies.fullcircle.bullet4":
+      "Nutzerverhalten-Dashboard zur Steuerung und Weiterentwicklung der Produktstrategie",
+
+    "caseStudies.rcycle.tagline":
+      "Echtzeit-Übersicht zur Recycling-Compliance über Produktionsstandorte hinweg",
+    "caseStudies.rcycle.description":
+      "R-Cycle benötigte ein zentrales Dashboard für Hersteller, um Produktionsdaten zu überwachen und staatliche Recyclingvorgaben zu erfüllen. Wir führten die Plattformentwicklung, bauten die Daten- und Dateiverwaltung auf GCP um und etablierten eine umfassende Teststrategie.",
+    "caseStudies.rcycle.bullet1":
+      "Herstellerübergreifendes Tracking von Kunststoffproduktionsdaten in einem zentralen Dashboard",
+    "caseStudies.rcycle.bullet2":
+      "GCP-basierte Datentransformation für skalierbare Datei- und Datensatzverwaltung",
+    "caseStudies.rcycle.bullet3":
+      "Compliance-Transparenz entsprechend staatlicher Recyclingvorgaben",
+    "caseStudies.rcycle.bullet4":
+      "Einführung einer End-to-End-Teststrategie zur Stabilisierung der Anwendung",
+
+    "caseStudies.cinoware.tagline":
+      "Fernsteuerung von Robotern und ML-Performance-Monitoring in kritischer Infrastruktur",
+    "caseStudies.cinoware.description":
+      "Cinoware entwickelt Test- und Automatisierungssoftware für kritische Infrastruktur im Regierungs- und Telekommunikationssektor. Wir bauten eine Fernsteuerungsanwendung für Roboter, implementierten Navigations-Tracking via Bilderkennung und erstellten eine ML-Pipeline mit Performance-Monitoring.",
+    "caseStudies.cinoware.bullet1":
+      "Roboterfernsteuerungsanwendung mit Befehlsschnittstelle in Python und React",
+    "caseStudies.cinoware.bullet2":
+      "Navigations-Tracking via Echtzeit-Bilderkennung mit OpenCV",
+    "caseStudies.cinoware.bullet3":
+      "ML-Pipeline für Algorithm-Benchmarking und Performance-Tracking mit MLflow",
+    "caseStudies.cinoware.bullet4":
+      "Selenium Grid Testsuite mit Allure-Reporting für systematische Qualitätssicherung",
+
+    "caseStudies.samgen.tagline":
+      "Cloud-Infrastruktur und MLOps-Pipelines für eine industrielle SaaS-Plattform",
+    "caseStudies.samgen.description":
+      "SAMGEN baut eine SaaS-Plattform für industrielle Kunden, die auf zuverlässiger Cloud-Infrastruktur und datengetriebenem Betrieb basiert. Wir gestalten die GCP-Architektur, implementieren CI/CD-Workflows und bauen MLOps-Pipelines für automatisiertes Modell-Retraining.",
+    "caseStudies.samgen.bullet1":
+      "GCP-Cloud-Infrastruktur für eine mandantenfähige industrielle SaaS-Plattform",
+    "caseStudies.samgen.bullet2":
+      "CI/CD-Deployment-Pipelines für zuverlässige und schnelle Release-Prozesse",
+    "caseStudies.samgen.bullet3":
+      "Automatisierte Modell-Retraining-Pipeline in Zusammenarbeit mit dem Data-Science-Team",
+    "caseStudies.samgen.bullet4":
+      "Datengetriebene DevOps-Praktiken in den gesamten Engineering-Prozess integriert",
+
+    "caseStudies.applai.tagline":
+      "Bewerbungsprozesse mit einer agentischen KI-Pipeline automatisieren",
+    "caseStudies.applai.description":
+      "Applai wollte Stellensuche und Bewerbungsschreiben für Nutzer skalierbar beschleunigen. Wir bauten ein vollständig agentisches Backend mit LangGraph zur Workflow-Orchestrierung und mehreren LLMs mit RAG für konsistente, hochwertige Anschreiben – überwacht und evaluiert via LangSmith.",
+    "caseStudies.applai.bullet1":
+      "Agentische Pipeline mit LangGraph für durchgängige Automatisierung der Stellensuche",
+    "caseStudies.applai.bullet2":
+      "Multi-LLM-Anschreibengenerierung mit RAG für domänenspezifische Genauigkeit",
+    "caseStudies.applai.bullet3":
+      "Selenium-basiertes Scraper-Backend auf FastAPI für aktuelle Stellenmarktdaten",
+    "caseStudies.applai.bullet4":
+      "LangSmith-Integration für kontinuierliche Modellevaluation und Qualitätstracking",
+
+    "caseStudies.kunveno.tagline":
+      "Unternehmensanwendung direkt in Microsoft Teams für 270 Millionen Nutzer integriert",
+    "caseStudies.kunveno.description":
+      "kunveno wollte sein SaaS-Produkt im Microsoft-Teams-Ökosystem positionieren, um Unternehmensnutzer skalierbar zu erreichen. Wir konzipierten die Azure-Umgebung, implementierten die Teams-Message-Extension und bauten organisationsweite Authentifizierung via Microsoft OAuth.",
+    "caseStudies.kunveno.bullet1":
+      "Microsoft Teams Message Extension für den Zugang zu 270 Millionen potenziellen Nutzern entwickelt",
+    "caseStudies.kunveno.bullet2":
+      "Microsoft Azure Umgebung von Grund auf als Lead Developer aufgebaut",
+    "caseStudies.kunveno.bullet3":
+      "Organisationsweite Authentifizierung via Azure AD und delegiertem OAuth implementiert",
+    "caseStudies.kunveno.bullet4":
+      "CI/CD-Pipeline über mehrere Deployment-Stages in enger Zusammenarbeit mit dem CTO verwaltet",
 
     // What We Solve
     "whatWeSolve.title": "Was wir lösen",
