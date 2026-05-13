@@ -38,9 +38,9 @@ const STUDIES = [
     taglineKey: "caseStudies.fgs.tagline",
     descriptionKey: "caseStudies.fgs.description",
     stats: [
-      { value: "~65%", label: "Error rate reduced" },
-      { value: "Continuous", label: "Production monitoring" },
-      { value: "Faster", label: "Regression detection" },
+      { value: "30+", label: "Specialized AI agents" },
+      { value: "12", label: "Evaluation scorers" },
+      { value: "500+", label: "Evaluation test cases" },
     ],
     bullets: [
       "caseStudies.fgs.bullet1",

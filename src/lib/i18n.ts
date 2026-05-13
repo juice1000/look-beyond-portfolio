@@ -85,7 +85,8 @@ export const translations: Translations = {
     "partners.mueller.role": "Document specialist",
     "partners.mueller.capability":
       "Document intelligence for PDF-heavy back-office workflows.",
-    "partners.mueller.point1": "Document extraction, classification, and search",
+    "partners.mueller.point1":
+      "Document extraction, classification, and search",
     "partners.mueller.point2": "Regulated, document-heavy operations",
     "partners.kuatsu.name": "Kuatsu",
     "partners.kuatsu.url": "kuatsu.de",
@@ -171,31 +172,31 @@ export const translations: Translations = {
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "Making enterprise AI safer through evaluation, monitoring, and operational control",
+      "Building a 30-agent enterprise AI platform with production-grade evaluation and monitoring",
     "caseStudies.fgs.description":
-      "At FGS Global, we strengthened the reliability of AI systems used in enterprise settings. The work focused on AIOps foundations for the Fergus ecosystem, with an emphasis on making AI behavior measurable, testable, and easier to improve over time.",
+      "FGS Global needed a production-ready internal AI assistant capable of supporting complex advisory work across M&A, IPO communications, deep research, and stakeholder analysis. We built the Fergus platform: a multi-agent system with 30+ specialized agents, a 12-scorer evaluation framework covering hallucination, faithfulness, toxicity, and tool accuracy, and a real-time analytics dashboard tracking model health, regressions, and live production performance.",
     "caseStudies.fgs.bullet1":
-      "More reliable AI performance in enterprise use cases",
+      "30+ specialized agents for M&A deal analysis, IPO communications, research workflows, and stakeholder mapping — with intelligent routing between them",
     "caseStudies.fgs.bullet2":
-      "Earlier detection of quality issues and regressions",
+      "12-scorer evaluation framework with 500+ test cases covering gating criteria (hallucination, faithfulness, toxicity) and quality metrics (conciseness, tool accuracy, information density)",
     "caseStudies.fgs.bullet3":
-      "Clearer visibility into how AI systems behave over time",
+      "Real-time analytics dashboard for scorer health, multi-model comparison, memory tuning, and production failure analysis",
     "caseStudies.fgs.bullet4":
-      "Safer rollout of AI across internal workflows and teams",
+      "Multi-model routing across Claude, GPT, and Gemini with git-based prompt versioning, caching optimization, and automated regression detection",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "Automating strategic workflow execution with AI",
+      "An end-to-end AI platform for procurement intelligence — from spend analysis to RFx generation",
     "caseStudies.sourcera.description":
-      "At Sourcera, we contributed to workflow-driven AI systems for procurement intelligence and supplier operations. The goal was to reduce manual research and coordination work in areas where teams traditionally spend significant time gathering information, evaluating fit, and moving decisions forward.",
+      "Sourcera is a procurement intelligence SaaS platform used by enterprise clients to identify savings opportunities, optimize supplier relationships, and automate sourcing workflows. We built the AI backend powering spend analysis, supplier deduplication across procurement systems, RAG-powered enrichment that scores and ranks suppliers by capability, and AI-generated RFx documents — all orchestrated through a human-in-the-loop workflow engine.",
     "caseStudies.sourcera.bullet1":
-      "Less manual effort in research-heavy workflows",
+      "AI spend analysis using Claude and GPT identifies consolidation opportunities, tail spend, and category fragmentation using the Herfindahl-Hirschman Index",
     "caseStudies.sourcera.bullet2":
-      "Faster progression from information gathering to decision support",
+      "Supplier deduplication pipeline combines Jaro-Winkler entity matching with LLM validation for high-confidence cross-system supplier resolution",
     "caseStudies.sourcera.bullet3":
-      "More scalable handling of repetitive knowledge tasks",
+      "RAG-powered supplier enrichment queries documents against LLM-generated capability schemas, scoring each supplier on strategic value, confidence, and data completeness",
     "caseStudies.sourcera.bullet4":
-      "Improved process efficiency in operational and procurement contexts",
+      "Automated RFx document generation workflow with human-in-the-loop approval gates, BullMQ job orchestration, and iValua and Sievo integrations",
 
     "caseStudies.expresssteuer.tagline":
       "Rebuilding a cloud data foundation and cutting costs with AI-driven automation",
@@ -703,30 +704,31 @@ export const translations: Translations = {
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "Unternehmens-KI durch Evaluation, Monitoring und Steuerung absichern",
+      "Eine KI-Plattform mit 30+ Agenten und produktionsreifem Evaluation- und Monitoring-Framework",
     "caseStudies.fgs.description":
-      "Bei FGS Global haben wir die Zuverlässigkeit der im Fergus-Ökosystem eingesetzten KI gestärkt. Der Fokus lag auf AIOps-Grundlagen, die das Verhalten von KI messbar, testbar und fortlaufend verbesserbar machen.",
+      "FGS Global benötigte einen produktionsreifen internen KI-Assistenten für komplexe Beratungsarbeit in den Bereichen M&A, IPO-Kommunikation, Deep Research und Stakeholder-Analyse. Wir haben die Fergus-Plattform gebaut: ein Multi-Agenten-System mit 30+ spezialisierten Agenten, einem 12-Scorer-Evaluations-Framework für Halluzination, Faithfulness, Toxizität und Tool-Genauigkeit sowie einem Echtzeit-Analytics-Dashboard für Modellgesundheit, Regressionen und Live-Performance.",
     "caseStudies.fgs.bullet1":
-      "Zuverlässigere KI-Leistung in Unternehmenseinsatzszenarien",
-    "caseStudies.fgs.bullet2": "Frühzeitige Erkennung von Qualitätsproblemen",
+      "30+ spezialisierte Agenten für M&A-Analyse, IPO-Kommunikation, Research-Workflows und Stakeholder-Mapping – mit intelligentem Routing zwischen ihnen",
+    "caseStudies.fgs.bullet2":
+      "12-Scorer-Evaluationsframework mit 500+ Testfällen für Gating-Kriterien (Halluzination, Faithfulness, Toxizität) und Qualitätsmetriken (Prägnanz, Tool-Genauigkeit, Informationsdichte)",
     "caseStudies.fgs.bullet3":
-      "Bessere Transparenz über das Verhalten der KI im Zeitverlauf",
+      "Echtzeit-Analytics-Dashboard für Scorer-Gesundheit, Multi-Modell-Vergleich, Memory-Tuning und Produktionsfehleranalyse",
     "caseStudies.fgs.bullet4":
-      "Sicherere Einführung von KI über Teams und Workflows hinweg",
+      "Multi-Modell-Routing über Claude, GPT und Gemini mit git-basierter Prompt-Versionierung, Caching-Optimierung und automatisierter Regressionserkennung",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "Strategische Workflows mit KI automatisieren",
+      "Eine End-to-End-KI-Plattform für Procurement Intelligence — von der Ausgabenanalyse bis zur RFx-Generierung",
     "caseStudies.sourcera.description":
-      "Für Sourcera haben wir KI-gestützte Workflows für Beschaffungs- und Lieferantenprozesse mit aufgebaut. Ziel war es, manuelle Recherche und Abstimmung zu reduzieren und Entscheidungen schneller voranzutreiben.",
+      "Sourcera ist eine Procurement-Intelligence-SaaS-Plattform für Unternehmenskunden zur Identifikation von Einsparpotenzialen, Optimierung von Lieferantenbeziehungen und Automatisierung von Sourcing-Workflows. Wir haben das KI-Backend gebaut: Ausgabenanalyse, Lieferanten-Deduplizierung, RAG-gestützte Anreicherung mit Capability-Scoring sowie KI-generierte RFx-Dokumente — orchestriert durch eine Human-in-the-Loop-Workflow-Engine.",
     "caseStudies.sourcera.bullet1":
-      "Weniger manueller Aufwand in research-intensiven Aufgaben",
+      "KI-Ausgabenanalyse mit Claude und GPT identifiziert Konsolidierungspotenziale, Tail Spend und Kategoriefragmentierung mittels Herfindahl-Hirschman-Index",
     "caseStudies.sourcera.bullet2":
-      "Schnellere Schritte von Information zu Entscheidung",
+      "Lieferanten-Deduplizierungs-Pipeline kombiniert Jaro-Winkler-Entity-Matching mit LLM-Validierung für systemübergreifende Genauigkeit",
     "caseStudies.sourcera.bullet3":
-      "Skalierbare Bearbeitung wiederkehrender Wissensarbeit",
+      "RAG-gestützte Lieferantenanreicherung bewertet jeden Lieferanten nach strategischem Wert, Konfidenz und Datenvollständigkeit",
     "caseStudies.sourcera.bullet4":
-      "Höhere Prozesseffizienz in Beschaffung und Operations",
+      "Automatisierte RFx-Dokumenten-Generierung mit Human-in-the-Loop-Freigaben, BullMQ-Job-Orchestrierung sowie iValua- und Sievo-Integrationen",
 
     "caseStudies.expresssteuer.tagline":
       "Cloud-Datenfundament neu aufgebaut und Kosten durch KI-Automatisierung drastisch gesenkt",
