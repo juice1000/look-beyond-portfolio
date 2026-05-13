@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect } from "react";
-import { useRoutes, Routes, Route } from "react-router-dom";
+import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import Projects from "./components/projects";
@@ -31,6 +31,16 @@ import Manufacturing from "./components/industries/Manufacturing";
 import Logistics from "./components/industries/Logistics";
 
 import routes from "tempo-routes";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -109,6 +119,7 @@ function App() {
   return (
     <Suspense fallback={<span className="loader"></span>}>
       <>
+        <ScrollToTop />
         <Navbar
           onThemeToggle={toggleTheme}
           isDarkMode={isDarkMode}
