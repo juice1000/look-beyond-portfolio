@@ -29,11 +29,10 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
         title: t("solutions.reliability.title", language),
         description: t("solutions.reliability.description", language),
       },
-      {
-        title: t("solutions.enablement.title", language),
-        description: t("solutions.enablement.description", language),
-      },
     ];
+
+  const pov = system?.pov;
+  const isDE = language === "de";
 
   return (
     <section
@@ -49,7 +48,7 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <h2 className="mb-3 text-2xl font-bold text-[#0f1e35] dark:text-slate-100 md:text-3xl">
-            {system?.heading || t("solutions.title", language)}
+              {system?.heading || t("solutions.title", language)}
             </h2>
             {system?.description && (
               <p className="max-w-3xl text-base text-slate-500 dark:text-[#4a6a8a]">
@@ -58,6 +57,20 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
             )}
           </div>
         </div>
+
+        {/* Point of view — statement only, kept brief */}
+        {pov && (
+          <div className="mb-10 border-l-2 border-blue-500 pl-5 py-1">
+            <p className="text-base font-semibold text-[#0f1e35] dark:text-slate-100">
+              {pov.statement}
+            </p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-[#4a6a8a]">
+              {pov.callout}
+            </p>
+          </div>
+        )}
+
+        {/* AI Systems cards */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {items.map((item, index) => (
             <div
@@ -72,7 +85,6 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
                          transition-transform duration-200 hover:-translate-y-1
                          p-6"
             >
-              {/* Specular inner blob — light mode only */}
               <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
               <p className="mb-4 font-mono text-xs font-semibold text-blue-500">
                 {String(index + 1).padStart(2, "0")}
@@ -100,6 +112,23 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
             </div>
           ))}
         </div>
+
+        {/* Track B — compact callout, detail lives on the Pricing page */}
+        {system?.trackB && system.trackB.length > 0 && (
+          <div className="mt-6 flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-3">
+            <p className="text-sm text-slate-500 dark:text-[#4a6a8a]">
+              {isDE
+                ? "Wir bauen auch Custom Platforms, ERP-Integrationen und Cloud-Dateninfrastruktur."
+                : "We also build custom platforms, ERP integrations, and cloud data infrastructure."}
+            </p>
+            <Link
+              to="/pricing-engagement"
+              className="text-sm font-medium text-blue-500 hover:underline whitespace-nowrap"
+            >
+              {isDE ? "Beide Wege ansehen →" : "See both paths →"}
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

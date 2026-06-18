@@ -39,10 +39,24 @@ export interface LandingPageContent {
     eyebrow: string;
     heading: string;
     description: string;
+    pov?: {
+      label: string;
+      statement: string;
+      body: string;
+      callout: string;
+    };
+    trackALabel?: string;
     layers: Array<{
       title: string;
       description: string;
       subProduct?: string;
+    }>;
+    trackBLabel?: string;
+    trackBDescription?: string;
+    trackB?: Array<{
+      title: string;
+      description: string;
+      value?: string;
     }>;
   };
   industries: {
@@ -85,7 +99,7 @@ const englishContent: LandingPageContent = {
   hero: {
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Autonomous agents, knowledge retrieval, data pipelines and AI security - production systems for operational workflows.",
+      "We start with your team. Find where AI creates real value. Then build custom systems around it.",
     supportingLine:
       "Instead of isolated chatbots or one-off automations, we build connected systems where specialized agents extract, classify, route, draft, validate, and escalate work under clear security and review controls.",
 
@@ -168,10 +182,17 @@ const englishContent: LandingPageContent = {
     ],
   },
   system: {
-    eyebrow: "Core capabilities",
-    heading: "Three Pillars of Operational AI",
+    eyebrow: "What we build",
+    heading: "Guided discovery. Custom systems.",
     description:
-      "We do not only build individual agents. We build the workflow layer that makes agents useful, controlled, and reliable across real operational processes.",
+      "We start with enablement workshops to surface where AI creates real leverage. Then we co-design and build — AI workflow systems, custom platforms, or the infrastructure they run on.",
+    pov: {
+      label: "How we think about this",
+      statement: "The best AI solutions are discovered together, not prescribed in advance.",
+      body: "We start with your team, not our assumptions. Enablement workshops surface where AI creates real operational value. Then we co-design the system around those opportunities — and apply AI where the data shows it makes the biggest difference.",
+      callout: "Custom solutions that fit how your business actually works — because we designed them with you.",
+    },
+    trackALabel: "AI Systems",
     layers: [
       {
         title: "AI workflow systems",
@@ -187,6 +208,29 @@ const englishContent: LandingPageContent = {
         title: "AI performance monitoring",
         description:
           "Evaluations, real-time monitoring, access controls, audit trails, and human review paths that keep production systems reliable.",
+      },
+    ],
+    trackBLabel: "Custom Platform & Infrastructure",
+    trackBDescription:
+      "When the joint design process shows your processes don't fit off-the-shelf software, we build the platform around you instead.",
+    trackB: [
+      {
+        title: "Custom platform development",
+        description:
+          "Full bespoke platforms built around your existing processes. A direct alternative to off-the-shelf SaaS — you no longer adapt to the software.",
+        value: "Built for your processes. Priced like SaaS.",
+      },
+      {
+        title: "ERP integration & migration",
+        description:
+          "Connect custom platforms or new ERP systems to replace fragmented legacy tooling. From ERPNext to Microsoft Business Central.",
+        value: "Connect or replace legacy systems without disrupting operations.",
+      },
+      {
+        title: "Cloud data infrastructure",
+        description:
+          "Data warehouse design and build on BigQuery, GCP, and dbt. MLOps pipelines and CI/CD workflows. The foundation AI needs to work in production.",
+        value: "Data foundations that make AI work in production.",
       },
     ],
   },
@@ -354,7 +398,7 @@ const germanContent: LandingPageContent = {
     ...englishContent.hero,
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Wir helfen Logistik-, Fertigungs- und Beschaffungsteams, fragmentierte Dokumente, E-Mails, Tabellen und Business-Tools in strukturierte KI-gestutzte Pipelines zu verwandeln.",
+      "Wir starten bei Ihrem Team. Finden heraus, wo KI echten Mehrwert schafft. Und bauen maßgeschneiderte Systeme genau darum.",
     supportingLine:
       "Statt isolierter Chatbots oder einzelner Automationen bauen wir verbundene Systeme, in denen spezialisierte Agenten extrahieren, klassifizieren, routen, entwerfen, validieren und eskalieren - mit klaren Sicherheits- und Review-Kontrollen.",
   },
@@ -366,8 +410,40 @@ const germanContent: LandingPageContent = {
   },
   system: {
     ...englishContent.system,
-    eyebrow: "Kernsystem",
-    heading: "Drei Säulen operativer KI.",
+    eyebrow: "Was wir bauen",
+    heading: "Gemeinsame Entdeckung. Maßgeschneiderte Systeme.",
+    description:
+      "Wir starten mit Enablement-Workshops, um herauszufinden, wo KI echten Hebel hat. Dann co-designen und bauen wir — KI-Workflow-Systeme, Custom Platforms oder die nötige Infrastruktur.",
+    pov: {
+      label: "Unsere Überzeugung",
+      statement: "Die besten KI-Lösungen werden gemeinsam entdeckt, nicht vorab verschrieben.",
+      body: "Wir starten bei Ihrem Team, nicht bei unseren Annahmen. Enablement-Workshops zeigen, wo KI echten operativen Mehrwert schafft. Dann co-designen wir das System gemeinsam — und setzen KI dort ein, wo der Effekt am größten ist.",
+      callout: "Maßgeschneiderte Lösungen, die wirklich zu Ihrem Betrieb passen — weil wir sie gemeinsam entwickelt haben.",
+    },
+    trackALabel: "KI-Systeme",
+    trackBLabel: "Plattform & Infrastruktur",
+    trackBDescription:
+      "Wenn der gemeinsame Designprozess zeigt, dass Ihre Prozesse nicht in Standardsoftware passen, bauen wir die Plattform um Sie herum.",
+    trackB: [
+      {
+        title: "Custom Platform Development",
+        description:
+          "Maßgeschneiderte Plattformen, ausgelegt auf Ihre bestehenden Prozesse. Eine direkte Alternative zu Standard-SaaS — Sie passen sich nicht mehr der Software an.",
+        value: "Für Ihre Prozesse gebaut. SaaS-Preismodell.",
+      },
+      {
+        title: "ERP-Integration & Migration",
+        description:
+          "Verbinden oder ersetzen Sie Legacy-Systeme ohne Betriebsunterbrechung. Von ERPNext bis Microsoft Business Central.",
+        value: "Legacy-Systeme verbinden oder ersetzen — ohne Unterbrechung.",
+      },
+      {
+        title: "Cloud-Dateninfrastruktur",
+        description:
+          "Data-Warehouse-Aufbau auf BigQuery, GCP und dbt. MLOps-Pipelines und CI/CD-Workflows. Das Fundament, auf dem KI in der Produktion funktioniert.",
+        value: "Datenfundament für produktive KI.",
+      },
+    ],
   },
   industries: {
     ...englishContent.industries,
