@@ -20,6 +20,7 @@ import Workshops from "./components/Workshops";
 import Imprint from "./components/Imprint";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
+import Compliance from "./components/Compliance";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
@@ -163,6 +164,7 @@ function App() {
             path="/terms-of-use"
             element={<TermsOfUse language={language} />}
           />
+          <Route path="/compliance" element={<Compliance />} />
           <Route
             path="/pillars/ai-workflow-systems"
             element={

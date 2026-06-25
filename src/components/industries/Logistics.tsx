@@ -16,12 +16,12 @@ const useCases = [
   {
     title: "Carrier coordination",
     description:
-      "Trigger and track carrier communication sequences for bookings, confirmations, and delay updates — reducing manual follow-up.",
+      "Trigger and track carrier communication sequences for bookings, confirmations, and delay updates, reducing manual follow-up.",
   },
   {
     title: "Exception handler",
     description:
-      "Detect shipment exceptions — delays, missing documents, customs holds — and route each to the right team with full context.",
+      "Detect shipment exceptions (delays, missing documents, customs holds) and route each to the right team with full context.",
   },
 ];
 
@@ -54,7 +54,7 @@ const steps = [
     number: "05",
     title: "Flag exception",
     description:
-      "If an exception is detected — delay, customs hold, missing document — it is flagged and routed to the exception handler.",
+      "If an exception is detected (delay, customs hold, missing document), it is flagged and routed to the exception handler.",
   },
   {
     number: "06",
@@ -180,7 +180,7 @@ const Logistics = () => {
                 Shipment status automation
               </h3>
               <p className="text-sm text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

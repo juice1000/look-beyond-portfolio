@@ -17,12 +17,12 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
     ? {
         eyebrow: "Einstiegspunkt",
         lead: "Workshops sind der Beginn des gemeinsamen Designprozesses.",
-        body: "Wir starten nicht mit einer Lösung. Wir starten mit Ihrem Team — um gemeinsam herauszufinden, wo KI in Ihren Abläufen echten Unterschied macht. Die Workshops sind der erste Schritt, bevor irgendetwas gebaut wird.",
+        body: "Wir starten nicht mit einer Lösung. Wir starten mit Ihrem Team, um gemeinsam herauszufinden, wo KI in Ihren Abläufen echten Unterschied macht. Die Workshops sind der erste Schritt, bevor irgendetwas gebaut wird.",
       }
     : {
         eyebrow: "Starting point",
         lead: "Workshops are where the joint design process begins.",
-        body: "We don't start with a solution. We start with your team — to discover together where AI makes a real difference in your operations. Workshops are the first step before anything gets built.",
+        body: "We don't start with a solution. We start with your team, to discover together where AI makes a real difference in your operations. Workshops are the first step before anything gets built.",
       };
 
   const leadsTo = isDE

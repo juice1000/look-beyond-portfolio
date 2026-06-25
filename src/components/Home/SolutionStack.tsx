@@ -113,22 +113,20 @@ const SolutionStack = ({ language, system }: SolutionStackProps) => {
           ))}
         </div>
 
-        {/* Track B — compact callout, detail lives on the Pricing page */}
-        {system?.trackB && system.trackB.length > 0 && (
-          <div className="mt-6 flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-3">
-            <p className="text-sm text-slate-500 dark:text-[#4a6a8a]">
-              {isDE
-                ? "Wir bauen auch Custom Platforms, ERP-Integrationen und Cloud-Dateninfrastruktur."
-                : "We also build custom platforms, ERP integrations, and cloud data infrastructure."}
-            </p>
-            <Link
-              to="/pricing-engagement"
-              className="text-sm font-medium text-blue-500 hover:underline whitespace-nowrap"
-            >
-              {isDE ? "Beide Wege ansehen →" : "See both paths →"}
-            </Link>
-          </div>
-        )}
+        {/* Compliance education note */}
+        <div className="mt-4 flex flex-col items-start gap-1 border-t border-white/30 dark:border-[#0f1e35] pt-5 md:flex-row md:items-center md:gap-3">
+          <p className="text-sm text-slate-500 dark:text-[#4a6a8a]">
+            {isDE
+              ? "Nicht sicher, welche Pflichten für Sie unter dem EU AI Act oder der DSGVO gelten? Wir klären das gemeinsam mit Ihnen."
+              : "Not sure which EU AI Act or GDPR obligations apply to your use case? We work through your requirements with you."}
+          </p>
+          <Link
+            to="/compliance"
+            className="text-sm font-medium text-blue-500 hover:underline whitespace-nowrap"
+          >
+            {isDE ? "Compliance-Ansatz ansehen →" : "See our compliance approach →"}
+          </Link>
+        </div>
       </div>
     </section>
   );

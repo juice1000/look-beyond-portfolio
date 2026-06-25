@@ -54,7 +54,7 @@ const steps = [
     number: "05",
     title: "Notify team",
     description:
-      "The relevant team — quality, production, supplier — is notified with full context and the suggested action.",
+      "The relevant team (quality, production, supplier) is notified with full context and the suggested action.",
   },
   {
     number: "06",
@@ -180,7 +180,7 @@ const Manufacturing = () => {
                 Quality issue triage system
               </h3>
               <p className="text-sm text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

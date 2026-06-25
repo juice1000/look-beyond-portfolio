@@ -191,6 +191,20 @@ const Footer = ({ language = "en" }: FooterProps) => {
                   {t("nav.termsOfUse", language)}
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/compliance"
+                  onClick={() =>
+                    handleNavigation(
+                      "/compliance",
+                      t("nav.compliance", language)
+                    )
+                  }
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                >
+                  {t("nav.compliance", language)}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

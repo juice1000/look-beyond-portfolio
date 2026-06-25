@@ -25,7 +25,7 @@ const capabilities = [
   {
     title: "Document Extraction",
     description:
-      "Parse unstructured documents — invoices, contracts, emails — into typed, validated data structures agents can reason over.",
+      "Parse unstructured documents (invoices, contracts, emails) into typed, validated data structures agents can reason over.",
     badge: null,
   },
   {
@@ -41,7 +41,7 @@ const steps = [
     number: "01",
     title: "Define agent roles",
     description:
-      "Specify each agent's scope, tools, and authority boundaries before building — clear roles prevent overlapping responsibilities and reasoning loops.",
+      "Specify each agent's scope, tools, and authority boundaries before building. Clear roles prevent overlapping responsibilities and reasoning loops.",
   },
   {
     number: "02",
@@ -95,7 +95,7 @@ const AutonomousAgents = ({ isDarkMode }: AutonomousAgentsProps) => {
               </h1>
               <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
               <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
-                Specialized agents that extract, classify, draft, and escalate —
+                Specialized agents that extract, classify, draft, and escalate,
                 with built-in knowledge retrieval.
               </p>
             </div>
@@ -186,7 +186,7 @@ const AutonomousAgents = ({ isDarkMode }: AutonomousAgentsProps) => {
                 Supplier communication agent
               </h3>
               <p className="text-base leading-7 text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

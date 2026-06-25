@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import { AuroraBackground } from "./Home/HeroSection";
 
@@ -10,8 +10,6 @@ interface PricingEngagementProps {
 const GLASS =
   "relative overflow-hidden rounded-2xl border bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)] dark:shadow-none";
 
-const pathStepClass =
-  "flex items-center gap-2 text-sm text-[#0f1e35] dark:text-slate-100";
 
 const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
   const tiers = [
@@ -62,60 +60,52 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
 
   const isDE = language === "de";
 
-  const paths = isDE
+  const capabilities = isDE
     ? {
-        title: "Ein Prozess. Zwei mögliche Ergebnisse.",
+        eyebrow: "Was wir bauen",
+        heading: "Der Umfang richtet sich danach, wo der größte Hebel liegt.",
         description:
-          "Beide Wege beginnen mit einem gemeinsamen Workshop, der zeigt, wo der größte Hebel liegt. Was wir dann bauen, hängt davon ab.",
-        trackA: {
-          label: "KI-Workflow & Agenten",
-          description:
-            "Wenn die Workshops zeigen, dass der größte Gewinn in der Automatisierung von Abläufen liegt, bauen wir KI-Systeme auf dem, was Sie bereits haben.",
-          steps: [
-            "Erstes Meeting (kostenlos)",
-            "Enablement-Workshop",
-            "Co-Design & POC",
-            "Skalierungs-Retainer",
-          ],
-        },
-        trackB: {
-          label: "Custom Platform Build",
-          description:
-            "Wenn die Workshops zeigen, dass Standard-Software nicht passt, bauen wir eine Plattform nach Ihren Prozessen — kein Kompromiss, kein Anpassen an fremde Software.",
-          steps: [
-            "Erstes Meeting (kostenlos)",
-            "Enablement-Workshop",
-            "Co-Design & Scoping",
-            "Fixed-Scope Build + Abo",
-          ],
-        },
+          "Was wir am Ende bauen, hängt von dem ab, was wir gemeinsam entdecken. KI-Workflow-Systeme, Custom Platforms, ERP-Integrationen und Dateninfrastruktur gehören alle zu unserem Leistungsangebot, oft in Kombination.",
+        items: [
+          {
+            label: "KI-Workflow-Systeme & Agenten",
+            description:
+              "Spezialisierte Agenten, die klassifizieren, weiterleiten, entwerfen und validieren, eingebettet in Ihre bestehenden Systeme und Prozesse.",
+          },
+          {
+            label: "Custom Platforms & ERP",
+            description:
+              "Wenn Standard-Software nicht passt, bauen wir die Plattform nach Ihren Prozessen. Von ERPNext bis Microsoft Business Central.",
+          },
+          {
+            label: "Dateninfrastruktur",
+            description:
+              "BigQuery, dbt und MLOps-Pipelines: das Datenfundament, das KI-Systeme in der Produktion zum Laufen bringt.",
+          },
+        ],
       }
     : {
-        title: "One process. Two possible outcomes.",
+        eyebrow: "What we build",
+        heading: "The scope follows wherever the biggest gains are.",
         description:
-          "Both paths begin with a joint workshop to surface where the biggest gains are. What we build from there depends on what we find.",
-        trackA: {
-          label: "AI workflow & agent work",
-          description:
-            "When workshops show the biggest gains come from automating how work moves through your systems, we build AI on top of what you already have.",
-          steps: [
-            "First meeting (free)",
-            "Enablement workshop",
-            "Co-design & POC",
-            "Scaling retainer",
-          ],
-        },
-        trackB: {
-          label: "Custom platform build",
-          description:
-            "When workshops show your processes don't fit any off-the-shelf software, we build a platform around them instead — no compromise, no adapting to someone else's system.",
-          steps: [
-            "First meeting (free)",
-            "Enablement workshop",
-            "Co-design & scoping",
-            "Fixed-scope build + subscription",
-          ],
-        },
+          "What gets built depends on what the discovery surfaces. AI workflow systems, custom platforms, ERP integrations, and data infrastructure are all part of what we deliver, often in combination.",
+        items: [
+          {
+            label: "AI workflow systems & agents",
+            description:
+              "Specialized agents that classify, route, draft, and validate work, embedded into your existing systems and processes.",
+          },
+          {
+            label: "Custom platforms & ERP",
+            description:
+              "When off-the-shelf software doesn't fit your processes, we build the platform around them instead. From ERPNext to Microsoft Business Central.",
+          },
+          {
+            label: "Data infrastructure",
+            description:
+              "BigQuery, dbt, and MLOps pipelines: the data foundations that make AI systems work in production.",
+          },
+        ],
       };
 
   return (
@@ -125,66 +115,35 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {/* Two paths section */}
+        {/* Capabilities section */}
         <div className="mb-16">
-          <p className="mb-2 text-center text-sm font-semibold uppercase tracking-wide text-blue-500">
-            {paths.title}
+          <p className="mb-2 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-blue-500">
+            {capabilities.eyebrow}
           </p>
-          <p className="mx-auto mb-8 max-w-2xl text-center text-base text-[#4a6a8a]">
-            {paths.description}
+          <h2 className="mb-3 text-2xl font-bold text-[#0f1e35] dark:text-slate-100 md:text-3xl">
+            {capabilities.heading}
+          </h2>
+          <p className="mb-8 max-w-2xl text-sm leading-6 text-slate-500 dark:text-[#4a6a8a]">
+            {capabilities.description}
           </p>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {/* Path A */}
-            <div
-              className={`${GLASS} border-white/60 dark:border-[#0f1e35] p-8`}
-            >
-              <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
-              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#6f86a2]">
-                {paths.trackA.label}
-              </p>
-              <p className="mb-6 text-sm text-slate-500 dark:text-[#4a6a8a]">
-                {paths.trackA.description}
-              </p>
-              <div className="flex flex-col gap-3">
-                {paths.trackA.steps.map((step, i) => (
-                  <div key={step} className={pathStepClass}>
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/10 font-mono text-xs font-semibold text-blue-500">
-                      {i + 1}
-                    </span>
-                    <span>{step}</span>
-                    {i < paths.trackA.steps.length - 1 && (
-                      <ArrowRight className="ml-auto h-3 w-3 text-slate-300 dark:text-slate-600" />
-                    )}
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {capabilities.items.map((item, i) => (
+              <div
+                key={item.label}
+                className={`${GLASS} border-white/60 dark:border-[#0f1e35] p-6`}
+              >
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
+                <p className="mb-3 font-mono text-xs font-semibold text-blue-500">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <p className="mb-2 text-sm font-semibold text-[#0f1e35] dark:text-slate-100">
+                  {item.label}
+                </p>
+                <p className="text-sm leading-6 text-slate-500 dark:text-[#4a6a8a]">
+                  {item.description}
+                </p>
               </div>
-            </div>
-
-            {/* Path B */}
-            <div
-              className={`${GLASS} border-white/60 dark:border-[#0f1e35] p-8`}
-            >
-              <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
-              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#6f86a2]">
-                {paths.trackB.label}
-              </p>
-              <p className="mb-6 text-sm text-slate-500 dark:text-[#4a6a8a]">
-                {paths.trackB.description}
-              </p>
-              <div className="flex flex-col gap-3">
-                {paths.trackB.steps.map((step, i) => (
-                  <div key={step} className={pathStepClass}>
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/10 font-mono text-xs font-semibold text-blue-500">
-                      {i + 1}
-                    </span>
-                    <span>{step}</span>
-                    {i < paths.trackB.steps.length - 1 && (
-                      <ArrowRight className="ml-auto h-3 w-3 text-slate-300 dark:text-slate-600" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 

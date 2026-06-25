@@ -99,7 +99,7 @@ const englishContent: LandingPageContent = {
   hero: {
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "We start with your team. Find where AI creates real value. Then build custom systems around it.",
+      "Identifying where AI creates operational leverage across an organization, then building custom systems around what the discovery reveals.",
     supportingLine:
       "Instead of isolated chatbots or one-off automations, we build connected systems where specialized agents extract, classify, route, draft, validate, and escalate work under clear security and review controls.",
 
@@ -185,12 +185,12 @@ const englishContent: LandingPageContent = {
     eyebrow: "What we build",
     heading: "Guided discovery. Custom systems.",
     description:
-      "We start with enablement workshops to surface where AI creates real leverage. Then we co-design and build — AI workflow systems, custom platforms, or the infrastructure they run on.",
+      "We start with workshops to surface where AI creates real operational value. Then we co-design and build: AI workflow systems, custom platforms, ERP integrations, or the data infrastructure they run on.",
     pov: {
       label: "How we think about this",
       statement: "The best AI solutions are discovered together, not prescribed in advance.",
-      body: "We start with your team, not our assumptions. Enablement workshops surface where AI creates real operational value. Then we co-design the system around those opportunities — and apply AI where the data shows it makes the biggest difference.",
-      callout: "Custom solutions that fit how your business actually works — because we designed them with you.",
+      body: "We start with your team, not our assumptions. Discovery workshops surface where AI creates real operational value. Then we co-design the system around those opportunities.",
+      callout: "Custom solutions that fit how your business actually works, because we designed them with you.",
     },
     trackALabel: "AI Systems",
     layers: [
@@ -202,7 +202,7 @@ const englishContent: LandingPageContent = {
       {
         title: "Autonomous agents",
         description:
-          "Specialized agents that extract, classify, route, draft, and escalate work — with knowledge retrieval built in for permission-aware access across documents, SOPs, and company knowledge.",
+          "Specialized agents that extract, classify, route, draft, and escalate work, with knowledge retrieval built in for permission-aware access across documents, SOPs, and company knowledge.",
       },
       {
         title: "AI performance monitoring",
@@ -217,7 +217,7 @@ const englishContent: LandingPageContent = {
       {
         title: "Custom platform development",
         description:
-          "Full bespoke platforms built around your existing processes. A direct alternative to off-the-shelf SaaS — you no longer adapt to the software.",
+          "Full bespoke platforms built around your existing processes. A direct alternative to off-the-shelf SaaS: you no longer adapt to the software.",
         value: "Built for your processes. Priced like SaaS.",
       },
       {
@@ -398,7 +398,7 @@ const germanContent: LandingPageContent = {
     ...englishContent.hero,
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Wir starten bei Ihrem Team. Finden heraus, wo KI echten Mehrwert schafft. Und bauen maßgeschneiderte Systeme genau darum.",
+      "Identifizierung operativer KI-Hebelpunkte in einer Organisation, dann Entwicklung maßgeschneiderter Systeme auf Basis der Erkenntnisse.",
     supportingLine:
       "Statt isolierter Chatbots oder einzelner Automationen bauen wir verbundene Systeme, in denen spezialisierte Agenten extrahieren, klassifizieren, routen, entwerfen, validieren und eskalieren - mit klaren Sicherheits- und Review-Kontrollen.",
   },
@@ -413,12 +413,12 @@ const germanContent: LandingPageContent = {
     eyebrow: "Was wir bauen",
     heading: "Gemeinsame Entdeckung. Maßgeschneiderte Systeme.",
     description:
-      "Wir starten mit Enablement-Workshops, um herauszufinden, wo KI echten Hebel hat. Dann co-designen und bauen wir — KI-Workflow-Systeme, Custom Platforms oder die nötige Infrastruktur.",
+      "Wir starten mit Enablement-Workshops, um herauszufinden, wo KI echten Hebel hat. Dann co-designen und bauen wir: KI-Workflow-Systeme, Custom Platforms oder die nötige Infrastruktur.",
     pov: {
       label: "Unsere Überzeugung",
       statement: "Die besten KI-Lösungen werden gemeinsam entdeckt, nicht vorab verschrieben.",
-      body: "Wir starten bei Ihrem Team, nicht bei unseren Annahmen. Enablement-Workshops zeigen, wo KI echten operativen Mehrwert schafft. Dann co-designen wir das System gemeinsam — und setzen KI dort ein, wo der Effekt am größten ist.",
-      callout: "Maßgeschneiderte Lösungen, die wirklich zu Ihrem Betrieb passen — weil wir sie gemeinsam entwickelt haben.",
+      body: "Wir starten bei Ihrem Team, nicht bei unseren Annahmen. Enablement-Workshops zeigen, wo KI echten operativen Mehrwert schafft. Dann co-designen wir das System gemeinsam und setzen KI dort ein, wo der Effekt am größten ist.",
+      callout: "Maßgeschneiderte Lösungen, die wirklich zu Ihrem Betrieb passen, weil wir sie gemeinsam entwickelt haben.",
     },
     trackALabel: "KI-Systeme",
     trackBLabel: "Plattform & Infrastruktur",
@@ -428,14 +428,14 @@ const germanContent: LandingPageContent = {
       {
         title: "Custom Platform Development",
         description:
-          "Maßgeschneiderte Plattformen, ausgelegt auf Ihre bestehenden Prozesse. Eine direkte Alternative zu Standard-SaaS — Sie passen sich nicht mehr der Software an.",
+          "Maßgeschneiderte Plattformen, ausgelegt auf Ihre bestehenden Prozesse. Eine direkte Alternative zu Standard-SaaS: Sie passen sich nicht mehr der Software an.",
         value: "Für Ihre Prozesse gebaut. SaaS-Preismodell.",
       },
       {
         title: "ERP-Integration & Migration",
         description:
           "Verbinden oder ersetzen Sie Legacy-Systeme ohne Betriebsunterbrechung. Von ERPNext bis Microsoft Business Central.",
-        value: "Legacy-Systeme verbinden oder ersetzen — ohne Unterbrechung.",
+        value: "Legacy-Systeme verbinden oder ersetzen, ohne Unterbrechung.",
       },
       {
         title: "Cloud-Dateninfrastruktur",

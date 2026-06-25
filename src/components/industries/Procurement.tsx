@@ -6,7 +6,7 @@ const useCases = [
   {
     title: "Procurement intake assistant",
     description:
-      "Capture and structure purchase requests from emails, forms, and documents — routing each to the correct policy check and approval path.",
+      "Capture and structure purchase requests from emails, forms, and documents, routing each to the correct policy check and approval path.",
   },
   {
     title: "Supplier risk scoring",
@@ -42,7 +42,7 @@ const steps = [
     number: "03",
     title: "Extract requirements",
     description:
-      "Key fields — item, quantity, budget, timeline, preferred suppliers — are extracted and structured.",
+      "Key fields (item, quantity, budget, timeline, preferred suppliers) are extracted and structured.",
   },
   {
     number: "04",
@@ -180,7 +180,7 @@ const Procurement = () => {
                 Quote comparison workflow
               </h3>
               <p className="text-sm text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

@@ -8,6 +8,7 @@ import HowWeWorkSection from "./Home/HowWeWorkSection";
 import ClosingSection from "./Home/ClosingSection";
 import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
 import ImpactSection from "./Home/ImpactSection";
+import ComplianceSection from "./Home/ComplianceSection";
 
 const Home = ({
   language,
@@ -43,6 +44,7 @@ const Home = ({
           implementation={content.implementation}
         />
         <ImpactSection />
+        <ComplianceSection language={language} />
         <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>

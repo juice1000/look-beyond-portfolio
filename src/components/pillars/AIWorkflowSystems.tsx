@@ -28,7 +28,7 @@ const capabilities = [
   {
     title: "Audit & Logging",
     description:
-      "Capture every decision, transformation, and state change in an immutable log — queryable for compliance, debugging, and reporting.",
+      "Capture every decision, transformation, and state change in an immutable log, queryable for compliance, debugging, and reporting.",
   },
 ];
 
@@ -175,7 +175,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
                 Procurement intake automation
               </h3>
               <p className="text-base leading-7 text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

@@ -26,6 +26,7 @@ export const translations: Translations = {
     "nav.imprint": "Imprint",
     "nav.privacyPolicy": "Privacy Policy",
     "nav.termsOfUse": "Terms of Use",
+    "nav.compliance": "Compliance & Security",
     "nav.darkMode": "Dark Mode",
     "nav.lightMode": "Light Mode",
     "nav.normalVision": "Normal Vision",
@@ -148,13 +149,13 @@ export const translations: Translations = {
     "caseStudies.strict.description":
       "Strict's backoffice handles email, invoicing, and operations across disconnected tools. We are building an AI-first transformation on top of an ERPNext backbone: an AI email assistant that auto-drafts shared inbox replies, an OCR and LLM invoice extraction tool that classifies and counts line items automatically, and a centralised ERP replacing Lexware, Google Sheets, and legacy systems. The combined transformation is projected to free more than 2 hours per person per day and reduce the mental load of context-switching across fragmented tools.",
     "caseStudies.strict.bullet1":
-      "AI email assistant drafts shared inbox replies automatically — staff review and send, the system never does",
+      "AI email assistant drafts shared inbox replies automatically. Staff review and send, the system never does",
     "caseStudies.strict.bullet2":
       "OCR and LLM invoice tool extracts and classifies line items (prints, textiles, non-relevant) into a GDPR-compliant cloud database",
     "caseStudies.strict.bullet3":
       "ERPNext centralises Lexware, Google Sheets, and legacy tools into one workplace, migrating 15+ years of historical data",
     "caseStudies.strict.bullet4":
-      "Projected to free 2+ hours per person daily — measurable recoverable capacity across the entire backoffice",
+      "Projected to free 2+ hours per person daily, representing measurable recoverable capacity across the entire backoffice",
 
     "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
     "caseStudies.sprinkenhof.tagline":
@@ -174,13 +175,13 @@ export const translations: Translations = {
     "caseStudies.fgs.tagline":
       "An enterprise AI platform purpose-built for advisory work, with continuous quality assurance built in",
     "caseStudies.fgs.description":
-      "FGS Global needed an AI system their advisory teams could trust for high-stakes client work — across M&A, IPO communications, deep research, and stakeholder analysis. We built the Fergus platform: dedicated AI agents for each advisory domain, a structured quality assurance layer that continuously tests output against 500+ real-world scenarios, and a monitoring dashboard giving operations full visibility into performance and reliability.",
+      "FGS Global needed an AI system their advisory teams could trust for high-stakes client work across M&A, IPO communications, deep research, and stakeholder analysis. We built the Fergus platform: dedicated AI agents for each advisory domain, a structured quality assurance layer that continuously tests output against 500+ real-world scenarios, and a monitoring dashboard giving operations full visibility into performance and reliability.",
     "caseStudies.fgs.bullet1":
-      "30+ specialist agents for M&A, IPO, research, and stakeholder work — each shaped to the task so advisors get relevant, contextually appropriate output",
+      "30+ specialist agents for M&A, IPO, research, and stakeholder work, each shaped to the task so advisors get relevant, contextually appropriate output",
     "caseStudies.fgs.bullet2":
       "Continuous quality assurance across 500+ test scenarios that catches errors and inconsistencies before they reach advisory teams",
     "caseStudies.fgs.bullet3":
-      "Full operational visibility into output quality, performance trends, and emerging issues — accessible through a dedicated analytics dashboard",
+      "Full operational visibility into output quality, performance trends, and emerging issues, accessible through a dedicated analytics dashboard",
     "caseStudies.fgs.bullet4":
       "Flexible model architecture that lets the platform adopt new AI capabilities while maintaining consistent quality standards across every update",
 
@@ -190,11 +191,11 @@ export const translations: Translations = {
     "caseStudies.sourcera.description":
       "Sourcera is a procurement intelligence platform that helps enterprise teams cut through the manual work of analysing spend, evaluating suppliers, and running sourcing events. We built the AI engine powering the platform: spend analysis that surfaces consolidation opportunities and prioritises where to act, supplier intelligence that scores and ranks vendors by capability and fit, and a document system that generates sourcing materials from structured data with approval checkpoints throughout.",
     "caseStudies.sourcera.bullet1":
-      "Automated spend analysis turns raw transaction data into prioritised savings opportunities — surfacing consolidation potential and tail spend without manual research",
+      "Automated spend analysis turns raw transaction data into prioritised savings opportunities, surfacing consolidation potential and tail spend without manual research",
     "caseStudies.sourcera.bullet2":
       "Unified supplier view across procurement systems, automatically resolving duplicates so teams always work from clean, consistent data",
     "caseStudies.sourcera.bullet3":
-      "AI supplier scoring ranks vendors by capability, strategic fit, and evidence quality — replacing hours of manual research per sourcing event",
+      "AI supplier scoring ranks vendors by capability, strategic fit, and evidence quality, replacing hours of manual research per sourcing event",
     "caseStudies.sourcera.bullet4":
       "Sourcing document generation produces RFx materials from structured supplier and spend data, with approval steps that keep procurement teams in full control",
 
@@ -558,6 +559,7 @@ export const translations: Translations = {
     "nav.imprint": "Impressum",
     "nav.privacyPolicy": "Datenschutzerklärung",
     "nav.termsOfUse": "Nutzungsbedingungen",
+    "nav.compliance": "Compliance & Sicherheit",
     "nav.darkMode": "Dunkelmodus",
     "nav.lightMode": "Hellmodus",
     "nav.normalVision": "Normale Sicht",
@@ -680,13 +682,13 @@ export const translations: Translations = {
     "caseStudies.strict.description":
       "Das Backoffice von Strict verwaltet E-Mails, Rechnungen und operative Abläufe über fragmentierte Tools. Wir bauen eine KI-zuerst-Transformation auf einem ERPNext-Backbone: einen KI-E-Mail-Assistenten, der Antworten im geteilten Posteingang automatisch entwirft, ein OCR- und LLM-Rechnungsextraktionstool zur automatischen Klassifikation von Positionen sowie ein zentralisiertes ERP als Ersatz für Lexware, Google Sheets und Altsysteme. Die Transformation soll mehr als 2 Stunden pro Person und Tag freisetzen und den mentalen Aufwand durch Kontextwechsel zwischen fragmentierten Tools deutlich reduzieren.",
     "caseStudies.strict.bullet1":
-      "KI-E-Mail-Assistent entwirft Antworten im geteilten Posteingang automatisch — Mitarbeitende prüfen und senden, das System nie",
+      "KI-E-Mail-Assistent entwirft Antworten im geteilten Posteingang automatisch. Mitarbeitende prüfen und senden, das System nie",
     "caseStudies.strict.bullet2":
       "OCR- und LLM-Rechnungstool extrahiert und klassifiziert Positionen (Drucke, Textilien, nicht relevant) in einer DSGVO-konformen Cloud-Datenbank",
     "caseStudies.strict.bullet3":
-      "ERPNext konsolidiert Lexware, Google Sheets und Altsysteme in einem zentralen Arbeitsplatz — mit Migration von über 15 Jahren Geschäftsdaten",
+      "ERPNext konsolidiert Lexware, Google Sheets und Altsysteme in einem zentralen Arbeitsplatz, mit Migration von über 15 Jahren Geschäftsdaten",
     "caseStudies.strict.bullet4":
-      "Projektiert: 2+ Stunden täglich je Person freigesetzt — messbar wiedergewinnbare Kapazität im gesamten Backoffice",
+      "Projektiert: 2+ Stunden täglich je Person freigesetzt, messbar wiedergewinnbare Kapazität im gesamten Backoffice",
 
     "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
     "caseStudies.sprinkenhof.tagline":
@@ -704,15 +706,15 @@ export const translations: Translations = {
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "Eine KI-Plattform für Beratungsarbeit — mit kontinuierlicher Qualitätssicherung von Anfang an",
+      "Eine KI-Plattform für Beratungsarbeit, mit kontinuierlicher Qualitätssicherung von Anfang an",
     "caseStudies.fgs.description":
-      "FGS Global benötigte ein KI-System, dem ihre Beratungsteams bei anspruchsvollen Kundenprojekten vertrauen können — für M&A, IPO-Kommunikation, Deep Research und Stakeholder-Analyse. Wir haben die Fergus-Plattform gebaut: spezialisierte KI-Agenten für jede Beratungsdomäne, eine strukturierte Qualitätssicherung, die Outputs kontinuierlich gegen 500+ realitätsnahe Szenarien testet, und ein Monitoring-Dashboard für vollständige Transparenz über Leistung und Zuverlässigkeit.",
+      "FGS Global benötigte ein KI-System, dem ihre Beratungsteams bei anspruchsvollen Kundenprojekten für M&A, IPO-Kommunikation, Deep Research und Stakeholder-Analyse vertrauen können. Wir haben die Fergus-Plattform gebaut: spezialisierte KI-Agenten für jede Beratungsdomäne, eine strukturierte Qualitätssicherung, die Outputs kontinuierlich gegen 500+ realitätsnahe Szenarien testet, und ein Monitoring-Dashboard für vollständige Transparenz über Leistung und Zuverlässigkeit.",
     "caseStudies.fgs.bullet1":
-      "30+ spezialisierte Agenten für M&A, IPO, Research und Stakeholder-Arbeit — damit Berater stets aufgabengerechte, kontextrelevante Ergebnisse erhalten",
+      "30+ spezialisierte Agenten für M&A, IPO, Research und Stakeholder-Arbeit, damit Berater stets aufgabengerechte, kontextrelevante Ergebnisse erhalten",
     "caseStudies.fgs.bullet2":
-      "Kontinuierliche Qualitätssicherung über 500+ Testszenarien — Fehler und Inkonsistenzen werden erkannt, bevor sie Beratungsteams erreichen",
+      "Kontinuierliche Qualitätssicherung über 500+ Testszenarien: Fehler und Inkonsistenzen werden erkannt, bevor sie Beratungsteams erreichen",
     "caseStudies.fgs.bullet3":
-      "Vollständige Betriebstransparenz über Ausgabequalität, Performance-Trends und Auffälligkeiten — zugänglich über ein dediziertes Analytics-Dashboard",
+      "Vollständige Betriebstransparenz über Ausgabequalität, Performance-Trends und Auffälligkeiten, zugänglich über ein dediziertes Analytics-Dashboard",
     "caseStudies.fgs.bullet4":
       "Flexible Modellarchitektur, die neue KI-Fähigkeiten integrieren kann und dabei konsistente Qualitätsstandards bei jedem Update erhält",
 
@@ -722,11 +724,11 @@ export const translations: Translations = {
     "caseStudies.sourcera.description":
       "Sourcera ist eine Procurement-Intelligence-Plattform, die Enterprise-Teams dabei hilft, Lieferantenanalysen, Einsparpotenziale und Ausschreibungen schneller zu bearbeiten. Wir haben die KI-Engine der Plattform gebaut: Ausgabenanalyse, die Konsolidierungspotenziale identifiziert und Handlungsprioritäten setzt, Lieferantenintelligenz, die Anbieter nach Kompetenz und strategischem Fit bewertet, sowie ein Dokumentensystem, das Ausschreibungsunterlagen aus strukturierten Daten generiert.",
     "caseStudies.sourcera.bullet1":
-      "Automatisierte Ausgabenanalyse wandelt Rohdaten in priorisierte Einsparmöglichkeiten um — Konsolidierungspotenziale und Tail Spend ohne manuelle Recherche",
+      "Automatisierte Ausgabenanalyse wandelt Rohdaten in priorisierte Einsparmöglichkeiten um, Konsolidierungspotenziale und Tail Spend ohne manuelle Recherche",
     "caseStudies.sourcera.bullet2":
       "Einheitliche Lieferantenansicht über alle Beschaffungssysteme mit automatischer Auflösung von Duplikaten für eine konsistente, verlässliche Datenbasis",
     "caseStudies.sourcera.bullet3":
-      "KI-gestütztes Lieferanten-Scoring bewertet Anbieter nach Kompetenz, strategischem Fit und Evidenzqualität — ersetzt stundenlanges Recherchieren pro Ausschreibung",
+      "KI-gestütztes Lieferanten-Scoring bewertet Anbieter nach Kompetenz, strategischem Fit und Evidenzqualität, ersetzt stundenlanges Recherchieren pro Ausschreibung",
     "caseStudies.sourcera.bullet4":
       "Generierung von Ausschreibungsunterlagen aus strukturierten Daten, mit Freigabeschritten, die das Procurement-Team stets in der Kontrolle lassen",
 

@@ -43,7 +43,7 @@ const steps = [
     number: "02",
     title: "Run parallel evaluators",
     description:
-      "Apply multiple independent evaluators — rule-based, model-based, and statistical — to each output to get a multi-signal quality view.",
+      "Apply multiple independent evaluators (rule-based, model-based, and statistical) to each output to get a multi-signal quality view.",
   },
   {
     number: "03",
@@ -175,7 +175,7 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
                 AI support bot monitoring
               </h3>
               <p className="text-base leading-7 text-slate-400 dark:text-[#1a3050]">
-                Client case study coming soon — details under NDA.
+                Client case study coming soon. Details under NDA.
               </p>
             </div>
           </div>

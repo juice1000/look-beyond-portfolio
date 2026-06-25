@@ -8,39 +8,39 @@ const STEPS = [
     title: "Map the workflow",
     duration: "Week 1–2",
     description:
-      "We start by sitting with the people doing the work — not just reading documentation. We trace one repetitive, high-volume process end-to-end: where documents enter, where humans make decisions, where handoffs happen, and where things go wrong.",
+      "We start by sitting with the people doing the work, not just reading documentation. We trace one repetitive, high-volume process end-to-end: where documents enter, where humans make decisions, where handoffs happen, and where things go wrong.",
     details: [
       "Interview operators and team leads, not just managers",
       "Identify the five to ten exceptions that account for most of the manual time",
       "Map inputs: email threads, PDFs, spreadsheets, ERP exports, SOPs",
       "Define the review and approval checkpoints that must be preserved",
     ],
-    outcome: "A workflow map that everyone agrees on — including the parts no one had written down before.",
+    outcome: "A workflow map that everyone agrees on, including the parts no one had written down before.",
   },
   {
     number: "02",
     title: "Design the pipeline",
     duration: "Week 2–3",
     description:
-      "With the workflow mapped, we define the technical architecture: which steps get automated, which stay human, and where agents plug in. We design for the exception first — the happy path is easy; production systems live or die on edge cases.",
+      "With the workflow mapped, we define the technical architecture: which steps get automated, which stay human, and where agents plug in. We design for the exception first. The happy path is easy; production systems live or die on edge cases.",
     details: [
       "Define input contracts: what data format does each step expect?",
       "Assign agent roles: classification, extraction, drafting, routing, escalation",
       "Design human-in-the-loop gates: when does an agent pause and ask?",
       "Specify integrations: which systems need to be read from or written to?",
     ],
-    outcome: "A pipeline spec with clear boundaries — what the system handles automatically and what it hands off.",
+    outcome: "A pipeline spec with clear boundaries: what the system handles automatically and what it hands off.",
   },
   {
     number: "03",
     title: "Prototype with real examples",
     duration: "Week 3–5",
     description:
-      "We build a focused working prototype using actual documents and real edge cases from your operations — not synthetic test data. The prototype is designed to be broken. We want to find the failure modes before they reach production.",
+      "We build a focused working prototype using actual documents and real edge cases from your operations, not synthetic test data. The prototype is designed to be broken. We want to find the failure modes before they reach production.",
     details: [
       "Use 50–200 real examples to test extraction and classification accuracy",
       "Run the prototype alongside the existing workflow (not instead of it)",
-      "Collect operator feedback in structured sessions — not casual observation",
+      "Collect operator feedback in structured sessions, not casual observation",
       "Measure against the specific metrics that matter: accuracy, coverage, latency",
     ],
     outcome: "A validated prototype that the team has stress-tested against real operational conditions.",
@@ -50,7 +50,7 @@ const STEPS = [
     title: "Add reliability controls",
     duration: "Week 5–7",
     description:
-      "Before expanding scope, we instrument the system properly. Evaluations, monitoring, access controls, and audit trails are not afterthoughts — they are what separates a demo from a production system. This phase also includes the security review.",
+      "Before expanding scope, we instrument the system properly. Evaluations, monitoring, access controls, and audit trails are not afterthoughts. They are what separates a demo from a production system. This phase also includes the security review.",
     details: [
       "Evaluation framework: automated tests covering accuracy, edge cases, regressions",
       "Monitoring: response quality tracking, latency alerts, volume dashboards",
@@ -58,21 +58,21 @@ const STEPS = [
       "Audit trails: every agent action logged with inputs, outputs, and timestamps",
       "Escalation paths: defined criteria for when humans are pulled in",
     ],
-    outcome: "A system that operators can trust — with visibility into what it is doing and why.",
+    outcome: "A system that operators can trust, with full visibility into what it is doing and why.",
   },
   {
     number: "05",
     title: "Expand carefully",
     duration: "Week 7+",
     description:
-      "Once the first workflow proves reliable and manageable, we move to adjacent processes. Expansion is earned — not assumed. Each new workflow repeats the same discipline: map, design, prototype, instrument. The system grows with confidence, not ambition.",
+      "Once the first workflow proves reliable and manageable, we move to adjacent processes. Expansion is earned, not assumed. Each new workflow repeats the same discipline: map, design, prototype, instrument. The system grows with confidence, not ambition.",
     details: [
-      "Define the expansion criteria before expanding — what does 'reliable' mean in numbers?",
+      "Define the expansion criteria before expanding: what does 'reliable' mean in numbers?",
       "Identify adjacent workflows that share inputs or agents with the first",
       "Reuse the retrieval layer, evaluation framework, and monitoring infrastructure",
       "Keep human review in place until the accuracy threshold is consistently met",
     ],
-    outcome: "A growing system where each addition is as reliable as the first — because the controls compound.",
+    outcome: "A growing system where each addition is as reliable as the first. The controls compound.",
   },
 ];
 
@@ -85,12 +85,12 @@ const PRINCIPLES = [
   {
     title: "Real data from day one",
     description:
-      "Synthetic test data produces synthetic confidence. We use your actual documents, your actual edge cases, and your actual exceptions — from the first prototype.",
+      "Synthetic test data produces synthetic confidence. We use your actual documents, your actual edge cases, and your actual exceptions, from the first prototype.",
   },
   {
     title: "Controls are not optional",
     description:
-      "Evaluations, monitoring, and human review paths are built in during the prototype phase — not bolted on before launch. Production systems are instrumented systems.",
+      "Evaluations, monitoring, and human review paths are built in during the prototype phase, not bolted on before launch. Production systems are instrumented systems.",
   },
   {
     title: "Operators own the workflow",
@@ -175,7 +175,7 @@ const OurProcess = () => {
                       ))}
                     </ul>
                     <div className="rounded-sm border border-white/30 dark:border-[#0f1e35] bg-white/40 dark:bg-[#08101f] px-4 py-3">
-                      <span className="font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Outcome — </span>
+                      <span className="font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Outcome: </span>
                       <span className="text-sm text-slate-600 dark:text-slate-300">{step.outcome}</span>
                     </div>
                   </div>
