@@ -464,15 +464,15 @@ export const translations: Translations = {
     "pricingEngagement.tiers.retainer.item1": "Continuous delivery support",
     "pricingEngagement.tiers.retainer.item2": "Monitoring and refinements",
     "pricingEngagement.tiers.retainer.item3": "Roadmap for adjacent workflows",
-    "pricingEngagement.details.title": "What else to mention",
+    "pricingEngagement.details.title": "Good to know",
     "pricingEngagement.details.point1":
-      "What is included in each phase and what is out of scope.",
+      "Each phase is scoped tightly: workshops map one workflow, POCs build one working prototype. You know what's delivered before you commit to the next phase.",
     "pricingEngagement.details.point2":
-      "Typical timeline for workshop, POC, and retainer work.",
+      "Workshops run around 3 days on average, depending on scale. POCs can land in 2 weeks if scope stays tight.",
     "pricingEngagement.details.point3":
-      "Whether tax, travel, or third-party tooling costs are separate.",
+      "Pricing covers our team's time and delivery. Third-party tooling or infrastructure costs are agreed upfront, never a surprise on the invoice.",
     "pricingEngagement.details.point4":
-      "Whether workshop fees are credited toward a POC if the project continues.",
+      "Move from a workshop into a POC and your workshop fee is credited toward the project.",
     "pricingEngagement.pricing.title": "How we scope",
     "pricingEngagement.pricing.description":
       "We align work around measurable outcomes instead of vanity experiments.",
@@ -997,15 +997,15 @@ export const translations: Translations = {
       "Kontinuierliche Delivery-Unterstützung",
     "pricingEngagement.tiers.retainer.item2": "Monitoring und Optimierungen",
     "pricingEngagement.tiers.retainer.item3": "Roadmap für weitere Workflows",
-    "pricingEngagement.details.title": "Was Sie zusätzlich erwähnen sollten",
+    "pricingEngagement.details.title": "Gut zu wissen",
     "pricingEngagement.details.point1":
-      "Was in jeder Phase enthalten ist und was nicht.",
+      "Jede Phase ist klar abgegrenzt: Workshops kartieren einen Workflow, POCs bauen einen funktionierenden Prototyp. Sie wissen, was geliefert wird, bevor Sie sich für die nächste Phase entscheiden.",
     "pricingEngagement.details.point2":
-      "Typische Timeline für Workshop, POC und Retainer.",
+      "Workshops dauern im Schnitt etwa 3 Tage, je nach Umfang. POCs sind bei eng gehaltenem Scope in 2 Wochen umsetzbar.",
     "pricingEngagement.details.point3":
-      "Ob Steuern, Reise oder Drittanbieter-Tools separat berechnet werden.",
+      "Der Preis deckt Zeit und Umsetzung unseres Teams ab. Kosten für Drittanbieter-Tools oder Infrastruktur werden vorab abgestimmt, keine Überraschungen auf der Rechnung.",
     "pricingEngagement.details.point4":
-      "Ob Workshop-Gebühren bei einem anschließenden POC angerechnet werden.",
+      "Steigen Sie vom Workshop in einen POC ein, wird die Workshop-Gebühr auf das Projekt angerechnet.",
     "pricingEngagement.pricing.title": "So scopen wir",
     "pricingEngagement.pricing.description":
       "Wir richten Arbeit an messbaren Outcomes statt an Showcases aus.",
