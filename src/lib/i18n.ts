@@ -19,6 +19,7 @@ export const translations: Translations = {
     "nav.partners": "Partners",
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
+    "nav.practice": "Our Practice",
     "nav.ourProcess": "Our Process",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
@@ -64,16 +65,9 @@ export const translations: Translations = {
     // Partners Page
     "partners.title": "Partners",
     "partners.subtitle":
-      "Selected partners that extend our delivery capabilities across procurement, AI operations, document intelligence, and app delivery.",
+      "Selected partners that extend our delivery capabilities across AI operations, document intelligence, and app delivery.",
     "partners.intro":
       "Each partner covers a distinct part of the stack. Together we cover discovery, implementation, and ongoing operations without stretching into weak spots.",
-    "partners.sourcera.name": "Sourcera",
-    "partners.sourcera.url": "sourcera.ai",
-    "partners.sourcera.role": "Procurement solution",
-    "partners.sourcera.capability":
-      "Procurement intelligence that automates tenders and surfaces savings.",
-    "partners.sourcera.point1": "Tender automation and supplier scoring",
-    "partners.sourcera.point2": "EU data residency and compliance posture",
     "partners.innovandio.name": "Innovandio",
     "partners.innovandio.url": "innovandio.com",
     "partners.innovandio.role": "AI operations specialist",
@@ -130,10 +124,6 @@ export const translations: Translations = {
       "Relevant work across procurement intelligence, document-to-data workflows, knowledge systems, and AI reliability.",
     "caseStudies.cta": "Explore the work",
     "caseStudies.enables": "What this enables",
-    "caseStudies.marketing.title": "Sprinkenhof",
-    "caseStudies.marketing.painPoint":
-      "Turning 1.5M documents into decision-ready knowledge.",
-    "caseStudies.marketing.kpi": "Faster access to trusted insights",
     "caseStudies.sales.title": "FGS Global",
     "caseStudies.sales.painPoint":
       "Evaluation and monitoring for safer enterprise AI.",
@@ -157,47 +147,34 @@ export const translations: Translations = {
     "caseStudies.strict.bullet4":
       "Projected to free 2+ hours per person daily, representing measurable recoverable capacity across the entire backoffice",
 
-    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
-    "caseStudies.sprinkenhof.tagline":
-      "Turning fragmented document landscapes into decision-ready knowledge",
-    "caseStudies.sprinkenhof.description":
-      "Sprinkenhof manages a large and complex document environment with around 1.5 million files across many structures, classes, and permission layers. Important knowledge is distributed across documents, systems, and organizational contexts, making it difficult to find and use the right information.",
-    "caseStudies.sprinkenhof.bullet1":
-      "Faster access to relevant internal knowledge",
-    "caseStudies.sprinkenhof.bullet2":
-      "Less time spent searching across complex document environments",
-    "caseStudies.sprinkenhof.bullet3":
-      "Better-informed decision making in knowledge-heavy workflows",
-    "caseStudies.sprinkenhof.bullet4":
-      "A foundation for AI support in highly regulated enterprise contexts",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "An enterprise AI platform purpose-built for advisory work, with continuous quality assurance built in",
+      "One scorecard for 30+ agents across different use cases.",
     "caseStudies.fgs.description":
-      "FGS Global needed an AI system their advisory teams could trust for high-stakes client work across M&A, IPO communications, deep research, and stakeholder analysis. We built the Fergus platform: dedicated AI agents for each advisory domain, a structured quality assurance layer that continuously tests output against 500+ real-world scenarios, and a monitoring dashboard giving operations full visibility into performance and reliability.",
+      "FGS Global runs specialist AI agents for M&A, IPO communications, research and stakeholder analysis. We built the evaluation and monitoring layer so every agent is graded the same way and every release is tested before it ships.",
     "caseStudies.fgs.bullet1":
-      "30+ specialist agents for M&A, IPO, research, and stakeholder work, each shaped to the task so advisors get relevant, contextually appropriate output",
+      "Productivity, quality and cost graded on one unified scale across use cases",
     "caseStudies.fgs.bullet2":
-      "Continuous quality assurance across 500+ test scenarios that catches errors and inconsistencies before they reach advisory teams",
+      "Results split by user context, including location and seniority",
     "caseStudies.fgs.bullet3":
-      "Full operational visibility into output quality, performance trends, and emerging issues, accessible through a dedicated analytics dashboard",
+      "Releases gated on critical checks such as hallucination, relevance and faithfulness",
     "caseStudies.fgs.bullet4":
-      "Flexible model architecture that lets the platform adopt new AI capabilities while maintaining consistent quality standards across every update",
+      "Production conversations reviewed and turned into new test cases",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "From raw spend data to sourcing decisions: an end-to-end AI platform for enterprise procurement",
+      "Saving opportunities scored against a benchmark, not by opinion.",
     "caseStudies.sourcera.description":
-      "Sourcera is a procurement intelligence platform that helps enterprise teams cut through the manual work of analysing spend, evaluating suppliers, and running sourcing events. We built the AI engine powering the platform: spend analysis that surfaces consolidation opportunities and prioritises where to act, supplier intelligence that scores and ranks vendors by capability and fit, and a document system that generates sourcing materials from structured data with approval checkpoints throughout.",
+      "Sourcera generates cost-saving opportunities from spend and supplier data. We built the evaluation that decides which opportunities are worth acting on. The process now runs without manual effort.",
     "caseStudies.sourcera.bullet1":
-      "Automated spend analysis turns raw transaction data into prioritised savings opportunities, surfacing consolidation potential and tail spend without manual research",
+      "Savings identified measured on the opportunities the system generates",
     "caseStudies.sourcera.bullet2":
-      "Unified supplier view across procurement systems, automatically resolving duplicates so teams always work from clean, consistent data",
+      "Output quality compared against benchmark datasets",
     "caseStudies.sourcera.bullet3":
-      "AI supplier scoring ranks vendors by capability, strategic fit, and evidence quality, replacing hours of manual research per sourcing event",
+      "Each opportunity scored on geographic relevance, critical suppliers and cross-domain suppliers",
     "caseStudies.sourcera.bullet4":
-      "Sourcing document generation produces RFx materials from structured supplier and spend data, with approval steps that keep procurement teams in full control",
+      "Fully automated, so scoring is repeatable across every run",
 
     "caseStudies.expresssteuer.tagline":
       "Rebuilding a cloud data foundation and cutting costs with AI-driven automation",
@@ -251,18 +228,6 @@ export const translations: Translations = {
     "caseStudies.cinoware.bullet4":
       "Selenium Grid testing suite with Allure reporting for systematic quality assurance",
 
-    "caseStudies.samgen.tagline":
-      "Building cloud infrastructure and MLOps pipelines for an industrial SaaS platform",
-    "caseStudies.samgen.description":
-      "SAMGEN is building a SaaS platform for industrial clients that depends on reliable cloud infrastructure and data-driven operations. We are designing the GCP architecture, implementing CI/CD workflows, and building MLOps pipelines to automate integrated model retraining across the platform.",
-    "caseStudies.samgen.bullet1":
-      "GCP cloud infrastructure designed and scaled for a multi-client industrial SaaS platform",
-    "caseStudies.samgen.bullet2":
-      "CI/CD deployment pipelines for streamlined and reliable release workflows",
-    "caseStudies.samgen.bullet3":
-      "Automated model retraining pipeline built in collaboration with the data science team",
-    "caseStudies.samgen.bullet4":
-      "Data-driven DevOps practices embedded across the engineering delivery process",
 
     "caseStudies.applai.tagline":
       "Automating job application workflows with an agentic AI pipeline",
@@ -552,6 +517,7 @@ export const translations: Translations = {
     "nav.partners": "Partner",
     "nav.howWeWork": "Wie wir arbeiten",
     "nav.aiReadiness": "KI-Readiness",
+    "nav.practice": "Unsere Praxis",
     "nav.ourProcess": "Unser Prozess",
     "nav.pricingEngagement": "Pricing & Collaboration",
     "nav.workshops": "Workshops",
@@ -598,16 +564,9 @@ export const translations: Translations = {
     // Partners Page
     "partners.title": "Partner",
     "partners.subtitle":
-      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in Beschaffung, KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
+      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
     "partners.intro":
       "Jeder Partner deckt einen klaren Teil des Stacks ab. Gemeinsam unterstützen wir Discovery, Umsetzung und den laufenden Betrieb, ohne Schwachstellen zu überdecken.",
-    "partners.sourcera.name": "Sourcera",
-    "partners.sourcera.url": "sourcera.ai",
-    "partners.sourcera.role": "Beschaffungslösung",
-    "partners.sourcera.capability":
-      "Procurement Intelligence, die Tenders automatisiert und Einsparungen sichtbar macht.",
-    "partners.sourcera.point1": "Tender-Automatisierung und Supplier Scoring",
-    "partners.sourcera.point2": "EU-Datenresidenz und Compliance-Posture",
     "partners.innovandio.name": "Innovandio",
     "partners.innovandio.url": "innovandio.com",
     "partners.innovandio.role": "KI-Operations-Spezialist",
@@ -663,10 +622,6 @@ export const translations: Translations = {
       "Relevante Arbeit in Beschaffungsintelligenz, Document-to-Data-Workflows, Wissenssystemen und KI-Zuverlassigkeit.",
     "caseStudies.cta": "Mehr erfahren",
     "caseStudies.enables": "Was dadurch möglich wird",
-    "caseStudies.marketing.title": "Sprinkenhof",
-    "caseStudies.marketing.painPoint":
-      "1,5 Mio. Dokumente werden zu entscheidungsreifem Wissen.",
-    "caseStudies.marketing.kpi": "Schneller Zugang zu Kontext",
     "caseStudies.sales.title": "FGS Global",
     "caseStudies.sales.painPoint":
       "Evaluation und Monitoring für vertrauenswürdige KI.",
@@ -690,47 +645,34 @@ export const translations: Translations = {
     "caseStudies.strict.bullet4":
       "Projektiert: 2+ Stunden täglich je Person freigesetzt, messbar wiedergewinnbare Kapazität im gesamten Backoffice",
 
-    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
-    "caseStudies.sprinkenhof.tagline":
-      "Zersplitterte Dokumentlandschaften werden zu entscheidungsreifem Wissen",
-    "caseStudies.sprinkenhof.description":
-      "Sprinkenhof verwaltet eine große Dokumentlandschaft mit rund 1,5 Millionen Dateien, zahlreichen Strukturen und Berechtigungen. Wissen ist über Dokumente, Systeme und Organisationseinheiten verteilt – der Zugriff auf die richtige Information kostet Zeit und Vertrauen.",
-    "caseStudies.sprinkenhof.bullet1":
-      "Schnellerer Zugriff auf relevantes internes Wissen",
-    "caseStudies.sprinkenhof.bullet2":
-      "Weniger Suchaufwand in komplexen Ablagen",
-    "caseStudies.sprinkenhof.bullet3":
-      "Besser informierte Entscheidungen in wissensintensiven Workflows",
-    "caseStudies.sprinkenhof.bullet4":
-      "Fundament für KI-Unterstützung in regulierten Kontexten",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "Eine KI-Plattform für Beratungsarbeit, mit kontinuierlicher Qualitätssicherung von Anfang an",
+      "Eine Scorecard für über 30 Agenten in unterschiedlichen Anwendungsfällen.",
     "caseStudies.fgs.description":
-      "FGS Global benötigte ein KI-System, dem ihre Beratungsteams bei anspruchsvollen Kundenprojekten für M&A, IPO-Kommunikation, Deep Research und Stakeholder-Analyse vertrauen können. Wir haben die Fergus-Plattform gebaut: spezialisierte KI-Agenten für jede Beratungsdomäne, eine strukturierte Qualitätssicherung, die Outputs kontinuierlich gegen 500+ realitätsnahe Szenarien testet, und ein Monitoring-Dashboard für vollständige Transparenz über Leistung und Zuverlässigkeit.",
+      "FGS Global betreibt spezialisierte KI-Agenten für M&A, IPO-Kommunikation, Recherche und Stakeholder-Analyse. Wir haben die Evaluations- und Monitoring-Schicht gebaut, damit jeder Agent gleich bewertet wird und jedes Release vor der Auslieferung getestet ist.",
     "caseStudies.fgs.bullet1":
-      "30+ spezialisierte Agenten für M&A, IPO, Research und Stakeholder-Arbeit, damit Berater stets aufgabengerechte, kontextrelevante Ergebnisse erhalten",
+      "Produktivität, Qualität und Kosten auf einer einheitlichen Skala über alle Anwendungsfälle bewertet",
     "caseStudies.fgs.bullet2":
-      "Kontinuierliche Qualitätssicherung über 500+ Testszenarien: Fehler und Inkonsistenzen werden erkannt, bevor sie Beratungsteams erreichen",
+      "Ergebnisse nach Nutzerkontext aufgeteilt, darunter Standort und Seniorität",
     "caseStudies.fgs.bullet3":
-      "Vollständige Betriebstransparenz über Ausgabequalität, Performance-Trends und Auffälligkeiten, zugänglich über ein dediziertes Analytics-Dashboard",
+      "Releases an kritische Checks wie Halluzination, Relevanz und Faithfulness gekoppelt",
     "caseStudies.fgs.bullet4":
-      "Flexible Modellarchitektur, die neue KI-Fähigkeiten integrieren kann und dabei konsistente Qualitätsstandards bei jedem Update erhält",
+      "Produktionsgespräche geprüft und in neue Testfälle überführt",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "Von Rohdaten zur Beschaffungsentscheidung: eine End-to-End-KI-Plattform für Enterprise Procurement",
+      "Einsparpotenziale gegen einen Benchmark bewertet, nicht nach Meinung.",
     "caseStudies.sourcera.description":
-      "Sourcera ist eine Procurement-Intelligence-Plattform, die Enterprise-Teams dabei hilft, Lieferantenanalysen, Einsparpotenziale und Ausschreibungen schneller zu bearbeiten. Wir haben die KI-Engine der Plattform gebaut: Ausgabenanalyse, die Konsolidierungspotenziale identifiziert und Handlungsprioritäten setzt, Lieferantenintelligenz, die Anbieter nach Kompetenz und strategischem Fit bewertet, sowie ein Dokumentensystem, das Ausschreibungsunterlagen aus strukturierten Daten generiert.",
+      "Sourcera erzeugt Einsparpotenziale aus Ausgaben- und Lieferantendaten. Wir haben die Evaluation gebaut, die entscheidet, welche Potenziale sich lohnen. Der Prozess läuft inzwischen ohne manuellen Aufwand.",
     "caseStudies.sourcera.bullet1":
-      "Automatisierte Ausgabenanalyse wandelt Rohdaten in priorisierte Einsparmöglichkeiten um, Konsolidierungspotenziale und Tail Spend ohne manuelle Recherche",
+      "Identifizierte Einsparungen an den vom System erzeugten Potenzialen gemessen",
     "caseStudies.sourcera.bullet2":
-      "Einheitliche Lieferantenansicht über alle Beschaffungssysteme mit automatischer Auflösung von Duplikaten für eine konsistente, verlässliche Datenbasis",
+      "Ausgabequalität gegen Benchmark-Datensätze verglichen",
     "caseStudies.sourcera.bullet3":
-      "KI-gestütztes Lieferanten-Scoring bewertet Anbieter nach Kompetenz, strategischem Fit und Evidenzqualität, ersetzt stundenlanges Recherchieren pro Ausschreibung",
+      "Jedes Potenzial nach geografischer Relevanz, kritischen Lieferanten und domänenübergreifenden Lieferanten bewertet",
     "caseStudies.sourcera.bullet4":
-      "Generierung von Ausschreibungsunterlagen aus strukturierten Daten, mit Freigabeschritten, die das Procurement-Team stets in der Kontrolle lassen",
+      "Vollständig automatisiert, sodass die Bewertung bei jedem Lauf reproduzierbar ist",
 
     "caseStudies.expresssteuer.tagline":
       "Cloud-Datenfundament neu aufgebaut und Kosten durch KI-Automatisierung drastisch gesenkt",
@@ -784,18 +726,6 @@ export const translations: Translations = {
     "caseStudies.cinoware.bullet4":
       "Selenium Grid Testsuite mit Allure-Reporting für systematische Qualitätssicherung",
 
-    "caseStudies.samgen.tagline":
-      "Cloud-Infrastruktur und MLOps-Pipelines für eine industrielle SaaS-Plattform",
-    "caseStudies.samgen.description":
-      "SAMGEN baut eine SaaS-Plattform für industrielle Kunden, die auf zuverlässiger Cloud-Infrastruktur und datengetriebenem Betrieb basiert. Wir gestalten die GCP-Architektur, implementieren CI/CD-Workflows und bauen MLOps-Pipelines für automatisiertes Modell-Retraining.",
-    "caseStudies.samgen.bullet1":
-      "GCP-Cloud-Infrastruktur für eine mandantenfähige industrielle SaaS-Plattform",
-    "caseStudies.samgen.bullet2":
-      "CI/CD-Deployment-Pipelines für zuverlässige und schnelle Release-Prozesse",
-    "caseStudies.samgen.bullet3":
-      "Automatisierte Modell-Retraining-Pipeline in Zusammenarbeit mit dem Data-Science-Team",
-    "caseStudies.samgen.bullet4":
-      "Datengetriebene DevOps-Praktiken in den gesamten Engineering-Prozess integriert",
 
     "caseStudies.applai.tagline":
       "Bewerbungsprozesse mit einer agentischen KI-Pipeline automatisieren",

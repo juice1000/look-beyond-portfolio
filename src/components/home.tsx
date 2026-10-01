@@ -3,12 +3,10 @@ import React from "react";
 import { Language } from "../lib/i18n";
 import { getLandingPageContent } from "../data/landingPage";
 import HeroSection, { AuroraBackground } from "./Home/HeroSection";
-import SolutionStack from "./Home/SolutionStack";
-import HowWeWorkSection from "./Home/HowWeWorkSection";
 import ClosingSection from "./Home/ClosingSection";
-import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
-import ImpactSection from "./Home/ImpactSection";
-import ComplianceSection from "./Home/ComplianceSection";
+import IndustriesStrip from "./Home/IndustriesStrip";
+import WhatYouGet from "./Home/WhatYouGet";
+import CaseStudyCards from "./Home/CaseStudyCards";
 
 const Home = ({
   language,
@@ -28,23 +26,16 @@ const Home = ({
       <main className="pt-20">
         <section id="home">
           <HeroSection
+            eyebrow={content.hero.eyebrow}
             title={content.hero.headline}
             subtitle={content.hero.subheadline}
-            supportingLine={content.hero.supportingLine}
-            pipeline={content.hero.pipeline}
-            ticker={content.hero.ticker}
-            kpis={content.kpis}
+            lifecycle={content.hero.lifecycle}
             isDarkMode={isDarkMode}
           />
         </section>
-        <SolutionStack language={language} system={content.system} />
-        <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
-        <HowWeWorkSection
-          language={language}
-          implementation={content.implementation}
-        />
-        <ImpactSection />
-        <ComplianceSection language={language} />
+        <WhatYouGet content={content.outcomes} />
+        <CaseStudyCards language={language} showHeader={true} limit={2} compact />
+        <IndustriesStrip content={content.industries} />
         <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>

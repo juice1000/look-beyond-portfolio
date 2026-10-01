@@ -59,7 +59,7 @@ This track is documented in the case studies but not surfaced as a service offer
 
 - **Custom Platform Development** — Full bespoke platforms built around the client's existing processes, priced and contracted on a subscription or retainer model. Direct alternative to off-the-shelf SaaS where the client no longer has to adapt to the software.
 - **ERP Integration & Migration** — Connecting custom platforms or new ERP systems (e.g., ERPNext, Microsoft Navision/Business Central) to replace fragmented legacy tooling.
-- **Cloud Data Infrastructure** — Data warehouse design and build (BigQuery, GCP, dbt), MLOps pipelines, CI/CD workflows. Referenced in Expresssteuer, SAMGEN, R-Cycle case studies but absent from the services section.
+- **Cloud Data Infrastructure** — Data warehouse design and build (BigQuery, GCP, dbt), MLOps pipelines, CI/CD workflows. Referenced in Expresssteuer, R-Cycle case studies but absent from the services section.
 
 ### Track C — Strategy & Enablement (current, needs elevation)
 
@@ -104,7 +104,7 @@ Retain procurement, manufacturing, logistics. Consider adding a fourth: **Profes
 
 ### Case Studies
 
-Several strong case studies (Strict, Expresssteuer, SAMGEN, R-Cycle, Cinoware, SAMGEN) are in the portfolio but either not prominent or not tied to a named service. Each should be linked to a service track so prospects can self-identify.
+Several strong case studies (Strict, Expresssteuer, R-Cycle, Cinoware) are in the portfolio but either not prominent or not tied to a named service. Each should be linked to a service track so prospects can self-identify.
 
 ---
 
@@ -136,7 +136,7 @@ The distinction matters because the custom platform pitch is closer to "replace 
 ### Case Studies page
 
 - Tag each case study by service track so visitors can filter by what they need
-- Elevate Strict (ERP + AI transformation) and SAMGEN (infrastructure + MLOps) — these are strong proof points for Track B that currently get less visibility than the AI-agent-focused studies
+- Elevate Strict (ERP + AI transformation) — this is strong proof points for Track B that currently get less visibility than the AI-agent-focused studies
 
 ### Pricing & Engagement page
 

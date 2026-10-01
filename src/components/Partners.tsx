@@ -10,17 +10,6 @@ interface PartnersProps {
 const Partners = ({ language = "en" }: PartnersProps) => {
   const partners = [
     {
-      name: t("partners.sourcera.name", language),
-      url: t("partners.sourcera.url", language),
-      href: "https://sourcera.ai",
-      role: t("partners.sourcera.role", language),
-      capability: t("partners.sourcera.capability", language),
-      points: [
-        t("partners.sourcera.point1", language),
-        t("partners.sourcera.point2", language),
-      ],
-    },
-    {
       name: t("partners.innovandio.name", language),
       url: t("partners.innovandio.url", language),
       href: "https://innovandio.com",
@@ -78,7 +67,7 @@ const Partners = ({ language = "en" }: PartnersProps) => {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {partners.map((partner) => (
               <div
                 key={partner.href}

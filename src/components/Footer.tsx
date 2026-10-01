@@ -69,6 +69,17 @@ const Footer = ({ language = "en" }: FooterProps) => {
             <ul className="space-y-2">
               <li>
                 <Link
+                  to="/practice"
+                  onClick={() =>
+                    handleNavigation("/practice", t("nav.practice", language))
+                  }
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                >
+                  {t("nav.practice", language)}
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/ai-readiness"
                   onClick={() =>
                     handleNavigation(

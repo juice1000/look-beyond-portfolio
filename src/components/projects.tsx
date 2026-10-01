@@ -10,7 +10,7 @@ export default function Projects({ language }: { language: Language }) {
         <AuroraBackground isDarkMode={false} />
       </div>
       <main className="pt-20">
-        <CaseStudyCards language={language} showHeader={true} limit={3} />
+        <CaseStudyCards language={language} showHeader={true} limit={2} />
       </main>
     </div>
   );

@@ -60,6 +60,7 @@ const Navbar = ({
   }, [location.pathname, language]);
 
   const navItems: NavItem[] = [
+    { label: t("nav.practice", language), href: "/practice" },
     { label: t("nav.ourProcess", language), href: "/our-process" },
     { label: t("nav.projects", language), href: "/projects" },
     { label: t("nav.partners", language), href: "/partners" },
