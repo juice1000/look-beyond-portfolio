@@ -11,24 +11,24 @@ interface AIPerformanceMonitoringProps {
 
 const capabilities = [
   {
-    title: "Response Evaluation",
+    title: "Release Testing",
     description:
-      "Run automated evaluators against every AI output to score accuracy, relevance, and policy compliance before responses reach end users.",
+      "Score every release against test sets built from real cases, so accuracy and relevance are checked before an agent reaches users.",
   },
   {
-    title: "Sentiment & Quality Scoring",
+    title: "Compliance & Safety Checks",
     description:
-      "Measure tone, coherence, and task-specific quality dimensions in real time so performance regressions surface immediately.",
+      "Run safety, data protection and policy checks on every release. A failed critical check blocks it.",
   },
   {
-    title: "Alerting & Escalation",
+    title: "Live Monitoring & Alerts",
     description:
-      "Define thresholds that trigger instant alerts when quality drops, error rates spike, or anomalous output patterns are detected.",
+      "Track quality, speed, cost and rule violations in production, alert the team when they drift, and route flagged outputs to human review.",
   },
   {
-    title: "Human Review Paths",
+    title: "Cost & ROI Scorecard",
     description:
-      "Route flagged responses to structured review queues where annotators can correct, approve, or reject with full conversation context.",
+      "Report productivity, quality, cost and compliance against the baseline set before launch, in numbers finance can check.",
   },
 ];
 
@@ -41,21 +41,21 @@ const steps = [
   },
   {
     number: "02",
-    title: "Run parallel evaluators",
+    title: "Test against real cases",
     description:
-      "Apply multiple independent evaluators (rule-based, model-based, and statistical) to each output to get a multi-signal quality view.",
+      "Build test sets from real cases, then score each release with rule-based, model-based, and statistical evaluators for a multi-signal quality view.",
   },
   {
     number: "03",
-    title: "Generate health reports",
+    title: "Add compliance and safety gates",
     description:
-      "Aggregate scores into time-series dashboards and periodic reports that track drift, improvement, and coverage over the model's lifecycle.",
+      "Turn policy, data protection and EU AI Act requirements into critical checks that stop a failing release from shipping.",
   },
   {
     number: "04",
-    title: "Trigger alerts",
+    title: "Report to the business",
     description:
-      "Wire threshold breaches to your team's existing channels so on-call engineers receive actionable alerts with enough context to act immediately.",
+      "Aggregate results into a scorecard and alerts wired to your team's existing channels, so engineering and finance read the same numbers.",
   },
 ];
 
@@ -79,11 +79,11 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
               </Link>
               <div className="mb-5 flex items-center gap-3">
                 <span className="font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
-                  Pillar 03
+                  Test · Protect · Monitor · Prove
                 </span>
                 <span className="h-px w-6 bg-white/40 dark:bg-[#0f1e35]" />
                 <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060]">
-                  Reliability & Oversight
+                  The Operating Layer
                 </span>
               </div>
               <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-[#0f1e35] dark:text-slate-100 sm:text-5xl">
@@ -91,8 +91,8 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
               </h1>
               <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
               <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
-                Evaluations, real-time monitoring, access controls, and audit
-                trails for production AI systems.
+                Release testing, compliance checks, live monitoring, and a scorecard
+                that keeps production AI working and shows what it returns.
               </p>
             </div>
             <PillarAnimationPanel kind="monitoring" isDarkMode={isDarkMode} />
@@ -103,7 +103,7 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-5 py-16 sm:px-8 md:px-12 xl:px-16">
           <div className="mx-auto max-w-[94rem]">
             <p className="mb-8 font-mono text-xs uppercase tracking-widest text-blue-500">
-              What we build
+              What we run
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {capabilities.map((cap) => (
@@ -214,7 +214,7 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
                 <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Pillar 01</p>
+                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Build</p>
                     <h3 className="mb-2 text-base font-semibold text-[#0f1e35] dark:text-slate-100">AI Workflow Systems</h3>
                     <p className="text-sm leading-6 text-[#4a6a8a]">Connected pipelines that classify, route, validate, and log operational work.</p>
                   </div>
@@ -228,7 +228,7 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
                 <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Pillar 02</p>
+                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Build</p>
                     <h3 className="mb-2 text-base font-semibold text-[#0f1e35] dark:text-slate-100">Autonomous Agents</h3>
                     <p className="text-sm leading-6 text-[#4a6a8a]">Decision-making agents that act within defined boundaries.</p>
                   </div>
@@ -254,7 +254,7 @@ const AIPerformanceMonitoring = ({ isDarkMode }: AIPerformanceMonitoringProps) =
               </div>
               <Link
                 to="/contact"
-                className="flex-shrink-0 rounded-sm bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+                className="flex-shrink-0 rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
               >
                 Start a conversation →
               </Link>

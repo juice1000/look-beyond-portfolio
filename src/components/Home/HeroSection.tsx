@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 const TAU = Math.PI * 2;
 
@@ -180,10 +179,9 @@ export const AuroraBackground = ({ isDarkMode }: { isDarkMode: boolean }) => {
 };
 
 interface HeroSectionProps {
-  eyebrow?: string;
   title: string;
   subtitle: string;
-  lifecycle: string[];
+  kpis: Array<{ value: string; label: string }>;
   isDarkMode: boolean;
 }
 
@@ -193,28 +191,15 @@ const fadeUp = (delay: number, duration = 0.8) => ({
   transition: { duration, ease: [0.22, 1, 0.36, 1] as const, delay },
 });
 
-const HeroSection = ({
-  eyebrow,
-  title,
-  subtitle,
-  lifecycle,
-}: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, kpis }: HeroSectionProps) => {
   return (
     <section className="relative min-h-[calc(100vh-5rem)] bg-transparent dark:bg-[#04060f] text-[#0f1e35] dark:text-[#f1f5f9]">
       {/* Left vignette — dark mode only */}
       <div className="pointer-events-none absolute inset-0 hidden dark:block bg-[linear-gradient(90deg,rgba(4,6,15,0.72)_0%,rgba(4,6,15,0.28)_50%,rgba(4,6,15,0.04)_100%)]" />
-      {/* Bottom fade — dark mode only; light mode transition is handled by SolutionStack's top gradient */}
+      {/* Bottom fade — dark mode only */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 hidden dark:block bg-[linear-gradient(180deg,rgba(6,11,24,0)_0%,rgba(6,11,24,0.62)_52%,#060b18_100%)]" />
       <div className="relative z-10 flex min-h-[calc(100vh-5rem)] items-center px-5 py-12 sm:px-8 md:px-12 lg:px-20 xl:px-24">
-        <div className="w-full max-w-[52rem] dark:drop-shadow-[0_4px_64px_rgba(4,6,15,0.78)]">
-          {eyebrow && (
-            <motion.p
-              {...fadeUp(0.05, 0.7)}
-              className="mb-4 font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-blue-500"
-            >
-              {eyebrow}
-            </motion.p>
-          )}
+        <div className="w-full max-w-[44rem] dark:drop-shadow-[0_4px_64px_rgba(4,6,15,0.78)]">
           <motion.h1
             {...fadeUp(0.18, 0.9)}
             className="mb-5 whitespace-pre-line text-5xl font-bold leading-[1.02] tracking-normal text-[#0f1e35] dark:text-[#f1f5f9] sm:text-6xl lg:text-7xl"
@@ -231,33 +216,30 @@ const HeroSection = ({
           >
             {subtitle}
           </motion.p>
-          {lifecycle.length > 0 && (
-            <motion.ol
-              {...fadeUp(0.82)}
-              aria-label="GenAIOps lifecycle"
-              className="relative inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-2 overflow-hidden rounded-2xl
-                         border border-white/60 dark:border-white/[0.07]
-                         bg-gradient-to-br from-white/40 to-white/15
-                         dark:bg-white/[0.04]
-                         backdrop-blur-xl backdrop-saturate-150
-                         shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_12px_32px_rgba(0,0,0,0.06)]
-                         dark:shadow-none
-                         px-4 py-3"
-            >
-              {lifecycle.map((step, index) => (
-                <li key={step} className="flex items-center gap-2">
-                  <span className="font-mono text-[0.6rem] text-blue-500">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-[#0f1e35] dark:text-slate-100">
-                    {step}
-                  </span>
-                  {index < lifecycle.length - 1 && (
-                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 dark:text-blue-600" strokeWidth={2.5} />
-                  )}
-                </li>
-              ))}
-            </motion.ol>
+
+          {kpis.length > 0 && (
+            <motion.div {...fadeUp(0.82)}>
+              <div
+                className="relative overflow-hidden mt-6 inline-flex w-full max-w-sm rounded-2xl
+                           border border-white/60 dark:border-white/[0.07]
+                           bg-gradient-to-br from-white/40 to-white/15
+                           dark:bg-white/[0.04]
+                           backdrop-blur-xl backdrop-saturate-150
+                           shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_12px_32px_rgba(0,0,0,0.06)]
+                           dark:shadow-none"
+              >
+                <div className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 rounded-full bg-white/60 blur-2xl dark:hidden" />
+                {kpis.slice(0, 3).map((kpi, index) => (
+                  <div
+                    key={kpi.label}
+                    className={`flex-1 px-4 py-4 ${index < kpis.slice(0, 3).length - 1 ? "border-r border-white/40 dark:border-white/[0.07]" : ""}`}
+                  >
+                    <div className="mb-1 text-xl font-bold text-blue-500">{kpi.value}</div>
+                    <div className="font-mono text-[0.55rem] uppercase leading-4 tracking-widest text-slate-500 dark:text-white/40">{kpi.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           )}
         </div>
       </div>

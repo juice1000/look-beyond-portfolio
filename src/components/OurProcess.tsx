@@ -5,43 +5,43 @@ import { AuroraBackground } from "./Home/HeroSection";
 const STEPS = [
   {
     number: "01",
-    title: "Map the workflow",
+    title: "Map the workflow and the baseline",
     duration: "Week 1–2",
     description:
-      "We start by sitting with the people doing the work, not just reading documentation. We trace one repetitive, high-volume process end-to-end: where documents enter, where humans make decisions, where handoffs happen, and where things go wrong.",
+      "We start by sitting with the people doing the work, not just reading documentation. We trace one repetitive, high-volume process end-to-end and measure what it costs today: time, errors and cycle time.",
     details: [
       "Interview operators and team leads, not just managers",
       "Identify the five to ten exceptions that account for most of the manual time",
-      "Map inputs: email threads, PDFs, spreadsheets, ERP exports, SOPs",
-      "Define the review and approval checkpoints that must be preserved",
+      "Record today's cost, cycle time and error rate as the baseline",
+      "Agree which compliance and policy rules the process must respect",
     ],
-    outcome: "A workflow map that everyone agrees on, including the parts no one had written down before.",
+    outcome: "A workflow map and a baseline everyone agrees on, including the parts no one had written down before.",
   },
   {
     number: "02",
-    title: "Design the pipeline",
+    title: "Design the pipeline and the checks",
     duration: "Week 2–3",
     description:
-      "With the workflow mapped, we define the technical architecture: which steps get automated, which stay human, and where agents plug in. We design for the exception first. The happy path is easy; production systems live or die on edge cases.",
+      "With the workflow mapped, we define which steps get automated, which stay human, and what a pass looks like. We design for the exception first. The happy path is easy; production systems live or die on edge cases.",
     details: [
-      "Define input contracts: what data format does each step expect?",
       "Assign agent roles: classification, extraction, drafting, routing, escalation",
       "Design human-in-the-loop gates: when does an agent pause and ask?",
+      "Write the pass criteria for quality, cost and compliance before building",
       "Specify integrations: which systems need to be read from or written to?",
     ],
-    outcome: "A pipeline spec with clear boundaries: what the system handles automatically and what it hands off.",
+    outcome: "A pipeline spec with clear boundaries, and written pass criteria for every critical check.",
   },
   {
     number: "03",
-    title: "Prototype with real examples",
+    title: "Prototype with real data",
     duration: "Week 3–5",
     description:
-      "We build a focused working prototype using actual documents and real edge cases from your operations, not synthetic test data. The prototype is designed to be broken. We want to find the failure modes before they reach production.",
+      "We build a focused working prototype and its first test set from actual documents and real edge cases in your operations, not synthetic data. The prototype is designed to be broken. We want to find the failure modes before they reach production.",
     details: [
-      "Use 50–200 real examples to test extraction and classification accuracy",
+      "Use 50–200 real examples to build the first test set",
       "Run the prototype alongside the existing workflow (not instead of it)",
       "Collect operator feedback in structured sessions, not casual observation",
-      "Measure against the specific metrics that matter: accuracy, coverage, latency",
+      "Measure against the baseline: accuracy, coverage, cost and speed",
     ],
     outcome: "A validated prototype that the team has stress-tested against real operational conditions.",
   },
@@ -50,29 +50,29 @@ const STEPS = [
     title: "Add reliability controls",
     duration: "Week 5–7",
     description:
-      "Before expanding scope, we instrument the system properly. Evaluations, monitoring, access controls, and audit trails are not afterthoughts. They are what separates a demo from a production system. This phase also includes the security review.",
+      "Before expanding scope, we instrument the system properly. Tests, compliance checks, monitoring, access controls and audit trails are not afterthoughts. They are what separates a demo from a production system. This phase also includes the security review.",
     details: [
-      "Evaluation framework: automated tests covering accuracy, edge cases, regressions",
-      "Monitoring: response quality tracking, latency alerts, volume dashboards",
-      "Access controls: role-based permissions, permission-aware retrieval",
-      "Audit trails: every agent action logged with inputs, outputs, and timestamps",
+      "Test suite: automated tests for accuracy, edge cases and regressions, run on every release",
+      "Compliance checks: safety, data protection and policy tests, where a failed critical check blocks the release",
+      "Monitoring: live quality, cost and rule-violation tracking, with alerts",
+      "Access controls and audit trails: role-based permissions, every agent action logged",
       "Escalation paths: defined criteria for when humans are pulled in",
     ],
     outcome: "A system that operators can trust, with full visibility into what it is doing and why.",
   },
   {
     number: "05",
-    title: "Expand carefully",
+    title: "Report and expand",
     duration: "Week 7+",
     description:
-      "Once the first workflow proves reliable and manageable, we move to adjacent processes. Expansion is earned, not assumed. Each new workflow repeats the same discipline: map, design, prototype, instrument. The system grows with confidence, not ambition.",
+      "Once the first workflow proves reliable, we publish the scorecard and move to adjacent processes. Expansion is earned, not assumed. Each new workflow repeats the same discipline: baseline, checks, prototype, controls. The system grows with confidence, not ambition.",
     details: [
+      "Report productivity, quality, cost and compliance against the baseline",
       "Define the expansion criteria before expanding: what does 'reliable' mean in numbers?",
       "Identify adjacent workflows that share inputs or agents with the first",
-      "Reuse the retrieval layer, evaluation framework, and monitoring infrastructure",
-      "Keep human review in place until the accuracy threshold is consistently met",
+      "Reuse the test sets, monitoring and scorecard, and keep human review until thresholds are consistently met",
     ],
-    outcome: "A growing system where each addition is as reliable as the first. The controls compound.",
+    outcome: "A growing system where each addition is as reliable as the first, and the numbers can be checked by finance.",
   },
 ];
 
@@ -90,7 +90,7 @@ const PRINCIPLES = [
   {
     title: "Controls are not optional",
     description:
-      "Evaluations, monitoring, and human review paths are built in during the prototype phase, not bolted on before launch. Production systems are instrumented systems.",
+      "Tests, compliance checks and monitoring are built in during the prototype phase, not bolted on before launch. Results are reported against a baseline set before launch.",
   },
   {
     title: "Operators own the workflow",
@@ -112,20 +112,20 @@ const OurProcess = () => {
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <Link
-              to="/#process"
+              to="/"
               className="mb-8 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-slate-500 dark:text-[#2a4060] transition-colors hover:text-blue-500"
             >
               ← Back
             </Link>
             <p className="mb-3 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
-              Implementation approach
+              How we work
             </p>
             <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-[#0f1e35] dark:text-slate-100 sm:text-5xl">
-              From workflow map to reliable AI system.
+              From baseline to a scorecard you can defend.
             </h1>
             <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
             <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
-              We start narrow, test against real examples, add controls early, and expand only after the workflow proves useful and manageable. Every engagement follows the same five phases.
+              We start narrow, test on real examples, add controls early, and expand when the numbers hold. Every engagement follows the same five phases.
             </p>
           </div>
         </section>
@@ -188,25 +188,31 @@ const OurProcess = () => {
         {/* Explore solutions */}
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-10 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Explore the solution stack</p>
+            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Explore the practice</p>
             <div className="flex flex-wrap gap-3">
+              <Link
+                to="/practice"
+                className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
+              >
+                Our Practice →
+              </Link>
               <Link
                 to="/pillars/ai-workflow-systems"
                 className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
               >
-                AI Workflow Systems →
+                Build: Workflow Systems →
               </Link>
               <Link
                 to="/pillars/autonomous-agents"
                 className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
               >
-                Autonomous Agents →
+                Build: Autonomous Agents →
               </Link>
               <Link
                 to="/pillars/ai-performance-monitoring"
                 className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
               >
-                AI Performance Monitoring →
+                Test, Protect, Monitor, Prove →
               </Link>
             </div>
           </div>
@@ -223,7 +229,7 @@ const OurProcess = () => {
             </div>
             <Link
               to="/contact"
-              className="flex-shrink-0 rounded-sm bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+              className="flex-shrink-0 rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
             >
               Start a conversation →
             </Link>

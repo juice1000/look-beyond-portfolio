@@ -1,4 +1,5 @@
 import { Language } from "../lib/i18n";
+import { costFaqAnswer } from "./pricing";
 
 export type IndustryAccent = "teal" | "amber" | "violet";
 
@@ -15,10 +16,15 @@ export interface IndustryWorkflow {
 
 export interface LandingPageContent {
   hero: {
-    eyebrow: string;
     headline: string;
     subheadline: string;
-    lifecycle: string[];
+    kpis: Array<{
+      value: string;
+      label: string;
+    }>;
+  };
+  trust: {
+    label: string;
   };
   outcomes: {
     eyebrow: string;
@@ -28,11 +34,23 @@ export interface LandingPageContent {
       source: string;
     };
     items: Array<{
+      eyebrow: string;
       title: string;
       description: string;
-      linkLabel?: string;
+      primaryLabel: string;
+      primaryHref: string;
+      secondaryLabel: string;
+      secondaryHref: string;
     }>;
-    linkLabel: string;
+  };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
+    moreLabel: string;
   };
   practice: {
     eyebrow: string;
@@ -80,6 +98,7 @@ export interface LandingPageContent {
       description: string;
     }>;
     closing: string;
+    method: string;
   };
   industries: {
     eyebrow: string;
@@ -119,11 +138,17 @@ export interface LandingPageContent {
 
 const englishContent: LandingPageContent = {
   hero: {
-    eyebrow: "AI operations for enterprises",
-    headline: "Keep your AI agents working.\nProve they pay off.",
+    headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "We make sure your AI agents keep doing their job, stay within the rules, and show what they return.",
-    lifecycle: ["Build", "Test", "Protect", "Monitor", "Prove"],
+      "We keep AI agents working in production, within the rules, and prove what they return.",
+    kpis: [
+      { value: "30K+", label: "people directly reached" },
+      { value: "1.5M+", label: "hours saved" },
+      { value: "€60M+", label: "in manual work value freed" },
+    ],
+  },
+  trust: {
+    label: "Trusted by",
   },
   outcomes: {
     eyebrow: "What you get",
@@ -134,23 +159,73 @@ const englishContent: LandingPageContent = {
     },
     items: [
       {
+        eyebrow: "Reliability",
         title: "It keeps working",
         description:
-          "Every agent is tested before release and watched after launch, so quality does not decline unnoticed.",
+          "Every agent is tested before release and watched after launch. Quality does not decline unnoticed, and failures in production become new tests.",
+        primaryLabel: "See how we test",
+        primaryHref: "/practice",
+        secondaryLabel: "Book a review call",
+        secondaryHref: "/contact",
       },
       {
+        eyebrow: "Compliance",
         title: "It stays within the rules",
         description:
-          "Safety, data protection and EU AI Act requirements are tested on every release, not just documented.",
-        linkLabel: "Our compliance approach",
+          "Safety, data protection and EU AI Act requirements become test cases that run on every release. A failed critical check stops the release.",
+        primaryLabel: "Our compliance approach",
+        primaryHref: "/compliance",
+        secondaryLabel: "Ask us anything",
+        secondaryHref: "/contact",
       },
       {
+        eyebrow: "Proof",
         title: "It shows its return",
         description:
-          "One scorecard reports time saved, cost per task and quality, in numbers finance can check.",
+          "One scorecard reports time saved, cost per task, quality and compliance against a baseline set before launch, in numbers finance can check.",
+        primaryLabel: "See the scorecard",
+        primaryHref: "/practice#scorecard",
+        secondaryLabel: "Book a review call",
+        secondaryHref: "/contact",
       },
     ],
-    linkLabel: "How we do it",
+  },
+  faq: {
+    eyebrow: "Questions",
+    heading: "What people ask before they start.",
+    items: [
+      {
+        question: "What does it cost to start?",
+        answer:
+          costFaqAnswer("en"),
+      },
+      {
+        question: "What do we have after the first weeks?",
+        answer:
+          "A baseline for one workflow, written pass criteria, and a first test set built from real cases. A proof of concept adds a working prototype checked against that baseline.",
+      },
+      {
+        question: "Do you also work on agents other teams built?",
+        answer:
+          "Yes. The testing, monitoring and scorecard layer works on any agent. We start by reviewing how it is tested and measured today.",
+      },
+      {
+        question: "How do you handle the EU AI Act and GDPR?",
+        answer:
+          "We classify each system by risk tier at the start, sign a data processing agreement before any personal data is processed, and test compliance requirements on every release.",
+      },
+      {
+        question: "Do we need to replace our current systems?",
+        answer:
+          "No. Agents are embedded in your existing systems and processes. Where off-the-shelf software does not fit, we can build the platform around your processes.",
+      },
+      {
+        question: "Who owns the tests and the scorecard?",
+        answer:
+          "You do. The test sets, the scorecard and the monitoring setup are handed over, and we train your team to run them.",
+      },
+    ],
+    moreLabel: "Another question? Talk to us",
   },
   practice: {
     eyebrow: "Our practice",
@@ -191,7 +266,7 @@ const englishContent: LandingPageContent = {
         source: "Gartner, June 2025",
       },
       {
-        text: "40% of enterprises will demote or decommission autonomous AI agents by 2027 because of governance gaps found only after production incidents.",
+        text: "40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance failures.",
         source: "Gartner, May 2026",
       },
     ],
@@ -277,15 +352,19 @@ const englishContent: LandingPageContent = {
       },
       {
         title: "Compliance",
-        description: "Safety, data protection and EU AI Act checks, per release.",
+        description:
+          "Safety, data protection and EU AI Act checks, per release.",
       },
       {
         title: "Context",
-        description: "Results by user attributes such as location and seniority.",
+        description:
+          "Results by user attributes such as location and seniority.",
       },
     ],
     closing:
       "Engineering sees technical metrics. The business sees cost, time and risk.",
+    method:
+      "How we estimate the headline figures: 30K+ users × 20% productivity gain × about 1 hour per day on affected workflows × 250 working days × €42/h blended cost (German public sector reference rate). Per-client scorecards use the client's own baseline.",
   },
   industries: {
     eyebrow: "Industries",
@@ -447,11 +526,17 @@ const englishContent: LandingPageContent = {
 const germanContent: LandingPageContent = {
   ...englishContent,
   hero: {
-    eyebrow: "KI-Betrieb für Unternehmen",
-    headline: "Ihre KI-Agenten laufen zuverlässig.\nMit Nachweis, dass sie sich lohnen.",
+    headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Wir sorgen dafür, dass Ihre KI-Agenten ihre Aufgabe erfüllen, die Regeln einhalten und zeigen, was sie einbringen.",
-    lifecycle: ["Bauen", "Testen", "Absichern", "Überwachen", "Belegen"],
+      "Wir halten KI-Agenten im Betrieb am Laufen, innerhalb der Regeln, und belegen, was sie einbringen.",
+    kpis: [
+      { value: "30K+", label: "Menschen direkt erreicht" },
+      { value: "1,5M+", label: "Stunden gespart" },
+      { value: "€60M+", label: "an manuellem Arbeitswert freigesetzt" },
+    ],
+  },
+  trust: {
+    label: "Vertraut von",
   },
   outcomes: {
     eyebrow: "Was Sie bekommen",
@@ -462,23 +547,73 @@ const germanContent: LandingPageContent = {
     },
     items: [
       {
+        eyebrow: "Zuverlässigkeit",
         title: "Es funktioniert dauerhaft",
         description:
-          "Jeder Agent wird vor dem Release getestet und nach dem Start überwacht, damit die Qualität nicht unbemerkt sinkt.",
+          "Jeder Agent wird vor dem Release getestet und nach dem Start überwacht. Die Qualität sinkt nicht unbemerkt, und Fehler im Betrieb werden zu neuen Tests.",
+        primaryLabel: "So testen wir",
+        primaryHref: "/practice",
+        secondaryLabel: "Gespräch buchen",
+        secondaryHref: "/contact",
       },
       {
+        eyebrow: "Compliance",
         title: "Es hält die Regeln ein",
         description:
-          "Sicherheit, Datenschutz und Anforderungen des EU AI Act werden bei jedem Release getestet, nicht nur dokumentiert.",
-        linkLabel: "Unser Compliance-Ansatz",
+          "Sicherheit, Datenschutz und Anforderungen des EU AI Act werden zu Testfällen, die bei jedem Release laufen. Eine nicht bestandene kritische Prüfung stoppt das Release.",
+        primaryLabel: "Unser Compliance-Ansatz",
+        primaryHref: "/compliance",
+        secondaryLabel: "Fragen Sie uns",
+        secondaryHref: "/contact",
       },
       {
+        eyebrow: "Nachweis",
         title: "Es belegt seinen Ertrag",
         description:
-          "Eine Scorecard zeigt eingesparte Zeit, Kosten pro Aufgabe und Qualität, in Zahlen, die das Controlling prüfen kann.",
+          "Eine Scorecard zeigt eingesparte Zeit, Kosten pro Aufgabe, Qualität und Compliance gegenüber einer Baseline vor dem Start, in Zahlen, die das Controlling prüfen kann.",
+        primaryLabel: "Die Scorecard ansehen",
+        primaryHref: "/practice#scorecard",
+        secondaryLabel: "Gespräch buchen",
+        secondaryHref: "/contact",
       },
     ],
-    linkLabel: "So gehen wir vor",
+  },
+  faq: {
+    eyebrow: "Fragen",
+    heading: "Was man uns vor dem Start fragt.",
+    items: [
+      {
+        question: "Was kostet der Einstieg?",
+        answer:
+          costFaqAnswer("de"),
+      },
+      {
+        question: "Was haben wir nach den ersten Wochen?",
+        answer:
+          "Eine Baseline für einen Workflow, schriftliche Bestehenskriterien und ein erstes Testset aus echten Fällen. Ein Proof of Concept ergänzt einen funktionierenden Prototyp, der gegen diese Baseline geprüft ist.",
+      },
+      {
+        question: "Arbeiten Sie auch an Agenten, die andere Teams gebaut haben?",
+        answer:
+          "Ja. Die Schicht aus Testen, Monitoring und Scorecard funktioniert für jeden Agenten. Wir beginnen mit einer Prüfung, wie er heute getestet und gemessen wird.",
+      },
+      {
+        question: "Wie gehen Sie mit EU AI Act und DSGVO um?",
+        answer:
+          "Wir ordnen jedes System zu Beginn einer Risikoklasse zu, schließen einen Auftragsverarbeitungsvertrag, bevor personenbezogene Daten verarbeitet werden, und testen Compliance-Anforderungen bei jedem Release.",
+      },
+      {
+        question: "Müssen wir bestehende Systeme ersetzen?",
+        answer:
+          "Nein. Agenten werden in Ihre bestehenden Systeme und Prozesse eingebettet. Wo Standard-Software nicht passt, können wir die Plattform nach Ihren Prozessen bauen.",
+      },
+      {
+        question: "Wem gehören die Tests und die Scorecard?",
+        answer:
+          "Ihnen. Testsets, Scorecard und Monitoring-Setup werden übergeben, und wir schulen Ihr Team im Betrieb.",
+      },
+    ],
+    moreLabel: "Noch eine Frage? Sprechen Sie uns an",
   },
   practice: {
     eyebrow: "Unsere Praxis",
@@ -519,7 +654,7 @@ const germanContent: LandingPageContent = {
         source: "Gartner, Juni 2025",
       },
       {
-        text: "40 % der Unternehmen werden autonome KI-Agenten bis 2027 zurückstufen oder abschalten, weil Governance-Lücken erst nach Vorfällen im Betrieb auffallen.",
+        text: "40 % der Unternehmen werden autonome KI-Agenten bis 2027 wegen Governance-Versagen zurückstufen oder abschalten.",
         source: "Gartner, Mai 2026",
       },
     ],
@@ -546,8 +681,7 @@ const germanContent: LandingPageContent = {
       },
       {
         title: "Testen",
-        description:
-          "Jedes Release gegen Testsets aus echten Fällen bewerten.",
+        description: "Jedes Release gegen Testsets aus echten Fällen bewerten.",
         signal: "Bestehensquote je Release",
       },
       {
@@ -576,7 +710,10 @@ const germanContent: LandingPageContent = {
     description:
       "Dieselben fünf Kennzahlen für jeden Agenten, damit sich ein Portfolio vergleichen lässt.",
     groups: [
-      { title: "Produktivität", description: "Zeitersparnis, Durchlaufzeit, Nacharbeit." },
+      {
+        title: "Produktivität",
+        description: "Zeitersparnis, Durchlaufzeit, Nacharbeit.",
+      },
       { title: "Qualität", description: "Bewertet gegen Benchmark-Daten." },
       {
         title: "Kosten",
@@ -584,15 +721,19 @@ const germanContent: LandingPageContent = {
       },
       {
         title: "Compliance",
-        description: "Sicherheits-, Datenschutz- und EU-AI-Act-Prüfungen, je Release.",
+        description:
+          "Sicherheits-, Datenschutz- und EU-AI-Act-Prüfungen, je Release.",
       },
       {
         title: "Kontext",
-        description: "Ergebnisse nach Nutzerattributen wie Standort und Seniorität.",
+        description:
+          "Ergebnisse nach Nutzerattributen wie Standort und Seniorität.",
       },
     ],
     closing:
       "Die Technik sieht technische Kennzahlen. Das Business sieht Kosten, Zeit und Risiko.",
+    method:
+      "So schätzen wir die Kennzahlen im Header: 30K+ Nutzer × 20 % Produktivitätsgewinn × etwa 1 Stunde pro Tag in betroffenen Workflows × 250 Arbeitstage × 42 €/h Mischkostensatz (Referenzsatz öffentlicher Dienst Deutschland). Scorecards einzelner Kunden nutzen die Baseline des jeweiligen Kunden.",
   },
   industries: {
     ...englishContent.industries,
@@ -608,8 +749,7 @@ const germanContent: LandingPageContent = {
             "Lieferantenbewertung korrekt halten, wenn sich Lieferanten ändern.",
           manufacturing:
             "Qualitäts-Triage über Werke hinweg konsistent halten.",
-          logistics:
-            "Status-Agenten korrekt halten, wenn sich Carrier ändern.",
+          logistics: "Status-Agenten korrekt halten, wenn sich Carrier ändern.",
         }[w.id] ?? w.positioning,
     })),
   },

@@ -4,8 +4,12 @@ import { Language } from "../lib/i18n";
 import { getLandingPageContent } from "../data/landingPage";
 import HeroSection, { AuroraBackground } from "./Home/HeroSection";
 import ClosingSection from "./Home/ClosingSection";
-import IndustriesStrip from "./Home/IndustriesStrip";
-import WhatYouGet from "./Home/WhatYouGet";
+import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
+import TrustStrip from "./Home/TrustStrip";
+import ValueRows from "./Home/ValueRows";
+import Testimonial from "./Home/Testimonial";
+import FaqSection from "./Home/FaqSection";
+import { clientLogos, testimonials } from "../data/credentials";
 import CaseStudyCards from "./Home/CaseStudyCards";
 
 const Home = ({
@@ -26,16 +30,22 @@ const Home = ({
       <main className="pt-20">
         <section id="home">
           <HeroSection
-            eyebrow={content.hero.eyebrow}
             title={content.hero.headline}
             subtitle={content.hero.subheadline}
-            lifecycle={content.hero.lifecycle}
+            kpis={content.hero.kpis}
             isDarkMode={isDarkMode}
           />
         </section>
-        <WhatYouGet content={content.outcomes} />
+        <TrustStrip label={content.trust.label} logos={clientLogos} />
+        <ValueRows
+          content={content.outcomes}
+          isDarkMode={isDarkMode}
+          overlap={clientLogos.length === 0}
+        />
+        <Testimonial items={testimonials} />
         <CaseStudyCards language={language} showHeader={true} limit={2} compact />
-        <IndustriesStrip content={content.industries} />
+        <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
+        <FaqSection content={content.faq} />
         <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>

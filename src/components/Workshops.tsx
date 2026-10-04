@@ -31,7 +31,7 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
         workshops: [
           "Co-Design eines Knowledge-Retrieval-Agenten oder einer Custom-Datenplattform",
           "POC-Entwicklung für den spezifisch gemappten Workflow",
-          "KI-Performance-Monitoring-Retainer oder Governance-Layer-Design",
+          "Ein Betriebs-Retainer: laufendes Testen, Monitoring und Scorecard-Reporting",
         ],
       }
     : {
@@ -39,7 +39,7 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
         workshops: [
           "Co-design of a knowledge retrieval agent or custom data platform",
           "POC development targeting the specific workflow mapped in the session",
-          "AI performance monitoring retainer or governance layer design",
+          "An operations retainer: continuous testing, monitoring and scorecard reporting",
         ],
       };
 
@@ -65,7 +65,35 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
         </p>
 
         <div className="space-y-6">
-          {/* Workshop 1 */}
+          {/* Workshop 1 (clinic) */}
+          <div className={GLASS}>
+            <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
+            <h2 className="mb-4 text-2xl font-semibold text-[#0f1e35] dark:text-slate-100">
+              {t("workshops.workshop3.title", language)}
+            </h2>
+            <p className="mb-4 text-base text-[#4a6a8a]">
+              {t("workshops.workshop3.description", language)}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300">
+                {t("workshops.workshop3.tag1", language)}
+              </span>
+              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300">
+                {t("workshops.workshop3.tag2", language)}
+              </span>
+            </div>
+            <div className="mt-6 flex items-center gap-2 text-sm text-slate-500 dark:text-[#4a6a8a] border-t border-white/30 dark:border-[#0f1e35] pt-4">
+              <ArrowRight className="h-4 w-4 shrink-0 text-blue-500" />
+              <span>
+                <span className="font-medium text-[#0f1e35] dark:text-slate-300">
+                  {leadsTo.label}:
+                </span>{" "}
+                {leadsTo.workshops[2]}
+              </span>
+            </div>
+          </div>
+
+          {/* Workshop 2 */}
           <div className={GLASS}>
             <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
             <h2 className="mb-4 text-2xl font-semibold text-[#0f1e35] dark:text-slate-100">
@@ -93,7 +121,7 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
             </div>
           </div>
 
-          {/* Workshop 2 */}
+          {/* Workshop 3 */}
           <div className={GLASS}>
             <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
             <h2 className="mb-4 text-2xl font-semibold text-[#0f1e35] dark:text-slate-100">
@@ -117,34 +145,6 @@ const Workshops = ({ language = "en" }: WorkshopsProps) => {
                   {leadsTo.label}:
                 </span>{" "}
                 {leadsTo.workshops[1]}
-              </span>
-            </div>
-          </div>
-
-          {/* Workshop 3 */}
-          <div className={GLASS}>
-            <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
-            <h2 className="mb-4 text-2xl font-semibold text-[#0f1e35] dark:text-slate-100">
-              {t("workshops.workshop3.title", language)}
-            </h2>
-            <p className="mb-4 text-base text-[#4a6a8a]">
-              {t("workshops.workshop3.description", language)}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300">
-                {t("workshops.workshop3.tag1", language)}
-              </span>
-              <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300">
-                {t("workshops.workshop3.tag2", language)}
-              </span>
-            </div>
-            <div className="mt-6 flex items-center gap-2 text-sm text-slate-500 dark:text-[#4a6a8a] border-t border-white/30 dark:border-[#0f1e35] pt-4">
-              <ArrowRight className="h-4 w-4 shrink-0 text-blue-500" />
-              <span>
-                <span className="font-medium text-[#0f1e35] dark:text-slate-300">
-                  {leadsTo.label}:
-                </span>{" "}
-                {leadsTo.workshops[2]}
               </span>
             </div>
           </div>

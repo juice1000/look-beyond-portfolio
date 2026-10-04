@@ -49,6 +49,9 @@ const ScorecardSection = ({ content }: ScorecardSectionProps) => {
         <p className="mt-6 max-w-3xl text-sm font-medium text-[#0f1e35] dark:text-slate-100">
           {content.closing}
         </p>
+        <p className="mt-4 max-w-3xl font-mono text-[0.65rem] uppercase leading-5 tracking-widest text-slate-500 dark:text-[#4a6a8a]">
+          {content.method}
+        </p>
       </div>
     </section>
   );

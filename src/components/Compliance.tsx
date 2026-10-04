@@ -394,7 +394,7 @@ const Compliance = () => {
             </div>
             <Link
               to="/contact"
-              className="flex-shrink-0 rounded-sm bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+              className="flex-shrink-0 rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
             >
               Start a conversation →
             </Link>

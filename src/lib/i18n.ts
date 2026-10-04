@@ -388,7 +388,7 @@ export const translations: Translations = {
       "Identify workflows where automation removes manual coordination and unlocks measurable value.",
     "aiReadiness.section3.title": "Trust and governance",
     "aiReadiness.section3.content":
-      "Review evaluation, monitoring, and change-management practices to keep AI safe to scale.",
+      "Review how AI is tested, monitored and kept compliant, and whether you can show its return.",
     "aiReadiness.cta.title": "Curious how far you've come?",
     "aiReadiness.cta.description1":
       "Run a complimentary AI readiness assessment with us to see the next steps worth tackling.",
@@ -398,46 +398,40 @@ export const translations: Translations = {
     // Pricing & Engagement Section
     "pricingEngagement.title": "Pricing & Engagement",
     "pricingEngagement.description":
-      "Transparent starting points for workshops, prototypes, and scaling work.",
+      "Transparent starting points for reviews, prototypes, and ongoing operations.",
     "pricingEngagement.tiers.free.title": "First meeting",
     "pricingEngagement.tiers.free.price": "Free",
     "pricingEngagement.tiers.free.description":
-      "A short working session to map the workflow, surface constraints, and decide whether a workshop or POC is the right next step.",
-    "pricingEngagement.tiers.free.item1": "Workflow framing and priority check",
+      "A short working session to review one agent or workflow, surface constraints, and decide whether a workshop or POC is the right next step.",
+    "pricingEngagement.tiers.free.item1": "Review of one agent or workflow",
     "pricingEngagement.tiers.free.item2": "No charge, no deck, no commitment",
     "pricingEngagement.tiers.workshop.title": "Discovery workshop",
-    "pricingEngagement.tiers.workshop.price": "Starting at $2K USD",
     "pricingEngagement.tiers.workshop.description":
-      "A focused workshop to understand the process, define the pipeline, and identify what should be automated first.",
+      "A focused workshop to understand the process, set the baseline, and define what should be built and tested first.",
     "pricingEngagement.tiers.workshop.item1":
-      "Process mapping and stakeholder review",
+      "Process mapping and baseline",
     "pricingEngagement.tiers.workshop.item2":
-      "Workflow opportunities and risks",
+      "Opportunities, risks and success measures",
     "pricingEngagement.tiers.workshop.item3": "Next-step recommendation",
     "pricingEngagement.tiers.poc.title": "POC development",
-    "pricingEngagement.tiers.poc.price": "Starting at $15K USD",
     "pricingEngagement.tiers.poc.description":
-      "A working prototype built against real examples so you can validate usefulness, controls, and edge cases before scaling.",
-    "pricingEngagement.tiers.poc.item1": "Prototype build and testing",
+      "A working prototype built against real examples, with its first test set, so you can validate usefulness, controls and compliance before scaling.",
+    "pricingEngagement.tiers.poc.item1": "Prototype build and first test set",
     "pricingEngagement.tiers.poc.item2":
       "Real sample data and exception handling",
     "pricingEngagement.tiers.poc.item3": "Review loop and handoff plan",
-    "pricingEngagement.tiers.retainer.title": "Scaling solutions",
+    "pricingEngagement.tiers.retainer.title": "Operations retainer",
     "pricingEngagement.tiers.retainer.price": "Retainer basis",
     "pricingEngagement.tiers.retainer.description":
-      "Ongoing implementation support for adjacent workflows, improvements, monitoring, and operational rollout.",
-    "pricingEngagement.tiers.retainer.item1": "Continuous delivery support",
-    "pricingEngagement.tiers.retainer.item2": "Monitoring and refinements",
+      "Ongoing testing, monitoring and scorecard reporting for your agents, plus delivery of adjacent workflows.",
+    "pricingEngagement.tiers.retainer.item1": "Continuous testing and monitoring",
+    "pricingEngagement.tiers.retainer.item2": "Regular scorecard reporting",
     "pricingEngagement.tiers.retainer.item3": "Roadmap for adjacent workflows",
     "pricingEngagement.details.title": "Good to know",
     "pricingEngagement.details.point1":
       "Each phase is scoped tightly: workshops map one workflow, POCs build one working prototype. You know what's delivered before you commit to the next phase.",
-    "pricingEngagement.details.point2":
-      "Workshops run around 3 days on average, depending on scale. POCs can land in 2 weeks if scope stays tight.",
     "pricingEngagement.details.point3":
       "Pricing covers our team's time and delivery. Third-party tooling or infrastructure costs are agreed upfront, never a surprise on the invoice.",
-    "pricingEngagement.details.point4":
-      "Move from a workshop into a POC and your workshop fee is credited toward the project.",
     "pricingEngagement.pricing.title": "How we scope",
     "pricingEngagement.pricing.description":
       "We align work around measurable outcomes instead of vanity experiments.",
@@ -446,12 +440,12 @@ export const translations: Translations = {
     "pricingEngagement.pricing.point2":
       "Build & automate pods: A senior cross-functional team embedded to design, ship, and iterate.",
     "pricingEngagement.pricing.point3":
-      "Enablement retainers: Continuous improvement, evaluation, and training loops for internal teams.",
+      "Operating retainers: continuous testing, monitoring and reporting, with training for internal teams.",
     "pricingEngagement.engagement.title": "How we collaborate",
     "pricingEngagement.engagement.description":
       "Clear checkpoints keep delivery pragmatic and transparent.",
     "pricingEngagement.engagement.point1":
-      "Co-defined roadmap anchored in workflow data and business outcomes.",
+      "Co-defined roadmap anchored in a baseline and business outcomes.",
     "pricingEngagement.engagement.point2":
       "Fast pilots with measurable checkpoints before broader rollout.",
     "pricingEngagement.engagement.point3":
@@ -460,7 +454,7 @@ export const translations: Translations = {
     // Workshops Section
     "workshops.title": "Workshops",
     "workshops.description":
-      "Hands-on sessions that equip teams to design, govern, and operationalize AI.",
+      "Hands-on sessions that equip teams to design, test, and operate AI.",
     "workshops.workshop1.title": "Knowledge synthesis lab",
     "workshops.workshop1.description":
       "Design how internal documents, data, and expert input become decision-ready context for AI systems.",
@@ -471,11 +465,11 @@ export const translations: Translations = {
       "Map and prototype AI-powered automations that remove manual coordination from core processes.",
     "workshops.workshop2.tag1": "Automation",
     "workshops.workshop2.tag2": "Workflow",
-    "workshops.workshop3.title": "Reliability & governance clinic",
+    "workshops.workshop3.title": "Reliability & compliance clinic",
     "workshops.workshop3.description":
-      "Establish evaluation, monitoring, and change-control practices that keep AI safe to scale.",
-    "workshops.workshop3.tag1": "Reliability",
-    "workshops.workshop3.tag2": "Governance",
+      "Set up the testing, compliance checks, and monitoring that keep AI working in production, and the scorecard that proves it.",
+    "workshops.workshop3.tag1": "Testing",
+    "workshops.workshop3.tag2": "Compliance",
 
     // Footer
     "footer.company": "Company",
@@ -883,7 +877,7 @@ export const translations: Translations = {
       "Identifizieren Sie Workflows, in denen Automatisierung messbare Effekte erzielt.",
     "aiReadiness.section3.title": "Trust & Governance",
     "aiReadiness.section3.content":
-      "Prüfen Sie Evaluation, Monitoring und Change-Management, um KI sicher zu skalieren.",
+      "Prüfen Sie, wie KI getestet, überwacht und regelkonform gehalten wird und ob Sie ihren Ertrag belegen können.",
     "aiReadiness.cta.title": "Wie weit sind Sie?",
     "aiReadiness.cta.description1":
       "Machen Sie mit uns ein kostenloses Readiness-Assessment und bestimmen Sie die nächsten Schritte.",
@@ -893,49 +887,43 @@ export const translations: Translations = {
     // Pricing & Engagement
     "pricingEngagement.title": "Pricing & Collaboration",
     "pricingEngagement.description":
-      "Transparente Einstiegspunkte für Workshops, Prototypen und Skalierung.",
+      "Transparente Einstiegspunkte für Reviews, Prototypen und laufenden Betrieb.",
     "pricingEngagement.tiers.free.title": "Erstes Meeting",
     "pricingEngagement.tiers.free.price": "Kostenlos",
     "pricingEngagement.tiers.free.description":
-      "Ein kurzes Arbeitstreffen, um den Workflow zu skizzieren, Rahmenbedingungen zu prüfen und zu entscheiden, ob Workshop oder POC der nächste Schritt ist.",
+      "Eine kurze Arbeitssitzung, in der wir einen Agenten oder Workflow prüfen, Einschränkungen aufdecken und klären, ob ein Workshop oder POC der richtige nächste Schritt ist.",
     "pricingEngagement.tiers.free.item1":
-      "Workflow-Orientierung und Priorisierung",
+      "Review eines Agenten oder Workflows",
     "pricingEngagement.tiers.free.item2":
       "Ohne Kosten, ohne Deck, ohne Verpflichtung",
     "pricingEngagement.tiers.workshop.title": "Discovery-Workshop",
-    "pricingEngagement.tiers.workshop.price": "Ab 2K USD",
     "pricingEngagement.tiers.workshop.description":
-      "Ein fokussierter Workshop, um den Prozess zu verstehen, die Pipeline zu definieren und zu bestimmen, was zuerst automatisiert werden sollte.",
+      "Ein fokussierter Workshop, um den Prozess zu verstehen, die Baseline festzulegen und zu bestimmen, was zuerst gebaut und getestet wird.",
     "pricingEngagement.tiers.workshop.item1":
-      "Prozessmapping und Stakeholder-Review",
-    "pricingEngagement.tiers.workshop.item2": "Chancen und Risiken im Workflow",
+      "Prozesserfassung und Baseline",
+    "pricingEngagement.tiers.workshop.item2": "Chancen, Risiken und Erfolgskennzahlen",
     "pricingEngagement.tiers.workshop.item3":
       "Empfehlung für den nächsten Schritt",
     "pricingEngagement.tiers.poc.title": "POC-Entwicklung",
-    "pricingEngagement.tiers.poc.price": "Ab 15K USD",
     "pricingEngagement.tiers.poc.description":
-      "Ein funktionierender Prototyp auf Basis realer Beispiele, um Nutzen, Kontrollen und Edge Cases vor dem Skalieren zu validieren.",
-    "pricingEngagement.tiers.poc.item1": "Prototype Build und Tests",
+      "Ein funktionierender Prototyp auf Basis echter Beispiele, mit erstem Testset, damit Sie Nutzen, Kontrollen und Compliance vor der Skalierung prüfen können.",
+    "pricingEngagement.tiers.poc.item1": "Prototyp und erstes Testset",
     "pricingEngagement.tiers.poc.item2":
       "Reale Beispieldaten und Ausnahmebehandlung",
     "pricingEngagement.tiers.poc.item3": "Review-Schleife und Übergabeplan",
-    "pricingEngagement.tiers.retainer.title": "Skalierungslösungen",
+    "pricingEngagement.tiers.retainer.title": "Betriebs-Retainer",
     "pricingEngagement.tiers.retainer.price": "Auf Retainer-Basis",
     "pricingEngagement.tiers.retainer.description":
-      "Laufende Unterstützung bei angrenzenden Workflows, Verbesserungen, Monitoring und operativem Rollout.",
+      "Laufendes Testen, Monitoring und Scorecard-Reporting für Ihre Agenten, plus Umsetzung angrenzender Workflows.",
     "pricingEngagement.tiers.retainer.item1":
-      "Kontinuierliche Delivery-Unterstützung",
-    "pricingEngagement.tiers.retainer.item2": "Monitoring und Optimierungen",
+      "Kontinuierliches Testen und Monitoring",
+    "pricingEngagement.tiers.retainer.item2": "Regelmäßiges Scorecard-Reporting",
     "pricingEngagement.tiers.retainer.item3": "Roadmap für weitere Workflows",
     "pricingEngagement.details.title": "Gut zu wissen",
     "pricingEngagement.details.point1":
       "Jede Phase ist klar abgegrenzt: Workshops kartieren einen Workflow, POCs bauen einen funktionierenden Prototyp. Sie wissen, was geliefert wird, bevor Sie sich für die nächste Phase entscheiden.",
-    "pricingEngagement.details.point2":
-      "Workshops dauern im Schnitt etwa 3 Tage, je nach Umfang. POCs sind bei eng gehaltenem Scope in 2 Wochen umsetzbar.",
     "pricingEngagement.details.point3":
       "Der Preis deckt Zeit und Umsetzung unseres Teams ab. Kosten für Drittanbieter-Tools oder Infrastruktur werden vorab abgestimmt, keine Überraschungen auf der Rechnung.",
-    "pricingEngagement.details.point4":
-      "Steigen Sie vom Workshop in einen POC ein, wird die Workshop-Gebühr auf das Projekt angerechnet.",
     "pricingEngagement.pricing.title": "So scopen wir",
     "pricingEngagement.pricing.description":
       "Wir richten Arbeit an messbaren Outcomes statt an Showcases aus.",
@@ -944,12 +932,12 @@ export const translations: Translations = {
     "pricingEngagement.pricing.point2":
       "Build & Automation Pods: Eingebettetes Senior-Team, das designed, liefert und iteriert.",
     "pricingEngagement.pricing.point3":
-      "Enablement-Retainer: Kontinuierliche Verbesserung, Evaluation und Training.",
+      "Betriebs-Retainer: laufendes Testen, Monitoring und Reporting, mit Training für interne Teams.",
     "pricingEngagement.engagement.title": "So arbeiten wir zusammen",
     "pricingEngagement.engagement.description":
       "Transparente Checkpoints halten Delivery pragmatisch.",
     "pricingEngagement.engagement.point1":
-      "Gemeinsame Roadmaps auf Basis von Workflow-Daten und Business-Zielen.",
+      "Gemeinsam definierte Roadmap, verankert in einer Baseline und Geschäftsergebnissen.",
     "pricingEngagement.engagement.point2":
       "Schnelle Piloten mit klaren Messpunkten vor größerem Rollout.",
     "pricingEngagement.engagement.point3":
@@ -958,7 +946,7 @@ export const translations: Translations = {
     // Workshops
     "workshops.title": "Workshops",
     "workshops.description":
-      "Hands-on-Formate, die Teams für Design, Governance und Betrieb von KI wappnen.",
+      "Praxisnahe Sessions, die Teams befähigen, KI zu gestalten, zu testen und zu betreiben.",
     "workshops.workshop1.title": "Knowledge Synthesis Lab",
     "workshops.workshop1.description":
       "Wir entwerfen, wie Dokumente, Daten und Expertise zu kontextreicher Entscheidungsunterstützung werden.",
@@ -969,11 +957,11 @@ export const translations: Translations = {
       "Wir kartieren und prototypen Automatisierungen, die manuelle Koordination eliminieren.",
     "workshops.workshop2.tag1": "Automatisierung",
     "workshops.workshop2.tag2": "Workflow",
-    "workshops.workshop3.title": "Reliability & Governance Clinic",
+    "workshops.workshop3.title": "Reliability & Compliance Clinic",
     "workshops.workshop3.description":
-      "Wir etablieren Evaluation, Monitoring und Change-Control für skalierbare KI.",
-    "workshops.workshop3.tag1": "Reliability",
-    "workshops.workshop3.tag2": "Governance",
+      "Testing, Compliance-Prüfungen und Monitoring aufsetzen, die KI im Betrieb zuverlässig halten, samt Scorecard als Beleg.",
+    "workshops.workshop3.tag1": "Testing",
+    "workshops.workshop3.tag2": "Compliance",
 
     // Footer
     "footer.company": "Unternehmen",

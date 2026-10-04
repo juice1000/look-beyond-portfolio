@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import { AuroraBackground } from "./Home/HeroSection";
+import { PRICING, startingAt, formalOfferNote } from "../data/pricing";
 
 interface PricingEngagementProps {
   language?: Language;
@@ -25,7 +26,7 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
     },
     {
       title: t("pricingEngagement.tiers.workshop.title", language),
-      price: t("pricingEngagement.tiers.workshop.price", language),
+      price: startingAt(PRICING.workshop.fromEur, language),
       description: t("pricingEngagement.tiers.workshop.description", language),
       highlight: false,
       items: [
@@ -36,7 +37,7 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
     },
     {
       title: t("pricingEngagement.tiers.poc.title", language),
-      price: t("pricingEngagement.tiers.poc.price", language),
+      price: startingAt(PRICING.poc.fromEur, language),
       description: t("pricingEngagement.tiers.poc.description", language),
       highlight: false,
       items: [
@@ -62,48 +63,48 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
 
   const capabilities = isDE
     ? {
-        eyebrow: "Was wir bauen",
-        heading: "Der Umfang richtet sich danach, wo der größte Hebel liegt.",
+        eyebrow: "Was wir betreiben",
+        heading: "Von der Entwicklung bis zum Nachweis des Ertrags.",
         description:
-          "Was wir am Ende bauen, hängt von dem ab, was wir gemeinsam entdecken. KI-Workflow-Systeme, Custom Platforms, ERP-Integrationen und Dateninfrastruktur gehören alle zu unserem Leistungsangebot, oft in Kombination.",
+          "Wir bauen Agenten und betreiben die Schicht, die sie zuverlässig hält: Tests, Compliance-Prüfungen, Monitoring und Reporting. Auch für Agenten, die andere Teams gebaut haben.",
         items: [
           {
-            label: "KI-Workflow-Systeme & Agenten",
+            label: "Agenten & Workflow-Systeme bauen",
             description:
-              "Spezialisierte Agenten, die klassifizieren, weiterleiten, entwerfen und validieren, eingebettet in Ihre bestehenden Systeme und Prozesse.",
+              "Spezialisierte Agenten, eingebettet in Ihre Systeme und auf einem Datenfundament, das sie trägt. Wo Standard-Software nicht passt, bauen wir die Plattform nach Ihren Prozessen.",
           },
           {
-            label: "Custom Platforms & ERP",
+            label: "Testen und absichern",
             description:
-              "Wenn Standard-Software nicht passt, bauen wir die Plattform nach Ihren Prozessen. Von ERPNext bis Microsoft Business Central.",
+              "Testsets aus echten Fällen, Sicherheits-, Datenschutz- und Compliance-Prüfungen bei jedem Release. Kritische Fehlschläge stoppen das Release.",
           },
           {
-            label: "Dateninfrastruktur",
+            label: "Überwachen und belegen",
             description:
-              "BigQuery, dbt und MLOps-Pipelines: das Datenfundament, das KI-Systeme in der Produktion zum Laufen bringt.",
+              "Laufende Überwachung von Qualität, Kosten und Regelverstößen, dazu eine Scorecard, die Zeitersparnis, Kosten pro Aufgabe und Ertrag zeigt.",
           },
         ],
       }
     : {
-        eyebrow: "What we build",
-        heading: "The scope follows wherever the biggest gains are.",
+        eyebrow: "What we run",
+        heading: "From building the agent to proving its return.",
         description:
-          "What gets built depends on what the discovery surfaces. AI workflow systems, custom platforms, ERP integrations, and data infrastructure are all part of what we deliver, often in combination.",
+          "We build agents and run the layer that keeps them reliable: testing, compliance checks, monitoring and reporting. This also applies to agents other teams built.",
         items: [
           {
-            label: "AI workflow systems & agents",
+            label: "Build agents and workflow systems",
             description:
-              "Specialized agents that classify, route, draft, and validate work, embedded into your existing systems and processes.",
+              "Specialized agents embedded in your systems, on data foundations that support them. Where off-the-shelf software does not fit, we build the platform around your processes.",
           },
           {
-            label: "Custom platforms & ERP",
+            label: "Test and protect",
             description:
-              "When off-the-shelf software doesn't fit your processes, we build the platform around them instead. From ERPNext to Microsoft Business Central.",
+              "Test sets from real cases, plus safety, data protection and compliance checks on every release. A failed critical check stops the release.",
           },
           {
-            label: "Data infrastructure",
+            label: "Monitor and prove",
             description:
-              "BigQuery, dbt, and MLOps pipelines: the data foundations that make AI systems work in production.",
+              "Live tracking of quality, cost and rule violations, and a scorecard that shows time saved, cost per task and return.",
           },
         ],
       };
@@ -198,9 +199,8 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
           <ul className="space-y-3 text-[#4a6a8a]">
             {[
               t("pricingEngagement.details.point1", language),
-              t("pricingEngagement.details.point2", language),
               t("pricingEngagement.details.point3", language),
-              t("pricingEngagement.details.point4", language),
+              formalOfferNote(language),
             ].map((detail) => (
               <li key={detail} className="flex items-start gap-2">
                 <span className="mt-1 text-blue-500">•</span>

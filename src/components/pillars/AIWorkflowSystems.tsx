@@ -79,7 +79,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
               </Link>
               <div className="mb-5 flex items-center gap-3">
                 <span className="font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
-                  Pillar 01
+                  Build
                 </span>
                 <span className="h-px w-6 bg-white/40 dark:bg-[#0f1e35]" />
                 <span className="font-mono text-[0.65rem] uppercase tracking-widest text-[#2a4060]">
@@ -92,7 +92,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
               <div className="mb-6 h-1 w-10 rounded-full bg-blue-600" />
               <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
                 Connected pipelines that classify, route, validate, approve, and
-                log operational work.
+                log operational work, built so they can be tested and monitored.
               </p>
             </div>
             <PillarAnimationPanel kind="workflow" isDarkMode={isDarkMode} />
@@ -214,7 +214,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
                 <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Pillar 02</p>
+                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Build</p>
                     <h3 className="mb-2 text-base font-semibold text-[#0f1e35] dark:text-slate-100">Autonomous Agents</h3>
                     <p className="text-sm leading-6 text-[#4a6a8a]">Decision-making agents that act within defined boundaries.</p>
                   </div>
@@ -228,7 +228,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
                 <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Pillar 03</p>
+                    <p className="mb-1 font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">Test · Protect · Monitor · Prove</p>
                     <h3 className="mb-2 text-base font-semibold text-[#0f1e35] dark:text-slate-100">AI Performance Monitoring</h3>
                     <p className="text-sm leading-6 text-[#4a6a8a]">Evaluate and observe AI outputs in production.</p>
                   </div>
@@ -253,7 +253,7 @@ const AIWorkflowSystems = ({ isDarkMode }: AIWorkflowSystemsProps) => {
               </div>
               <Link
                 to="/contact"
-                className="flex-shrink-0 rounded-sm bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+                className="flex-shrink-0 rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
               >
                 Start a conversation →
               </Link>

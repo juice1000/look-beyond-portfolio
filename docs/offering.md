@@ -110,7 +110,7 @@ Several strong case studies (Strict, Expresssteuer, R-Cycle, Cinoware) are in th
 
 ## 5. Engagement Model — Clarify the Path
 
-The current engagement ladder (free call → $2K workshop → $15K POC → retainer) is solid but doesn't reflect the custom platform track, which has a different sales motion. Add a parallel path:
+The current engagement ladder (free call → €4.5K workshop → €15K POC → retainer) is solid but doesn't reflect the custom platform track, which has a different sales motion. Add a parallel path:
 
 **For AI workflow / agent work:** Free call → Discovery Workshop → POC → Retainer  
 **For custom platform builds:** Free call → Scoping session → Fixed-scope build → Subscription/maintenance retainer
