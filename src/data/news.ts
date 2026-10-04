@@ -544,7 +544,7 @@ export const newsUi: Localized<{
 }> = {
   en: {
     eyebrow: "News",
-    heading: "Dinners and articles on AI in production.",
+    heading: "News on AI in production.",
     intro: "What we are doing beyond client work.",
     seriesLabel: "The series",
     upcoming: "Upcoming",
@@ -561,7 +561,7 @@ export const newsUi: Localized<{
   },
   de: {
     eyebrow: "News",
-    heading: "Dinner und Artikel über KI im Betrieb.",
+    heading: "News über KI im Betrieb.",
     intro: "Was wir jenseits der Kundenprojekte tun.",
     seriesLabel: "Die Reihe",
     upcoming: "Demnächst",
