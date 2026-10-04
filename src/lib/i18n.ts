@@ -19,6 +19,7 @@ export const translations: Translations = {
     "nav.partners": "Partners",
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
+    "nav.practice": "Our Practice",
     "nav.ourProcess": "Our Process",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
@@ -64,16 +65,9 @@ export const translations: Translations = {
     // Partners Page
     "partners.title": "Partners",
     "partners.subtitle":
-      "Selected partners that extend our delivery capabilities across procurement, AI operations, document intelligence, and app delivery.",
+      "Selected partners that extend our delivery capabilities across AI operations, document intelligence, and app delivery.",
     "partners.intro":
       "Each partner covers a distinct part of the stack. Together we cover discovery, implementation, and ongoing operations without stretching into weak spots.",
-    "partners.sourcera.name": "Sourcera",
-    "partners.sourcera.url": "sourcera.ai",
-    "partners.sourcera.role": "Procurement solution",
-    "partners.sourcera.capability":
-      "Procurement intelligence that automates tenders and surfaces savings.",
-    "partners.sourcera.point1": "Tender automation and supplier scoring",
-    "partners.sourcera.point2": "EU data residency and compliance posture",
     "partners.innovandio.name": "Innovandio",
     "partners.innovandio.url": "innovandio.com",
     "partners.innovandio.role": "AI operations specialist",
@@ -130,10 +124,6 @@ export const translations: Translations = {
       "Relevant work across procurement intelligence, document-to-data workflows, knowledge systems, and AI reliability.",
     "caseStudies.cta": "Explore the work",
     "caseStudies.enables": "What this enables",
-    "caseStudies.marketing.title": "Sprinkenhof",
-    "caseStudies.marketing.painPoint":
-      "Turning 1.5M documents into decision-ready knowledge.",
-    "caseStudies.marketing.kpi": "Faster access to trusted insights",
     "caseStudies.sales.title": "FGS Global",
     "caseStudies.sales.painPoint":
       "Evaluation and monitoring for safer enterprise AI.",
@@ -157,47 +147,34 @@ export const translations: Translations = {
     "caseStudies.strict.bullet4":
       "Projected to free 2+ hours per person daily, representing measurable recoverable capacity across the entire backoffice",
 
-    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
-    "caseStudies.sprinkenhof.tagline":
-      "Turning fragmented document landscapes into decision-ready knowledge",
-    "caseStudies.sprinkenhof.description":
-      "Sprinkenhof manages a large and complex document environment with around 1.5 million files across many structures, classes, and permission layers. Important knowledge is distributed across documents, systems, and organizational contexts, making it difficult to find and use the right information.",
-    "caseStudies.sprinkenhof.bullet1":
-      "Faster access to relevant internal knowledge",
-    "caseStudies.sprinkenhof.bullet2":
-      "Less time spent searching across complex document environments",
-    "caseStudies.sprinkenhof.bullet3":
-      "Better-informed decision making in knowledge-heavy workflows",
-    "caseStudies.sprinkenhof.bullet4":
-      "A foundation for AI support in highly regulated enterprise contexts",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "An enterprise AI platform purpose-built for advisory work, with continuous quality assurance built in",
+      "One scorecard for 30+ agents across different use cases.",
     "caseStudies.fgs.description":
-      "FGS Global needed an AI system their advisory teams could trust for high-stakes client work across M&A, IPO communications, deep research, and stakeholder analysis. We built the Fergus platform: dedicated AI agents for each advisory domain, a structured quality assurance layer that continuously tests output against 500+ real-world scenarios, and a monitoring dashboard giving operations full visibility into performance and reliability.",
+      "FGS Global runs specialist AI agents for M&A, IPO communications, research and stakeholder analysis. We built the evaluation and monitoring layer so every agent is graded the same way and every release is tested before it ships.",
     "caseStudies.fgs.bullet1":
-      "30+ specialist agents for M&A, IPO, research, and stakeholder work, each shaped to the task so advisors get relevant, contextually appropriate output",
+      "Productivity, quality and cost graded on one unified scale across use cases",
     "caseStudies.fgs.bullet2":
-      "Continuous quality assurance across 500+ test scenarios that catches errors and inconsistencies before they reach advisory teams",
+      "Results split by user context, including location and seniority",
     "caseStudies.fgs.bullet3":
-      "Full operational visibility into output quality, performance trends, and emerging issues, accessible through a dedicated analytics dashboard",
+      "Releases gated on critical checks such as hallucination, relevance and faithfulness",
     "caseStudies.fgs.bullet4":
-      "Flexible model architecture that lets the platform adopt new AI capabilities while maintaining consistent quality standards across every update",
+      "Production conversations reviewed and turned into new test cases",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "From raw spend data to sourcing decisions: an end-to-end AI platform for enterprise procurement",
+      "Saving opportunities scored against a benchmark, not by opinion.",
     "caseStudies.sourcera.description":
-      "Sourcera is a procurement intelligence platform that helps enterprise teams cut through the manual work of analysing spend, evaluating suppliers, and running sourcing events. We built the AI engine powering the platform: spend analysis that surfaces consolidation opportunities and prioritises where to act, supplier intelligence that scores and ranks vendors by capability and fit, and a document system that generates sourcing materials from structured data with approval checkpoints throughout.",
+      "Sourcera generates cost-saving opportunities from spend and supplier data. We built the evaluation that decides which opportunities are worth acting on. The process now runs without manual effort.",
     "caseStudies.sourcera.bullet1":
-      "Automated spend analysis turns raw transaction data into prioritised savings opportunities, surfacing consolidation potential and tail spend without manual research",
+      "Savings identified measured on the opportunities the system generates",
     "caseStudies.sourcera.bullet2":
-      "Unified supplier view across procurement systems, automatically resolving duplicates so teams always work from clean, consistent data",
+      "Output quality compared against benchmark datasets",
     "caseStudies.sourcera.bullet3":
-      "AI supplier scoring ranks vendors by capability, strategic fit, and evidence quality, replacing hours of manual research per sourcing event",
+      "Each opportunity scored on geographic relevance, critical suppliers and cross-domain suppliers",
     "caseStudies.sourcera.bullet4":
-      "Sourcing document generation produces RFx materials from structured supplier and spend data, with approval steps that keep procurement teams in full control",
+      "Fully automated, so scoring is repeatable across every run",
 
     "caseStudies.expresssteuer.tagline":
       "Rebuilding a cloud data foundation and cutting costs with AI-driven automation",
@@ -251,18 +228,6 @@ export const translations: Translations = {
     "caseStudies.cinoware.bullet4":
       "Selenium Grid testing suite with Allure reporting for systematic quality assurance",
 
-    "caseStudies.samgen.tagline":
-      "Building cloud infrastructure and MLOps pipelines for an industrial SaaS platform",
-    "caseStudies.samgen.description":
-      "SAMGEN is building a SaaS platform for industrial clients that depends on reliable cloud infrastructure and data-driven operations. We are designing the GCP architecture, implementing CI/CD workflows, and building MLOps pipelines to automate integrated model retraining across the platform.",
-    "caseStudies.samgen.bullet1":
-      "GCP cloud infrastructure designed and scaled for a multi-client industrial SaaS platform",
-    "caseStudies.samgen.bullet2":
-      "CI/CD deployment pipelines for streamlined and reliable release workflows",
-    "caseStudies.samgen.bullet3":
-      "Automated model retraining pipeline built in collaboration with the data science team",
-    "caseStudies.samgen.bullet4":
-      "Data-driven DevOps practices embedded across the engineering delivery process",
 
     "caseStudies.applai.tagline":
       "Automating job application workflows with an agentic AI pipeline",
@@ -423,7 +388,7 @@ export const translations: Translations = {
       "Identify workflows where automation removes manual coordination and unlocks measurable value.",
     "aiReadiness.section3.title": "Trust and governance",
     "aiReadiness.section3.content":
-      "Review evaluation, monitoring, and change-management practices to keep AI safe to scale.",
+      "Review how AI is tested, monitored and kept compliant, and whether you can show its return.",
     "aiReadiness.cta.title": "Curious how far you've come?",
     "aiReadiness.cta.description1":
       "Run a complimentary AI readiness assessment with us to see the next steps worth tackling.",
@@ -433,46 +398,40 @@ export const translations: Translations = {
     // Pricing & Engagement Section
     "pricingEngagement.title": "Pricing & Engagement",
     "pricingEngagement.description":
-      "Transparent starting points for workshops, prototypes, and scaling work.",
+      "Transparent starting points for reviews, prototypes, and ongoing operations.",
     "pricingEngagement.tiers.free.title": "First meeting",
     "pricingEngagement.tiers.free.price": "Free",
     "pricingEngagement.tiers.free.description":
-      "A short working session to map the workflow, surface constraints, and decide whether a workshop or POC is the right next step.",
-    "pricingEngagement.tiers.free.item1": "Workflow framing and priority check",
+      "A short working session to review one agent or workflow, surface constraints, and decide whether a workshop or POC is the right next step.",
+    "pricingEngagement.tiers.free.item1": "Review of one agent or workflow",
     "pricingEngagement.tiers.free.item2": "No charge, no deck, no commitment",
     "pricingEngagement.tiers.workshop.title": "Discovery workshop",
-    "pricingEngagement.tiers.workshop.price": "Starting at $2K USD",
     "pricingEngagement.tiers.workshop.description":
-      "A focused workshop to understand the process, define the pipeline, and identify what should be automated first.",
+      "A focused workshop to understand the process, set the baseline, and define what should be built and tested first.",
     "pricingEngagement.tiers.workshop.item1":
-      "Process mapping and stakeholder review",
+      "Process mapping and baseline",
     "pricingEngagement.tiers.workshop.item2":
-      "Workflow opportunities and risks",
+      "Opportunities, risks and success measures",
     "pricingEngagement.tiers.workshop.item3": "Next-step recommendation",
     "pricingEngagement.tiers.poc.title": "POC development",
-    "pricingEngagement.tiers.poc.price": "Starting at $15K USD",
     "pricingEngagement.tiers.poc.description":
-      "A working prototype built against real examples so you can validate usefulness, controls, and edge cases before scaling.",
-    "pricingEngagement.tiers.poc.item1": "Prototype build and testing",
+      "A working prototype built against real examples, with its first test set, so you can validate usefulness, controls and compliance before scaling.",
+    "pricingEngagement.tiers.poc.item1": "Prototype build and first test set",
     "pricingEngagement.tiers.poc.item2":
       "Real sample data and exception handling",
     "pricingEngagement.tiers.poc.item3": "Review loop and handoff plan",
-    "pricingEngagement.tiers.retainer.title": "Scaling solutions",
+    "pricingEngagement.tiers.retainer.title": "Operations retainer",
     "pricingEngagement.tiers.retainer.price": "Retainer basis",
     "pricingEngagement.tiers.retainer.description":
-      "Ongoing implementation support for adjacent workflows, improvements, monitoring, and operational rollout.",
-    "pricingEngagement.tiers.retainer.item1": "Continuous delivery support",
-    "pricingEngagement.tiers.retainer.item2": "Monitoring and refinements",
+      "Ongoing testing, monitoring and scorecard reporting for your agents, plus delivery of adjacent workflows.",
+    "pricingEngagement.tiers.retainer.item1": "Continuous testing and monitoring",
+    "pricingEngagement.tiers.retainer.item2": "Regular scorecard reporting",
     "pricingEngagement.tiers.retainer.item3": "Roadmap for adjacent workflows",
     "pricingEngagement.details.title": "Good to know",
     "pricingEngagement.details.point1":
       "Each phase is scoped tightly: workshops map one workflow, POCs build one working prototype. You know what's delivered before you commit to the next phase.",
-    "pricingEngagement.details.point2":
-      "Workshops run around 3 days on average, depending on scale. POCs can land in 2 weeks if scope stays tight.",
     "pricingEngagement.details.point3":
       "Pricing covers our team's time and delivery. Third-party tooling or infrastructure costs are agreed upfront, never a surprise on the invoice.",
-    "pricingEngagement.details.point4":
-      "Move from a workshop into a POC and your workshop fee is credited toward the project.",
     "pricingEngagement.pricing.title": "How we scope",
     "pricingEngagement.pricing.description":
       "We align work around measurable outcomes instead of vanity experiments.",
@@ -481,12 +440,12 @@ export const translations: Translations = {
     "pricingEngagement.pricing.point2":
       "Build & automate pods: A senior cross-functional team embedded to design, ship, and iterate.",
     "pricingEngagement.pricing.point3":
-      "Enablement retainers: Continuous improvement, evaluation, and training loops for internal teams.",
+      "Operating retainers: continuous testing, monitoring and reporting, with training for internal teams.",
     "pricingEngagement.engagement.title": "How we collaborate",
     "pricingEngagement.engagement.description":
       "Clear checkpoints keep delivery pragmatic and transparent.",
     "pricingEngagement.engagement.point1":
-      "Co-defined roadmap anchored in workflow data and business outcomes.",
+      "Co-defined roadmap anchored in a baseline and business outcomes.",
     "pricingEngagement.engagement.point2":
       "Fast pilots with measurable checkpoints before broader rollout.",
     "pricingEngagement.engagement.point3":
@@ -495,7 +454,7 @@ export const translations: Translations = {
     // Workshops Section
     "workshops.title": "Workshops",
     "workshops.description":
-      "Hands-on sessions that equip teams to design, govern, and operationalize AI.",
+      "Hands-on sessions that equip teams to design, test, and operate AI.",
     "workshops.workshop1.title": "Knowledge synthesis lab",
     "workshops.workshop1.description":
       "Design how internal documents, data, and expert input become decision-ready context for AI systems.",
@@ -506,11 +465,11 @@ export const translations: Translations = {
       "Map and prototype AI-powered automations that remove manual coordination from core processes.",
     "workshops.workshop2.tag1": "Automation",
     "workshops.workshop2.tag2": "Workflow",
-    "workshops.workshop3.title": "Reliability & governance clinic",
+    "workshops.workshop3.title": "Reliability & compliance clinic",
     "workshops.workshop3.description":
-      "Establish evaluation, monitoring, and change-control practices that keep AI safe to scale.",
-    "workshops.workshop3.tag1": "Reliability",
-    "workshops.workshop3.tag2": "Governance",
+      "Set up the testing, compliance checks, and monitoring that keep AI working in production, and the scorecard that proves it.",
+    "workshops.workshop3.tag1": "Testing",
+    "workshops.workshop3.tag2": "Compliance",
 
     // Footer
     "footer.company": "Company",
@@ -552,6 +511,7 @@ export const translations: Translations = {
     "nav.partners": "Partner",
     "nav.howWeWork": "Wie wir arbeiten",
     "nav.aiReadiness": "KI-Readiness",
+    "nav.practice": "Unsere Praxis",
     "nav.ourProcess": "Unser Prozess",
     "nav.pricingEngagement": "Pricing & Collaboration",
     "nav.workshops": "Workshops",
@@ -598,16 +558,9 @@ export const translations: Translations = {
     // Partners Page
     "partners.title": "Partner",
     "partners.subtitle":
-      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in Beschaffung, KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
+      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
     "partners.intro":
       "Jeder Partner deckt einen klaren Teil des Stacks ab. Gemeinsam unterstützen wir Discovery, Umsetzung und den laufenden Betrieb, ohne Schwachstellen zu überdecken.",
-    "partners.sourcera.name": "Sourcera",
-    "partners.sourcera.url": "sourcera.ai",
-    "partners.sourcera.role": "Beschaffungslösung",
-    "partners.sourcera.capability":
-      "Procurement Intelligence, die Tenders automatisiert und Einsparungen sichtbar macht.",
-    "partners.sourcera.point1": "Tender-Automatisierung und Supplier Scoring",
-    "partners.sourcera.point2": "EU-Datenresidenz und Compliance-Posture",
     "partners.innovandio.name": "Innovandio",
     "partners.innovandio.url": "innovandio.com",
     "partners.innovandio.role": "KI-Operations-Spezialist",
@@ -663,10 +616,6 @@ export const translations: Translations = {
       "Relevante Arbeit in Beschaffungsintelligenz, Document-to-Data-Workflows, Wissenssystemen und KI-Zuverlassigkeit.",
     "caseStudies.cta": "Mehr erfahren",
     "caseStudies.enables": "Was dadurch möglich wird",
-    "caseStudies.marketing.title": "Sprinkenhof",
-    "caseStudies.marketing.painPoint":
-      "1,5 Mio. Dokumente werden zu entscheidungsreifem Wissen.",
-    "caseStudies.marketing.kpi": "Schneller Zugang zu Kontext",
     "caseStudies.sales.title": "FGS Global",
     "caseStudies.sales.painPoint":
       "Evaluation und Monitoring für vertrauenswürdige KI.",
@@ -690,47 +639,34 @@ export const translations: Translations = {
     "caseStudies.strict.bullet4":
       "Projektiert: 2+ Stunden täglich je Person freigesetzt, messbar wiedergewinnbare Kapazität im gesamten Backoffice",
 
-    "caseStudies.sprinkenhof.title": "Hamburg Real Estate Co.",
-    "caseStudies.sprinkenhof.tagline":
-      "Zersplitterte Dokumentlandschaften werden zu entscheidungsreifem Wissen",
-    "caseStudies.sprinkenhof.description":
-      "Sprinkenhof verwaltet eine große Dokumentlandschaft mit rund 1,5 Millionen Dateien, zahlreichen Strukturen und Berechtigungen. Wissen ist über Dokumente, Systeme und Organisationseinheiten verteilt – der Zugriff auf die richtige Information kostet Zeit und Vertrauen.",
-    "caseStudies.sprinkenhof.bullet1":
-      "Schnellerer Zugriff auf relevantes internes Wissen",
-    "caseStudies.sprinkenhof.bullet2":
-      "Weniger Suchaufwand in komplexen Ablagen",
-    "caseStudies.sprinkenhof.bullet3":
-      "Besser informierte Entscheidungen in wissensintensiven Workflows",
-    "caseStudies.sprinkenhof.bullet4":
-      "Fundament für KI-Unterstützung in regulierten Kontexten",
 
     "caseStudies.fgs.title": "FGS Global",
     "caseStudies.fgs.tagline":
-      "Eine KI-Plattform für Beratungsarbeit, mit kontinuierlicher Qualitätssicherung von Anfang an",
+      "Eine Scorecard für über 30 Agenten in unterschiedlichen Anwendungsfällen.",
     "caseStudies.fgs.description":
-      "FGS Global benötigte ein KI-System, dem ihre Beratungsteams bei anspruchsvollen Kundenprojekten für M&A, IPO-Kommunikation, Deep Research und Stakeholder-Analyse vertrauen können. Wir haben die Fergus-Plattform gebaut: spezialisierte KI-Agenten für jede Beratungsdomäne, eine strukturierte Qualitätssicherung, die Outputs kontinuierlich gegen 500+ realitätsnahe Szenarien testet, und ein Monitoring-Dashboard für vollständige Transparenz über Leistung und Zuverlässigkeit.",
+      "FGS Global betreibt spezialisierte KI-Agenten für M&A, IPO-Kommunikation, Recherche und Stakeholder-Analyse. Wir haben die Evaluations- und Monitoring-Schicht gebaut, damit jeder Agent gleich bewertet wird und jedes Release vor der Auslieferung getestet ist.",
     "caseStudies.fgs.bullet1":
-      "30+ spezialisierte Agenten für M&A, IPO, Research und Stakeholder-Arbeit, damit Berater stets aufgabengerechte, kontextrelevante Ergebnisse erhalten",
+      "Produktivität, Qualität und Kosten auf einer einheitlichen Skala über alle Anwendungsfälle bewertet",
     "caseStudies.fgs.bullet2":
-      "Kontinuierliche Qualitätssicherung über 500+ Testszenarien: Fehler und Inkonsistenzen werden erkannt, bevor sie Beratungsteams erreichen",
+      "Ergebnisse nach Nutzerkontext aufgeteilt, darunter Standort und Seniorität",
     "caseStudies.fgs.bullet3":
-      "Vollständige Betriebstransparenz über Ausgabequalität, Performance-Trends und Auffälligkeiten, zugänglich über ein dediziertes Analytics-Dashboard",
+      "Releases an kritische Checks wie Halluzination, Relevanz und Faithfulness gekoppelt",
     "caseStudies.fgs.bullet4":
-      "Flexible Modellarchitektur, die neue KI-Fähigkeiten integrieren kann und dabei konsistente Qualitätsstandards bei jedem Update erhält",
+      "Produktionsgespräche geprüft und in neue Testfälle überführt",
 
     "caseStudies.sourcera.title": "Sourcera",
     "caseStudies.sourcera.tagline":
-      "Von Rohdaten zur Beschaffungsentscheidung: eine End-to-End-KI-Plattform für Enterprise Procurement",
+      "Einsparpotenziale gegen einen Benchmark bewertet, nicht nach Meinung.",
     "caseStudies.sourcera.description":
-      "Sourcera ist eine Procurement-Intelligence-Plattform, die Enterprise-Teams dabei hilft, Lieferantenanalysen, Einsparpotenziale und Ausschreibungen schneller zu bearbeiten. Wir haben die KI-Engine der Plattform gebaut: Ausgabenanalyse, die Konsolidierungspotenziale identifiziert und Handlungsprioritäten setzt, Lieferantenintelligenz, die Anbieter nach Kompetenz und strategischem Fit bewertet, sowie ein Dokumentensystem, das Ausschreibungsunterlagen aus strukturierten Daten generiert.",
+      "Sourcera erzeugt Einsparpotenziale aus Ausgaben- und Lieferantendaten. Wir haben die Evaluation gebaut, die entscheidet, welche Potenziale sich lohnen. Der Prozess läuft inzwischen ohne manuellen Aufwand.",
     "caseStudies.sourcera.bullet1":
-      "Automatisierte Ausgabenanalyse wandelt Rohdaten in priorisierte Einsparmöglichkeiten um, Konsolidierungspotenziale und Tail Spend ohne manuelle Recherche",
+      "Identifizierte Einsparungen an den vom System erzeugten Potenzialen gemessen",
     "caseStudies.sourcera.bullet2":
-      "Einheitliche Lieferantenansicht über alle Beschaffungssysteme mit automatischer Auflösung von Duplikaten für eine konsistente, verlässliche Datenbasis",
+      "Ausgabequalität gegen Benchmark-Datensätze verglichen",
     "caseStudies.sourcera.bullet3":
-      "KI-gestütztes Lieferanten-Scoring bewertet Anbieter nach Kompetenz, strategischem Fit und Evidenzqualität, ersetzt stundenlanges Recherchieren pro Ausschreibung",
+      "Jedes Potenzial nach geografischer Relevanz, kritischen Lieferanten und domänenübergreifenden Lieferanten bewertet",
     "caseStudies.sourcera.bullet4":
-      "Generierung von Ausschreibungsunterlagen aus strukturierten Daten, mit Freigabeschritten, die das Procurement-Team stets in der Kontrolle lassen",
+      "Vollständig automatisiert, sodass die Bewertung bei jedem Lauf reproduzierbar ist",
 
     "caseStudies.expresssteuer.tagline":
       "Cloud-Datenfundament neu aufgebaut und Kosten durch KI-Automatisierung drastisch gesenkt",
@@ -784,18 +720,6 @@ export const translations: Translations = {
     "caseStudies.cinoware.bullet4":
       "Selenium Grid Testsuite mit Allure-Reporting für systematische Qualitätssicherung",
 
-    "caseStudies.samgen.tagline":
-      "Cloud-Infrastruktur und MLOps-Pipelines für eine industrielle SaaS-Plattform",
-    "caseStudies.samgen.description":
-      "SAMGEN baut eine SaaS-Plattform für industrielle Kunden, die auf zuverlässiger Cloud-Infrastruktur und datengetriebenem Betrieb basiert. Wir gestalten die GCP-Architektur, implementieren CI/CD-Workflows und bauen MLOps-Pipelines für automatisiertes Modell-Retraining.",
-    "caseStudies.samgen.bullet1":
-      "GCP-Cloud-Infrastruktur für eine mandantenfähige industrielle SaaS-Plattform",
-    "caseStudies.samgen.bullet2":
-      "CI/CD-Deployment-Pipelines für zuverlässige und schnelle Release-Prozesse",
-    "caseStudies.samgen.bullet3":
-      "Automatisierte Modell-Retraining-Pipeline in Zusammenarbeit mit dem Data-Science-Team",
-    "caseStudies.samgen.bullet4":
-      "Datengetriebene DevOps-Praktiken in den gesamten Engineering-Prozess integriert",
 
     "caseStudies.applai.tagline":
       "Bewerbungsprozesse mit einer agentischen KI-Pipeline automatisieren",
@@ -953,7 +877,7 @@ export const translations: Translations = {
       "Identifizieren Sie Workflows, in denen Automatisierung messbare Effekte erzielt.",
     "aiReadiness.section3.title": "Trust & Governance",
     "aiReadiness.section3.content":
-      "Prüfen Sie Evaluation, Monitoring und Change-Management, um KI sicher zu skalieren.",
+      "Prüfen Sie, wie KI getestet, überwacht und regelkonform gehalten wird und ob Sie ihren Ertrag belegen können.",
     "aiReadiness.cta.title": "Wie weit sind Sie?",
     "aiReadiness.cta.description1":
       "Machen Sie mit uns ein kostenloses Readiness-Assessment und bestimmen Sie die nächsten Schritte.",
@@ -963,49 +887,43 @@ export const translations: Translations = {
     // Pricing & Engagement
     "pricingEngagement.title": "Pricing & Collaboration",
     "pricingEngagement.description":
-      "Transparente Einstiegspunkte für Workshops, Prototypen und Skalierung.",
+      "Transparente Einstiegspunkte für Reviews, Prototypen und laufenden Betrieb.",
     "pricingEngagement.tiers.free.title": "Erstes Meeting",
     "pricingEngagement.tiers.free.price": "Kostenlos",
     "pricingEngagement.tiers.free.description":
-      "Ein kurzes Arbeitstreffen, um den Workflow zu skizzieren, Rahmenbedingungen zu prüfen und zu entscheiden, ob Workshop oder POC der nächste Schritt ist.",
+      "Eine kurze Arbeitssitzung, in der wir einen Agenten oder Workflow prüfen, Einschränkungen aufdecken und klären, ob ein Workshop oder POC der richtige nächste Schritt ist.",
     "pricingEngagement.tiers.free.item1":
-      "Workflow-Orientierung und Priorisierung",
+      "Review eines Agenten oder Workflows",
     "pricingEngagement.tiers.free.item2":
       "Ohne Kosten, ohne Deck, ohne Verpflichtung",
     "pricingEngagement.tiers.workshop.title": "Discovery-Workshop",
-    "pricingEngagement.tiers.workshop.price": "Ab 2K USD",
     "pricingEngagement.tiers.workshop.description":
-      "Ein fokussierter Workshop, um den Prozess zu verstehen, die Pipeline zu definieren und zu bestimmen, was zuerst automatisiert werden sollte.",
+      "Ein fokussierter Workshop, um den Prozess zu verstehen, die Baseline festzulegen und zu bestimmen, was zuerst gebaut und getestet wird.",
     "pricingEngagement.tiers.workshop.item1":
-      "Prozessmapping und Stakeholder-Review",
-    "pricingEngagement.tiers.workshop.item2": "Chancen und Risiken im Workflow",
+      "Prozesserfassung und Baseline",
+    "pricingEngagement.tiers.workshop.item2": "Chancen, Risiken und Erfolgskennzahlen",
     "pricingEngagement.tiers.workshop.item3":
       "Empfehlung für den nächsten Schritt",
     "pricingEngagement.tiers.poc.title": "POC-Entwicklung",
-    "pricingEngagement.tiers.poc.price": "Ab 15K USD",
     "pricingEngagement.tiers.poc.description":
-      "Ein funktionierender Prototyp auf Basis realer Beispiele, um Nutzen, Kontrollen und Edge Cases vor dem Skalieren zu validieren.",
-    "pricingEngagement.tiers.poc.item1": "Prototype Build und Tests",
+      "Ein funktionierender Prototyp auf Basis echter Beispiele, mit erstem Testset, damit Sie Nutzen, Kontrollen und Compliance vor der Skalierung prüfen können.",
+    "pricingEngagement.tiers.poc.item1": "Prototyp und erstes Testset",
     "pricingEngagement.tiers.poc.item2":
       "Reale Beispieldaten und Ausnahmebehandlung",
     "pricingEngagement.tiers.poc.item3": "Review-Schleife und Übergabeplan",
-    "pricingEngagement.tiers.retainer.title": "Skalierungslösungen",
+    "pricingEngagement.tiers.retainer.title": "Betriebs-Retainer",
     "pricingEngagement.tiers.retainer.price": "Auf Retainer-Basis",
     "pricingEngagement.tiers.retainer.description":
-      "Laufende Unterstützung bei angrenzenden Workflows, Verbesserungen, Monitoring und operativem Rollout.",
+      "Laufendes Testen, Monitoring und Scorecard-Reporting für Ihre Agenten, plus Umsetzung angrenzender Workflows.",
     "pricingEngagement.tiers.retainer.item1":
-      "Kontinuierliche Delivery-Unterstützung",
-    "pricingEngagement.tiers.retainer.item2": "Monitoring und Optimierungen",
+      "Kontinuierliches Testen und Monitoring",
+    "pricingEngagement.tiers.retainer.item2": "Regelmäßiges Scorecard-Reporting",
     "pricingEngagement.tiers.retainer.item3": "Roadmap für weitere Workflows",
     "pricingEngagement.details.title": "Gut zu wissen",
     "pricingEngagement.details.point1":
       "Jede Phase ist klar abgegrenzt: Workshops kartieren einen Workflow, POCs bauen einen funktionierenden Prototyp. Sie wissen, was geliefert wird, bevor Sie sich für die nächste Phase entscheiden.",
-    "pricingEngagement.details.point2":
-      "Workshops dauern im Schnitt etwa 3 Tage, je nach Umfang. POCs sind bei eng gehaltenem Scope in 2 Wochen umsetzbar.",
     "pricingEngagement.details.point3":
       "Der Preis deckt Zeit und Umsetzung unseres Teams ab. Kosten für Drittanbieter-Tools oder Infrastruktur werden vorab abgestimmt, keine Überraschungen auf der Rechnung.",
-    "pricingEngagement.details.point4":
-      "Steigen Sie vom Workshop in einen POC ein, wird die Workshop-Gebühr auf das Projekt angerechnet.",
     "pricingEngagement.pricing.title": "So scopen wir",
     "pricingEngagement.pricing.description":
       "Wir richten Arbeit an messbaren Outcomes statt an Showcases aus.",
@@ -1014,12 +932,12 @@ export const translations: Translations = {
     "pricingEngagement.pricing.point2":
       "Build & Automation Pods: Eingebettetes Senior-Team, das designed, liefert und iteriert.",
     "pricingEngagement.pricing.point3":
-      "Enablement-Retainer: Kontinuierliche Verbesserung, Evaluation und Training.",
+      "Betriebs-Retainer: laufendes Testen, Monitoring und Reporting, mit Training für interne Teams.",
     "pricingEngagement.engagement.title": "So arbeiten wir zusammen",
     "pricingEngagement.engagement.description":
       "Transparente Checkpoints halten Delivery pragmatisch.",
     "pricingEngagement.engagement.point1":
-      "Gemeinsame Roadmaps auf Basis von Workflow-Daten und Business-Zielen.",
+      "Gemeinsam definierte Roadmap, verankert in einer Baseline und Geschäftsergebnissen.",
     "pricingEngagement.engagement.point2":
       "Schnelle Piloten mit klaren Messpunkten vor größerem Rollout.",
     "pricingEngagement.engagement.point3":
@@ -1028,7 +946,7 @@ export const translations: Translations = {
     // Workshops
     "workshops.title": "Workshops",
     "workshops.description":
-      "Hands-on-Formate, die Teams für Design, Governance und Betrieb von KI wappnen.",
+      "Praxisnahe Sessions, die Teams befähigen, KI zu gestalten, zu testen und zu betreiben.",
     "workshops.workshop1.title": "Knowledge Synthesis Lab",
     "workshops.workshop1.description":
       "Wir entwerfen, wie Dokumente, Daten und Expertise zu kontextreicher Entscheidungsunterstützung werden.",
@@ -1039,11 +957,11 @@ export const translations: Translations = {
       "Wir kartieren und prototypen Automatisierungen, die manuelle Koordination eliminieren.",
     "workshops.workshop2.tag1": "Automatisierung",
     "workshops.workshop2.tag2": "Workflow",
-    "workshops.workshop3.title": "Reliability & Governance Clinic",
+    "workshops.workshop3.title": "Reliability & Compliance Clinic",
     "workshops.workshop3.description":
-      "Wir etablieren Evaluation, Monitoring und Change-Control für skalierbare KI.",
-    "workshops.workshop3.tag1": "Reliability",
-    "workshops.workshop3.tag2": "Governance",
+      "Testing, Compliance-Prüfungen und Monitoring aufsetzen, die KI im Betrieb zuverlässig halten, samt Scorecard als Beleg.",
+    "workshops.workshop3.tag1": "Testing",
+    "workshops.workshop3.tag2": "Compliance",
 
     // Footer
     "footer.company": "Unternehmen",

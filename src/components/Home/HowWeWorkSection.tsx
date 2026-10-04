@@ -30,7 +30,7 @@ const HowWeWorkSection = ({ language, implementation }: HowWeWorkSectionProps) =
           </div>
           <Link
             to="/our-process"
-            className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
           >
             See full approach →
           </Link>

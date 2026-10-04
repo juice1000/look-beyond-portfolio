@@ -95,7 +95,7 @@ const Logistics = () => {
             </h1>
             <div className="mb-6 h-1 w-10 rounded-full bg-teal-600" />
             <p className="max-w-2xl text-base leading-7 text-[#4a6a8a] sm:text-lg">
-              Route work smarter. Respond faster.
+              Keep status agents correct as carriers change.
             </p>
           </div>
         </section>
@@ -109,14 +109,17 @@ const Logistics = () => {
             <p className="max-w-2xl text-base leading-7 text-[#4a6a8a]">
               Shipment teams manage high-volume status requests, document handoffs, carrier follow-ups, and exceptions across disconnected channels.
             </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[#4a6a8a]">
+              These agents only help if they stay accurate as inputs change. We test them before every release and monitor them in production.
+            </p>
           </div>
         </section>
 
-        {/* What we automate */}
+        {/* What the agents do */}
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-16 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <p className="mb-8 font-mono text-[0.65rem] uppercase tracking-widest text-teal-500">
-              What we automate
+              What the agents do
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {useCases.map((item) => (
@@ -189,7 +192,7 @@ const Logistics = () => {
         {/* Powered by */}
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-10 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Powered by</p>
+            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Built and kept reliable with</p>
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/pillars/ai-workflow-systems"
@@ -203,6 +206,12 @@ const Logistics = () => {
               >
                 Autonomous Agents →
               </Link>
+              <Link
+                to="/practice"
+                className="rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wide text-[#0f1e35] dark:text-slate-100 transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-300"
+              >
+                Our Practice →
+              </Link>
             </div>
           </div>
         </section>
@@ -213,17 +222,17 @@ const Logistics = () => {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">
-                  Ready to automate your logistics workflows?
+                  Ready to run logistics agents with proof they work?
                 </h2>
                 <p className="text-sm text-[#4a6a8a]">
-                  Let's map your shipment process and identify where AI agents can reduce response time and manual effort.
+                  Let's review one agent or workflow and agree what to test, protect and measure.
                 </p>
               </div>
               <Link
                 to="/contact"
-                className="flex-shrink-0 rounded-sm bg-teal-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-teal-700"
+                className="flex-shrink-0 rounded-full bg-teal-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-teal-700"
               >
-                Discuss logistics workflow →
+                Book a review call →
               </Link>
             </div>
           </div>

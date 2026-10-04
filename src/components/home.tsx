@@ -3,12 +3,14 @@ import React from "react";
 import { Language } from "../lib/i18n";
 import { getLandingPageContent } from "../data/landingPage";
 import HeroSection, { AuroraBackground } from "./Home/HeroSection";
-import SolutionStack from "./Home/SolutionStack";
-import HowWeWorkSection from "./Home/HowWeWorkSection";
 import ClosingSection from "./Home/ClosingSection";
 import IndustryWorkflowTabs from "./Home/IndustryWorkflowTabs";
-import ImpactSection from "./Home/ImpactSection";
-import ComplianceSection from "./Home/ComplianceSection";
+import TrustStrip from "./Home/TrustStrip";
+import ValueRows from "./Home/ValueRows";
+import Testimonial from "./Home/Testimonial";
+import FaqSection from "./Home/FaqSection";
+import { clientLogos, testimonials } from "../data/credentials";
+import CaseStudyCards from "./Home/CaseStudyCards";
 
 const Home = ({
   language,
@@ -30,21 +32,20 @@ const Home = ({
           <HeroSection
             title={content.hero.headline}
             subtitle={content.hero.subheadline}
-            supportingLine={content.hero.supportingLine}
-            pipeline={content.hero.pipeline}
-            ticker={content.hero.ticker}
-            kpis={content.kpis}
+            kpis={content.hero.kpis}
             isDarkMode={isDarkMode}
           />
         </section>
-        <SolutionStack language={language} system={content.system} />
-        <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
-        <HowWeWorkSection
-          language={language}
-          implementation={content.implementation}
+        <TrustStrip label={content.trust.label} logos={clientLogos} />
+        <ValueRows
+          content={content.outcomes}
+          isDarkMode={isDarkMode}
+          overlap={clientLogos.length === 0}
         />
-        <ImpactSection />
-        <ComplianceSection language={language} />
+        <Testimonial items={testimonials} />
+        <CaseStudyCards language={language} showHeader={true} limit={2} compact />
+        <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
+        <FaqSection content={content.faq} language={language} />
         <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>

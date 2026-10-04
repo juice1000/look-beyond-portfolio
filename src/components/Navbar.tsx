@@ -60,6 +60,7 @@ const Navbar = ({
   }, [location.pathname, language]);
 
   const navItems: NavItem[] = [
+    { label: t("nav.practice", language), href: "/practice" },
     { label: t("nav.ourProcess", language), href: "/our-process" },
     { label: t("nav.projects", language), href: "/projects" },
     { label: t("nav.partners", language), href: "/partners" },
@@ -121,7 +122,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="relative rounded-sm border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
+                  className="relative rounded-full border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -159,7 +160,7 @@ const Navbar = ({
                 <Button
                   variant="outline"
                   size="icon"
-                  className="relative rounded-sm border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
+                  className="relative rounded-full border-slate-300 dark:border-[#1a3050] bg-transparent text-slate-500 dark:text-[#4a6a8a] hover:bg-slate-100 dark:hover:bg-[#0b1426] hover:text-blue-600 dark:hover:text-blue-300"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}

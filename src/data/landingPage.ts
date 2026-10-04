@@ -1,4 +1,5 @@
 import { Language } from "../lib/i18n";
+import { formalOfferNote } from "./pricing";
 
 export type IndustryAccent = "teal" | "amber" | "violet";
 
@@ -17,17 +18,58 @@ export interface LandingPageContent {
   hero: {
     headline: string;
     subheadline: string;
-    supportingLine: string;
-    pipeline: Array<{
+    kpis: Array<{
+      value: string;
       label: string;
-      items: string[];
     }>;
-    ticker: string[];
   };
-  kpis: Array<{
-    value: string;
+  trust: {
     label: string;
-  }>;
+  };
+  outcomes: {
+    eyebrow: string;
+    heading: string;
+    callout: {
+      text: string;
+      source: string;
+    };
+    items: Array<{
+      eyebrow: string;
+      title: string;
+      description: string;
+      primaryLabel: string;
+      primaryHref: string;
+      secondaryLabel: string;
+      secondaryHref: string;
+    }>;
+  };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
+    moreLabel: string;
+  };
+  practice: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+  };
+  failures: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    items: Array<{
+      title: string;
+      description: string;
+    }>;
+    evidence: Array<{
+      text: string;
+      source: string;
+    }>;
+  };
   problems: {
     heading: string;
     items: Array<{
@@ -39,25 +81,24 @@ export interface LandingPageContent {
     eyebrow: string;
     heading: string;
     description: string;
-    pov?: {
-      label: string;
-      statement: string;
-      body: string;
-      callout: string;
-    };
-    trackALabel?: string;
+    principle: string;
+    signalLabel: string;
     layers: Array<{
       title: string;
       description: string;
-      subProduct?: string;
+      signal: string;
     }>;
-    trackBLabel?: string;
-    trackBDescription?: string;
-    trackB?: Array<{
+  };
+  scorecard: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    groups: Array<{
       title: string;
       description: string;
-      value?: string;
     }>;
+    closing: string;
+    method: string;
   };
   industries: {
     eyebrow: string;
@@ -99,62 +140,137 @@ const englishContent: LandingPageContent = {
   hero: {
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Identifying where AI creates operational leverage across an organization, then building custom systems around what the discovery reveals.",
-    supportingLine:
-      "Instead of isolated chatbots or one-off automations, we build connected systems where specialized agents extract, classify, route, draft, validate, and escalate work under clear security and review controls.",
-
-    pipeline: [
-      {
-        label: "Inputs",
-        items: ["Emails", "PDFs", "Spreadsheets", "ERP exports", "SOPs"],
-      },
-      {
-        label: "Pipeline layer",
-        items: ["Classify", "Extract", "Validate", "Route", "Approve"],
-      },
-      {
-        label: "Specialized agents",
-        items: [
-          "Document agent",
-          "Knowledge agent",
-          "Communication agent",
-          "Exception agent",
-          "Reporting agent",
-        ],
-      },
-      {
-        label: "Control layer",
-        items: [
-          "Permissions",
-          "Evaluations",
-          "Monitoring",
-          "Audit trails",
-          "Human review",
-        ],
-      },
-      {
-        label: "Business outcomes",
-        items: [
-          "Shorter response cycles",
-          "Less repetitive manual work",
-          "Better visibility",
-          "Fewer avoidable errors",
-        ],
-      },
-    ],
-    ticker: [
-      "AI workflow systems",
-      "Knowledge retrieval",
-      "Document-to-data pipelines",
-      "AI stability and security",
-      "Human review controls",
+      "We keep AI agents working in production, within the rules, and prove what they return.",
+    kpis: [
+      { value: "30K+", label: "people directly reached" },
+      { value: "1.5M+", label: "hours saved" },
+      { value: "€60M+", label: "in manual work value freed" },
     ],
   },
-  kpis: [
-    { value: "30K+", label: "people directly reached" },
-    { value: "1.5M+", label: "hours saved" },
-    { value: "€60M+", label: "in manual work value freed" },
-  ],
+  trust: {
+    label: "Trusted by",
+  },
+  outcomes: {
+    eyebrow: "What you get",
+    heading: "Three things your board will ask about.",
+    callout: {
+      text: "Gartner expects over 40% of agentic AI projects to be canceled by the end of 2027, citing cost, unclear value or weak risk controls.",
+      source: "Gartner, 2025",
+    },
+    items: [
+      {
+        eyebrow: "Reliability",
+        title: "It keeps working",
+        description:
+          "Every agent is tested before release and watched after launch. Quality does not decline unnoticed, and failures in production become new tests.",
+        primaryLabel: "See how we test",
+        primaryHref: "/practice",
+        secondaryLabel: "Book a review call",
+        secondaryHref: "/contact",
+      },
+      {
+        eyebrow: "Compliance",
+        title: "It stays within the rules",
+        description:
+          "Safety, data protection and EU AI Act requirements become test cases that run on every release. A failed critical check stops the release.",
+        primaryLabel: "Our compliance approach",
+        primaryHref: "/compliance",
+        secondaryLabel: "Ask us anything",
+        secondaryHref: "/contact",
+      },
+      {
+        eyebrow: "Proof",
+        title: "It shows its return",
+        description:
+          "One scorecard reports time saved, cost per task, quality and compliance against a baseline set before launch, in numbers finance can check.",
+        primaryLabel: "See the scorecard",
+        primaryHref: "/practice#scorecard",
+        secondaryLabel: "Book a review call",
+        secondaryHref: "/contact",
+      },
+    ],
+  },
+  faq: {
+    eyebrow: "Questions",
+    heading: "What people ask before they start.",
+    items: [
+      {
+        question: "What does it cost to start?",
+        answer:
+          `The first meeting is free. A discovery workshop starts at {workshopFrom} and a proof of concept starts at {pocFrom}. ${formalOfferNote("en")}`,
+      },
+      {
+        question: "What do we have after the first weeks?",
+        answer:
+          "A baseline for one workflow, written pass criteria, and a first test set built from real cases. A proof of concept adds a working prototype checked against that baseline.",
+      },
+      {
+        question: "Do you also work on agents other teams built?",
+        answer:
+          "Yes. The testing, monitoring and scorecard layer works on any agent. We start by reviewing how it is tested and measured today.",
+      },
+      {
+        question: "How do you handle the EU AI Act and GDPR?",
+        answer:
+          "We classify each system by risk tier at the start, sign a data processing agreement before any personal data is processed, and test compliance requirements on every release.",
+      },
+      {
+        question: "Do we need to replace our current systems?",
+        answer:
+          "No. Agents are embedded in your existing systems and processes. Where off-the-shelf software does not fit, we can build the platform around your processes.",
+      },
+      {
+        question: "Who owns the tests and the scorecard?",
+        answer:
+          "You do. The test sets, the scorecard and the monitoring setup are handed over, and we train your team to run them.",
+      },
+    ],
+    moreLabel: "Another question? Talk to us",
+  },
+  practice: {
+    eyebrow: "Our practice",
+    heading: "How we keep AI agents working in production.",
+    description:
+      "The testing, monitoring and reporting that keep agents reliable after launch. In the industry this is called GenAIOps.",
+  },
+  failures: {
+    eyebrow: "Why agents fail in production",
+    heading: "Agents fail in month four, not at launch.",
+    description:
+      "A demo proves an agent can work once. Production asks whether it works every day, at acceptable cost.",
+    items: [
+      {
+        title: "Quality declines without a signal",
+        description:
+          "Models, data and users change. Without regular tests, nobody sees the decline until trust is gone.",
+      },
+      {
+        title: "Cost grows faster than value",
+        description:
+          "Agents run continuously. Without per-task cost tracking, nobody can say what a completed task costs.",
+      },
+      {
+        title: "Risk controls arrive late",
+        description:
+          "Hallucinations and policy breaches are cheaper to prevent with built-in checks than to explain afterwards.",
+      },
+      {
+        title: "Results stay invisible to the business",
+        description:
+          "Engineering reports speed. Finance asks about cost, time saved and risk. Nobody translates.",
+      },
+    ],
+    evidence: [
+      {
+        text: "Over 40% of agentic AI projects will be canceled by the end of 2027, citing escalating costs, unclear business value or inadequate risk controls.",
+        source: "Gartner, June 2025",
+      },
+      {
+        text: "40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance failures.",
+        source: "Gartner, May 2026",
+      },
+    ],
+  },
   problems: {
     heading:
       "Operations teams are stuck between fragmented tools and unreliable automation.",
@@ -182,63 +298,79 @@ const englishContent: LandingPageContent = {
     ],
   },
   system: {
-    eyebrow: "What we build",
-    heading: "Guided discovery. Custom systems.",
+    eyebrow: "The five layers",
+    heading: "One practice. Five layers.",
     description:
-      "We start with workshops to surface where AI creates real operational value. Then we co-design and build: AI workflow systems, custom platforms, ERP integrations, or the data infrastructure they run on.",
-    pov: {
-      label: "How we think about this",
-      statement: "The best AI solutions are discovered together, not prescribed in advance.",
-      body: "We start with your team, not our assumptions. Discovery workshops surface where AI creates real operational value. Then we co-design the system around those opportunities.",
-      callout: "Custom solutions that fit how your business actually works, because we designed them with you.",
-    },
-    trackALabel: "AI Systems",
+      "AI solutions come first. This practice keeps them useful afterwards.",
+    principle:
+      "Critical checks decide whether a release ships. Other checks show where to improve.",
+    signalLabel: "You get",
     layers: [
       {
-        title: "AI workflow systems",
+        title: "Build",
         description:
-          "Connected pipelines that classify, route, validate, approve, and log operational work across documents, emails, and ERP exports.",
+          "Design each agent around a defined task, scope and review path, using real cases.",
+        signal: "A written definition of done",
       },
       {
-        title: "Autonomous agents",
+        title: "Test",
         description:
-          "Specialized agents that extract, classify, route, draft, and escalate work, with knowledge retrieval built in for permission-aware access across documents, SOPs, and company knowledge.",
+          "Score every release against test sets built from real cases.",
+        signal: "Pass rate per release",
       },
       {
-        title: "AI performance monitoring",
+        title: "Protect",
         description:
-          "Evaluations, real-time monitoring, access controls, audit trails, and human review paths that keep production systems reliable.",
-      },
-    ],
-    trackBLabel: "Custom Platform & Infrastructure",
-    trackBDescription:
-      "When the joint design process shows your processes don't fit off-the-shelf software, we build the platform around you instead.",
-    trackB: [
-      {
-        title: "Custom platform development",
-        description:
-          "Full bespoke platforms built around your existing processes. A direct alternative to off-the-shelf SaaS: you no longer adapt to the software.",
-        value: "Built for your processes. Priced like SaaS.",
+          "Block releases that fail safety, accuracy or compliance checks. Scale human review to each agent's autonomy.",
+        signal: "Blocked releases, compliance results",
       },
       {
-        title: "ERP integration & migration",
+        title: "Monitor",
         description:
-          "Connect custom platforms or new ERP systems to replace fragmented legacy tooling. From ERPNext to Microsoft Business Central.",
-        value: "Connect or replace legacy systems without disrupting operations.",
+          "Track live quality, speed, cost and rule violations. Feed failures back into the tests.",
+        signal: "Early alerts, cost per task",
       },
       {
-        title: "Cloud data infrastructure",
+        title: "Prove",
         description:
-          "Data warehouse design and build on BigQuery, GCP, and dbt. MLOps pipelines and CI/CD workflows. The foundation AI needs to work in production.",
-        value: "Data foundations that make AI work in production.",
+          "Set baselines before launch and link agent data to business results.",
+        signal: "A scorecard a CFO can read",
       },
     ],
   },
+  scorecard: {
+    eyebrow: "The scorecard",
+    heading: "What the scorecard shows",
+    description:
+      "The same five measures for every agent, so a portfolio can be compared.",
+    groups: [
+      { title: "Productivity", description: "Time saved, cycle time, rework." },
+      { title: "Quality", description: "Scored against benchmark data." },
+      {
+        title: "Cost",
+        description: "Cost per completed task against its baseline.",
+      },
+      {
+        title: "Compliance",
+        description:
+          "Safety, data protection and EU AI Act checks, per release.",
+      },
+      {
+        title: "Context",
+        description:
+          "Results by user attributes such as location and seniority.",
+      },
+    ],
+    closing:
+      "Engineering sees technical metrics. The business sees cost, time and risk.",
+    method:
+      "How we estimate the headline figures: 30K+ users × 20% productivity gain × about 1 hour per day on affected workflows × 250 working days × €42/h blended cost (German public sector reference rate). Per-client scorecards use the client's own baseline.",
+  },
   industries: {
     eyebrow: "Industries",
-    heading: "The Industries we Specialise in",
+    heading: "Where we keep agents reliable",
     description:
-      "The same operational AI system, adapted to the specific inputs, exception paths, and review steps of each industry.",
+      "The same practice, adapted to each industry's inputs and review steps.",
     workflows: [
       {
         id: "procurement",
@@ -246,7 +378,7 @@ const englishContent: LandingPageContent = {
         accent: "violet",
         problem:
           "Procurement teams move requests, supplier context, quotes, policies, approvals, and spend data through manual comparison and follow-up.",
-        positioning: "Control supplier risk. Automate procurement intake.",
+        positioning: "Keep supplier scoring accurate as suppliers change.",
         workflow: [
           "Purchase request",
           "Check policy",
@@ -269,7 +401,7 @@ const englishContent: LandingPageContent = {
         accent: "amber",
         problem:
           "Production, quality, maintenance, and supplier workflows depend on reports, SOPs, handoffs, and recurring operational judgment.",
-        positioning: "Reduce production friction. Structure quality work.",
+        positioning: "Keep quality triage consistent across plants.",
         workflow: [
           "Quality issue report",
           "Classify defect",
@@ -292,7 +424,7 @@ const englishContent: LandingPageContent = {
         accent: "teal",
         problem:
           "Shipment teams manage high-volume status requests, document handoffs, carrier follow-ups, and exceptions across disconnected channels.",
-        positioning: "Route work smarter. Respond faster.",
+        positioning: "Keep status agents correct as carriers change.",
         workflow: [
           "Customer email",
           "Identify shipment",
@@ -345,49 +477,48 @@ const englishContent: LandingPageContent = {
     ],
   },
   implementation: {
-    eyebrow: "Implementation approach",
-    heading: "From workflow map to reliable AI system.",
+    eyebrow: "How we work",
+    heading: "From baseline to a scorecard you can defend.",
     description:
-      "We start narrow, test against real examples, add controls early, and expand only after the workflow proves useful and manageable.",
+      "We start narrow, test on real examples, add controls early, and expand when the numbers hold.",
     steps: [
       {
-        title: "Map the workflow",
+        title: "Map the workflow and the baseline",
         description:
-          "Identify repetitive, document-heavy, coordination-heavy processes and the people who review them.",
+          "Identify the task, the people who review it, and today's cost and cycle time.",
       },
       {
-        title: "Design the pipeline",
+        title: "Design the pipeline and the checks",
         description:
-          "Define inputs, outputs, agents, human review points, integrations, and controls.",
+          "Define agents, human review points and the pass criteria.",
       },
       {
-        title: "Prototype the system",
+        title: "Prototype with real data",
         description:
-          "Build a focused workflow prototype using real examples, edge cases, and operator feedback.",
+          "Build the agent and its first test set together, using real examples and edge cases.",
       },
       {
         title: "Add reliability controls",
         description:
-          "Introduce evaluations, permissions, monitoring, audit trails, and escalation logic.",
+          "Gates, permissions, monitoring, audit trails and escalation.",
       },
       {
-        title: "Expand carefully",
+        title: "Report and expand",
         description:
-          "Move from one workflow to adjacent workflows once reliability is proven.",
+          "Publish the scorecard. Extend to adjacent workflows only when the numbers hold.",
       },
     ],
   },
   finalCta: {
-    heading: "Start with one workflow worth automating.",
+    heading: "Would your AI agents survive a budget review?",
     description:
-      "We will map one operational workflow and identify where AI agents, structured data, and human review can reduce manual work without increasing risk.",
-    primaryCta: "Contact Us",
-    secondaryCta: "See example workflows",
+      "A call to review one agent: what it does, how it is tested, what it costs and what you can show.",
+    primaryCta: "Book a review call",
+    secondaryCta: "See how we measure",
     points: [
-      "AI workflow systems",
-      "Connected agents and pipelines",
-      "Security, monitoring, and human review",
-      "Logistics, manufacturing, and procurement focus",
+      "Free first meeting",
+      "Real examples, not slides",
+      "A clear next step, or none",
     ],
   },
 };
@@ -395,60 +526,232 @@ const englishContent: LandingPageContent = {
 const germanContent: LandingPageContent = {
   ...englishContent,
   hero: {
-    ...englishContent.hero,
     headline: "Enterprise AI.\nEngineered to\noperate.",
     subheadline:
-      "Identifizierung operativer KI-Hebelpunkte in einer Organisation, dann Entwicklung maßgeschneiderter Systeme auf Basis der Erkenntnisse.",
-    supportingLine:
-      "Statt isolierter Chatbots oder einzelner Automationen bauen wir verbundene Systeme, in denen spezialisierte Agenten extrahieren, klassifizieren, routen, entwerfen, validieren und eskalieren - mit klaren Sicherheits- und Review-Kontrollen.",
+      "Wir halten KI-Agenten im Betrieb am Laufen, innerhalb der Regeln, und belegen, was sie einbringen.",
+    kpis: [
+      { value: "30K+", label: "Menschen direkt erreicht" },
+      { value: "1,5M+", label: "Stunden gespart" },
+      { value: "€60M+", label: "an manuellem Arbeitswert freigesetzt" },
+    ],
   },
-  kpis: englishContent.kpis,
+  trust: {
+    label: "Vertraut von",
+  },
+  outcomes: {
+    eyebrow: "Was Sie bekommen",
+    heading: "Drei Fragen, die Ihr Vorstand stellen wird.",
+    callout: {
+      text: "Gartner erwartet, dass über 40 % der Agentic-AI-Projekte bis Ende 2027 eingestellt werden, wegen Kosten, unklarem Nutzen oder schwacher Risikokontrollen.",
+      source: "Gartner, 2025",
+    },
+    items: [
+      {
+        eyebrow: "Zuverlässigkeit",
+        title: "Es funktioniert dauerhaft",
+        description:
+          "Jeder Agent wird vor dem Release getestet und nach dem Start überwacht. Die Qualität sinkt nicht unbemerkt, und Fehler im Betrieb werden zu neuen Tests.",
+        primaryLabel: "So testen wir",
+        primaryHref: "/practice",
+        secondaryLabel: "Gespräch buchen",
+        secondaryHref: "/contact",
+      },
+      {
+        eyebrow: "Compliance",
+        title: "Es hält die Regeln ein",
+        description:
+          "Sicherheit, Datenschutz und Anforderungen des EU AI Act werden zu Testfällen, die bei jedem Release laufen. Eine nicht bestandene kritische Prüfung stoppt das Release.",
+        primaryLabel: "Unser Compliance-Ansatz",
+        primaryHref: "/compliance",
+        secondaryLabel: "Fragen Sie uns",
+        secondaryHref: "/contact",
+      },
+      {
+        eyebrow: "Nachweis",
+        title: "Es belegt seinen Ertrag",
+        description:
+          "Eine Scorecard zeigt eingesparte Zeit, Kosten pro Aufgabe, Qualität und Compliance gegenüber einer Baseline vor dem Start, in Zahlen, die das Controlling prüfen kann.",
+        primaryLabel: "Die Scorecard ansehen",
+        primaryHref: "/practice#scorecard",
+        secondaryLabel: "Gespräch buchen",
+        secondaryHref: "/contact",
+      },
+    ],
+  },
+  faq: {
+    eyebrow: "Fragen",
+    heading: "Was man uns vor dem Start fragt.",
+    items: [
+      {
+        question: "Was kostet der Einstieg?",
+        answer:
+          `Das Erstgespräch ist kostenfrei. Ein Discovery-Workshop beginnt bei {workshopFrom}, ein Proof of Concept bei {pocFrom}. ${formalOfferNote("de")}`,
+      },
+      {
+        question: "Was haben wir nach den ersten Wochen?",
+        answer:
+          "Eine Baseline für einen Workflow, schriftliche Bestehenskriterien und ein erstes Testset aus echten Fällen. Ein Proof of Concept ergänzt einen funktionierenden Prototyp, der gegen diese Baseline geprüft ist.",
+      },
+      {
+        question: "Arbeiten Sie auch an Agenten, die andere Teams gebaut haben?",
+        answer:
+          "Ja. Die Schicht aus Testen, Monitoring und Scorecard funktioniert für jeden Agenten. Wir beginnen mit einer Prüfung, wie er heute getestet und gemessen wird.",
+      },
+      {
+        question: "Wie gehen Sie mit EU AI Act und DSGVO um?",
+        answer:
+          "Wir ordnen jedes System zu Beginn einer Risikoklasse zu, schließen einen Auftragsverarbeitungsvertrag, bevor personenbezogene Daten verarbeitet werden, und testen Compliance-Anforderungen bei jedem Release.",
+      },
+      {
+        question: "Müssen wir bestehende Systeme ersetzen?",
+        answer:
+          "Nein. Agenten werden in Ihre bestehenden Systeme und Prozesse eingebettet. Wo Standard-Software nicht passt, können wir die Plattform nach Ihren Prozessen bauen.",
+      },
+      {
+        question: "Wem gehören die Tests und die Scorecard?",
+        answer:
+          "Ihnen. Testsets, Scorecard und Monitoring-Setup werden übergeben, und wir schulen Ihr Team im Betrieb.",
+      },
+    ],
+    moreLabel: "Noch eine Frage? Sprechen Sie uns an",
+  },
+  practice: {
+    eyebrow: "Unsere Praxis",
+    heading: "So halten wir KI-Agenten im Betrieb am Laufen.",
+    description:
+      "Testen, Überwachen und Berichten, damit Agenten nach dem Start zuverlässig bleiben. In der Branche heißt das GenAIOps.",
+  },
+  failures: {
+    eyebrow: "Warum Agenten im Betrieb scheitern",
+    heading: "Agenten scheitern im vierten Monat, nicht beim Start.",
+    description:
+      "Eine Demo zeigt, dass ein Agent einmal funktioniert. Der Betrieb fragt, ob er täglich funktioniert, zu vertretbaren Kosten.",
+    items: [
+      {
+        title: "Die Qualität sinkt ohne Signal",
+        description:
+          "Modelle, Daten und Nutzer ändern sich. Ohne regelmäßige Tests fällt der Rückgang erst auf, wenn das Vertrauen weg ist.",
+      },
+      {
+        title: "Kosten wachsen schneller als der Nutzen",
+        description:
+          "Agenten laufen dauerhaft. Ohne Kosten pro Aufgabe weiß niemand, was eine erledigte Aufgabe kostet.",
+      },
+      {
+        title: "Risikokontrollen kommen spät",
+        description:
+          "Halluzinationen und Richtlinienverstöße verhindert man günstiger mit eingebauten Prüfungen, als man sie im Nachhinein erklärt.",
+      },
+      {
+        title: "Ergebnisse bleiben für das Business unsichtbar",
+        description:
+          "Die Technik meldet Geschwindigkeit. Das Controlling fragt nach Kosten, Zeitersparnis und Risiko. Niemand übersetzt.",
+      },
+    ],
+    evidence: [
+      {
+        text: "Über 40 % der Agentic-AI-Projekte werden bis Ende 2027 eingestellt, wegen steigender Kosten, unklarem Geschäftsnutzen oder unzureichender Risikokontrollen.",
+        source: "Gartner, Juni 2025",
+      },
+      {
+        text: "40 % der Unternehmen werden autonome KI-Agenten bis 2027 wegen Governance-Versagen zurückstufen oder abschalten.",
+        source: "Gartner, Mai 2026",
+      },
+    ],
+  },
   problems: {
     heading:
-      "Operations-Teams stecken zwischen fragmentierten Tools und unzuverlassiger Automatisierung fest.",
+      "Operations-Teams stecken zwischen fragmentierten Tools und unzuverlässiger Automatisierung fest.",
     items: englishContent.problems.items,
   },
   system: {
-    ...englishContent.system,
-    eyebrow: "Was wir bauen",
-    heading: "Gemeinsame Entdeckung. Maßgeschneiderte Systeme.",
+    eyebrow: "Die fünf Schichten",
+    heading: "Eine Praxis. Fünf Schichten.",
     description:
-      "Wir starten mit Enablement-Workshops, um herauszufinden, wo KI echten Hebel hat. Dann co-designen und bauen wir: KI-Workflow-Systeme, Custom Platforms oder die nötige Infrastruktur.",
-    pov: {
-      label: "Unsere Überzeugung",
-      statement: "Die besten KI-Lösungen werden gemeinsam entdeckt, nicht vorab verschrieben.",
-      body: "Wir starten bei Ihrem Team, nicht bei unseren Annahmen. Enablement-Workshops zeigen, wo KI echten operativen Mehrwert schafft. Dann co-designen wir das System gemeinsam und setzen KI dort ein, wo der Effekt am größten ist.",
-      callout: "Maßgeschneiderte Lösungen, die wirklich zu Ihrem Betrieb passen, weil wir sie gemeinsam entwickelt haben.",
-    },
-    trackALabel: "KI-Systeme",
-    trackBLabel: "Plattform & Infrastruktur",
-    trackBDescription:
-      "Wenn der gemeinsame Designprozess zeigt, dass Ihre Prozesse nicht in Standardsoftware passen, bauen wir die Plattform um Sie herum.",
-    trackB: [
+      "KI-Lösungen stehen am Anfang. Diese Praxis hält sie danach nützlich.",
+    principle:
+      "Kritische Prüfungen entscheiden, ob ein Release live geht. Weitere Prüfungen zeigen, wo sich etwas verbessern lässt.",
+    signalLabel: "Sie erhalten",
+    layers: [
       {
-        title: "Custom Platform Development",
+        title: "Bauen",
         description:
-          "Maßgeschneiderte Plattformen, ausgelegt auf Ihre bestehenden Prozesse. Eine direkte Alternative zu Standard-SaaS: Sie passen sich nicht mehr der Software an.",
-        value: "Für Ihre Prozesse gebaut. SaaS-Preismodell.",
+          "Jeden Agenten um eine definierte Aufgabe, Umfang und Review-Pfad entwerfen, mit echten Fällen.",
+        signal: "Eine schriftliche Definition von „fertig“",
       },
       {
-        title: "ERP-Integration & Migration",
-        description:
-          "Verbinden oder ersetzen Sie Legacy-Systeme ohne Betriebsunterbrechung. Von ERPNext bis Microsoft Business Central.",
-        value: "Legacy-Systeme verbinden oder ersetzen, ohne Unterbrechung.",
+        title: "Testen",
+        description: "Jedes Release gegen Testsets aus echten Fällen bewerten.",
+        signal: "Bestehensquote je Release",
       },
       {
-        title: "Cloud-Dateninfrastruktur",
+        title: "Absichern",
         description:
-          "Data-Warehouse-Aufbau auf BigQuery, GCP und dbt. MLOps-Pipelines und CI/CD-Workflows. Das Fundament, auf dem KI in der Produktion funktioniert.",
-        value: "Datenfundament für produktive KI.",
+          "Releases stoppen, die Sicherheits-, Genauigkeits- oder Compliance-Prüfungen nicht bestehen. Menschliche Prüfung nach Autonomie des Agenten abstufen.",
+        signal: "Gestoppte Releases, Compliance-Ergebnisse",
+      },
+      {
+        title: "Überwachen",
+        description:
+          "Laufende Qualität, Geschwindigkeit, Kosten und Regelverstöße verfolgen. Fehler zurück in die Tests führen.",
+        signal: "Frühwarnungen, Kosten pro Aufgabe",
+      },
+      {
+        title: "Belegen",
+        description:
+          "Baselines vor dem Start festlegen und Agentendaten mit Geschäftsergebnissen verknüpfen.",
+        signal: "Eine Scorecard, die ein CFO lesen kann",
       },
     ],
+  },
+  scorecard: {
+    eyebrow: "Die Scorecard",
+    heading: "Was die Scorecard zeigt",
+    description:
+      "Dieselben fünf Kennzahlen für jeden Agenten, damit sich ein Portfolio vergleichen lässt.",
+    groups: [
+      {
+        title: "Produktivität",
+        description: "Zeitersparnis, Durchlaufzeit, Nacharbeit.",
+      },
+      { title: "Qualität", description: "Bewertet gegen Benchmark-Daten." },
+      {
+        title: "Kosten",
+        description: "Kosten pro erledigter Aufgabe gegenüber der Baseline.",
+      },
+      {
+        title: "Compliance",
+        description:
+          "Sicherheits-, Datenschutz- und EU-AI-Act-Prüfungen, je Release.",
+      },
+      {
+        title: "Kontext",
+        description:
+          "Ergebnisse nach Nutzerattributen wie Standort und Seniorität.",
+      },
+    ],
+    closing:
+      "Die Technik sieht technische Kennzahlen. Das Business sieht Kosten, Zeit und Risiko.",
+    method:
+      "So schätzen wir die Kennzahlen im Header: 30K+ Nutzer × 20 % Produktivitätsgewinn × etwa 1 Stunde pro Tag in betroffenen Workflows × 250 Arbeitstage × 42 €/h Mischkostensatz (Referenzsatz öffentlicher Dienst Deutschland). Scorecards einzelner Kunden nutzen die Baseline des jeweiligen Kunden.",
   },
   industries: {
     ...englishContent.industries,
     eyebrow: "Branchen",
-    heading: "Drei Branchen, auf die wir uns spezialisieren.",
+    heading: "Wo wir Agenten zuverlässig halten",
+    description:
+      "Dieselbe Praxis, angepasst an Eingaben und Review-Schritte jeder Branche.",
+    workflows: englishContent.industries.workflows.map((w) => ({
+      ...w,
+      positioning:
+        {
+          procurement:
+            "Lieferantenbewertung korrekt halten, wenn sich Lieferanten ändern.",
+          manufacturing:
+            "Qualitäts-Triage über Werke hinweg konsistent halten.",
+          logistics: "Status-Agenten korrekt halten, wenn sich Carrier ändern.",
+        }[w.id] ?? w.positioning,
+    })),
   },
   agents: {
     ...englishContent.agents,
@@ -457,19 +760,53 @@ const germanContent: LandingPageContent = {
   },
   security: {
     ...englishContent.security,
-    eyebrow: "Sicherheit und Stabilitat",
-    heading: "Fur operative Zuverlassigkeit gebaut, nicht fur Demos.",
+    eyebrow: "Sicherheit und Stabilität",
+    heading: "Für operative Zuverlässigkeit gebaut, nicht für Demos.",
   },
   implementation: {
-    ...englishContent.implementation,
-    eyebrow: "Implementierungsansatz",
-    heading: "Von der Workflow-Karte zum zuverlassigen KI-System.",
+    eyebrow: "So arbeiten wir",
+    heading: "Von der Baseline zur Scorecard, die Sie vertreten können.",
+    description:
+      "Wir starten eng, testen an echten Beispielen, bauen Kontrollen früh ein und erweitern, wenn die Zahlen tragen.",
+    steps: [
+      {
+        title: "Workflow und Baseline erfassen",
+        description:
+          "Aufgabe, prüfende Personen sowie heutige Kosten und Durchlaufzeit bestimmen.",
+      },
+      {
+        title: "Pipeline und Checks entwerfen",
+        description:
+          "Agenten, menschliche Prüfpunkte und Bestehenskriterien festlegen.",
+      },
+      {
+        title: "Mit echten Daten prototypen",
+        description:
+          "Agent und erstes Testset gemeinsam bauen, mit echten Beispielen und Randfällen.",
+      },
+      {
+        title: "Zuverlässigkeitskontrollen ergänzen",
+        description:
+          "Gates, Berechtigungen, Monitoring, Audit-Trails und Eskalation.",
+      },
+      {
+        title: "Berichten und erweitern",
+        description:
+          "Die Scorecard veröffentlichen. Auf benachbarte Workflows erst erweitern, wenn die Zahlen tragen.",
+      },
+    ],
   },
   finalCta: {
-    ...englishContent.finalCta,
-    heading: "Starten Sie mit einem Workflow, der Automatisierung verdient.",
-    primaryCta: "Automatisierungspotenzial mappen",
-    secondaryCta: "Beispiel-Workflows ansehen",
+    heading: "Würden Ihre KI-Agenten eine Budgetrunde überstehen?",
+    description:
+      "Ein Gespräch, in dem wir einen Agenten prüfen: was er tut, wie er getestet wird, was er kostet und was Sie belegen können.",
+    primaryCta: "Gespräch buchen",
+    secondaryCta: "So messen wir",
+    points: [
+      "Kostenfreies Erstgespräch",
+      "Echte Beispiele, keine Folien",
+      "Ein klarer nächster Schritt, oder keiner",
+    ],
   },
 };
 

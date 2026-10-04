@@ -42,7 +42,7 @@ const ComplianceSection = ({ language = "en" }: ComplianceSectionProps) => {
           </div>
           <Link
             to="/compliance"
-            className="flex-shrink-0 self-start sm:self-auto rounded-sm border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#0f1e35] dark:text-slate-100 transition-colors hover:text-blue-600 dark:hover:text-blue-300"
+            className="flex-shrink-0 self-start sm:self-auto rounded-full border border-white/60 dark:border-[#0f1e35] bg-gradient-to-br from-white/40 to-white/15 dark:bg-[#08101f]/80 backdrop-blur-xl backdrop-saturate-150 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#0f1e35] dark:text-slate-100 transition-colors hover:text-blue-600 dark:hover:text-blue-300"
           >
             {isDE ? "Vollständige Details →" : "Full details →"}
           </Link>

@@ -42,7 +42,7 @@ const ClosingSection = ({ language, finalCta }: ClosingSectionProps) => {
           <div className="flex shrink-0 flex-col gap-3">
             <Button
               size="lg"
-              className="rounded-sm bg-blue-600 font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-blue-700"
+              className="rounded-full bg-blue-600 font-mono text-xs font-semibold uppercase tracking-wide text-white hover:bg-blue-700"
               onClick={() => { window.location.href = "/contact"; }}
             >
               {finalCta.primaryCta}

@@ -11,6 +11,14 @@ const EU_AI_ACT_ITEMS = [
   "Work with clients to register high-risk systems in the EU database where required",
 ];
 
+const COMPLIANCE_TEST_ITEMS = [
+  "Safety and misuse: harmful output, refusals and prompt injection attempts",
+  "Data protection: handling of personal data, access limits and information leakage",
+  "EU AI Act duties: human oversight points, disclosure of AI involvement and documented limits",
+  "Company policy: your own rules on scope, tone and approvals",
+  "Results feed the scorecard, and a failed critical check blocks the release",
+];
+
 const GDPR_ITEMS = [
   "Sign a Data Processing Agreement (DPA) with every client before any personal data is processed",
   "Collect and process only the data strictly necessary for the agreed purpose (data minimization)",
@@ -192,6 +200,27 @@ const Compliance = () => {
           </div>
         </section>
 
+        {/* Compliance testing */}
+        <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
+          <div className="mx-auto max-w-4xl lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
+            <div className="mb-6 lg:mb-0">
+              <p className="font-mono text-[0.65rem] uppercase tracking-widest text-blue-500 mb-1">Practice</p>
+              <h2 className="text-xl font-bold text-[#0f1e35] dark:text-slate-100">Tested, not only documented</h2>
+            </div>
+            <div>
+              <p className="mb-6 text-sm leading-7 text-[#4a6a8a]">
+                A policy on paper does not show that an agent follows it. We turn your requirements into test cases and run them before every release.
+              </p>
+              <BulletList items={COMPLIANCE_TEST_ITEMS} />
+              <p className="mt-6 text-sm leading-7 text-[#4a6a8a]">
+                <Link to="/practice" className="font-medium text-blue-500 hover:underline">
+                  See how this fits our practice →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* EU AI Act */}
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-14 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
@@ -365,7 +394,7 @@ const Compliance = () => {
             </div>
             <Link
               to="/contact"
-              className="flex-shrink-0 rounded-sm bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+              className="flex-shrink-0 rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
             >
               Start a conversation →
             </Link>

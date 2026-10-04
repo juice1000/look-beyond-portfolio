@@ -6,12 +6,53 @@ interface CaseStudyCardsProps {
   language: Language;
   showHeader?: boolean;
   limit?: number;
+  compact?: boolean;
 }
 
 const STUDIES = [
   {
-    id: "strict",
+    id: "fgs",
     index: "01",
+    client: "FGS Global",
+    industry: "Communications · Enterprise AI · Agent evaluation and monitoring",
+    pillar: "Test · Protect · Monitor",
+    taglineKey: "caseStudies.fgs.tagline",
+    descriptionKey: "caseStudies.fgs.description",
+    stats: [
+      { value: "30+", label: "Specialized AI agents" },
+      { value: "12", label: "Quality scorers" },
+      { value: "300+", label: "Test cases in the release suite" },
+    ],
+    bullets: [
+      "caseStudies.fgs.bullet1",
+      "caseStudies.fgs.bullet2",
+      "caseStudies.fgs.bullet3",
+      "caseStudies.fgs.bullet4",
+    ],
+  },
+  {
+    id: "sourcera",
+    index: "02",
+    client: "Sourcera",
+    industry: "Procurement · Supplier intelligence · Opportunity evaluation",
+    pillar: "Test · Prove",
+    taglineKey: "caseStudies.sourcera.tagline",
+    descriptionKey: "caseStudies.sourcera.description",
+    stats: [
+      { value: "Millions", label: "In savings identified" },
+      { value: "Benchmarked", label: "Against reference datasets" },
+      { value: "Automated", label: "No manual scoring" },
+    ],
+    bullets: [
+      "caseStudies.sourcera.bullet1",
+      "caseStudies.sourcera.bullet2",
+      "caseStudies.sourcera.bullet3",
+      "caseStudies.sourcera.bullet4",
+    ],
+  },
+  {
+    id: "strict",
+    index: "03",
     client: "Strict",
     industry: "Manufacturing · AI-First ERP Transformation",
     pillar: "AI Workflow Systems",
@@ -30,68 +71,8 @@ const STUDIES = [
     ],
   },
   {
-    id: "fgs",
-    index: "02",
-    client: "FGS Global",
-    industry: "Communications · Enterprise AI",
-    pillar: "AI Performance Monitoring",
-    taglineKey: "caseStudies.fgs.tagline",
-    descriptionKey: "caseStudies.fgs.description",
-    stats: [
-      { value: "30+", label: "Specialized AI agents" },
-      { value: "12", label: "Quality dimensions tracked" },
-      { value: "500+", label: "Test scenarios validated" },
-    ],
-    bullets: [
-      "caseStudies.fgs.bullet1",
-      "caseStudies.fgs.bullet2",
-      "caseStudies.fgs.bullet3",
-      "caseStudies.fgs.bullet4",
-    ],
-  },
-  {
-    id: "sourcera",
-    index: "03",
-    client: "Sourcera",
-    industry: "Procurement · Supplier Intelligence",
-    pillar: "AI Workflow Systems",
-    taglineKey: "caseStudies.sourcera.tagline",
-    descriptionKey: "caseStudies.sourcera.description",
-    stats: [
-      { value: "20%", label: "Productivity gain" },
-      { value: "~40%", label: "Manual effort reduced" },
-      { value: "Scalable", label: "Repetitive task handling" },
-    ],
-    bullets: [
-      "caseStudies.sourcera.bullet1",
-      "caseStudies.sourcera.bullet2",
-      "caseStudies.sourcera.bullet3",
-      "caseStudies.sourcera.bullet4",
-    ],
-  },
-  {
-    id: "sprinkenhof",
-    index: "04",
-    client: "Hamburg Real Estate Co.",
-    industry: "Commercial Real Estate & Property Management · Hamburg",
-    pillar: "Autonomous Agents",
-    taglineKey: "caseStudies.sprinkenhof.tagline",
-    descriptionKey: "caseStudies.sprinkenhof.description",
-    stats: [
-      { value: "1.5M+", label: "Documents in scope" },
-      { value: "~40%", label: "Search time reduced" },
-      { value: "30K+", label: "Users reached" },
-    ],
-    bullets: [
-      "caseStudies.sprinkenhof.bullet1",
-      "caseStudies.sprinkenhof.bullet2",
-      "caseStudies.sprinkenhof.bullet3",
-      "caseStudies.sprinkenhof.bullet4",
-    ],
-  },
-  {
     id: "expresssteuer",
-    index: "05",
+    index: "04",
     client: "Expresssteuer",
     industry: "Tax Services · Data & AI Engineering",
     pillar: "AI Workflow Systems",
@@ -111,7 +92,7 @@ const STUDIES = [
   },
   {
     id: "fullcircle",
-    index: "06",
+    index: "05",
     client: "Full-Circle Family",
     industry: "Family Tech · AI Product",
     pillar: "Autonomous Agents",
@@ -131,7 +112,7 @@ const STUDIES = [
   },
   {
     id: "rcycle",
-    index: "07",
+    index: "06",
     client: "R-Cycle",
     industry: "Sustainability · Industrial Data Compliance",
     pillar: "AI Workflow Systems",
@@ -151,7 +132,7 @@ const STUDIES = [
   },
   {
     id: "cinoware",
-    index: "08",
+    index: "07",
     client: "Cinoware",
     industry: "Critical Infrastructure · Government Tech",
     pillar: "AI Performance Monitoring",
@@ -170,28 +151,8 @@ const STUDIES = [
     ],
   },
   {
-    id: "samgen",
-    index: "09",
-    client: "SAMGEN",
-    industry: "Industrial SaaS · Cloud Infrastructure",
-    pillar: "AI Performance Monitoring",
-    taglineKey: "caseStudies.samgen.tagline",
-    descriptionKey: "caseStudies.samgen.description",
-    stats: [
-      { value: "GCP", label: "Cloud platform" },
-      { value: "Automated", label: "Model retraining" },
-      { value: "CI/CD", label: "Streamlined deployment" },
-    ],
-    bullets: [
-      "caseStudies.samgen.bullet1",
-      "caseStudies.samgen.bullet2",
-      "caseStudies.samgen.bullet3",
-      "caseStudies.samgen.bullet4",
-    ],
-  },
-  {
     id: "applai",
-    index: "10",
+    index: "08",
     client: "Applai",
     industry: "HR Tech · Agentic Workflow",
     pillar: "Autonomous Agents",
@@ -211,7 +172,7 @@ const STUDIES = [
   },
   {
     id: "kunveno",
-    index: "11",
+    index: "09",
     client: "kunveno",
     industry: "Enterprise SaaS · Microsoft 365",
     pillar: "AI Workflow Systems",
@@ -231,7 +192,7 @@ const STUDIES = [
   },
 ];
 
-const CaseStudyCards = ({ language, showHeader = true, limit }: CaseStudyCardsProps) => {
+const CaseStudyCards = ({ language, showHeader = true, limit, compact = false }: CaseStudyCardsProps) => {
   const studies = limit !== undefined ? STUDIES.slice(0, limit) : STUDIES;
   return (
     <section id="proof" className="border-b border-white/30 dark:border-[#0f1e35] bg-transparent dark:bg-[#060b18]">
@@ -248,13 +209,55 @@ const CaseStudyCards = ({ language, showHeader = true, limit }: CaseStudyCardsPr
             </div>
             <Link
               to="/projects/all"
-              className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
             >
               See all projects →
             </Link>
           </div>
         )}
 
+        {compact && (
+          <div className="grid grid-cols-1 gap-4 py-8 md:grid-cols-2">
+            {studies.map((study) => (
+              <Link
+                key={study.id}
+                to="/projects"
+                className="relative flex flex-col overflow-hidden rounded-2xl
+                           border border-white/60 dark:border-[#0f1e35]
+                           bg-gradient-to-br from-white/40 to-white/15
+                           dark:bg-[#08101f]/80
+                           backdrop-blur-xl backdrop-saturate-150
+                           shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.2),0_16px_40px_rgba(0,0,0,0.07)]
+                           dark:shadow-none
+                           transition-transform duration-200 hover:-translate-y-1
+                           p-6"
+              >
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white/60 blur-2xl dark:hidden" />
+                <p className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">
+                  {study.client}
+                </p>
+                <p className="mb-4 font-mono text-[0.6rem] uppercase tracking-widest text-slate-400 dark:text-[#2a4060]">
+                  {study.pillar}
+                </p>
+                <p className="mb-6 text-sm font-semibold leading-snug text-[#0f1e35] dark:text-slate-100">
+                  {t(study.taglineKey, language)}
+                </p>
+                <div className="mt-auto grid grid-cols-3 gap-2">
+                  {study.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <div className="text-lg font-bold text-blue-500">{stat.value}</div>
+                      <div className="font-mono text-[0.55rem] uppercase leading-4 tracking-widest text-slate-500 dark:text-[#4a6a8a]">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {!compact && (
         <div className="divide-y divide-white/30 dark:divide-[#0f1e35]">
           {studies.map((study) => (
             <div key={study.id} className="py-10 lg:grid lg:grid-cols-[1fr_2fr] lg:gap-12">
@@ -320,6 +323,7 @@ const CaseStudyCards = ({ language, showHeader = true, limit }: CaseStudyCardsPr
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
