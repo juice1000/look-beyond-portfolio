@@ -49,6 +49,15 @@ const Footer = ({ language = "en" }: FooterProps) => {
               </li>
               <li>
                 <Link
+                  to="/news"
+                  onClick={() => handleNavigation("/news", t("nav.news", language))}
+                  className="text-slate-500 dark:text-[#4a6a8a] hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                >
+                  {t("nav.news", language)}
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contact"
                   onClick={() =>
                     handleNavigation("/contact", t("nav.contact", language))

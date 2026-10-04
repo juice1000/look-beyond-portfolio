@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect } from "react";
-import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import Projects from "./components/projects";
@@ -15,13 +15,15 @@ import VoiceAgent from "./components/voiceagent";
 import AIReadiness from "./components/AIReadiness";
 import OurProcess from "./components/OurProcess";
 import PricingEngagement from "./components/PricingEngagement";
-import Partners from "./components/Partners";
 import Workshops from "./components/Workshops";
 import Imprint from "./components/Imprint";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import Compliance from "./components/Compliance";
+import Partners from "./components/Partners";
 import Practice from "./components/Practice";
+import News from "./components/News";
+import NewsArticle from "./components/NewsArticle";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
@@ -32,8 +34,6 @@ import AIPerformanceMonitoring from "./components/pillars/AIPerformanceMonitorin
 import Procurement from "./components/industries/Procurement";
 import Manufacturing from "./components/industries/Manufacturing";
 import Logistics from "./components/industries/Logistics";
-
-import routes from "tempo-routes";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -174,6 +174,8 @@ function App() {
           />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/practice" element={<Practice language={language} />} />
+          <Route path="/news" element={<News language={language} />} />
+          <Route path="/news/:slug" element={<NewsArticle language={language} />} />
           <Route
             path="/pillars/ai-workflow-systems"
             element={
@@ -209,9 +211,8 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         <Calendar isDarkMode={isDarkMode} />
-        {import.meta.env.VITE_TEMPO !== "true" && <VoiceAgent />}
+        <VoiceAgent />
         <Footer language={language} />
       </>
     </Suspense>

@@ -55,7 +55,9 @@ const Navbar = ({
 
   useEffect(() => {
     const path = location.pathname;
-    const navItem = navItems.find((item) => item.href === path);
+    const navItem = navItems.find(
+      (item) => path === item.href || path.startsWith(`${item.href}/`),
+    );
     setActiveItem(navItem?.label || "");
   }, [location.pathname, language]);
 
@@ -63,7 +65,7 @@ const Navbar = ({
     { label: t("nav.practice", language), href: "/practice" },
     { label: t("nav.ourProcess", language), href: "/our-process" },
     { label: t("nav.projects", language), href: "/projects" },
-    { label: t("nav.partners", language), href: "/partners" },
+    { label: t("nav.news", language), href: "/news" },
     { label: t("nav.contact", language), href: "/contact" },
   ];
 

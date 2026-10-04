@@ -16,10 +16,11 @@ export const translations: Translations = {
     "nav.proof": "Proof",
     "nav.process": "Process",
     "nav.projects": "Case Studies",
-    "nav.partners": "Partners",
     "nav.howWeWork": "How We Work",
     "nav.aiReadiness": "AI Readiness",
     "nav.practice": "Our Practice",
+    "nav.news": "News",
+    "nav.partners": "Partners",
     "nav.ourProcess": "Our Process",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
@@ -62,34 +63,6 @@ export const translations: Translations = {
     "projects.categories.web": "Knowledge",
     "projects.categories.ai": "Automation",
 
-    // Partners Page
-    "partners.title": "Partners",
-    "partners.subtitle":
-      "Selected partners that extend our delivery capabilities across AI operations, document intelligence, and app delivery.",
-    "partners.intro":
-      "Each partner covers a distinct part of the stack. Together we cover discovery, implementation, and ongoing operations without stretching into weak spots.",
-    "partners.innovandio.name": "Innovandio",
-    "partners.innovandio.url": "innovandio.com",
-    "partners.innovandio.role": "AI operations specialist",
-    "partners.innovandio.capability":
-      "Production AI delivery with governance, monitoring, and predictable outcomes.",
-    "partners.innovandio.point1": "Heavy AI operations and governance",
-    "partners.innovandio.point2": "Regulated-industry readiness",
-    "partners.mueller.name": "Mueller AI Solutions",
-    "partners.mueller.url": "muelleraisolutions.de",
-    "partners.mueller.role": "Document specialist",
-    "partners.mueller.capability":
-      "Document intelligence for PDF-heavy back-office workflows.",
-    "partners.mueller.point1":
-      "Document extraction, classification, and search",
-    "partners.mueller.point2": "Regulated, document-heavy operations",
-    "partners.kuatsu.name": "Kuatsu",
-    "partners.kuatsu.url": "kuatsu.de",
-    "partners.kuatsu.role": "App and deployment specialist",
-    "partners.kuatsu.capability":
-      "App delivery, MVP validation, and long-term maintenance.",
-    "partners.kuatsu.point1": "App design, development, and deployment",
-    "partners.kuatsu.point2": "Orientation sprints and MVP validation",
 
     // Contact Section
     "contact.title": "Start a conversation",
@@ -473,9 +446,36 @@ export const translations: Translations = {
 
     // Footer
     "footer.company": "Company",
+    "footer.partners": "Partners",
+    "partners.title": "Partners",
+    "partners.subtitle":
+      "Selected partners that extend our delivery capabilities across AI operations, document intelligence, and app delivery.",
+    "partners.intro":
+      "Each partner covers a distinct part of the stack. Together we cover discovery, implementation, and ongoing operations without stretching into weak spots.",
+    "partners.innovandio.name": "Innovandio",
+    "partners.innovandio.url": "innovandio.com",
+    "partners.innovandio.role": "AI operations specialist",
+    "partners.innovandio.capability":
+      "Production AI delivery with governance, monitoring, and predictable outcomes.",
+    "partners.innovandio.point1": "Heavy AI operations and governance",
+    "partners.innovandio.point2": "Regulated-industry readiness",
+    "partners.mueller.name": "Mueller AI Solutions",
+    "partners.mueller.url": "muelleraisolutions.de",
+    "partners.mueller.role": "Document specialist",
+    "partners.mueller.capability":
+      "Document intelligence for PDF-heavy back-office workflows.",
+    "partners.mueller.point1":
+      "Document extraction, classification, and search",
+    "partners.mueller.point2": "Regulated, document-heavy operations",
+    "partners.kuatsu.name": "Kuatsu",
+    "partners.kuatsu.url": "kuatsu.de",
+    "partners.kuatsu.role": "App and deployment specialist",
+    "partners.kuatsu.capability":
+      "App delivery, MVP validation, and long-term maintenance.",
+    "partners.kuatsu.point1": "App design, development, and deployment",
+    "partners.kuatsu.point2": "Orientation sprints and MVP validation",
     "footer.services": "Services",
     "footer.projects": "Case Studies",
-    "footer.partners": "Partners",
     "footer.legal": "Legal",
     "footer.copyright": "All rights reserved.",
 
@@ -508,10 +508,11 @@ export const translations: Translations = {
     "nav.proof": "Nachweise",
     "nav.process": "Prozess",
     "nav.projects": "Fallstudien",
-    "nav.partners": "Partner",
     "nav.howWeWork": "Wie wir arbeiten",
     "nav.aiReadiness": "KI-Readiness",
     "nav.practice": "Unsere Praxis",
+    "nav.news": "News",
+    "nav.partners": "Partner",
     "nav.ourProcess": "Unser Prozess",
     "nav.pricingEngagement": "Pricing & Collaboration",
     "nav.workshops": "Workshops",
@@ -555,33 +556,6 @@ export const translations: Translations = {
     "projects.categories.web": "Wissen",
     "projects.categories.ai": "Automatisierung",
 
-    // Partners Page
-    "partners.title": "Partner",
-    "partners.subtitle":
-      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
-    "partners.intro":
-      "Jeder Partner deckt einen klaren Teil des Stacks ab. Gemeinsam unterstützen wir Discovery, Umsetzung und den laufenden Betrieb, ohne Schwachstellen zu überdecken.",
-    "partners.innovandio.name": "Innovandio",
-    "partners.innovandio.url": "innovandio.com",
-    "partners.innovandio.role": "KI-Operations-Spezialist",
-    "partners.innovandio.capability":
-      "Produktive KI-Delivery mit Governance, Monitoring und planbaren Ergebnissen.",
-    "partners.innovandio.point1": "Heavy AI Operations und Governance",
-    "partners.innovandio.point2": "Regulierte Branchen und planbare Ergebnisse",
-    "partners.mueller.name": "Mueller AI Solutions",
-    "partners.mueller.url": "muelleraisolutions.de",
-    "partners.mueller.role": "Dokumentenspezialist",
-    "partners.mueller.capability":
-      "Dokumentenintelligenz für PDF-lastige Backoffice-Workflows.",
-    "partners.mueller.point1": "Dokument-Extraktion, Klassifikation und Suche",
-    "partners.mueller.point2": "Regulierte, dokumentenintensive Abläufe",
-    "partners.kuatsu.name": "Kuatsu",
-    "partners.kuatsu.url": "kuatsu.de",
-    "partners.kuatsu.role": "App- und Deployment-Spezialist",
-    "partners.kuatsu.capability":
-      "App-Delivery, MVP-Validierung und langfristige Wartung.",
-    "partners.kuatsu.point1": "App-Design, Entwicklung und Deployment",
-    "partners.kuatsu.point2": "Orientation Sprints und MVP-Validierung",
 
     // Contact Section
     "contact.title": "Lassen Sie uns sprechen",
@@ -965,9 +939,35 @@ export const translations: Translations = {
 
     // Footer
     "footer.company": "Unternehmen",
+    "footer.partners": "Partner",
+    "partners.title": "Partner",
+    "partners.subtitle":
+      "Ausgewählte Partner, die unsere Delivery-Fähigkeiten in KI-Betrieb, Dokumentenintelligenz und App-Delivery erweitern.",
+    "partners.intro":
+      "Jeder Partner deckt einen klaren Teil des Stacks ab. Gemeinsam unterstützen wir Discovery, Umsetzung und den laufenden Betrieb, ohne Schwachstellen zu überdecken.",
+    "partners.innovandio.name": "Innovandio",
+    "partners.innovandio.url": "innovandio.com",
+    "partners.innovandio.role": "KI-Operations-Spezialist",
+    "partners.innovandio.capability":
+      "Produktive KI-Delivery mit Governance, Monitoring und planbaren Ergebnissen.",
+    "partners.innovandio.point1": "Heavy AI Operations und Governance",
+    "partners.innovandio.point2": "Regulierte Branchen und planbare Ergebnisse",
+    "partners.mueller.name": "Mueller AI Solutions",
+    "partners.mueller.url": "muelleraisolutions.de",
+    "partners.mueller.role": "Dokumentenspezialist",
+    "partners.mueller.capability":
+      "Dokumentenintelligenz für PDF-lastige Backoffice-Workflows.",
+    "partners.mueller.point1": "Dokument-Extraktion, Klassifikation und Suche",
+    "partners.mueller.point2": "Regulierte, dokumentenintensive Abläufe",
+    "partners.kuatsu.name": "Kuatsu",
+    "partners.kuatsu.url": "kuatsu.de",
+    "partners.kuatsu.role": "App- und Deployment-Spezialist",
+    "partners.kuatsu.capability":
+      "App-Delivery, MVP-Validierung und langfristige Wartung.",
+    "partners.kuatsu.point1": "App-Design, Entwicklung und Deployment",
+    "partners.kuatsu.point2": "Orientation Sprints und MVP-Validierung",
     "footer.services": "Leistungen",
     "footer.projects": "Fallstudien",
-    "footer.partners": "Partner",
     "footer.legal": "Rechtliches",
     "footer.copyright": "Alle Rechte vorbehalten.",
 
