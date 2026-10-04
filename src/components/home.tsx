@@ -45,7 +45,7 @@ const Home = ({
         <Testimonial items={testimonials} />
         <CaseStudyCards language={language} showHeader={true} limit={2} compact />
         <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
-        <FaqSection content={content.faq} />
+        <FaqSection content={content.faq} language={language} />
         <ClosingSection language={language} finalCta={content.finalCta} />
       </main>
     </div>

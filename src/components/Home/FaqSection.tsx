@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LandingPageContent } from "../../data/landingPage";
+import { fillPriceTokens } from "../../data/pricing";
+import { Language } from "../../lib/i18n";
+import { useCurrency } from "../../lib/region";
 import {
   Accordion,
   AccordionContent,
@@ -10,9 +13,11 @@ import {
 
 interface FaqSectionProps {
   content: LandingPageContent["faq"];
+  language: Language;
 }
 
-const FaqSection = ({ content }: FaqSectionProps) => {
+const FaqSection = ({ content, language }: FaqSectionProps) => {
+  const currency = useCurrency();
   return (
     <section
       id="faq"
@@ -44,7 +49,7 @@ const FaqSection = ({ content }: FaqSectionProps) => {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-sm leading-6 text-slate-500 dark:text-[#4a6a8a]">
-                {item.answer}
+                {fillPriceTokens(item.answer, language, currency)}
               </AccordionContent>
             </AccordionItem>
           ))}

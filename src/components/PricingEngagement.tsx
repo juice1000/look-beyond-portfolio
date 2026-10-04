@@ -3,6 +3,7 @@ import { CheckCircle2 } from "lucide-react";
 import { t, Language } from "../lib/i18n";
 import { AuroraBackground } from "./Home/HeroSection";
 import { PRICING, startingAt, formalOfferNote } from "../data/pricing";
+import { useCurrency } from "../lib/region";
 
 interface PricingEngagementProps {
   language?: Language;
@@ -13,6 +14,7 @@ const GLASS =
 
 
 const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
+  const currency = useCurrency();
   const tiers = [
     {
       title: t("pricingEngagement.tiers.free.title", language),
@@ -26,7 +28,7 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
     },
     {
       title: t("pricingEngagement.tiers.workshop.title", language),
-      price: startingAt(PRICING.workshop.fromEur, language),
+      price: startingAt(PRICING.workshop.fromEur, language, currency),
       description: t("pricingEngagement.tiers.workshop.description", language),
       highlight: false,
       items: [
@@ -37,7 +39,7 @@ const PricingEngagement = ({ language = "en" }: PricingEngagementProps) => {
     },
     {
       title: t("pricingEngagement.tiers.poc.title", language),
-      price: startingAt(PRICING.poc.fromEur, language),
+      price: startingAt(PRICING.poc.fromEur, language, currency),
       description: t("pricingEngagement.tiers.poc.description", language),
       highlight: false,
       items: [

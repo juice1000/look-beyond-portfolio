@@ -1,5 +1,5 @@
 import { Language } from "../lib/i18n";
-import { costFaqAnswer } from "./pricing";
+import { formalOfferNote } from "./pricing";
 
 export type IndustryAccent = "teal" | "amber" | "violet";
 
@@ -197,7 +197,7 @@ const englishContent: LandingPageContent = {
       {
         question: "What does it cost to start?",
         answer:
-          costFaqAnswer("en"),
+          `The first meeting is free. A discovery workshop starts at {workshopFrom} and a proof of concept starts at {pocFrom}. ${formalOfferNote("en")}`,
       },
       {
         question: "What do we have after the first weeks?",
@@ -585,7 +585,7 @@ const germanContent: LandingPageContent = {
       {
         question: "Was kostet der Einstieg?",
         answer:
-          costFaqAnswer("de"),
+          `Das Erstgespräch ist kostenfrei. Ein Discovery-Workshop beginnt bei {workshopFrom}, ein Proof of Concept bei {pocFrom}. ${formalOfferNote("de")}`,
       },
       {
         question: "Was haben wir nach den ersten Wochen?",
