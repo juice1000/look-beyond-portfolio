@@ -15,13 +15,15 @@ import VoiceAgent from "./components/voiceagent";
 import AIReadiness from "./components/AIReadiness";
 import OurProcess from "./components/OurProcess";
 import PricingEngagement from "./components/PricingEngagement";
-import Partners from "./components/Partners";
 import Workshops from "./components/Workshops";
 import Imprint from "./components/Imprint";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import Compliance from "./components/Compliance";
+import Partners from "./components/Partners";
 import Practice from "./components/Practice";
+import News from "./components/News";
+import NewsArticle from "./components/NewsArticle";
 import Footer from "./components/Footer";
 
 import NotFound from "./pages/NotFound";
@@ -174,6 +176,8 @@ function App() {
           />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/practice" element={<Practice language={language} />} />
+          <Route path="/news" element={<News language={language} />} />
+          <Route path="/news/:slug" element={<NewsArticle language={language} />} />
           <Route
             path="/pillars/ai-workflow-systems"
             element={
