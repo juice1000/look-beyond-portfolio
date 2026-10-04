@@ -34,10 +34,10 @@ const NewsCard = ({ item, language }: { item: NewsItem; language: Language }) =>
                 : "border border-blue-500/30 text-blue-500"
             }`}
           >
-            {item.status === "upcoming" ? ui.upcoming : ui.recap}
+            {item.status === "upcoming" ? ui.upcoming : item.status === "article" ? ui.article : ui.recap}
           </span>
           <span className="font-mono text-[0.6rem] uppercase tracking-widest text-slate-500 dark:text-[#4a6a8a]">
-            {item.dateLabel[language]} · {item.location}
+            {item.dateLabel[language]}{item.location ? ` · ${item.location}` : ""}
           </span>
         </div>
         <h3 className="mb-3 text-xl font-bold leading-snug text-[#0f1e35] dark:text-slate-100">

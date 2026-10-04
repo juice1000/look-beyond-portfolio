@@ -34,10 +34,10 @@ const NewsArticle = ({ language }: { language: Language }) => {
                     : "border border-blue-500/30 text-blue-500"
                 }`}
               >
-                {item.status === "upcoming" ? ui.upcoming : ui.recap}
+                {item.status === "upcoming" ? ui.upcoming : item.status === "article" ? ui.article : ui.recap}
               </span>
               <span className="font-mono text-[0.65rem] uppercase tracking-widest text-slate-500 dark:text-[#4a6a8a]">
-                {item.dateLabel[language]} · {item.location}
+                {item.dateLabel[language]}{item.location ? ` · ${item.location}` : ""}
               </span>
             </div>
 
@@ -55,9 +55,18 @@ const NewsArticle = ({ language }: { language: Language }) => {
             )}
 
             <div className="space-y-5 text-base leading-7 text-[#4a6a8a]">
-              {item.body[language].map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {item.body[language].map((paragraph) =>
+                paragraph.startsWith("## ") ? (
+                  <h2
+                    key={paragraph}
+                    className="!mt-10 text-xl font-bold leading-snug text-[#0f1e35] dark:text-slate-100"
+                  >
+                    {paragraph.slice(3)}
+                  </h2>
+                ) : (
+                  <p key={paragraph}>{paragraph}</p>
+                )
+              )}
             </div>
 
             {item.questions && (
@@ -83,7 +92,7 @@ const NewsArticle = ({ language }: { language: Language }) => {
             {item.takeaways && (
               <div className="mt-10">
                 <p className="mb-5 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
-                  {ui.takeaways}
+                  {item.takeawaysHeading?.[language] ?? ui.takeaways}
                 </p>
                 <ul className="space-y-5">
                   {item.takeaways[language].map((takeaway) => (
