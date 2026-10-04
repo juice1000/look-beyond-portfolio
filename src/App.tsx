@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect } from "react";
-import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/home";
 import Projects from "./components/projects";
@@ -34,8 +34,6 @@ import AIPerformanceMonitoring from "./components/pillars/AIPerformanceMonitorin
 import Procurement from "./components/industries/Procurement";
 import Manufacturing from "./components/industries/Manufacturing";
 import Logistics from "./components/industries/Logistics";
-
-import routes from "tempo-routes";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -213,9 +211,8 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         <Calendar isDarkMode={isDarkMode} />
-        {import.meta.env.VITE_TEMPO !== "true" && <VoiceAgent />}
+        <VoiceAgent />
         <Footer language={language} />
       </>
     </Suspense>

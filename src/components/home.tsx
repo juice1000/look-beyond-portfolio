@@ -9,7 +9,6 @@ import TrustStrip from "./Home/TrustStrip";
 import ValueRows from "./Home/ValueRows";
 import Testimonial from "./Home/Testimonial";
 import FaqSection from "./Home/FaqSection";
-import NewsSection from "./Home/NewsSection";
 import { clientLogos, testimonials } from "../data/credentials";
 import CaseStudyCards from "./Home/CaseStudyCards";
 
@@ -45,7 +44,6 @@ const Home = ({
         />
         <Testimonial items={testimonials} />
         <CaseStudyCards language={language} showHeader={true} limit={2} compact />
-        <NewsSection language={language} />
         <IndustryWorkflowTabs content={content.industries} isDarkMode={isDarkMode} />
         <FaqSection content={content.faq} language={language} />
         <ClosingSection language={language} finalCta={content.finalCta} />
