@@ -1,10 +1,29 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ACTS, SLIDES } from "../data/processStory";
-import ProcessVisual from "./ProcessVisuals";
+import { Link } from "react-router-dom";
+import { Act, BaseSlide, StoryLabels } from "../data/storyTypes";
 
-const ProcessSlideshow = () => {
-  const [[index, direction], setPage] = useState<[number, number]>([0, 0]);
+interface StorySlideshowProps {
+  acts: Act[];
+  slides: BaseSlide[];
+  labels: StoryLabels;
+  renderVisual: (id: string) => React.ReactNode;
+}
+
+const StorySlideshow = ({
+  acts,
+  slides,
+  labels,
+  renderVisual,
+}: StorySlideshowProps) => {
+  const ACTS = acts;
+  const SLIDES = slides;
+  const [[index, direction], setPage] = useState<[number, number]>(() => {
+    const hash =
+      typeof window !== "undefined" ? window.location.hash.slice(1) : "";
+    const start = hash ? SLIDES.findIndex((sl) => sl.anchor === hash) : -1;
+    return [Math.max(start, 0), 0];
+  });
   const slide = SLIDES[index];
   const last = SLIDES.length - 1;
 
@@ -35,7 +54,9 @@ const ProcessSlideshow = () => {
 
   const statsGrid = () =>
     slide.stats && (
-      <div className={`grid w-full grid-cols-1 gap-4 sm:grid-cols-3`}>
+      <div
+        className={`grid w-full grid-cols-1 gap-4 ${slide.stats.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}
+      >
         {slide.stats.map((s) => (
           <div
             key={s.label}
@@ -55,14 +76,17 @@ const ProcessSlideshow = () => {
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="How we work"
+      aria-label={labels.carousel}
       className="border-b border-white/30 dark:border-[#0f1e35] px-4 py-6 md:px-8"
     >
       <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col">
         {/* Act navigation */}
         <nav
-          aria-label="Story chapters"
-          className="mb-8 grid grid-cols-4 gap-2"
+          aria-label={labels.chapters}
+          className="mb-8 grid gap-2"
+          style={{
+            gridTemplateColumns: `repeat(${ACTS.length}, minmax(0, 1fr))`,
+          }}
         >
           {ACTS.map((act, i) => {
             const active = act.id === slide.act;
@@ -102,17 +126,17 @@ const ProcessSlideshow = () => {
             disabled={index === 0}
             className="rounded-full border border-white/60 dark:border-[#0f1e35] px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#0f1e35] dark:text-slate-100 transition-colors hover:text-blue-600 disabled:opacity-30 disabled:hover:text-inherit"
           >
-            ← Back
+            ← {labels.back}
           </button>
           <div
             className="flex items-center gap-2"
-            aria-label={`Slide ${posInAct + 1} of ${actSlides.length} in this chapter`}
+            aria-label={`${posInAct + 1} / ${actSlides.length}`}
           >
             {actSlides.map((s, i) => (
               <button
                 key={s.title}
                 onClick={() => go(SLIDES.indexOf(s))}
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`${i + 1}`}
                 className={`h-2 rounded-full transition-all ${
                   i === posInAct
                     ? "w-6 bg-blue-600"
@@ -126,7 +150,7 @@ const ProcessSlideshow = () => {
             disabled={index === last}
             className="rounded-full bg-blue-600 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700 disabled:opacity-30 disabled:hover:bg-blue-600"
           >
-            Next →
+            {labels.next} →
           </button>
         </div>
 
@@ -183,19 +207,52 @@ const ProcessSlideshow = () => {
                     </ul>
                   )}
 
+                  {slide.items && (
+                    <div className="mb-6 max-w-2xl space-y-4">
+                      {slide.items.map((it) => (
+                        <div key={it.title}>
+                          <p className="text-sm font-semibold text-[#0f1e35] dark:text-slate-100 sm:text-base">
+                            {it.title}
+                          </p>
+                          <p className="text-sm leading-6 text-[#4a6a8a] sm:text-base">
+                            {it.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {slide.outcome && (
                     <div className="max-w-2xl rounded-sm border border-white/30 dark:border-[#0f1e35] bg-white/40 dark:bg-[#08101f] px-4 py-3">
                       <span className="font-mono text-[0.6rem] uppercase tracking-widest text-blue-500">
-                        Result:{" "}
+                        {labels.result}:{" "}
                       </span>
                       <span className="text-sm text-slate-600 dark:text-slate-300">
                         {slide.outcome}
                       </span>
                     </div>
                   )}
+
+                  {slide.cta && (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      {slide.cta.map((c, i) => (
+                        <Link
+                          key={c.href + c.label}
+                          to={c.href}
+                          className={
+                            i === 0
+                              ? "rounded-full bg-blue-600 px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-white transition-colors hover:bg-blue-700"
+                              : "rounded-full border border-white/60 dark:border-[#0f1e35] px-5 py-3 font-mono text-[0.65rem] uppercase tracking-widest text-[#0f1e35] dark:text-slate-100 transition-colors hover:text-blue-600"
+                          }
+                        >
+                          {c.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center justify-center">
-                  {slide.visual && <ProcessVisual id={slide.visual} />}
+                  {slide.visual && renderVisual(slide.visual)}
                 </div>
               </div>
               {slide.stats && statsGrid()}
@@ -207,4 +264,4 @@ const ProcessSlideshow = () => {
   );
 };
 
-export default ProcessSlideshow;
+export default StorySlideshow;

@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AuroraBackground } from "./Home/HeroSection";
-import ProcessSlideshow from "./ProcessSlideshow";
+import StorySlideshow from "./StorySlideshow";
+import ProcessVisual from "./ProcessVisuals";
+import { ACTS, SLIDES, VisualId } from "../data/processStory";
+
+const LABELS = {
+  back: "Back",
+  next: "Next",
+  result: "Result",
+  chapters: "Story chapters",
+  carousel: "How we work",
+};
 
 const OurProcess = () => {
   return (
@@ -11,13 +21,19 @@ const OurProcess = () => {
         <AuroraBackground isDarkMode={false} />
       </div>
       <main className="pt-20">
-
-        <ProcessSlideshow />
+        <StorySlideshow
+          acts={ACTS}
+          slides={SLIDES}
+          labels={LABELS}
+          renderVisual={(id) => <ProcessVisual id={id as VisualId} />}
+        />
 
         {/* Explore solutions */}
         <section className="border-b border-white/30 dark:border-[#0f1e35] px-6 py-10 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl">
-            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">Explore the practice</p>
+            <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-widest text-blue-500">
+              Explore the practice
+            </p>
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/practice"
@@ -51,9 +67,12 @@ const OurProcess = () => {
         <section className="px-6 py-16 md:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">Ready to map a workflow?</h2>
+              <h2 className="mb-1 text-xl font-bold text-[#0f1e35] dark:text-slate-100">
+                Ready to map a workflow?
+              </h2>
               <p className="text-sm text-[#4a6a8a]">
-                We'll scope one operational process and show you where AI can reduce manual work without increasing risk.
+                We'll scope one operational process and show you where AI can
+                reduce manual work without increasing risk.
               </p>
             </div>
             <Link
@@ -64,7 +83,6 @@ const OurProcess = () => {
             </Link>
           </div>
         </section>
-
       </main>
     </div>
   );
