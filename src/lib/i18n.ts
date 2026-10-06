@@ -21,7 +21,7 @@ export const translations: Translations = {
     "nav.practice": "Our Practice",
     "nav.news": "News",
     "nav.partners": "Partners",
-    "nav.ourProcess": "Our Process",
+    "nav.ourProcess": "Our Engagement",
     "nav.pricingEngagement": "Pricing & Engagement",
     "nav.workshops": "Workshops",
     "nav.contact": "Contact Us",
@@ -335,7 +335,7 @@ export const translations: Translations = {
     "closing.point4": "Internal teams equipped to lead the change",
 
     // Our Process Section
-    "ourProcess.title": "Our Process",
+    "ourProcess.title": "Our Engagement",
     "ourProcess.step1.title": "Workflow-grounded discovery",
     "ourProcess.step1.description":
       "We start inside the real process to map knowledge, systems, and stakeholders so every build is anchored in operational reality.",
@@ -513,7 +513,7 @@ export const translations: Translations = {
     "nav.practice": "Unsere Praxis",
     "nav.news": "News",
     "nav.partners": "Partner",
-    "nav.ourProcess": "Unser Prozess",
+    "nav.ourProcess": "Unsere Zusammenarbeit",
     "nav.pricingEngagement": "Pricing & Collaboration",
     "nav.workshops": "Workshops",
     "nav.contact": "Kontakt",
@@ -825,7 +825,7 @@ export const translations: Translations = {
     "closing.point4": "Teams, die den Wandel tragen",
 
     // Our Process
-    "ourProcess.title": "Unser Prozess",
+    "ourProcess.title": "Unsere Zusammenarbeit",
     "ourProcess.step1.title": "Discovery am realen Workflow",
     "ourProcess.step1.description":
       "Wir kartieren Wissen, Systeme und Stakeholder direkt im Prozess, damit jedes Build in der Realität verankert ist.",

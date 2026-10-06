@@ -1,104 +1,76 @@
-export type ActId = "problem" | "analysis" | "solution" | "results";
+import { Act, BaseSlide } from "./storyTypes";
+
+export type ActId = "start" | "engagement" | "outcomes";
 
 export type VisualId =
-  | "funnel"
-  | "drift"
+  | "focus"
+  | "people"
   | "messy"
-  | "unwatched"
   | "method"
   | "map"
   | "design"
   | "prototype"
   | "controls"
   | "expand"
-  | "scorecard";
+  | "timeline";
 
-export interface Stat {
-  value: string;
-  label: string;
-}
+export type Slide = BaseSlide<ActId, VisualId>;
 
-export interface Slide {
-  act: ActId;
-  eyebrow: string;
-  title: string;
-  body: string;
-  points?: string[];
-  stats?: Stat[];
-  visual?: VisualId;
-  outcome?: string;
-}
-
-export const ACTS: { id: ActId; label: string }[] = [
-  { id: "problem", label: "The problem" },
-  { id: "analysis", label: "Why it happens" },
-  { id: "solution", label: "How we fix it" },
-  { id: "results", label: "What you get" },
+export const ACTS: Act<ActId>[] = [
+  { id: "start", label: "Starting point" },
+  { id: "engagement", label: "The engagement" },
+  { id: "outcomes", label: "Outcomes" },
 ];
 
 export const SLIDES: Slide[] = [
-  // Act 1: the problem
+  // Act 1: how an engagement starts
   {
-    act: "problem",
-    eyebrow: "The problem",
-    title: "Most AI pilots never reach daily use.",
-    visual: "funnel",
-    body: "A demo works in a meeting. Then it meets real documents, real exceptions and real deadlines. The pilot stalls, and the team goes back to doing the work by hand.",
+    act: "start",
+    eyebrow: "Starting point",
+    title: "Start with one workflow worth fixing.",
+    visual: "focus",
+    body: "We do not begin with a platform or ten pilots. We begin with one process that is repetitive, high in volume and heavy on documents. Narrow scope is what lets a project reach daily use.",
     points: [
-      "The pilot impressed everyone, but nobody relies on it",
-      "The budget is spent and the process looks the same as before",
-      "No one can say whether it actually saved anything",
+      "Clear inputs and a clear output",
+      "Enough volume for the savings to show",
+      "A team that wants it to work",
     ],
   },
   {
-    act: "problem",
-    eyebrow: "The problem",
-    title: "And the agents that do go live are unstable.",
-    visual: "drift",
-    body: "An AI agent can answer correctly on Monday and wrongly on Friday. Without checks, nobody notices until a customer, an auditor or a supplier does.",
+    act: "start",
+    eyebrow: "Starting point",
+    title: "Bring the people who do the work.",
+    visual: "people",
+    body: "Operators and team leads know which cases are hard and what a good result looks like. We involve them from the first week, because they will be the ones using the system.",
     points: [
-      "Answers drift as inputs and documents change",
-      "Errors are found late, by the wrong people",
-      "Staff stop trusting the tool and double-check everything",
+      "Operators who run the process today",
+      "A reviewer who can say what good looks like",
+      "Someone in finance to agree how savings are counted",
     ],
   },
-
-  // Act 2: the analysis
   {
-    act: "analysis",
-    eyebrow: "Why it happens",
-    title: "The demo was never tested against reality.",
+    act: "start",
+    eyebrow: "Starting point",
+    title: "Share real examples, including the messy ones.",
     visual: "messy",
-    body: "Pilots are usually built on clean examples. Real operations are full of odd formats, missing fields and special cases. The five to ten exceptions that cause most of the manual work were never part of the test.",
+    body: "We build and test on your actual documents, emails and exports. Clean samples hide the cases that cause most of the manual work.",
     points: [
-      "Clean sample data hides the hard cases",
-      "No agreed starting point, so no way to show improvement",
-      "The people doing the work were not involved",
+      "Documents, emails and spreadsheets from the live process",
+      "The odd formats and special cases",
+      "The SOPs and policies the process must follow",
     ],
   },
   {
-    act: "analysis",
-    eyebrow: "Why it happens",
-    title: "Nobody was watching once it went live.",
-    visual: "unwatched",
-    body: "A system that works today is not guaranteed to work next month. Without tests on every release, live monitoring and a clear path to a human, small problems grow unseen.",
-    points: [
-      "No automatic tests before changes go out",
-      "No alerts when quality or cost moves",
-      "No record of what the agent did and why",
-    ],
-  },
-  {
-    act: "analysis",
-    eyebrow: "Why it happens",
-    title: "So the fix is a method, not a better model.",
+    act: "engagement",
+    eyebrow: "How we work",
+    title: "A method, not a better model.",
     visual: "method",
-    body: "Better AI does not solve a process problem. What works is to start small, use real data, build the checks in early and grow only when the numbers hold. This is the order we follow.",
+    body: "Better AI does not solve a process problem. We work in five steps: start small, use real data, build the checks in early and grow only when the numbers hold.",
   },
 
   // Act 3: the solution
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 1 of 5 · Weeks 1-2",
     title: "Map the workflow and the baseline.",
     visual: "map",
@@ -111,7 +83,7 @@ export const SLIDES: Slide[] = [
     outcome: "A workflow map and a baseline everyone agrees on.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 2 of 5 · Weeks 2-3",
     title: "Design the pipeline and the checks.",
     visual: "design",
@@ -124,7 +96,7 @@ export const SLIDES: Slide[] = [
     outcome: "A written plan with clear boundaries and pass criteria.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 3 of 5 · Weeks 3-5",
     title: "Prototype with real data.",
     visual: "prototype",
@@ -137,21 +109,21 @@ export const SLIDES: Slide[] = [
     outcome: "A prototype the team has stress-tested under real conditions.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 4 of 5 · Weeks 5-7",
     title: "Add the reliability controls.",
     visual: "controls",
-    body: "This is what separates a demo from a system you can run. Tests, compliance checks, live monitoring, access rules and a full activity log are built in before we widen the scope.",
+    body: "Before we widen the scope, we put checks around the system: tests, monitoring, access rules and a full activity log. How these work in detail is covered on Our Practice.",
     points: [
-      "Automatic tests on every release",
+      "Checks are built in during the prototype, not added at launch",
       "A failed critical check blocks the release",
-      "Alerts on quality, cost and rule violations",
-      "Every agent action is logged and reviewable",
     ],
     outcome: "A system operators can trust, with full visibility.",
+    cta: [{ label: "See our practice", href: "/practice" }],
   },
+
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 5 of 5 · Week 7+",
     title: "Report, then expand carefully.",
     visual: "expand",
@@ -161,20 +133,31 @@ export const SLIDES: Slide[] = [
       "Reuse tests and monitoring for adjacent workflows",
       "Keep human review until thresholds are met consistently",
     ],
-    outcome: "A growing system where each addition is as reliable as the first.",
+    outcome:
+      "A growing system where each addition is as reliable as the first.",
   },
 
   // Act 4: the results
   {
-    act: "results",
-    eyebrow: "What you get",
+    act: "outcomes",
+    eyebrow: "Outcomes",
     title: "Numbers you can check, not promises.",
-    visual: "scorecard",
-    body: "Every engagement ends with a scorecard on productivity, quality and compliance, measured against the baseline from step 1. Finance can verify it. This is what it has looked like for clients.",
+    visual: "timeline",
+    body: "Every engagement ends with a comparison against the baseline from step 1, in numbers finance can check. This is what it has looked like for clients.",
     stats: [
-      { value: "500+", label: "test scenarios run continuously on one AI platform" },
-      { value: "2 hrs", label: "of manual work saved per office worker per day" },
-      { value: "Millions", label: "in projected savings from opportunity generation with trustworthy procurement workflows" },
+      {
+        value: "500+",
+        label: "test scenarios run continuously on one AI platform",
+      },
+      {
+        value: "2 hrs",
+        label: "of manual work saved per office worker per day",
+      },
+      {
+        value: "Millions",
+        label:
+          "in projected savings from opportunity generation with trustworthy procurement workflows",
+      },
     ],
   },
 ];
