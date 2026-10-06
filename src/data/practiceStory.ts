@@ -38,10 +38,10 @@ interface Copy {
 const COPY: Record<Language, Copy> = {
   en: {
     acts: {
-      problem: "The problem",
-      why: "Why it happens",
-      practice: "The practice",
-      results: "What you get",
+      problem: "What goes wrong",
+      why: "Why it matters",
+      practice: "What we run",
+      results: "What you can show",
     },
     labels: {
       back: "Back",
@@ -76,10 +76,10 @@ const COPY: Record<Language, Copy> = {
   },
   de: {
     acts: {
-      problem: "Das Problem",
-      why: "Warum es passiert",
-      practice: "Die Praxis",
-      results: "Was Sie erhalten",
+      problem: "Was schiefgeht",
+      why: "Warum es zählt",
+      practice: "Was wir betreiben",
+      results: "Was Sie belegen können",
     },
     labels: {
       back: "Zurück",

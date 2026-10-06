@@ -1,6 +1,6 @@
 import { Act, BaseSlide } from "./storyTypes";
 
-export type ActId = "problem" | "analysis" | "solution" | "results";
+export type ActId = "start" | "engagement" | "outcomes";
 
 export type VisualId =
   | "funnel"
@@ -17,17 +17,16 @@ export type VisualId =
 export type Slide = BaseSlide<ActId, VisualId>;
 
 export const ACTS: Act<ActId>[] = [
-  { id: "problem", label: "The problem" },
-  { id: "analysis", label: "Why it happens" },
-  { id: "solution", label: "How we fix it" },
-  { id: "results", label: "What you get" },
+  { id: "start", label: "Starting point" },
+  { id: "engagement", label: "The engagement" },
+  { id: "outcomes", label: "Outcomes" },
 ];
 
 export const SLIDES: Slide[] = [
   // Act 1: the problem
   {
-    act: "problem",
-    eyebrow: "The problem",
+    act: "start",
+    eyebrow: "Starting point",
     title: "Most AI pilots never reach daily use.",
     visual: "funnel",
     body: "A demo works in a meeting. Then it meets real documents, real exceptions and real deadlines. The pilot stalls, and the team goes back to doing the work by hand.",
@@ -38,8 +37,8 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    act: "problem",
-    eyebrow: "The problem",
+    act: "start",
+    eyebrow: "Starting point",
     title: "Nobody can say whether it paid off.",
     visual: "nobaseline",
     body: "Most pilots start without a measured starting point. When the pilot ends, there is no before to compare with, so the value stays a matter of opinion.",
@@ -52,8 +51,8 @@ export const SLIDES: Slide[] = [
 
   // Act 2: the analysis
   {
-    act: "analysis",
-    eyebrow: "Why it happens",
+    act: "start",
+    eyebrow: "Starting point",
     title: "The demo was never tested against reality.",
     visual: "messy",
     body: "Pilots are usually built on clean examples. Real operations are full of odd formats, missing fields and special cases. The five to ten exceptions that cause most of the manual work were never part of the test.",
@@ -64,16 +63,16 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    act: "analysis",
-    eyebrow: "Why it happens",
-    title: "So the fix is a method, not a better model.",
+    act: "engagement",
+    eyebrow: "How we work",
+    title: "A method, not a better model.",
     visual: "method",
-    body: "Better AI does not solve a process problem. What works is to start small, use real data, build the checks in early and grow only when the numbers hold. This is the order we follow.",
+    body: "Better AI does not solve a process problem. We work in five steps: start small, use real data, build the checks in early and grow only when the numbers hold.",
   },
 
   // Act 3: the solution
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 1 of 5 · Weeks 1-2",
     title: "Map the workflow and the baseline.",
     visual: "map",
@@ -86,7 +85,7 @@ export const SLIDES: Slide[] = [
     outcome: "A workflow map and a baseline everyone agrees on.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 2 of 5 · Weeks 2-3",
     title: "Design the pipeline and the checks.",
     visual: "design",
@@ -99,7 +98,7 @@ export const SLIDES: Slide[] = [
     outcome: "A written plan with clear boundaries and pass criteria.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 3 of 5 · Weeks 3-5",
     title: "Prototype with real data.",
     visual: "prototype",
@@ -112,7 +111,7 @@ export const SLIDES: Slide[] = [
     outcome: "A prototype the team has stress-tested under real conditions.",
   },
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 4 of 5 · Weeks 5-7",
     title: "Add the reliability controls.",
     visual: "controls",
@@ -126,7 +125,7 @@ export const SLIDES: Slide[] = [
   },
 
   {
-    act: "solution",
+    act: "engagement",
     eyebrow: "Step 5 of 5 · Week 7+",
     title: "Report, then expand carefully.",
     visual: "expand",
@@ -142,8 +141,8 @@ export const SLIDES: Slide[] = [
 
   // Act 4: the results
   {
-    act: "results",
-    eyebrow: "What you get",
+    act: "outcomes",
+    eyebrow: "Outcomes",
     title: "Numbers you can check, not promises.",
     visual: "timeline",
     body: "Every engagement ends with a comparison against the baseline from step 1, in numbers finance can check. This is what it has looked like for clients.",
