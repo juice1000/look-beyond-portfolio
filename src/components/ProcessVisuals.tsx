@@ -36,89 +36,71 @@ export const Label = ({
   </text>
 );
 
-const Funnel = () => {
-  const rows = [
-    { label: "Ideas and demos", w: 400, cls: "fill-blue-600/80" },
-    { label: "Pilots", w: 270, cls: "fill-blue-600/60" },
-    { label: "Stalled", w: 150, cls: "fill-rose-500/70" },
-    { label: "Daily use", w: 50, cls: "fill-blue-600" },
-  ];
-  return (
-    <>
-      {rows.map((r, i) => (
-        <motion.g key={r.label} {...fade(i)}>
-          <rect
-            x={220 - r.w / 2}
-            y={30 + i * 70}
-            width={r.w}
-            height={46}
-            rx={8}
-            className={r.cls}
-          />
-          <Label x={220} y={58 + i * 70} cls="fill-white" size={14}>
-            {r.w > 100 ? r.label : ""}
-          </Label>
-          {r.w <= 100 && (
-            <Label x={290} y={58 + i * 70} cls={INK} anchor="start" size={14}>
-              {r.label}
-            </Label>
-          )}
-        </motion.g>
-      ))}
-    </>
-  );
-};
-
-const NoBaseline = () => (
+const Focus = () => (
   <>
-    <line x1={40} x2={420} y1={240} y2={240} className={LINE} strokeWidth={2} />
+    {Array.from({ length: 12 }).map((_, i) => {
+      const col = i % 4;
+      const row = Math.floor(i / 4);
+      const chosen = i === 5;
+      return (
+        <motion.rect
+          key={i}
+          x={40 + col * 100}
+          y={40 + row * 70}
+          width={80}
+          height={50}
+          rx={10}
+          className={chosen ? "fill-blue-600" : "fill-slate-400/30"}
+          {...fade(chosen ? 6 : i * 0.3)}
+        />
+      );
+    })}
+    <motion.g {...fade(8)}>
+      <Label x={230} y={270} cls={INK} size={13}>
+        One workflow, done well
+      </Label>
+    </motion.g>
+  </>
+);
+
+const People = () => (
+  <>
     <motion.g {...fade(0)}>
       <rect
-        x={70}
-        y={110}
-        width={110}
-        height={130}
-        rx={8}
-        strokeDasharray="6 5"
-        className="fill-transparent stroke-slate-400"
-        strokeWidth={2}
+        x={160}
+        y={105}
+        width={140}
+        height={70}
+        rx={12}
+        className="fill-blue-600"
       />
-      <text x={125} y={190} textAnchor="middle" fontSize={44} className={ROSE}>
-        ?
-      </text>
-      <Label x={125} y={262} cls={INK} size={13}>
-        Before the pilot
+      <Label x={230} y={146} cls="fill-white" size={14}>
+        The workflow
       </Label>
     </motion.g>
-    <motion.g {...fade(2)}>
-      <rect
-        x={280}
-        y={80}
-        width={110}
-        height={160}
-        rx={8}
-        className="fill-blue-600/60"
-      />
-      <Label x={335} y={262} cls={INK} size={13}>
-        After the pilot
-      </Label>
-      <Label x={335} y={64} size={12}>
-        "We think it saved time"
-      </Label>
-    </motion.g>
-    <motion.path
-      d="M185 150 H275"
-      strokeDasharray="5 5"
-      className="stroke-rose-500"
-      strokeWidth={2}
-      fill="none"
-      {...fade(4)}
-    />
-    <motion.g {...fade(5)}>
-      <Label x={230} y={138} cls={ROSE} size={12}>
-        No way to compare
-      </Label>
-    </motion.g>
+    {[
+      { x: 60, y: 60, l: "Operators" },
+      { x: 400, y: 60, l: "Reviewer" },
+      { x: 230, y: 235, l: "Finance" },
+    ].map((p, i) => (
+      <motion.g key={p.l} {...fade(i + 2)}>
+        <line
+          x1={p.x}
+          y1={p.y}
+          x2={230}
+          y2={140}
+          strokeDasharray="5 5"
+          className={LINE}
+          strokeWidth={2}
+        />
+        <circle cx={p.x} cy={p.y} r={14} className={BLUE} />
+        <circle cx={p.x} cy={p.y - 4} r={5} fill="white" />
+        <path d={`M${p.x - 8} ${p.y + 8} q8 -10 16 0`} fill="white" />
+        <Label x={p.x} y={p.y + 36} cls={INK} size={12}>
+          {p.l}
+        </Label>
+      </motion.g>
+    ))}
   </>
 );
 
@@ -127,7 +109,7 @@ const Messy = () => (
     <motion.g {...fade(0)}>
       <rect x={20} y={50} width={190} height={230} rx={10} className={CARD} />
       <Label x={115} y={40} cls={INK} size={13}>
-        The demo
+        Clean samples
       </Label>
       {[0, 1, 2, 3, 4].map((i) => (
         <rect
@@ -144,7 +126,7 @@ const Messy = () => (
     <motion.g {...fade(2)}>
       <rect x={250} y={50} width={190} height={230} rx={10} className={CARD} />
       <Label x={345} y={40} cls={INK} size={13}>
-        Real operations
+        Your real examples
       </Label>
       {[
         { x: 270, w: 100, r: -2, bad: false },
@@ -527,8 +509,8 @@ const Timeline = () => {
 };
 
 const MAP: Record<VisualId, React.FC> = {
-  funnel: Funnel,
-  nobaseline: NoBaseline,
+  focus: Focus,
+  people: People,
   messy: Messy,
   method: Method,
   map: MapV,

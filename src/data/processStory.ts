@@ -3,8 +3,8 @@ import { Act, BaseSlide } from "./storyTypes";
 export type ActId = "start" | "engagement" | "outcomes";
 
 export type VisualId =
-  | "funnel"
-  | "nobaseline"
+  | "focus"
+  | "people"
   | "messy"
   | "method"
   | "map"
@@ -23,43 +23,41 @@ export const ACTS: Act<ActId>[] = [
 ];
 
 export const SLIDES: Slide[] = [
-  // Act 1: the problem
+  // Act 1: how an engagement starts
   {
     act: "start",
     eyebrow: "Starting point",
-    title: "Most AI pilots never reach daily use.",
-    visual: "funnel",
-    body: "A demo works in a meeting. Then it meets real documents, real exceptions and real deadlines. The pilot stalls, and the team goes back to doing the work by hand.",
+    title: "Start with one workflow worth fixing.",
+    visual: "focus",
+    body: "We do not begin with a platform or ten pilots. We begin with one process that is repetitive, high in volume and heavy on documents. Narrow scope is what lets a project reach daily use.",
     points: [
-      "The pilot impressed everyone, but nobody relies on it",
-      "The budget is spent and the process looks the same as before",
-      "No one can say whether it actually saved anything",
+      "Clear inputs and a clear output",
+      "Enough volume for the savings to show",
+      "A team that wants it to work",
     ],
   },
   {
     act: "start",
     eyebrow: "Starting point",
-    title: "Nobody can say whether it paid off.",
-    visual: "nobaseline",
-    body: "Most pilots start without a measured starting point. When the pilot ends, there is no before to compare with, so the value stays a matter of opinion.",
+    title: "Bring the people who do the work.",
+    visual: "people",
+    body: "Operators and team leads know which cases are hard and what a good result looks like. We involve them from the first week, because they will be the ones using the system.",
     points: [
-      "Time and error rates were never recorded before the pilot",
-      "Savings are claimed, but nobody can check them",
-      "The next budget round turns into a debate",
+      "Operators who run the process today",
+      "A reviewer who can say what good looks like",
+      "Someone in finance to agree how savings are counted",
     ],
   },
-
-  // Act 2: the analysis
   {
     act: "start",
     eyebrow: "Starting point",
-    title: "The demo was never tested against reality.",
+    title: "Share real examples, including the messy ones.",
     visual: "messy",
-    body: "Pilots are usually built on clean examples. Real operations are full of odd formats, missing fields and special cases. The five to ten exceptions that cause most of the manual work were never part of the test.",
+    body: "We build and test on your actual documents, emails and exports. Clean samples hide the cases that cause most of the manual work.",
     points: [
-      "Clean sample data hides the hard cases",
-      "No agreed starting point, so no way to show improvement",
-      "The people doing the work were not involved",
+      "Documents, emails and spreadsheets from the live process",
+      "The odd formats and special cases",
+      "The SOPs and policies the process must follow",
     ],
   },
   {
